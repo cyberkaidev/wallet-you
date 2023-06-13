@@ -1,0 +1,52 @@
+{
+	"expo": {
+		"name": "Wallet you",
+		"slug": "wallet-you",
+		"owner": "cyberkaidev",
+		"version": "1.0.0",
+		"orientation": "portrait",
+		"icon": "./assets/images/icon.png",
+		"userInterfaceStyle": "dark",
+		"backgroundColor": "#191B1F",
+		"splash": {
+			"image": "./assets/images/splash.png",
+			"resizeMode": "contain",
+			"backgroundColor": "#191B1F"
+		},
+		"assetBundlePatterns": ["**/*"],
+		"androidStatusBar": {
+			"barStyle": "light-content",
+			"backgroundColor": "#191B1F",
+			"translucent": false
+		},
+		"ios": {
+			"supportsTablet": true,
+			"config": {
+				"usesNonExemptEncryption": false
+			},
+			"infoPlist": {
+				"NSFaceIDUsageDescription": "Allow $(PRODUCT_NAME) to use Face ID."
+			}
+		},
+		"android": {
+			"adaptiveIcon": {
+				"foregroundImage": "./assets/images/adaptive-icon.png",
+				"backgroundColor": "#191B1F"
+			},
+			"permissions": ["android.permission.USE_BIOMETRIC", "android.permission.USE_FINGERPRINT"],
+			"package": "com.cyberkaidev.walletyou"
+		},
+		"web": {
+			"favicon": "./assets/images/favicon.ico"
+		},
+		"plugins": [
+			[
+				"expo-local-authentication",
+				{
+					"faceIDPermission": "Allow $(PRODUCT_NAME) to use Face ID."
+				}
+			],
+			"expo-localization"
+		]
+	}
+}
