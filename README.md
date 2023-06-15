@@ -1,6 +1,6 @@
 # Wallet you
 
-![](https://i.imgur.com/ndyLrps.jpg)
+![](https://i.imgur.com/iqMpQtO.jpg)
 
 ### Features
 
