@@ -3,13 +3,19 @@ import { apx } from '../../functions';
 import { Circle, G, Line, Rect, Text as SvgText } from 'react-native-svg';
 import { CustomTooltipProps } from './types';
 import { themes } from '@src/themes';
-import { useFormatCurrency, useFormatDate } from '@src/hooks';
+import { useFormatDate } from '@src/hooks';
+import currencyJS from 'currency.js';
 
 export function CustomTooltip({ x, y, ticks, positionX, size, dataList }: CustomTooltipProps) {
 	if (positionX < 0) return null;
 
 	const { dateAndTime } = useFormatDate(dataList[positionX].date);
-	const currency = useFormatCurrency(dataList[positionX].value);
+	const currency = currencyJS(dataList[positionX].value, {
+		separator: ',',
+		decimal: '.',
+		symbol: '$',
+		precision: 2,
+	}).format();
 
 	return (
 		<G x={x?.(positionX)} key="tooltip">
