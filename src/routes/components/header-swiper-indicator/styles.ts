@@ -12,9 +12,9 @@ export const SafeArea = styled.SafeAreaView`
 `;
 
 export const Indicator = styled.View`
-	width: 50%;
-	height: 3px;
-	border-radius: 3px;
-	margin-bottom: ${themes.spaces.space_10};
+	width: 35px;
+	height: 5px;
+	border-radius: 10px;
+	margin-bottom: ${themes.spaces.space_5};
 	background-color: ${themes.colors.grey_200};
 `;
