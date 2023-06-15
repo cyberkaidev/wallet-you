@@ -12,9 +12,8 @@ import { SkeletonLoading } from '../skeleton-loading';
 import {
 	Center,
 	Circle,
-	FirstItem,
-	PriceTitles,
-	TimeTitles,
+	Items,
+	TextContainer,
 	TransactionItemContainer,
 	TransactionListContainer,
 } from './styles';
@@ -62,39 +61,39 @@ export function TransactionList() {
 							key={index}
 							onPress={() => navigation.navigate('TransactionPage', { data: item })}
 						>
-							<FirstItem>
-								<Circle>
-									{item.transactionType === 'incoming' && <IconArrowDown size={18} />}
-									{item.transactionType === 'outgoing' && <IconArrowUp size={18} />}
-								</Circle>
-								<TimeTitles>
+							<Circle>
+								{item.transactionType === 'incoming' && <IconArrowDown size={18} />}
+								{item.transactionType === 'outgoing' && <IconArrowUp size={18} />}
+							</Circle>
+							<Items>
+								<TextContainer>
 									<Text size="M" weight="bold">
 										{useFormatDate(new Date(item.timestamp * 1000)).date}
 									</Text>
+									<Text
+										size="M"
+										weight="bold"
+										color={
+											item.transactionType === 'incoming' ? themes.colors.green : themes.colors.red
+										}
+									>
+										{useFormatCurrency(
+											calculateBalance({
+												balance: item.amount,
+												currentPrice: currentPrice?.[currency],
+											}),
+										)}
+									</Text>
+								</TextContainer>
+								<TextContainer>
 									<Text size="M" weight="bold" color={themes.colors.grey_300}>
 										{useFormatDate(new Date(item.timestamp * 1000)).time}
 									</Text>
-								</TimeTitles>
-							</FirstItem>
-							<PriceTitles>
-								<Text
-									size="M"
-									weight="bold"
-									color={
-										item.transactionType === 'incoming' ? themes.colors.green : themes.colors.red
-									}
-								>
-									{useFormatCurrency(
-										calculateBalance({
-											balance: item.amount,
-											currentPrice: currentPrice?.[currency],
-										}),
-									)}
-								</Text>
-								<Text size="M" weight="bold" color={themes.colors.grey_300}>
-									{item.amount} BTC
-								</Text>
-							</PriceTitles>
+									<Text size="M" weight="bold" color={themes.colors.grey_300}>
+										{item.amount} BTC
+									</Text>
+								</TextContainer>
+							</Items>
 						</TransactionItemContainer>
 					);
 				})}

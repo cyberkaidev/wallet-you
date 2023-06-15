@@ -7,13 +7,20 @@ export const TransactionListContainer = styled.View`
 
 export const TransactionItemContainer = styled.TouchableOpacity`
 	flex-direction: row;
-	justify-content: space-between;
 	align-items: center;
 	padding: ${themes.spaces.space_15} 0;
 `;
 
-export const FirstItem = styled.View`
+export const Items = styled.View`
+	flex-direction: column;
+	justify-content: space-between;
+	flex: 1;
+`;
+
+export const TextContainer = styled.View`
 	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
 `;
 
 export const Circle = styled.View`
@@ -24,12 +31,6 @@ export const Circle = styled.View`
 	align-items: center;
 	background-color: ${themes.colors.black_200};
 	margin-right: ${themes.spaces.space_10};
-`;
-
-export const TimeTitles = styled.View``;
-
-export const PriceTitles = styled.View`
-	align-items: flex-end;
 `;
 
 export const Center = styled.View`
