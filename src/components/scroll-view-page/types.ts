@@ -3,6 +3,7 @@ export interface ScrollViewPageProps {
 	enabledHorizontalPadding?: boolean;
 	enabledPaddingB?: boolean;
 	contentHeight?: string;
+	refreshControl?: () => Promise<boolean> | boolean;
 }
 
 export interface ScrollViewPageContainerProps {
