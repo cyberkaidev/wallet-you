@@ -12,7 +12,7 @@ export function SettingsPage() {
 				marginT={themes.spaces.space_25}
 				marginB={themes.spaces.space_25}
 			>
-				v 1.0.0
+				v 1.1.0
 			</Text>
 		</ScrollViewPage>
 	);
