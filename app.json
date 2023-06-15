@@ -34,7 +34,8 @@
 				"backgroundColor": "#191B1F"
 			},
 			"permissions": ["android.permission.USE_BIOMETRIC", "android.permission.USE_FINGERPRINT"],
-			"package": "com.cyberkaidev.walletyou"
+			"package": "com.cyberkaidev.walletyou",
+			"versionCode": "2"
 		},
 		"web": {
 			"favicon": "./assets/images/favicon.ico"
