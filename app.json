@@ -35,7 +35,7 @@
 			},
 			"permissions": ["android.permission.USE_BIOMETRIC", "android.permission.USE_FINGERPRINT"],
 			"package": "com.cyberkaidev.walletyou",
-			"versionCode": "2"
+			"versionCode": "3"
 		},
 		"web": {
 			"favicon": "./assets/images/favicon.ico"
