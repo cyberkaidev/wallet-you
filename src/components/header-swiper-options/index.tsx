@@ -2,7 +2,7 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { ButtonTitleGhost } from '../button-title-ghost';
 import { Text } from '../text';
-import { HeaderSwiperOptionsContainer, SafeArea } from './styles';
+import { CenterTitle, HeaderSwiperOptionsContainer, SafeArea } from './styles';
 import { HeaderSwiperOptionsProps } from './types';
 import { useTranslation } from 'react-i18next';
 import { useNavigation } from '@react-navigation/native';
@@ -27,15 +27,17 @@ export function HeaderSwiperOptions({
 	return (
 		<HeaderSwiperOptionsContainer testID="idHeaderSwiperOptions">
 			<SafeArea>
+				<CenterTitle>
+					<Text size="XL" weight="medium">
+						{title}
+					</Text>
+				</CenterTitle>
 				<ButtonTitleGhost
 					testID="idButtonLeft"
 					title={t('cancel')}
 					size="small"
 					onPress={() => navigation.goBack()}
 				/>
-				<Text size="XL" weight="medium">
-					{title}
-				</Text>
 				<ButtonTitleGhost
 					testID="idButtonRight"
 					title={t('change')}
