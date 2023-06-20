@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useFormatCurrency } from '@src/hooks';
 import { calculateBalance } from '@src/functions';
-import { PriceBitcoin, ScrollViewPage, TransactionList } from '@src/components';
+import { PriceBitcoin, ScrollViewHeaderPage, TransactionList } from '@src/components';
 import { useBitcoinDataPrices, useUserData, useAppSettings } from '@src/stores';
 import { getBitcoinBalance } from '@src/services';
 
@@ -22,7 +22,7 @@ export function HomePage() {
 	}
 
 	return (
-		<ScrollViewPage refreshControl={() => onRefresh()}>
+		<ScrollViewHeaderPage refreshControl={() => onRefresh()}>
 			<PriceBitcoin
 				title={t('total-balance')}
 				price={currencyFormated}
@@ -32,6 +32,6 @@ export function HomePage() {
 				isPositive
 			/>
 			<TransactionList />
-		</ScrollViewPage>
+		</ScrollViewHeaderPage>
 	);
 }
