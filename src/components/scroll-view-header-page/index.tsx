@@ -8,9 +8,7 @@ import { HeaderAnimated } from './components/header-animated';
 
 export function ScrollViewHeaderPage({
 	children,
-	contentHeight,
 	enabledHorizontalPadding = true,
-	enabledPaddingB = true,
 	refreshControl,
 }: ScrollViewHeaderPageProps) {
 	const [refreshing, setRefreshing] = React.useState(false);
@@ -45,7 +43,6 @@ export function ScrollViewHeaderPage({
 		<React.Fragment>
 			<ScrollViewHeaderPageContainer
 				testID="idScrollViewHeaderPage"
-				contentContainerStyle={{ height: contentHeight }}
 				horizontalPadding={enabledHorizontalPadding ? themes.spaces.space_15 : '0px'}
 				alwaysBounceVertical
 				endFillColor="transparent"
@@ -53,9 +50,7 @@ export function ScrollViewHeaderPage({
 				onScroll={scrollHandler}
 				scrollEventThrottle={1}
 			>
-				<SafeArea paddingB={enabledPaddingB ? '70px' : '0px'} height={contentHeight ?? 'auto'}>
-					{children}
-				</SafeArea>
+				<SafeArea>{children}</SafeArea>
 			</ScrollViewHeaderPageContainer>
 			<HeaderAnimated translationY={translationY} />
 		</React.Fragment>

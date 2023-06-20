@@ -1,6 +1,6 @@
 import { themes } from '@src/themes';
 import styled from 'styled-components/native';
-import { SafeAreaProps, ScrollViewHeaderPageContainerProps } from './types';
+import { ScrollViewHeaderPageContainerProps } from './types';
 import Animated from 'react-native-reanimated';
 
 export const ScrollViewHeaderPageContainer = styled(
@@ -10,10 +10,9 @@ export const ScrollViewHeaderPageContainer = styled(
 	padding-left: ${({ horizontalPadding }) => horizontalPadding};
 	padding-right: ${({ horizontalPadding }) => horizontalPadding};
 	padding-top: 140px;
+	background-color: ${themes.colors.black_300};
 `;
 
-export const SafeArea = styled.SafeAreaView<SafeAreaProps>`
-	height: ${({ height }) => height};
+export const SafeArea = styled.SafeAreaView`
 	background-color: ${themes.colors.black_300};
-	padding-bottom: ${({ paddingB }) => paddingB};
 `;
