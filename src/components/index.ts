@@ -5,6 +5,7 @@ import { CheckBoxMessage } from './check-box-message';
 import { HeaderSwiperOptions } from './header-swiper-options';
 import { NavigationList } from './navigation-list';
 import { PriceBitcoin } from './price-bitcoin';
+import { ScrollViewHeaderPage } from './scroll-view-header-page';
 import { ScrollViewPage } from './scroll-view-page';
 import { SelectList } from './select-list';
 import { SkeletonLoading } from './skeleton-loading';
@@ -30,4 +31,5 @@ export {
 	SelectList,
 	HeaderSwiperOptions,
 	ScrollViewPage,
+	ScrollViewHeaderPage,
 };
