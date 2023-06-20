@@ -27,6 +27,7 @@ export const themes: DefaultTheme = {
 		green: '#ACD9A8',
 		red: '#E17C7C',
 		purple_100: '#6F6DDF',
+		purple_200: '#3D3D5B',
 		purple_300: '#32314E',
 		black_300: '#191B1F',
 		black_200: '#222329',

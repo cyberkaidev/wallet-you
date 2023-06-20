@@ -28,6 +28,7 @@ declare module 'styled-components' {
 			green: string;
 			red: string;
 			purple_100: string;
+			purple_200: string;
 			purple_300: string;
 			black_300: string;
 			black_200: string;
