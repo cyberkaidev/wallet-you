@@ -4,6 +4,9 @@ import { IndicatorProps } from './types';
 
 export const TabBarContainer = styled.View`
 	background-color: ${themes.colors.black_200};
+	border-top-width: 0.5px;
+	border-style: solid;
+	border-top-color: ${themes.colors.grey_300};
 `;
 
 export const SafeArea = styled.SafeAreaView`
