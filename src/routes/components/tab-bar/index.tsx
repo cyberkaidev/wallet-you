@@ -1,5 +1,5 @@
 import React from 'react';
-import { TabBarContainer, SafeArea, Touch } from './styles';
+import { TabBarContainer, SafeArea, Touch, Indicator } from './styles';
 import { IconChart, IconHome, IconSettings } from '@src/assets';
 import { TabBarProps } from './types';
 import { themes } from '@src/themes';
@@ -35,15 +35,17 @@ export function TabBar({ state, descriptors, navigation }: TabBarProps) {
 							accessibilityLabel={options.tabBarAccessibilityLabel}
 							testID={`id${route.name}`}
 						>
-							{route.name === 'HomePage' && (
-								<IconHome color={isFocused ? colors.purple_100 : colors.white} />
-							)}
-							{route.name === 'BitcoinDataPage' && (
-								<IconChart color={isFocused ? colors.purple_100 : colors.white} />
-							)}
-							{route.name === 'SettingsPage' && (
-								<IconSettings color={isFocused ? colors.purple_100 : colors.white} />
-							)}
+							<Indicator isFocused={isFocused}>
+								{route.name === 'HomePage' && (
+									<IconHome size={20} color={isFocused ? colors.purple_100 : colors.white} />
+								)}
+								{route.name === 'BitcoinDataPage' && (
+									<IconChart size={20} color={isFocused ? colors.purple_100 : colors.white} />
+								)}
+								{route.name === 'SettingsPage' && (
+									<IconSettings size={20} color={isFocused ? colors.purple_100 : colors.white} />
+								)}
+							</Indicator>
 						</Touch>
 					);
 				})}
