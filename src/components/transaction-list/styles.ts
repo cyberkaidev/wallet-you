@@ -13,7 +13,7 @@ export const TransactionContainer = styled.View`
 
 export const TransactionItemContainer = styled.TouchableOpacity`
 	flex: 1;
-	height: 80px;
+	height: 85px;
 	flex-direction: row;
 	padding-left: ${themes.spaces.space_10};
 `;
