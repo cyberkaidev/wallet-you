@@ -1,13 +1,12 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { useFormatCurrency } from '@src/hooks';
 import { calculateBalance } from '@src/functions';
-import { PriceBitcoin, ScrollViewHeaderPage, TransactionList } from '@src/components';
+import { ScrollViewHeaderPage, TransactionList } from '@src/components';
 import { useBitcoinDataPrices, useUserData, useAppSettings } from '@src/stores';
 import { getBitcoinBalance } from '@src/services';
+import { CryptoCardLarge } from './components/crypto-card-large';
 
 export function HomePage() {
-	const { t } = useTranslation();
 	const { balance, key, fetchTransactions } = useUserData(state => state);
 	const { currency } = useAppSettings(state => state);
 	const { data, status } = useBitcoinDataPrices(state => state);
@@ -22,15 +21,8 @@ export function HomePage() {
 	}
 
 	return (
-		<ScrollViewHeaderPage refreshControl={() => onRefresh()}>
-			<PriceBitcoin
-				title={t('total-balance')}
-				price={currencyFormated}
-				porcent=""
-				bitcoin={balance}
-				status={status}
-				isPositive
-			/>
+		<ScrollViewHeaderPage headerTitle="My wallet" refreshControl={() => onRefresh()}>
+			<CryptoCardLarge type="bitcoin" price={currencyFormated} balance={balance} status={status} />
 			<TransactionList />
 		</ScrollViewHeaderPage>
 	);
