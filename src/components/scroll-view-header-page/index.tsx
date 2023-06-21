@@ -10,6 +10,7 @@ export function ScrollViewHeaderPage({
 	children,
 	enabledHorizontalPadding = true,
 	refreshControl,
+	headerTitle,
 }: ScrollViewHeaderPageProps) {
 	const [refreshing, setRefreshing] = React.useState(false);
 
@@ -28,6 +29,7 @@ export function ScrollViewHeaderPage({
 					onRefresh={onRefresh}
 					progressBackgroundColor={themes.colors.grey_200}
 					colors={[themes.colors.white]}
+					progressViewOffset={115}
 				/>
 			);
 		}
@@ -44,6 +46,7 @@ export function ScrollViewHeaderPage({
 			<ScrollViewHeaderPageContainer
 				testID="idScrollViewHeaderPage"
 				horizontalPadding={enabledHorizontalPadding ? themes.spaces.space_15 : '0px'}
+				contentContainerStyle={{ paddingBottom: 175 }}
 				alwaysBounceVertical
 				endFillColor="transparent"
 				refreshControl={refreshController()}
@@ -52,7 +55,7 @@ export function ScrollViewHeaderPage({
 			>
 				<SafeArea>{children}</SafeArea>
 			</ScrollViewHeaderPageContainer>
-			<HeaderAnimated translationY={translationY} />
+			<HeaderAnimated translationY={translationY} headerTitle={headerTitle} />
 		</React.Fragment>
 	);
 }
