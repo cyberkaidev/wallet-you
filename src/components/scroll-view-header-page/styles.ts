@@ -9,7 +9,7 @@ export const ScrollViewHeaderPageContainer = styled(
 	flex: 1;
 	padding-left: ${({ horizontalPadding }) => horizontalPadding};
 	padding-right: ${({ horizontalPadding }) => horizontalPadding};
-	padding-top: 140px;
+	padding-top: 145px;
 	background-color: ${themes.colors.black_300};
 `;
 
