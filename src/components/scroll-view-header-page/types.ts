@@ -1,11 +1,8 @@
-import { NativeScrollEvent, NativeSyntheticEvent } from 'react-native';
-
 export interface ScrollViewHeaderPageProps {
+	headerTitle: string;
 	children: React.ReactNode | React.ReactNode[];
 	enabledHorizontalPadding?: boolean;
-	enabledPaddingB?: boolean;
 	refreshControl?: () => Promise<boolean> | boolean;
-	onScrollY?: (arg: NativeSyntheticEvent<NativeScrollEvent>) => void;
 }
 
 export interface ScrollViewHeaderPageContainerProps {
