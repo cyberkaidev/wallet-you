@@ -6,6 +6,8 @@ import { IconHome } from './icons/icon-home';
 import { IconNoInternet } from './icons/icon-no-internet';
 import { IconSettings } from './icons/icon-settings';
 import { IconSuccess } from './icons/icon-success';
+import { IconBitcoin } from './icons/icon-bitcoin';
+import { IconCardano } from './icons/icon-cardano';
 
 export {
 	IconArrowRight,
@@ -16,4 +18,6 @@ export {
 	IconSuccess,
 	IconChart,
 	IconArrowUp,
+	IconBitcoin,
+	IconCardano,
 };
