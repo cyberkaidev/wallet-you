@@ -11,10 +11,10 @@ import { HeaderAnimatedProps } from './types';
 import { Extrapolate, interpolate, useAnimatedStyle } from 'react-native-reanimated';
 import { themes } from '@src/themes';
 
-export function HeaderAnimated({ translationY }: HeaderAnimatedProps) {
+export function HeaderAnimated({ translationY, headerTitle }: HeaderAnimatedProps) {
 	const translateY = useAnimatedStyle(() => ({
 		transform: [
-			{ translateY: interpolate(translationY.value, [0, 60], [60, -60], Extrapolate.CLAMP) },
+			{ translateY: interpolate(translationY.value, [20, 60], [60, -60], Extrapolate.CLAMP) },
 		],
 	}));
 
@@ -23,7 +23,7 @@ export function HeaderAnimated({ translationY }: HeaderAnimatedProps) {
 	}));
 
 	const topOpacity = useAnimatedStyle(() => ({
-		opacity: interpolate(translationY.value, [-100, 0, 20, 65], [0, 0, 0, 1], Extrapolate.CLAMP),
+		opacity: interpolate(translationY.value, [-100, 0, 40, 65], [0, 0, 0, 1], Extrapolate.CLAMP),
 	}));
 
 	return (
@@ -32,14 +32,14 @@ export function HeaderAnimated({ translationY }: HeaderAnimatedProps) {
 				<FirstItem>
 					<OpacityAnimation style={topOpacity}>
 						<Text size="XXL" weight="bold">
-							My wallet
+							{headerTitle}
 						</Text>
 					</OpacityAnimation>
 				</FirstItem>
 				<SecondtItem style={translateY}>
 					<OpacityAnimation style={bottomOpacity}>
 						<Text size="XXL" weight="bold" marginB={themes.spaces.space_5}>
-							My wallet
+							{headerTitle}
 						</Text>
 					</OpacityAnimation>
 				</SecondtItem>
