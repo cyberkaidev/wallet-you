@@ -5,6 +5,7 @@ import styled from 'styled-components/native';
 export const CryptoCardLargeContainer = styled.View`
 	width: 100%;
 	height: ${hp('28%')}px;
+	max-height: 450px;
 	border-radius: ${themes.border_radius.radius_10};
 	padding: ${themes.spaces.space_15};
 	background-color: ${themes.colors.black_200};
