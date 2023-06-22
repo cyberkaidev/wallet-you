@@ -5,6 +5,8 @@ import { themes } from '@src/themes';
 import { RefreshControl } from 'react-native-gesture-handler';
 import { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated';
 import { HeaderAnimated } from './components/header-animated';
+import Constants from 'expo-constants';
+import { Platform } from 'react-native';
 
 export function ScrollViewHeaderPage({
 	children,
@@ -29,7 +31,7 @@ export function ScrollViewHeaderPage({
 					onRefresh={onRefresh}
 					progressBackgroundColor={themes.colors.grey_200}
 					colors={[themes.colors.white]}
-					progressViewOffset={115}
+					progressViewOffset={Platform.OS === 'ios' ? Constants.statusBarHeight + 115 : 115}
 				/>
 			);
 		}
@@ -52,6 +54,7 @@ export function ScrollViewHeaderPage({
 				refreshControl={refreshController()}
 				onScroll={scrollHandler}
 				scrollEventThrottle={1}
+				showsVerticalScrollIndicator={false}
 			>
 				<SafeArea>{children}</SafeArea>
 			</ScrollViewHeaderPageContainer>
