@@ -1,9 +1,10 @@
 import { themes } from '@src/themes';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import styled from 'styled-components/native';
 
 export const CryptoCardLargeContainer = styled.View`
 	width: 100%;
-	height: 200px;
+	height: ${hp('28%')}px;
 	border-radius: ${themes.border_radius.radius_10};
 	padding: ${themes.spaces.space_15};
 	background-color: ${themes.colors.black_200};
@@ -19,5 +20,5 @@ export const PriceContainer = styled.View`
 	position: absolute;
 	padding-left: ${themes.spaces.space_15};
 	justify-content: center;
-	height: 200px;
+	height: ${hp('28%')}px;
 `;
