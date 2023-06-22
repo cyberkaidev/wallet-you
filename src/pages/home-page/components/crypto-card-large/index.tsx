@@ -1,11 +1,14 @@
 import React from 'react';
-import { Text } from '@src/components';
+import { SkeletonLoading, Text } from '@src/components';
 import { CryptoCardLargeContainer, PriceContainer, Row } from './styles';
 import { IconBitcoin, IconCardano } from '@src/assets';
 import { themes } from '@src/themes';
 import { CryptoCardLargeProps } from './types';
+import { useTranslation } from 'react-i18next';
 
 export function CryptoCardLarge({ type, price, balance, status }: CryptoCardLargeProps) {
+	const { t } = useTranslation();
+
 	return (
 		<CryptoCardLargeContainer testID="idCryptoCardLarge">
 			<Row>
@@ -24,6 +27,14 @@ export function CryptoCardLarge({ type, price, balance, status }: CryptoCardLarg
 							{price.substring(price.length - 2, price.length)}
 						</Text>
 					</Text>
+				)}
+				{status === 'failed' && (
+					<Text size="S" weight="medium" marginB={themes.spaces.space_5}>
+						{t('request-error-try-later')}
+					</Text>
+				)}
+				{(status === 'loading' || status === null) && (
+					<SkeletonLoading widthPorcent="70%" heightPorcent="8%" radius={10} />
 				)}
 				<Text size="L" weight="medium">
 					{balance} {type === 'bitcoin' ? 'BTC' : 'ADA'}
