@@ -6,6 +6,7 @@ import {
 	SafeArea,
 	SecondtItem,
 	OpacityAnimation,
+	ContainerItems,
 } from './styles';
 import { HeaderAnimatedProps } from './types';
 import { Extrapolate, interpolate, useAnimatedStyle } from 'react-native-reanimated';
@@ -19,7 +20,7 @@ export function HeaderAnimated({ translationY, headerTitle }: HeaderAnimatedProp
 	}));
 
 	const bottomOpacity = useAnimatedStyle(() => ({
-		opacity: interpolate(translationY.value, [-100, 0, 60], [1, 1, 0], Extrapolate.CLAMP),
+		opacity: interpolate(translationY.value, [-100, 0, 40], [1, 1, 0], Extrapolate.CLAMP),
 	}));
 
 	const topOpacity = useAnimatedStyle(() => ({
@@ -29,20 +30,22 @@ export function HeaderAnimated({ translationY, headerTitle }: HeaderAnimatedProp
 	return (
 		<HeaderAnimatedContainer>
 			<SafeArea>
-				<FirstItem>
-					<OpacityAnimation style={topOpacity}>
-						<Text size="XXL" weight="bold">
-							{headerTitle}
-						</Text>
-					</OpacityAnimation>
-				</FirstItem>
-				<SecondtItem style={translateY}>
-					<OpacityAnimation style={bottomOpacity}>
-						<Text size="XXL" weight="bold" marginB={themes.spaces.space_5}>
-							{headerTitle}
-						</Text>
-					</OpacityAnimation>
-				</SecondtItem>
+				<ContainerItems>
+					<FirstItem>
+						<OpacityAnimation style={topOpacity}>
+							<Text size="XXL" weight="bold">
+								{headerTitle}
+							</Text>
+						</OpacityAnimation>
+					</FirstItem>
+					<SecondtItem style={translateY}>
+						<OpacityAnimation style={bottomOpacity}>
+							<Text size="XXL" weight="bold" marginB={themes.spaces.space_5}>
+								{headerTitle}
+							</Text>
+						</OpacityAnimation>
+					</SecondtItem>
+				</ContainerItems>
 			</SafeArea>
 		</HeaderAnimatedContainer>
 	);

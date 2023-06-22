@@ -10,9 +10,7 @@ export const HeaderAnimatedContainer = styled.View`
 	background-color: ${themes.colors.black_200};
 `;
 
-export const SafeArea = styled.SafeAreaView`
-	position: relative;
-`;
+export const SafeArea = styled.SafeAreaView``;
 
 export const FirstItem = styled.View`
 	height: 60px;
@@ -33,3 +31,7 @@ export const SecondtItem = styled(Animated.View)`
 `;
 
 export const OpacityAnimation = styled(Animated.View)``;
+
+export const ContainerItems = styled.View`
+	position: relative;
+`;
