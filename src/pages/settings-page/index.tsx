@@ -1,10 +1,10 @@
 import React from 'react';
-import { NavigationList, Text, ScrollViewPage } from '@src/components';
+import { NavigationList, Text, ScrollViewHeaderPage } from '@src/components';
 import { themes } from '@src/themes';
 
 export function SettingsPage() {
 	return (
-		<ScrollViewPage>
+		<ScrollViewHeaderPage headerTitle="Settings">
 			<NavigationList />
 			<Text
 				size="M"
@@ -14,6 +14,6 @@ export function SettingsPage() {
 			>
 				v 1.1.1
 			</Text>
-		</ScrollViewPage>
+		</ScrollViewHeaderPage>
 	);
 }
