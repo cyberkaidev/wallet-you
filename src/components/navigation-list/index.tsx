@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text } from '../text';
 import * as SecureStore from 'expo-secure-store';
-import { ItemButton, NavigationListContainer } from './styles';
+import { Indicator, ItemButton, NavigationListContainer } from './styles';
 import { themes } from '@src/themes';
 import { useTranslation } from 'react-i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -60,10 +60,11 @@ export function NavigationList() {
 		<NavigationListContainer testID="idNavigationList">
 			{list.map((item, index) => (
 				<ItemButton key={index} testID={item.testID} onPress={item.onNavigate}>
-					<Text size="L" weight="bold" color={themes.colors.purple_100}>
+					<Text size="M" marginL={themes.spaces.space_15}>
 						{item.title}
 					</Text>
-					<IconArrowRight size={15} color={themes.colors.purple_100} />
+					<IconArrowRight size={10} color={themes.colors.grey_200} />
+					{list.length !== index + 1 && <Indicator />}
 				</ItemButton>
 			))}
 		</NavigationListContainer>
