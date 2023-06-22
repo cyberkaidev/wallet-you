@@ -6,6 +6,6 @@ import { themes } from '@src/themes';
 
 export function CustomLine({ line }: CustomLineProps) {
 	return (
-		<Path key="line" d={line} stroke={themes.colors.purple_100} strokeWidth={apx(4)} fill="none" />
+		<Path key="line" d={line} stroke={themes.colors.purple_100} strokeWidth={apx(5)} fill="none" />
 	);
 }
