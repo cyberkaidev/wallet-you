@@ -2,7 +2,6 @@ import React from 'react';
 import { View, PanResponder, Dimensions } from 'react-native';
 import { AreaChart } from 'react-native-svg-charts';
 import { CustomLine } from '../custom-line';
-import { CustomGradient } from '../custom-gradiente';
 import { CustomTooltip } from '../custom-tooltip';
 import * as shape from 'd3-shape';
 import { ChartMainProps } from './types';
@@ -71,7 +70,6 @@ export function ChartMain({ data }: ChartMainProps) {
 					animate
 				>
 					<CustomLine />
-					<CustomGradient />
 					<CustomTooltip positionX={positionX} size={size} dataList={data} />
 				</AreaChart>
 			</View>
