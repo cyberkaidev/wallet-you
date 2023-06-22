@@ -2,7 +2,7 @@ import React from 'react';
 import { TransitionPresets, createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { RegisterKeyPage } from '@src/pages/register-key-page';
-import { HeaderFullPage, HeaderSwiperIndicator, TabBar } from './components';
+import { HeaderSwiperIndicator, TabBar } from './components';
 import { useTranslation } from 'react-i18next';
 import { RootStackParamListProps } from './types';
 import { HomePage } from '@src/pages/home-page';
@@ -37,11 +37,7 @@ export function Routes() {
 			}}
 		>
 			<Stack.Screen name="LocalAuthPage" component={LocalAuthPage} />
-			<Stack.Screen
-				name="RegisterKeyPage"
-				component={RegisterKeyPage}
-				options={{ headerShown: true, header: () => <HeaderFullPage title={t('public-key')} /> }}
-			/>
+			<Stack.Screen name="RegisterKeyPage" component={RegisterKeyPage} />
 			<Stack.Screen name="TabsRoutes" component={TabsRoutes} />
 			<Stack.Screen
 				name="TransactionPage"
@@ -98,7 +94,6 @@ export function Routes() {
 }
 
 function TabsRoutes() {
-	const { t } = useTranslation();
 	return (
 		<Tab.Navigator
 			initialRouteName="HomePage"
@@ -110,14 +105,7 @@ function TabsRoutes() {
 		>
 			<Tab.Screen name="HomePage" component={HomePage} />
 			<Tab.Screen name="BitcoinDataPage" component={BitcoinDataPage} />
-			<Tab.Screen
-				name="SettingsPage"
-				component={SettingsPage}
-				options={{
-					headerShown: true,
-					header: () => <HeaderFullPage title={t('settings')} />,
-				}}
-			/>
+			<Tab.Screen name="SettingsPage" component={SettingsPage} />
 		</Tab.Navigator>
 	);
 }
