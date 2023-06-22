@@ -65,7 +65,7 @@ export function ChartMain({ data }: ChartMainProps) {
 					style={{ flex: 1 }}
 					data={dataList.map(item => item.value)}
 					contentInset={{ ...verticalContentInset }}
-					svg={{ fill: 'url(#gradient)' }}
+					svg={{ fill: 'transparent' }}
 					curve={shape.curveNatural}
 					animate
 				>
