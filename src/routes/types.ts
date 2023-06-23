@@ -13,4 +13,5 @@ export type RootStackParamListProps = {
 	CurrencyPage: undefined;
 	TermsPage: undefined;
 	SupportUsPage: undefined;
+	LinksPage: undefined;
 };

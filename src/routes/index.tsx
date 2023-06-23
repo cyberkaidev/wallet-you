@@ -7,6 +7,7 @@ import { BitcoinDataPage } from '@/pages/bitcoin-data-page';
 import { CurrencyPage } from '@/pages/currency-page';
 import { HomePage } from '@/pages/home-page';
 import { LanguagePage } from '@/pages/language-page';
+import { LinksPage } from '@/pages/links-page';
 import { LocalAuthPage } from '@/pages/local-auth-page';
 import { PublicKeyPage } from '@/pages/public-key-page';
 import { RegisterKeyPage } from '@/pages/register-key-page';
@@ -87,6 +88,15 @@ export function Routes() {
 				component={SupportUsPage}
 				options={{
 					header: () => <HeaderSwiperIndicator title={t('support-us')} />,
+					headerShown: true,
+					...optionsScreenIOS,
+				}}
+			/>
+			<Stack.Screen
+				name="LinksPage"
+				component={LinksPage}
+				options={{
+					header: () => <HeaderSwiperIndicator title={'Links'} />,
 					headerShown: true,
 					...optionsScreenIOS,
 				}}
