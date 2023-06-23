@@ -1,6 +1,7 @@
 import React from 'react';
-import { NavigationList, Text, ScrollViewHeaderPage } from '@src/components';
-import { themes } from '@src/themes';
+
+import { NavigationList, ScrollViewHeaderPage, Text } from '@/components';
+import { themes } from '@/themes';
 
 export function SettingsPage() {
 	return (

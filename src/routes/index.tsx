@@ -1,21 +1,23 @@
-import React from 'react';
-import { TransitionPresets, createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { RegisterKeyPage } from '@src/pages/register-key-page';
-import { HeaderSwiperIndicator, TabBar } from './components';
+import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { BitcoinDataPage } from '@/pages/bitcoin-data-page';
+import { CurrencyPage } from '@/pages/currency-page';
+import { HomePage } from '@/pages/home-page';
+import { LanguagePage } from '@/pages/language-page';
+import { LocalAuthPage } from '@/pages/local-auth-page';
+import { PublicKeyPage } from '@/pages/public-key-page';
+import { RegisterKeyPage } from '@/pages/register-key-page';
+import { SettingsPage } from '@/pages/settings-page';
+import { SupportUsPage } from '@/pages/support-us-page';
+import { TermsPage } from '@/pages/terms-page';
+import { TransactionPage } from '@/pages/transaction-page';
+import { themes } from '@/themes';
+
+import { HeaderSwiperIndicator, TabBar } from './components';
 import { RootStackParamListProps } from './types';
-import { HomePage } from '@src/pages/home-page';
-import { LocalAuthPage } from '@src/pages/local-auth-page';
-import { TransactionPage } from '@src/pages/transaction-page';
-import { themes } from '@src/themes';
-import { BitcoinDataPage } from '@src/pages/bitcoin-data-page';
-import { SettingsPage } from '@src/pages/settings-page';
-import { PublicKeyPage } from '@src/pages/public-key-page';
-import { LanguagePage } from '@src/pages/language-page';
-import { CurrencyPage } from '@src/pages/currency-page';
-import { TermsPage } from '@src/pages/terms-page';
-import { SupportUsPage } from '@src/pages/support-us-page';
 
 const Stack = createStackNavigator<RootStackParamListProps>();
 const Tab = createBottomTabNavigator();

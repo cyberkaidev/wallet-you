@@ -1,7 +1,8 @@
-import React from 'react';
-import { ScrollViewPage } from '@src/components';
 import { act, render } from '@testing-library/react-native';
+import React from 'react';
 import { View } from 'react-native';
+
+import { ScrollViewPage } from '@/components';
 
 describe('ScrollViewPage', () => {
 	const configTest = {

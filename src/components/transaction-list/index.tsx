@@ -1,14 +1,16 @@
-import React from 'react';
-import { Text } from '../text';
-import { themes } from '@src/themes';
-import { IconArrowDown, IconArrowRight, IconArrowUp } from '@src/assets';
-import { useTranslation } from 'react-i18next';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
-import { RootStackParamListProps } from '@src/routes/types';
-import { useFormatCurrency, useFormatDate } from '@src/hooks';
-import { calculateBalance } from '@src/functions';
-import { useAppSettings, useBitcoinDataPrices, useUserData } from '@src/stores';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { IconArrowDown, IconArrowRight, IconArrowUp } from '@/assets';
+import { calculateBalance } from '@/functions';
+import { useFormatCurrency, useFormatDate } from '@/hooks';
+import { RootStackParamListProps } from '@/routes/types';
+import { useAppSettings, useBitcoinDataPrices, useUserData } from '@/stores';
+import { themes } from '@/themes';
+
 import { SkeletonLoading } from '../skeleton-loading';
+import { Text } from '../text';
 import * as Styles from './styles';
 
 export function TransactionList() {

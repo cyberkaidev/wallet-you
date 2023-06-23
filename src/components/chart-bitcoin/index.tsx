@@ -1,11 +1,13 @@
 import React from 'react';
-import { ChartBitcoinContainer, FailedContainer } from './styles';
-import { SkeletonLoading } from '../skeleton-loading';
-import { ChartMain } from './components/chart-main';
-import { Text } from '../text';
-import { useBitcoinHistoricalPrice } from '@src/stores';
-import { themes } from '@src/themes';
 import { useTranslation } from 'react-i18next';
+
+import { useBitcoinHistoricalPrice } from '@/stores';
+import { themes } from '@/themes';
+
+import { SkeletonLoading } from '../skeleton-loading';
+import { Text } from '../text';
+import { ChartMain } from './components/chart-main';
+import { ChartBitcoinContainer, FailedContainer } from './styles';
 
 export function ChartBitcoin() {
 	const { t } = useTranslation();

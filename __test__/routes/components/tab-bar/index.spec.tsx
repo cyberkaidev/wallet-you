@@ -1,11 +1,12 @@
-import React from 'react';
-import { render } from '@testing-library/react-native';
 import {
 	BottomTabDescriptorMap,
 	BottomTabNavigationEventMap,
 } from '@react-navigation/bottom-tabs/lib/typescript/src/types';
 import { NavigationHelpers, ParamListBase, TabNavigationState } from '@react-navigation/native';
-import { TabBar } from '@src/routes/components';
+import { render } from '@testing-library/react-native';
+import React from 'react';
+
+import { TabBar } from '@/routes/components';
 
 test('Render component', () => {
 	const configTest = {

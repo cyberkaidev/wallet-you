@@ -1,4 +1,4 @@
-import { TransactionPageProps } from '@src/pages/transaction-page/types';
+import { TransactionPageProps } from '@/pages/transaction-page/types';
 
 export type RootStackParamListProps = {
 	RegisterKeyPage: undefined;

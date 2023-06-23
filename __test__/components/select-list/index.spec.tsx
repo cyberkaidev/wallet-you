@@ -1,6 +1,7 @@
-import React from 'react';
-import { SelectList } from '@src/components';
 import { fireEvent, render } from '@testing-library/react-native';
+import React from 'react';
+
+import { SelectList } from '@/components';
 
 test('Render component and action', () => {
 	const configTest = {

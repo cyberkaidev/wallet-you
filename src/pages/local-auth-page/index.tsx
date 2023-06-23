@@ -1,15 +1,17 @@
-import React from 'react';
-import * as LocalAuthentication from 'expo-local-authentication';
-import { LocalAuthPageContainer } from './styles';
-import { ButtonTitleShape } from '@src/components';
-import * as SecureStore from 'expo-secure-store';
-import { CommonActions, NavigationProp, useNavigation } from '@react-navigation/native';
-import { RootStackParamListProps } from '@src/routes/types';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { storageKeys } from '@src/helpers';
-import { getBitcoinBalance } from '@src/services';
+import { CommonActions, NavigationProp, useNavigation } from '@react-navigation/native';
+import * as LocalAuthentication from 'expo-local-authentication';
+import * as SecureStore from 'expo-secure-store';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useBitcoinDataPrices, useUserData } from '@src/stores';
+
+import { ButtonTitleShape } from '@/components';
+import { storageKeys } from '@/helpers';
+import { RootStackParamListProps } from '@/routes/types';
+import { getBitcoinBalance } from '@/services';
+import { useBitcoinDataPrices, useUserData } from '@/stores';
+
+import { LocalAuthPageContainer } from './styles';
 
 export function LocalAuthPage() {
 	const navigation = useNavigation<NavigationProp<RootStackParamListProps>>();

@@ -1,9 +1,11 @@
-import { themes } from '@src/themes';
-import { Platform } from 'react-native';
-import styled from 'styled-components/native';
-import { ScrollViewHeaderPageContainerProps } from './types';
-import Animated from 'react-native-reanimated';
 import Constants from 'expo-constants';
+import { Platform } from 'react-native';
+import Animated from 'react-native-reanimated';
+import styled from 'styled-components/native';
+
+import { themes } from '@/themes';
+
+import { ScrollViewHeaderPageContainerProps } from './types';
 
 const HEADER_HEIGHT = 115;
 const DEFAULT_MARGIN = 25;

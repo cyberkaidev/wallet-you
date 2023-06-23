@@ -1,6 +1,7 @@
-import React from 'react';
-import { TitleSubtitle } from '@src/components';
 import { render } from '@testing-library/react-native';
+import React from 'react';
+
+import { TitleSubtitle } from '@/components';
 
 describe('TitleSubtitle', () => {
 	const configTest = {

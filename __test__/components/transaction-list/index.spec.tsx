@@ -1,6 +1,7 @@
-import React from 'react';
-import { TransactionList } from '@src/components';
 import { act, render } from '@testing-library/react-native';
+import React from 'react';
+
+import { TransactionList } from '@/components';
 
 test('Render component and action', () => {
 	const configTest = {

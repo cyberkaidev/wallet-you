@@ -1,12 +1,14 @@
+import Constants from 'expo-constants';
 import React from 'react';
-import { SafeArea, ScrollViewHeaderPageContainer } from './styles';
-import { ScrollViewHeaderPageProps } from './types';
-import { themes } from '@src/themes';
+import { Platform } from 'react-native';
 import { RefreshControl } from 'react-native-gesture-handler';
 import { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated';
+
+import { themes } from '@/themes';
+
 import { HeaderAnimated } from './components/header-animated';
-import Constants from 'expo-constants';
-import { Platform } from 'react-native';
+import { SafeArea, ScrollViewHeaderPageContainer } from './styles';
+import { ScrollViewHeaderPageProps } from './types';
 
 export function ScrollViewHeaderPage({
 	children,

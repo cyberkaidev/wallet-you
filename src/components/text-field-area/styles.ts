@@ -1,9 +1,11 @@
-import { themes } from '@src/themes';
-import styled from 'styled-components/native';
 import {
-	widthPercentageToDP as wp,
 	heightPercentageToDP as hp,
+	widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
+import styled from 'styled-components/native';
+
+import { themes } from '@/themes';
+
 import { FieldAreaProps } from './types';
 
 export const FieldArea = styled.TextInput<FieldAreaProps>`

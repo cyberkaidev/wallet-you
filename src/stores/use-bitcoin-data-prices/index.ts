@@ -1,5 +1,7 @@
 import { create } from 'zustand';
-import { getBitcoinDataPrices } from '@src/services';
+
+import { getBitcoinDataPrices } from '@/services';
+
 import { UseBitcoinDataPricesProps } from './types';
 
 export const useBitcoinDataPrices = create<UseBitcoinDataPricesProps>(set => ({

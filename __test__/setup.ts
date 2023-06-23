@@ -1,12 +1,12 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import EN_US from '../src/translate/locales/en-us.json';
-import PT_BR from '../src/translate/locales/pt-br.json';
 import DE_CH from '../src/translate/locales/de-ch.json';
+import EN_US from '../src/translate/locales/en-us.json';
 import ES_AR from '../src/translate/locales/es-ar.json';
+import PT_BR from '../src/translate/locales/pt-br.json';
 
-jest.mock('@src/hooks', () => {
+jest.mock('@/hooks', () => {
 	return {
 		useFormatCurrency: () => '$100.00',
 		useFormatDate: () => ({
@@ -17,7 +17,7 @@ jest.mock('@src/hooks', () => {
 	};
 });
 
-jest.mock('@src/stores', () => {
+jest.mock('@/stores', () => {
 	return {
 		useBitcoinHistoricalPrice: () => ({
 			fetchBitcoinHistoricalPrice: jest.fn(),

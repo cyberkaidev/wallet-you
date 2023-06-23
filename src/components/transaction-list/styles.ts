@@ -1,5 +1,7 @@
-import { themes } from '@src/themes';
 import styled from 'styled-components/native';
+
+import { themes } from '@/themes';
+
 import { ItemsProps } from './types';
 
 export const TransactionListContainer = styled.View`

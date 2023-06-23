@@ -1,6 +1,7 @@
-import { useUserData } from '@src/stores/use-user-data';
-import { TatumSDK, Network, ResponseDto, AddressBalance, Bitcoin } from '@tatumcom/js';
 import { TATUM_SDK_V1, TATUM_SDK_V2 } from '@env';
+import { AddressBalance, Bitcoin, Network, ResponseDto, TatumSDK } from '@tatumcom/js';
+
+import { useUserData } from '@/stores/use-user-data';
 
 export async function getBitcoinBalance(address: string) {
 	const { setBalance } = useUserData.getState();

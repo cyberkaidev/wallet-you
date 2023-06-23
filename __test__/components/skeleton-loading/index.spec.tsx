@@ -1,6 +1,7 @@
-import React from 'react';
-import { SkeletonLoading } from '@src/components';
 import { render } from '@testing-library/react-native';
+import React from 'react';
+
+import { SkeletonLoading } from '@/components';
 
 test('Render component', () => {
 	const { getByTestId } = render(

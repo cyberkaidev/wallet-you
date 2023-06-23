@@ -1,5 +1,7 @@
-import { themes } from '@src/themes';
 import styled from 'styled-components/native';
+
+import { themes } from '@/themes';
+
 import { SafeAreaProps, ScrollViewPageContainerProps } from './types';
 
 export const ScrollViewPageContainer = styled.ScrollView<ScrollViewPageContainerProps>`

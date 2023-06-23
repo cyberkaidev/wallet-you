@@ -1,10 +1,12 @@
+import { setStatusBarBackgroundColor } from 'expo-status-bar';
 import React from 'react';
-import { Text } from '@src/components';
+import { Platform } from 'react-native';
+
+import { Text } from '@/components';
+import { themes } from '@/themes';
+
 import { HeaderSwiperIndicatorContainer, Indicator, SafeArea } from './styles';
 import { HeaderSwiperIndicatorProps } from './types';
-import { setStatusBarBackgroundColor } from 'expo-status-bar';
-import { themes } from '@src/themes';
-import { Platform } from 'react-native';
 
 export function HeaderSwiperIndicator({ title }: HeaderSwiperIndicatorProps) {
 	React.useEffect(() => {

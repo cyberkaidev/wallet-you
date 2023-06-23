@@ -1,5 +1,7 @@
-import { themes } from '@src/themes';
 import styled from 'styled-components/native';
+
+import { themes } from '@/themes';
+
 import { ButtonTitleShapeContainerProps } from './types';
 
 export const ButtonTitleShapeContainer = styled.TouchableOpacity<ButtonTitleShapeContainerProps>`

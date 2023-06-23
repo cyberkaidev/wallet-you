@@ -1,4 +1,4 @@
-import { TabBar } from './tab-bar';
 import { HeaderSwiperIndicator } from './header-swiper-indicator';
+import { TabBar } from './tab-bar';
 
-export { TabBar, HeaderSwiperIndicator };
+export { HeaderSwiperIndicator,TabBar };

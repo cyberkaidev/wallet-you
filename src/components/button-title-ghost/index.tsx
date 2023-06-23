@@ -1,10 +1,12 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { ActivityIndicator } from 'react-native';
+
+import { themes } from '@/themes';
+
 import { Text } from '../text';
 import { ButtonTitleGhostContainer } from './styles';
-import { themes } from '@src/themes';
 import { ButtonTitleGhostProps } from './types';
-import { ActivityIndicator } from 'react-native';
-import { useTranslation } from 'react-i18next';
 
 export function ButtonTitleGhost({
 	testID = 'idButtonTitleGhost',

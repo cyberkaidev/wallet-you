@@ -1,6 +1,7 @@
-import { themes } from '@src/themes';
 import Animated from 'react-native-reanimated';
 import styled from 'styled-components/native';
+
+import { themes } from '@/themes';
 
 export const HeaderAnimatedContainer = styled.View`
 	position: absolute;

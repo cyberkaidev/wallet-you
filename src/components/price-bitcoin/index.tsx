@@ -1,10 +1,12 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { themes } from '@/themes';
+
+import { SkeletonLoading } from '../skeleton-loading';
 import { Text } from '../text';
 import { PriceAndPorcent, PriceBitcoinContainer } from './styles';
-import { themes } from '@src/themes';
 import { PriceBitcoinProps } from './types';
-import { SkeletonLoading } from '../skeleton-loading';
-import { useTranslation } from 'react-i18next';
 
 export function PriceBitcoin({
 	title,

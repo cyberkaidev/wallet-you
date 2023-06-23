@@ -1,10 +1,12 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { ChartBitcoin, PriceBitcoin, ScrollViewHeaderPage, TitleSubtitle } from '@/components';
+import { useFormatCurrency, useFormatPercentage } from '@/hooks';
+import { useAppSettings, useBitcoinDataPrices } from '@/stores';
+import { themes } from '@/themes';
+
 import { PaddingContainer } from './styles';
-import { ChartBitcoin, PriceBitcoin, ScrollViewHeaderPage, TitleSubtitle } from '@src/components';
-import { useFormatCurrency, useFormatPercentage } from '@src/hooks';
-import { themes } from '@src/themes';
-import { useBitcoinDataPrices, useAppSettings } from '@src/stores';
 
 export function BitcoinDataPage() {
 	const { t } = useTranslation();

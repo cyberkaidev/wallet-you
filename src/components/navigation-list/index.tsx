@@ -1,16 +1,18 @@
-import React from 'react';
-import { Text } from '../text';
-import * as SecureStore from 'expo-secure-store';
-import { Indicator, ItemButton, NavigationListContainer } from './styles';
-import { themes } from '@src/themes';
-import { useTranslation } from 'react-i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { IconArrowRight } from '@src/assets';
 import { CommonActions, NavigationProp, useNavigation } from '@react-navigation/native';
-import { RootStackParamListProps } from '@src/routes/types';
-import { storageKeys } from '@src/helpers';
-import { initializeAppSettings } from '@src/functions';
-import { useUserData } from '@src/stores';
+import * as SecureStore from 'expo-secure-store';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { IconArrowRight } from '@/assets';
+import { initializeAppSettings } from '@/functions';
+import { storageKeys } from '@/helpers';
+import { RootStackParamListProps } from '@/routes/types';
+import { useUserData } from '@/stores';
+import { themes } from '@/themes';
+
+import { Text } from '../text';
+import { Indicator, ItemButton, NavigationListContainer } from './styles';
 
 export function NavigationList() {
 	const { t } = useTranslation();

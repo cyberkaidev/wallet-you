@@ -1,9 +1,11 @@
 import React from 'react';
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
+
+import { themes } from '@/themes';
+
+import { schemeText } from './functions';
 import { TextContainer } from './styles';
 import { TextProps } from './types';
-import { schemeText } from './functions';
-import { themes } from '@src/themes';
 
 export function Text({
 	children,

@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+
 import { TextContainerProps } from './types';
 
 export const TextContainer = styled.Text<TextContainerProps>`

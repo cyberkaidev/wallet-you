@@ -1,6 +1,7 @@
-import React from 'react';
-import { ChartBitcoin } from '@src/components';
 import { render } from '@testing-library/react-native';
+import React from 'react';
+
+import { ChartBitcoin } from '@/components';
 
 test('Render component with success', () => {
 	const configTest = {

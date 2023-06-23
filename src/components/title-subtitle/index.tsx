@@ -1,9 +1,11 @@
 import React from 'react';
+
+import { themes } from '@/themes';
+
+import { SkeletonLoading } from '../skeleton-loading';
 import { Text } from '../text';
 import { TitleSubtitleContainer } from './styles';
-import { themes } from '@src/themes';
 import { TitleSubtitleProps } from './types';
-import { SkeletonLoading } from '../skeleton-loading';
 
 export function TitleSubtitle({
 	title,

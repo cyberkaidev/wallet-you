@@ -1,8 +1,10 @@
 import React from 'react';
-import { TabBarContainer, SafeArea, Touch, Indicator, ButtonsContainer } from './styles';
-import { IconChart, IconHome, IconSettings } from '@src/assets';
+
+import { IconChart, IconHome, IconSettings } from '@/assets';
+import { themes } from '@/themes';
+
+import { ButtonsContainer, Indicator, SafeArea, TabBarContainer, Touch } from './styles';
 import { TabBarProps } from './types';
-import { themes } from '@src/themes';
 
 export function TabBar({ state, descriptors, navigation }: TabBarProps) {
 	const { colors } = themes;

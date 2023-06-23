@@ -1,10 +1,12 @@
 import React from 'react';
-import { SkeletonLoading, Text } from '@src/components';
-import { CryptoCardLargeContainer, PriceContainer, Row } from './styles';
-import { IconBitcoin, IconCardano } from '@src/assets';
-import { themes } from '@src/themes';
-import { CryptoCardLargeProps } from './types';
 import { useTranslation } from 'react-i18next';
+
+import { IconBitcoin, IconCardano } from '@/assets';
+import { SkeletonLoading, Text } from '@/components';
+import { themes } from '@/themes';
+
+import { CryptoCardLargeContainer, PriceContainer, Row } from './styles';
+import { CryptoCardLargeProps } from './types';
 
 export function CryptoCardLarge({ type, price, balance, status }: CryptoCardLargeProps) {
 	const { t } = useTranslation();

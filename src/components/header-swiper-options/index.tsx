@@ -1,13 +1,15 @@
+import { useNavigation } from '@react-navigation/native';
+import { setStatusBarBackgroundColor } from 'expo-status-bar';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Platform } from 'react-native';
+
+import { themes } from '@/themes';
+
 import { ButtonTitleGhost } from '../button-title-ghost';
 import { Text } from '../text';
 import { CenterTitle, HeaderSwiperOptionsContainer } from './styles';
 import { HeaderSwiperOptionsProps } from './types';
-import { useTranslation } from 'react-i18next';
-import { useNavigation } from '@react-navigation/native';
-import { setStatusBarBackgroundColor } from 'expo-status-bar';
-import { themes } from '@src/themes';
 
 export function HeaderSwiperOptions({
 	title,

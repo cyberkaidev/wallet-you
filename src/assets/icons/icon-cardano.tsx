@@ -1,6 +1,8 @@
-import { themes } from '@src/themes';
 import React from 'react';
 import Svg, { Path } from 'react-native-svg';
+
+import { themes } from '@/themes';
+
 import { IconProps } from './types';
 
 export function IconCardano({ size = 25 }: Omit<IconProps, 'color'>) {

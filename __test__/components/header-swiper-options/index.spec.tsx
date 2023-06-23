@@ -1,7 +1,8 @@
-import React from 'react';
 import { fireEvent, render, renderHook } from '@testing-library/react-native';
-import { HeaderSwiperOptions } from '@src/components';
+import React from 'react';
 import { I18nextProvider, useTranslation } from 'react-i18next';
+
+import { HeaderSwiperOptions } from '@/components';
 
 describe('HeaderSwiperOptions', () => {
 	const t = renderHook(() => useTranslation());

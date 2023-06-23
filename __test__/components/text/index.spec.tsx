@@ -1,6 +1,7 @@
-import React from 'react';
-import { Text } from '@src/components';
 import { render } from '@testing-library/react-native';
+import React from 'react';
+
+import { Text } from '@/components';
 
 test('Render component', () => {
 	const configTest = {

@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { ResponseData } from './types';
 
 export async function getBitcoinDataPrices() {

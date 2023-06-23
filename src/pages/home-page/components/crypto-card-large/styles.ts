@@ -1,6 +1,7 @@
-import { themes } from '@src/themes';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import styled from 'styled-components/native';
+
+import { themes } from '@/themes';
 
 export const CryptoCardLargeContainer = styled.View`
 	width: 100%;

@@ -1,4 +1,4 @@
-import { TatumSDK, Network, ResponseDto, AddressTransaction, Bitcoin } from '@tatumcom/js';
+import { AddressTransaction, Bitcoin,Network, ResponseDto, TatumSDK } from '@tatumcom/js';
 
 export async function getBitcoinTransactions(address: string) {
 	try {

@@ -1,9 +1,11 @@
 import React from 'react';
-import { useFormatCurrency } from '@src/hooks';
-import { calculateBalance } from '@src/functions';
-import { ScrollViewHeaderPage, TransactionList } from '@src/components';
-import { useBitcoinDataPrices, useUserData, useAppSettings } from '@src/stores';
-import { getBitcoinBalance } from '@src/services';
+
+import { ScrollViewHeaderPage, TransactionList } from '@/components';
+import { calculateBalance } from '@/functions';
+import { useFormatCurrency } from '@/hooks';
+import { getBitcoinBalance } from '@/services';
+import { useAppSettings, useBitcoinDataPrices, useUserData } from '@/stores';
+
 import { CryptoCardLarge } from './components/crypto-card-large';
 
 export function HomePage() {

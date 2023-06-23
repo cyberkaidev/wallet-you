@@ -1,8 +1,10 @@
 import React from 'react';
+import { RefreshControl } from 'react-native-gesture-handler';
+
+import { themes } from '@/themes';
+
 import { SafeArea, ScrollViewPageContainer } from './styles';
 import { ScrollViewPageProps } from './types';
-import { themes } from '@src/themes';
-import { RefreshControl } from 'react-native-gesture-handler';
 
 export function ScrollViewPage({
 	children,

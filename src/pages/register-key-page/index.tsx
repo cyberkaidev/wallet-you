@@ -1,14 +1,10 @@
-import React from 'react';
-import * as LocalAuthentication from 'expo-local-authentication';
-import { useTranslation } from 'react-i18next';
-import * as SecureStore from 'expo-secure-store';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { themes } from '@src/themes';
-import { storageKeys } from '@src/helpers';
 import { CommonActions, NavigationProp, useNavigation } from '@react-navigation/native';
-import { RootStackParamListProps } from '@src/routes/types';
-import { getBitcoinBalance } from '@src/services';
-import { useBitcoinDataPrices, useUserData } from '@src/stores';
+import * as LocalAuthentication from 'expo-local-authentication';
+import * as SecureStore from 'expo-secure-store';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+
 import {
 	ButtonTitleShape,
 	CheckBoxMessage,
@@ -16,7 +12,12 @@ import {
 	SpaceFull,
 	Text,
 	TextFieldArea,
-} from '@src/components';
+} from '@/components';
+import { storageKeys } from '@/helpers';
+import { RootStackParamListProps } from '@/routes/types';
+import { getBitcoinBalance } from '@/services';
+import { useBitcoinDataPrices, useUserData } from '@/stores';
+import { themes } from '@/themes';
 
 export function RegisterKeyPage() {
 	const { t } = useTranslation();

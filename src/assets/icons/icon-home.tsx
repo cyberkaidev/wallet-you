@@ -1,6 +1,8 @@
-import { themes } from '@src/themes';
 import React from 'react';
 import Svg, { Path } from 'react-native-svg';
+
+import { themes } from '@/themes';
+
 import { IconProps } from './types';
 
 export function IconHome({ color = themes.colors.white, size = 25 }: IconProps) {

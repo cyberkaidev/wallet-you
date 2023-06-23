@@ -1,7 +1,8 @@
-import React from 'react';
-import { NavigationList } from '@src/components';
 import { act, render, renderHook } from '@testing-library/react-native';
+import React from 'react';
 import { I18nextProvider, useTranslation } from 'react-i18next';
+
+import { NavigationList } from '@/components';
 
 describe('NavigationList', () => {
 	const t = renderHook(() => useTranslation());

@@ -1,6 +1,7 @@
-import React from 'react';
-import { PriceBitcoin } from '@src/components';
 import { render } from '@testing-library/react-native';
+import React from 'react';
+
+import { PriceBitcoin } from '@/components';
 
 describe('PriceBitcoin', () => {
 	const configTest = {

@@ -1,16 +1,18 @@
 import React from 'react';
+import { Extrapolate, interpolate, useAnimatedStyle } from 'react-native-reanimated';
+
+import { themes } from '@/themes';
+
 import { Text } from '../../../text';
 import {
+	ContainerItems,
 	FirstItem,
 	HeaderAnimatedContainer,
+	OpacityAnimation,
 	SafeArea,
 	SecondtItem,
-	OpacityAnimation,
-	ContainerItems,
 } from './styles';
 import { HeaderAnimatedProps } from './types';
-import { Extrapolate, interpolate, useAnimatedStyle } from 'react-native-reanimated';
-import { themes } from '@src/themes';
 
 export function HeaderAnimated({ translationY, headerTitle }: HeaderAnimatedProps) {
 	const translateY = useAnimatedStyle(() => ({

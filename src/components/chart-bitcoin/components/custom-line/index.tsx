@@ -1,8 +1,10 @@
 import React from 'react';
 import { Path } from 'react-native-svg';
-import { CustomLineProps } from './types';
+
+import { themes } from '@/themes';
+
 import { apx } from '../../functions';
-import { themes } from '@src/themes';
+import { CustomLineProps } from './types';
 
 export function CustomLine({ line }: CustomLineProps) {
 	return (
