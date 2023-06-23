@@ -29,7 +29,7 @@ export function BitcoinDataPage() {
 	const priceChange24hCurrency = useFormatCurrency(data?.price_change_24h_in_currency[currency]);
 
 	return (
-		<ScrollViewHeaderPage headerTitle="Chart" enabledHorizontalPadding={false}>
+		<ScrollViewHeaderPage headerTitle={t('chart')} enabledHorizontalPadding={false}>
 			<PaddingContainer>
 				<PriceBitcoin
 					title={t('today')}
