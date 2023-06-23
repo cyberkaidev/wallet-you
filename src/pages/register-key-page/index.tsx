@@ -6,9 +6,9 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import {
-	ButtonTitleShape,
+	ButtonTitleGhost,
 	CheckBoxMessage,
-	ScrollViewPage,
+	ScrollViewHeaderPage,
 	SpaceFull,
 	Text,
 	TextFieldArea,
@@ -69,7 +69,7 @@ export function RegisterKeyPage() {
 	}
 
 	return (
-		<ScrollViewPage contentHeight={'100%'} enabledPaddingB={false}>
+		<ScrollViewHeaderPage headerTitle={t('public-key')}>
 			<TextFieldArea value={inputPublicKey} onChangeText={setInputPublicKey} />
 			{error.visible && (
 				<Text weight="medium" marginT={themes.spaces.space_5} color={themes.colors.red}>
@@ -84,13 +84,14 @@ export function RegisterKeyPage() {
 				/>
 			)}
 			<SpaceFull />
-			<ButtonTitleShape
+			<ButtonTitleGhost
 				title={t('continue')}
 				onPress={handlerContinue}
+				size="large"
 				loading={loading}
 				disabled={inputPublicKey.length < 1}
 				marginT={themes.spaces.space_25}
 			/>
-		</ScrollViewPage>
+		</ScrollViewHeaderPage>
 	);
 }
