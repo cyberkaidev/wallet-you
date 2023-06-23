@@ -52,6 +52,11 @@ export function SettingsPage() {
 			title: t('support-us'),
 			onAction: () => navigation.navigate('SupportUsPage'),
 		},
+		{
+			testID: 'idLinks',
+			title: 'Links',
+			onAction: () => navigation.navigate('LinksPage'),
+		},
 		{ testID: 'idExit', title: t('exit'), onAction: () => onExit() },
 	];
 
