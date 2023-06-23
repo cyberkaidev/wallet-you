@@ -1,6 +1,6 @@
 import * as shape from 'd3-shape';
 import React from 'react';
-import { Dimensions,PanResponder, View } from 'react-native';
+import { Dimensions, PanResponder, View } from 'react-native';
 import { AreaChart } from 'react-native-svg-charts';
 
 import { CustomLine } from '../custom-line';

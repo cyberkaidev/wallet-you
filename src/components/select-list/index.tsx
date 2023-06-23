@@ -3,7 +3,7 @@ import React from 'react';
 import { themes } from '@/themes';
 
 import { Text } from '../text';
-import { BorderSelect, ItemButton, Selected,SelectListContainer } from './styles';
+import { BorderSelect, ItemButton, Selected, SelectListContainer } from './styles';
 import { SelectListProps } from './types';
 
 export function SelectList({ data, selected, onSelected }: SelectListProps) {
