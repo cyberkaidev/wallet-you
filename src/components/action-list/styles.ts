@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 
 import { themes } from '@/themes';
 
-export const NavigationListContainer = styled.View`
+export const ActionListContainer = styled.View`
 	background-color: ${themes.colors.black_200};
 	border-radius: ${themes.border_radius.radius_10};
 	border: 1px solid ${themes.colors.grey_200};
