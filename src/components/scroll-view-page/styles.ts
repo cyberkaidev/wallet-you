@@ -2,17 +2,13 @@ import styled from 'styled-components/native';
 
 import { themes } from '@/themes';
 
-import { SafeAreaProps, ScrollViewPageContainerProps } from './types';
-
-export const ScrollViewPageContainer = styled.ScrollView<ScrollViewPageContainerProps>`
+export const ScrollViewPageContainer = styled.ScrollView`
 	flex: 1;
-	padding-left: ${({ horizontalPadding }) => horizontalPadding};
-	padding-right: ${({ horizontalPadding }) => horizontalPadding};
+	padding-left: ${themes.spaces.space_15};
+	padding-right: ${themes.spaces.space_15};
 	padding-top: ${themes.spaces.space_25};
 `;
 
-export const SafeArea = styled.SafeAreaView<SafeAreaProps>`
-	height: ${({ height }) => height};
+export const SafeArea = styled.SafeAreaView`
 	background-color: ${themes.colors.black_300};
-	padding-bottom: ${({ paddingB }) => paddingB};
 `;
