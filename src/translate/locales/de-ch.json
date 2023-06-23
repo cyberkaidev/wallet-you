@@ -36,6 +36,8 @@
 		"public-key-not-found": "Öffentlicher Schlüssel nicht gefunden",
 		"request-error-try-later": "Fehler bei der Anfrage, bitte versuchen Sie es später noch einmal",
 		"unlock": "Freischalten",
-		"you-dont-have-transactions": "Sie haben keine Transaktionen"
+		"you-dont-have-transactions": "Sie haben keine Transaktionen",
+		"my-wallet": "Mein Geldbeutel",
+		"chart": "Diagramm"
 	}
 }

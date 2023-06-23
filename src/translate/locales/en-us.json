@@ -36,6 +36,8 @@
 		"public-key-not-found": "Public key not found",
 		"request-error-try-later": "Request error, please try again later",
 		"unlock": "Unlock",
-		"you-dont-have-transactions": "You don't have transactions"
+		"you-dont-have-transactions": "You don't have transactions",
+		"my-wallet": "My wallet",
+		"chart": "Chart"
 	}
 }

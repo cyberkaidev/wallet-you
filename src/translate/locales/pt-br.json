@@ -36,6 +36,8 @@
 		"public-key-not-found": "Chave pública não encontrada",
 		"request-error-try-later": "Erro na requisição, tente novamente mais tarde",
 		"unlock": "Desbloquear",
-		"you-dont-have-transactions": "Você não tem transações"
+		"you-dont-have-transactions": "Você não tem transações",
+		"my-wallet": "Minha carteira",
+		"chart": "Gráfico"
 	}
 }
