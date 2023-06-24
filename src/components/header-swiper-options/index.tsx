@@ -37,6 +37,7 @@ export function HeaderSwiperOptions({
 				testID="idButtonLeft"
 				title={t('cancel')}
 				size="small"
+				buttonsWeight="medium"
 				onPress={() => navigation.goBack()}
 				marginL={themes.spaces.space_10}
 			/>
@@ -44,6 +45,7 @@ export function HeaderSwiperOptions({
 				testID="idButtonRight"
 				title={t('change')}
 				size="small"
+				buttonsWeight="medium"
 				disabled={disableAction}
 				onPress={onAction}
 				marginR={themes.spaces.space_10}

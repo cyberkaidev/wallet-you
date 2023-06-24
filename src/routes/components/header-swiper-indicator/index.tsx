@@ -20,7 +20,7 @@ export function HeaderSwiperIndicator({ title }: HeaderSwiperIndicatorProps) {
 		<HeaderSwiperIndicatorContainer testID="idHeaderSwiperIndicator">
 			<SafeArea>
 				<Indicator />
-				<Text size="XXL" weight="medium">
+				<Text size="XL" weight="medium">
 					{title}
 				</Text>
 			</SafeArea>
