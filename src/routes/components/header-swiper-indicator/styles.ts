@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import { themes } from '@/themes';
 
 export const HeaderSwiperIndicatorContainer = styled.View`
-	background-color: ${themes.colors.black_300};
+	background-color: ${themes.colors.black_200};
 `;
 
 export const SafeArea = styled.SafeAreaView`
