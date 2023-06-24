@@ -9,10 +9,7 @@ export const ActionListContainer = styled.View`
 `;
 
 export const ItemButton = styled.TouchableOpacity`
-	position: relative;
-	padding-top: ${themes.spaces.space_20};
-	padding-bottom: ${themes.spaces.space_20};
-	padding-right: ${themes.spaces.space_15};
+	padding-left: ${themes.spaces.space_15};
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
@@ -25,4 +22,17 @@ export const Indicator = styled.View`
 	height: 1px;
 	width: 100%;
 	background-color: ${themes.colors.grey_200};
+`;
+
+export const IconAndTitleContainer = styled.View`
+	flex: 1;
+	padding: ${themes.spaces.space_20} 0;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+`;
+
+export const IconContainer = styled.View`
+	margin-right: ${themes.spaces.space_15};
 `;
