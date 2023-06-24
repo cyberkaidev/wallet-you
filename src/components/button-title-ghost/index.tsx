@@ -15,6 +15,7 @@ export function ButtonTitleGhost({
 	onPress,
 	size = 'large',
 	loading = false,
+	buttonsWeight = 'bold',
 	marginT,
 	marginB,
 	marginR,
@@ -36,7 +37,11 @@ export function ButtonTitleGhost({
 			isOpacity={disabled}
 		>
 			{!loading && (
-				<Text size={size === 'large' ? 'L' : 'M'} weight="bold" color={themes.colors.purple_100}>
+				<Text
+					size={size === 'large' ? 'L' : 'M'}
+					weight={buttonsWeight}
+					color={themes.colors.purple_100}
+				>
 					{title}
 				</Text>
 			)}
@@ -46,7 +51,7 @@ export function ButtonTitleGhost({
 					<Text
 						size={size === 'large' ? 'L' : 'M'}
 						marginL={themes.spaces.space_5}
-						weight="bold"
+						weight={buttonsWeight}
 						color={themes.colors.purple_100}
 					>
 						{t('loading')}
