@@ -4,7 +4,7 @@ import * as SecureStore from 'expo-secure-store';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ActionList, ScrollViewHeaderPage, Text } from '@/components';
+import { ActionList, AlertModal, ScrollViewHeaderPage, Text } from '@/components';
 import { initializeAppSettings } from '@/functions';
 import { storageKeys } from '@/helpers';
 import { RootStackParamListProps } from '@/routes/types';
@@ -14,12 +14,14 @@ import { themes } from '@/themes';
 export function SettingsPage() {
 	const { t } = useTranslation();
 	const { cleanUserData } = useUserData();
+	const [showModal, setShowModal] = React.useState(false);
 	const { currency, enableLocalAuth, language, publicKey } = storageKeys;
 	const navigation = useNavigation<NavigationProp<RootStackParamListProps>>();
 
 	async function onExit() {
 		await AsyncStorage.multiRemove([currency, enableLocalAuth, language]);
 		await SecureStore.deleteItemAsync(publicKey);
+		setShowModal(false);
 		initializeAppSettings();
 		cleanUserData();
 		navigation.dispatch(
@@ -57,7 +59,7 @@ export function SettingsPage() {
 			title: 'Links',
 			onAction: () => navigation.navigate('LinksPage'),
 		},
-		{ testID: 'idExit', title: t('exit'), onAction: () => onExit() },
+		{ testID: 'idExit', title: t('exit'), onAction: () => setShowModal(true) },
 	];
 
 	return (
@@ -66,6 +68,12 @@ export function SettingsPage() {
 			<Text size="S" weight="bold" marginT={themes.spaces.space_25}>
 				v 1.1.1
 			</Text>
+			<AlertModal
+				title={t('do_you_really_want_to_leave')}
+				visible={showModal}
+				onCancel={() => setShowModal(false)}
+				onConfirm={onExit}
+			/>
 		</ScrollViewHeaderPage>
 	);
 }
