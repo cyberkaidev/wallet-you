@@ -12,6 +12,7 @@ export const themes: DefaultTheme = {
 		space_15: '15px',
 		space_20: '20px',
 		space_25: '25px',
+		space_30: '30px',
 	},
 	font_sizes: {
 		XS: '3%',
@@ -33,5 +34,6 @@ export const themes: DefaultTheme = {
 		black_200: '#222329',
 		grey_300: '#BFBFBF',
 		grey_200: '#616670',
+		black_300_30pct: 'rgba(25, 27, 31, 0.30)',
 	},
 };
