@@ -37,7 +37,13 @@ TATUM_SDK_V2=YOUR-API-KEY
 yarn install
 ```
 
-2. Run app
+2. If you use Windows
+
+```shell
+npm install -g win-node-env
+```
+
+3. Run app
 
 ```shell
 yarn android:dev
