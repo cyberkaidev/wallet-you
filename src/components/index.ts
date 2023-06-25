@@ -1,4 +1,5 @@
 import { ActionList } from './action-list';
+import { AlertModal } from './alert-modal';
 import { ButtonTitleGhost } from './button-title-ghost';
 import { ButtonTitleShape } from './button-title-shape';
 import { ChartBitcoin } from './chart-bitcoin';
@@ -17,6 +18,7 @@ import { TransactionList } from './transaction-list';
 
 export {
 	ActionList,
+	AlertModal,
 	ButtonTitleGhost,
 	ButtonTitleShape,
 	ChartBitcoin,
