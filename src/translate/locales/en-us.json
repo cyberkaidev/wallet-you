@@ -38,6 +38,8 @@
 		"unlock": "Unlock",
 		"you-dont-have-transactions": "You don't have transactions",
 		"my-wallet": "My wallet",
-		"chart": "Chart"
+		"chart": "Chart",
+		"confirm": "Confirm",
+		"do_you_really_want_to_leave": "Do you really want to leave?"
 	}
 }

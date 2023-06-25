@@ -38,6 +38,8 @@
 		"unlock": "Freischalten",
 		"you-dont-have-transactions": "Sie haben keine Transaktionen",
 		"my-wallet": "Mein Geldbeutel",
-		"chart": "Diagramm"
+		"chart": "Diagramm",
+		"confirm": "Bestätigen",
+		"do_you_really_want_to_leave": "Willst du wirklich gehen?"
 	}
 }

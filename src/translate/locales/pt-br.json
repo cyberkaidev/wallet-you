@@ -38,6 +38,8 @@
 		"unlock": "Desbloquear",
 		"you-dont-have-transactions": "Você não tem transações",
 		"my-wallet": "Minha carteira",
-		"chart": "Gráfico"
+		"chart": "Gráfico",
+		"confirm": "Confirmar",
+		"do_you_really_want_to_leave": "Você realmente quer sair?"
 	}
 }
