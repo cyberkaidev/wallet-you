@@ -1,10 +1,12 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { ActivityIndicator } from 'react-native';
+
+import { themes } from '@/themes';
+
 import { Text } from '../text';
 import { ButtonTitleGhostContainer } from './styles';
-import { themes } from '@src/themes';
 import { ButtonTitleGhostProps } from './types';
-import { ActivityIndicator } from 'react-native';
-import { useTranslation } from 'react-i18next';
 
 export function ButtonTitleGhost({
 	testID = 'idButtonTitleGhost',
@@ -13,6 +15,7 @@ export function ButtonTitleGhost({
 	onPress,
 	size = 'large',
 	loading = false,
+	buttonsWeight = 'bold',
 	marginT,
 	marginB,
 	marginR,
@@ -34,7 +37,11 @@ export function ButtonTitleGhost({
 			isOpacity={disabled}
 		>
 			{!loading && (
-				<Text size={size === 'large' ? 'L' : 'M'} weight="bold" color={themes.colors.purple_100}>
+				<Text
+					size={size === 'large' ? 'L' : 'M'}
+					weight={buttonsWeight}
+					color={themes.colors.purple_100}
+				>
 					{title}
 				</Text>
 			)}
@@ -44,7 +51,7 @@ export function ButtonTitleGhost({
 					<Text
 						size={size === 'large' ? 'L' : 'M'}
 						marginL={themes.spaces.space_5}
-						weight="bold"
+						weight={buttonsWeight}
 						color={themes.colors.purple_100}
 					>
 						{t('loading')}

@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+
 import { ButtonTitleGhostContainerProps } from './types';
 
 export const ButtonTitleGhostContainer = styled.TouchableOpacity<ButtonTitleGhostContainerProps>`

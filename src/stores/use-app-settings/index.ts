@@ -1,8 +1,10 @@
-import { create } from 'zustand';
-import i18n from 'i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import i18n from 'i18next';
+import { create } from 'zustand';
+
+import { storageKeys } from '@/helpers';
+
 import { UseAppSettingsProps } from './types';
-import { storageKeys } from '@src/helpers';
 
 export const useAppSettings = create<UseAppSettingsProps>(set => ({
 	currency: 'usd',

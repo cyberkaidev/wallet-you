@@ -1,7 +1,8 @@
-import React from 'react';
-import { ButtonTitleGhost } from '@src/components';
 import { fireEvent, render, renderHook } from '@testing-library/react-native';
+import React from 'react';
 import { I18nextProvider, useTranslation } from 'react-i18next';
+
+import { ButtonTitleGhost } from '@/components';
 
 describe('ButtonTitleGhost', () => {
 	const configTest = {

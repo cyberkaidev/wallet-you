@@ -1,10 +1,12 @@
-import React from 'react';
-import { apx } from '../../functions';
-import { Circle, G, Line, Rect, Text as SvgText } from 'react-native-svg';
-import { CustomTooltipProps } from './types';
-import { themes } from '@src/themes';
-import { useFormatDate } from '@src/hooks';
 import currencyJS from 'currency.js';
+import React from 'react';
+import { Circle, G, Line, Rect, Text as SvgText } from 'react-native-svg';
+
+import { useFormatDate } from '@/hooks';
+import { themes } from '@/themes';
+
+import { apx } from '../../functions';
+import { CustomTooltipProps } from './types';
 
 export function CustomTooltip({ x, y, ticks, positionX, size, dataList }: CustomTooltipProps) {
 	if (positionX < 0) return null;

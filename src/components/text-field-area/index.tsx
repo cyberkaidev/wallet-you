@@ -1,7 +1,9 @@
 import React from 'react';
-import { FieldArea } from './styles';
-import { themes } from '@src/themes';
 import { useTranslation } from 'react-i18next';
+
+import { themes } from '@/themes';
+
+import { FieldArea } from './styles';
 import { TextFieldAreaProps } from './types';
 
 export function TextFieldArea({ value, onChangeText }: TextFieldAreaProps) {

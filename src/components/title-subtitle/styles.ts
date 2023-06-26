@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+
 import { TitleSubtitleContainerProps } from './types';
 
 export const TitleSubtitleContainer = styled.View<TitleSubtitleContainerProps>`

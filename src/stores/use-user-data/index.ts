@@ -1,6 +1,8 @@
 import { create } from 'zustand';
+
+import { getBitcoinTransactions } from '@/services/get-bitcoin-transactions';
+
 import { UseUserDataProps } from './types';
-import { getBitcoinTransactions } from '@src/services/get-bitcoin-transactions';
 
 export const useUserData = create<UseUserDataProps>(set => ({
 	key: '',

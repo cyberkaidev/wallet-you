@@ -1,16 +1,19 @@
-import * as React from 'react';
-import { View } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
-import { DarkTheme, NavigationContainer } from '@react-navigation/native';
-import { ThemeProvider } from 'styled-components';
-import { useFonts } from 'expo-font';
-import * as SplashScreen from 'expo-splash-screen';
-import { Routes } from './src/routes';
-import { themes } from './src/themes';
-import { initializeAppSettings } from '@src/functions';
 import './src/translate/i18n';
 import 'react-native-reanimated';
 import 'react-native-gesture-handler';
+
+import { DarkTheme, NavigationContainer } from '@react-navigation/native';
+import { useFonts } from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
+import { StatusBar } from 'expo-status-bar';
+import * as React from 'react';
+import { View } from 'react-native';
+import { ThemeProvider } from 'styled-components';
+
+import { initializeAppSettings } from '@/functions';
+
+import { Routes } from './src/routes';
+import { themes } from './src/themes';
 
 export default function App() {
 	const [fontsLoaded] = useFonts({

@@ -1,6 +1,7 @@
-import { themes } from '@src/themes';
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import styled from 'styled-components/native';
+
+import { themes } from '@/themes';
 
 export const ChartBitcoinContainer = styled.View`
 	margin-top: ${themes.spaces.space_25};

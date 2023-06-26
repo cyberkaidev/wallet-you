@@ -1,6 +1,7 @@
-import React from 'react';
-import { CheckBoxMessage } from '@src/components';
 import { fireEvent, render } from '@testing-library/react-native';
+import React from 'react';
+
+import { CheckBoxMessage } from '@/components';
 
 test('Render component and onPress', () => {
 	const configTest = {

@@ -1,13 +1,15 @@
+import { useNavigation } from '@react-navigation/native';
+import { setStatusBarBackgroundColor } from 'expo-status-bar';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Platform } from 'react-native';
+
+import { themes } from '@/themes';
+
 import { ButtonTitleGhost } from '../button-title-ghost';
 import { Text } from '../text';
 import { CenterTitle, HeaderSwiperOptionsContainer } from './styles';
 import { HeaderSwiperOptionsProps } from './types';
-import { useTranslation } from 'react-i18next';
-import { useNavigation } from '@react-navigation/native';
-import { setStatusBarBackgroundColor } from 'expo-status-bar';
-import { themes } from '@src/themes';
 
 export function HeaderSwiperOptions({
 	title,
@@ -20,7 +22,7 @@ export function HeaderSwiperOptions({
 	React.useEffect(() => {
 		if (Platform.OS === 'android') setStatusBarBackgroundColor('black', true);
 		return () => {
-			if (Platform.OS === 'android') setStatusBarBackgroundColor(themes.colors.black_300, true);
+			if (Platform.OS === 'android') setStatusBarBackgroundColor(themes.colors.black_200, true);
 		};
 	}, []);
 
@@ -35,6 +37,7 @@ export function HeaderSwiperOptions({
 				testID="idButtonLeft"
 				title={t('cancel')}
 				size="small"
+				buttonsWeight="medium"
 				onPress={() => navigation.goBack()}
 				marginL={themes.spaces.space_10}
 			/>
@@ -42,6 +45,7 @@ export function HeaderSwiperOptions({
 				testID="idButtonRight"
 				title={t('change')}
 				size="small"
+				buttonsWeight="medium"
 				disabled={disableAction}
 				onPress={onAction}
 				marginR={themes.spaces.space_10}

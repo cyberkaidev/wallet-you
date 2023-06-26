@@ -1,11 +1,13 @@
-import React from 'react';
-import { SkeletonLoadingContainer } from './styles';
 import { Skeleton } from 'moti/skeleton';
+import React from 'react';
 import {
-	widthPercentageToDP as wp,
 	heightPercentageToDP as hp,
+	widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
-import { themes } from '@src/themes';
+
+import { themes } from '@/themes';
+
+import { SkeletonLoadingContainer } from './styles';
 import { SkeletonLoadingProps } from './types';
 
 export function SkeletonLoading({

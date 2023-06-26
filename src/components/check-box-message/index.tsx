@@ -1,7 +1,9 @@
 import React from 'react';
-import { Check, CheckBoxMessageContainer } from './styles';
-import { themes } from '@src/themes';
+
+import { themes } from '@/themes';
+
 import { Text } from '../text';
+import { Check, CheckBoxMessageContainer } from './styles';
 import { CheckboxMessageProps } from './types';
 
 export function CheckBoxMessage({ isActivated, onAction, message }: CheckboxMessageProps) {

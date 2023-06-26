@@ -36,6 +36,10 @@
 		"public-key-not-found": "Clave pública no encontrada",
 		"request-error-try-later": "Solicitud de error, inténtalo de nuevo más tarde",
 		"unlock": "Desbloquear",
-		"you-dont-have-transactions": "No tienes transacciones"
+		"you-dont-have-transactions": "No tienes transacciones",
+		"my-wallet": "Mi billetera",
+		"chart": "Cuadro",
+		"confirm": "Confirmar",
+		"do_you_really_want_to_leave": "¿De verdad quieres irte?"
 	}
 }

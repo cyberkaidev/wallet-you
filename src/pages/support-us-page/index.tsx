@@ -1,8 +1,9 @@
-import React from 'react';
-import { themes } from '@src/themes';
-import { ButtonTitleGhost, Text, TitleSubtitle, ScrollViewPage } from '@src/components';
-import { useTranslation } from 'react-i18next';
 import * as Clipboard from 'expo-clipboard';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { ButtonTitleGhost, ScrollViewPage, Text, TitleSubtitle } from '@/components';
+import { themes } from '@/themes';
 
 export function SupportUsPage() {
 	const { spaces } = themes;

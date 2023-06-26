@@ -1,9 +1,10 @@
-import React from 'react';
-import { themes } from '@src/themes';
-import { ButtonTitleGhost, ScrollViewPage, TitleSubtitle } from '@src/components';
-import { useTranslation } from 'react-i18next';
 import * as Clipboard from 'expo-clipboard';
-import { useUserData } from '@src/stores';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { ButtonTitleGhost, ScrollViewPage, TitleSubtitle } from '@/components';
+import { useUserData } from '@/stores';
+import { themes } from '@/themes';
 
 export function PublicKeyPage() {
 	const { spaces } = themes;

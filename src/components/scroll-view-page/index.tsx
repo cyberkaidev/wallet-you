@@ -1,16 +1,12 @@
 import React from 'react';
-import { SafeArea, ScrollViewPageContainer } from './styles';
-import { ScrollViewPageProps } from './types';
-import { themes } from '@src/themes';
 import { RefreshControl } from 'react-native-gesture-handler';
 
-export function ScrollViewPage({
-	children,
-	contentHeight,
-	enabledHorizontalPadding = true,
-	enabledPaddingB = true,
-	refreshControl,
-}: ScrollViewPageProps) {
+import { themes } from '@/themes';
+
+import { SafeArea, ScrollViewPageContainer } from './styles';
+import { ScrollViewPageProps } from './types';
+
+export function ScrollViewPage({ children, refreshControl }: ScrollViewPageProps) {
 	const [refreshing, setRefreshing] = React.useState(false);
 
 	async function onRefresh() {
@@ -37,18 +33,12 @@ export function ScrollViewPage({
 	return (
 		<ScrollViewPageContainer
 			testID="idScrollViewPage"
-			contentContainerStyle={{ height: contentHeight }}
-			horizontalPadding={enabledHorizontalPadding ? themes.spaces.space_15 : '0px'}
 			alwaysBounceVertical
 			endFillColor="transparent"
 			refreshControl={refreshController()}
+			showsVerticalScrollIndicator={false}
 		>
-			<SafeArea
-				paddingB={enabledPaddingB ? themes.spaces.space_25 : '0px'}
-				height={contentHeight ?? 'auto'}
-			>
-				{children}
-			</SafeArea>
+			<SafeArea>{children}</SafeArea>
 		</ScrollViewPageContainer>
 	);
 }

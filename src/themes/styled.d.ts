@@ -13,6 +13,7 @@ declare module 'styled-components' {
 			space_15: string;
 			space_20: string;
 			space_25: string;
+			space_30: string;
 		};
 		font_sizes: {
 			XS: string;
@@ -28,11 +29,13 @@ declare module 'styled-components' {
 			green: string;
 			red: string;
 			purple_100: string;
+			purple_200: string;
 			purple_300: string;
 			black_300: string;
 			black_200: string;
 			grey_300: string;
 			grey_200: string;
+			black_300_30pct: string;
 		};
 	}
 }

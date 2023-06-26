@@ -4,8 +4,8 @@ import { getBitcoinHistoricalPrice } from './get-bitcoin-historical-price';
 import { getBitcoinTransactions } from './get-bitcoin-transactions';
 
 export {
-	getBitcoinHistoricalPrice,
 	getBitcoinBalance,
-	getBitcoinTransactions,
 	getBitcoinDataPrices,
+	getBitcoinHistoricalPrice,
+	getBitcoinTransactions,
 };

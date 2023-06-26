@@ -1,6 +1,7 @@
 import React from 'react';
-import { themes } from '@src/themes';
-import { Text, ScrollViewPage } from '@src/components';
+
+import { ScrollViewPage, Text } from '@/components';
+import { themes } from '@/themes';
 
 export function TermsPage() {
 	const { spaces, colors } = themes;

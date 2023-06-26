@@ -9,3 +9,7 @@ export interface TabBarProps {
 	descriptors: BottomTabDescriptorMap;
 	navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
 }
+
+export interface IndicatorProps {
+	isFocused: boolean;
+}

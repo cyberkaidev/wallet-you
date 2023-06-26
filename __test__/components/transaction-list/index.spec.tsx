@@ -1,6 +1,7 @@
-import React from 'react';
-import { TransactionList } from '@src/components';
 import { act, render } from '@testing-library/react-native';
+import React from 'react';
+
+import { TransactionList } from '@/components';
 
 test('Render component and action', () => {
 	const configTest = {
@@ -8,7 +9,7 @@ test('Render component and action', () => {
 		idButton: 'id0',
 		date: '12/12/2023',
 		time: '12:00 PM',
-		price: '$100.00',
+		price: '+ $100.00',
 	};
 
 	const { getByTestId, getAllByText } = render(<TransactionList />);

@@ -1,6 +1,7 @@
-import React from 'react';
 import { render } from '@testing-library/react-native';
-import { HeaderSwiperIndicator } from '@src/routes/components';
+import React from 'react';
+
+import { HeaderSwiperIndicator } from '@/routes/components';
 
 test('Render component', () => {
 	const configTest = {

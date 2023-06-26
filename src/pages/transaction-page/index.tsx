@@ -1,10 +1,11 @@
-import React from 'react';
-import { themes } from '@src/themes';
-import { ScrollViewPage, TitleSubtitle } from '@src/components';
-import { useTranslation } from 'react-i18next';
-import { useFormatDate } from '@src/hooks';
 import { RouteProp, useRoute } from '@react-navigation/native';
-import { RootStackParamListProps } from '@src/routes/types';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { ScrollViewPage, TitleSubtitle } from '@/components';
+import { useFormatDate } from '@/hooks';
+import { RootStackParamListProps } from '@/routes/types';
+import { themes } from '@/themes';
 
 export function TransactionPage() {
 	const {

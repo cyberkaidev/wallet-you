@@ -1,8 +1,9 @@
 import React from 'react';
-import { HeaderSwiperOptions, ScrollViewPage, SelectList } from '@src/components';
 import { useTranslation } from 'react-i18next';
-import { useAppSettings } from '@src/stores';
-import { UseAppSettingsProps } from '@src/stores/use-app-settings/types';
+
+import { HeaderSwiperOptions, ScrollViewPage, SelectList } from '@/components';
+import { useAppSettings } from '@/stores';
+import { UseAppSettingsProps } from '@/stores/use-app-settings/types';
 
 export function LanguagePage() {
 	const { t } = useTranslation();

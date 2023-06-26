@@ -14,7 +14,7 @@
 		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
-	"plugins": ["react", "@typescript-eslint"],
+	"plugins": ["react", "@typescript-eslint", "simple-import-sort"],
 	"rules": {
 		"indent": [
 			"error",
@@ -30,7 +30,9 @@
 		"no-multiple-empty-lines": ["error", { "max": 1 }],
 		"no-trailing-spaces": "error",
 		"no-multi-spaces": "error",
-		"no-inner-declarations": "off"
+		"no-inner-declarations": "off",
+		"simple-import-sort/imports": "error",
+		"simple-import-sort/exports": "error"
 	},
 	"settings": {
 		"react": {
@@ -38,7 +40,7 @@
 		},
 		"import/resolver": {
 			"node": {
-				"map": [["@src", "./src"]],
+				"map": [["@", "./src"]],
 				"extensions": [".js", ".jsx", ".tsx", ".ts"]
 			},
 			"typescript": {}

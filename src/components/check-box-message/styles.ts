@@ -1,6 +1,7 @@
-import { themes } from '@src/themes';
 import Checkbox from 'expo-checkbox';
 import styled from 'styled-components/native';
+
+import { themes } from '@/themes';
 
 export const CheckBoxMessageContainer = styled.View`
 	flex-direction: row;

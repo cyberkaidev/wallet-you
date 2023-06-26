@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+
 import { SkeletonLoadingContainerProps } from './types';
 
 export const SkeletonLoadingContainer = styled.View<SkeletonLoadingContainerProps>`
