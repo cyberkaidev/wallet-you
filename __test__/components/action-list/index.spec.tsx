@@ -13,9 +13,9 @@ describe('ActionList', () => {
 		idPrefixIcon: 'idPrefixIcon0',
 		list: [
 			{
-				testID: 'idTest',
+				testID: 'idHelloWorld',
 				prefixIcon: <IconBitcoin />,
-				title: 'Test',
+				title: 'Hello World',
 				onAction: jest.fn(),
 			},
 		],
@@ -34,7 +34,7 @@ describe('ActionList', () => {
 		expect(getByText(configTest.list[0].title)).toBeTruthy();
 	});
 
-	test('onAction', () => {
+	test('Action', () => {
 		const { getByTestId } = render(
 			<I18nextProvider i18n={t.result.current.i18n}>
 				<ActionList list={configTest.list} />
