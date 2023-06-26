@@ -13,8 +13,8 @@ export function AlertModal({ title, visible, onCancel, onConfirm }: AlertModalPr
 
 	return (
 		<ModalContainer testID="idModal" visible={visible} transparent>
-			<BackgroundContainer testID="idBackground">
-				<AlertContainer>
+			<BackgroundContainer>
+				<AlertContainer testID="idAlertContainer">
 					<Text size="XXL" weight="medium">
 						{title}
 					</Text>

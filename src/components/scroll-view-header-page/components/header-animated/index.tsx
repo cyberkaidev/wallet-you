@@ -30,7 +30,7 @@ export function HeaderAnimated({ translationY, headerTitle }: HeaderAnimatedProp
 	}));
 
 	return (
-		<HeaderAnimatedContainer>
+		<HeaderAnimatedContainer testID="idHeaderAnimatedContainer">
 			<SafeArea>
 				<ContainerItems>
 					<FirstItem>
