@@ -6,6 +6,8 @@ import EN_US from '../src/translate/locales/en-us.json';
 import ES_AR from '../src/translate/locales/es-ar.json';
 import PT_BR from '../src/translate/locales/pt-br.json';
 
+jest.mock('react-native-reanimated', () => require('react-native-reanimated/mock'));
+
 jest.mock('@/hooks', () => {
 	return {
 		useFormatCurrency: () => '$100.00',
