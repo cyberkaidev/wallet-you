@@ -3,7 +3,7 @@
 		"name": "Wallet you",
 		"slug": "wallet-you",
 		"owner": "cyberkaidev",
-		"version": "1.1.1",
+		"version": "1.2.1",
 		"orientation": "portrait",
 		"icon": "./assets/images/icon.png",
 		"userInterfaceStyle": "dark",
@@ -35,7 +35,7 @@
 			},
 			"permissions": ["android.permission.USE_BIOMETRIC", "android.permission.USE_FINGERPRINT"],
 			"package": "com.cyberkaidev.walletyou",
-			"versionCode": "3"
+			"versionCode": "4"
 		},
 		"web": {
 			"favicon": "./assets/images/favicon.ico"
