@@ -31,8 +31,8 @@ export function CustomTooltip({ x, y, ticks, positionX, size, dataList }: Custom
 					ry={apx(12)}
 					width={apx(300)}
 					height={apx(96)}
-					stroke="transparent"
-					fill="transparent"
+					stroke={themes.colors.transparent}
+					fill={themes.colors.transparent}
 				/>
 
 				<SvgText x={apx(20)} fill={themes.colors.white} fontSize={apx(24)}>

@@ -3,6 +3,8 @@ import React from 'react';
 import { Dimensions, PanResponder, View } from 'react-native';
 import { AreaChart } from 'react-native-svg-charts';
 
+import { themes } from '@/themes';
+
 import { CustomLine } from '../custom-line';
 import { CustomTooltip } from '../custom-tooltip';
 import { ChartMainProps } from './types';
@@ -66,7 +68,7 @@ export function ChartMain({ data }: ChartMainProps) {
 					style={{ flex: 1 }}
 					data={dataList.map(item => item.value)}
 					contentInset={{ ...verticalContentInset }}
-					svg={{ fill: 'transparent' }}
+					svg={{ fill: themes.colors.transparent }}
 					curve={shape.curveNatural}
 					animate
 				>
