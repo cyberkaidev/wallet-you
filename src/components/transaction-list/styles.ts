@@ -1,13 +1,19 @@
 import styled from 'styled-components/native';
 
+import { useAppSettings } from '@/stores';
 import { themes } from '@/themes';
 
 import { ItemsProps } from './types';
 
-const { colors, border_radius, spaces } = themes;
+const { colors, border_radius, spaces, width } = themes;
+
+const { isTablet } = useAppSettings.getState();
 
 export const TransactionListContainer = styled.View`
 	margin-top: ${spaces.space_25};
+	width: 100%;
+	max-width: ${width.max_width};
+	align-self: center;
 `;
 
 export const TransactionContainer = styled.View`
@@ -18,16 +24,16 @@ export const TransactionContainer = styled.View`
 export const TransactionItemContainer = styled.TouchableOpacity`
 	flex: 1;
 	flex-direction: row;
-	padding-left: ${spaces.space_10};
+	padding-left: ${isTablet ? spaces.space_20 : spaces.space_10};
 `;
 
 export const Items = styled.View<ItemsProps>`
 	flex: 1;
 	flex-direction: row;
 	align-items: center;
-	padding-top: ${spaces.space_25};
-	padding-bottom: ${spaces.space_25};
-	padding-right: ${spaces.space_10};
+	padding-top: ${isTablet ? spaces.space_30 : spaces.space_25};
+	padding-bottom: ${isTablet ? spaces.space_30 : spaces.space_25};
+	padding-right: ${isTablet ? spaces.space_20 : spaces.space_10};
 	border-bottom-width: 1px;
 	border-bottom-color: ${({ borderVisible }) =>
 		borderVisible ? colors.grey_200 : colors.transparent};
@@ -44,7 +50,7 @@ export const Circle = styled.View`
 	width: 50px;
 	justify-content: center;
 	align-items: center;
-	margin-right: ${spaces.space_10};
+	margin-right: ${isTablet ? spaces.space_20 : spaces.space_10};
 `;
 
 export const Center = styled.View`

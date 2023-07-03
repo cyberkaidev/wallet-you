@@ -40,7 +40,7 @@ export function ScrollViewHeaderPage({
 					onRefresh={onRefresh}
 					progressBackgroundColor={themes.colors.grey_200}
 					colors={[themes.colors.white]}
-					progressViewOffset={Platform.OS === 'ios' ? Constants.statusBarHeight + 115 : 115}
+					progressViewOffset={PADDING_TOP}
 				/>
 			);
 		}

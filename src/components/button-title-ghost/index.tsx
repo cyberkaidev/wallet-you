@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ActivityIndicator } from 'react-native';
 
+import { useAppSettings } from '@/stores';
 import { themes } from '@/themes';
 
 import { Text } from '../text';
@@ -22,6 +23,7 @@ export function ButtonTitleGhost({
 	marginL,
 }: ButtonTitleGhostProps) {
 	const { t } = useTranslation();
+	const { isTablet } = useAppSettings.getState();
 
 	return (
 		<ButtonTitleGhostContainer
@@ -47,7 +49,7 @@ export function ButtonTitleGhost({
 			)}
 			{loading && (
 				<React.Fragment>
-					<ActivityIndicator color={themes.colors.purple_100} size="small" />
+					<ActivityIndicator color={themes.colors.purple_100} size={isTablet ? 'large' : 'small'} />
 					<Text
 						size={size === 'large' ? 'L' : 'M'}
 						marginL={themes.spaces.space_5}

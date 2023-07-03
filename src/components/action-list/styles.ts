@@ -1,15 +1,23 @@
 import styled from 'styled-components/native';
 
+import { useAppSettings } from '@/stores';
 import { themes } from '@/themes';
 
+const { isTablet } = useAppSettings.getState();
+
+const { colors, border_radius, spaces, width } = themes;
+
 export const ActionListContainer = styled.View`
-	background-color: ${themes.colors.black_200};
-	border-radius: ${themes.border_radius.radius_10};
-	border: 1px solid ${themes.colors.grey_200};
+	width: 100%;
+	max-width: ${width.max_width};
+	align-self: center;
+	background-color: ${colors.black_200};
+	border-radius: ${border_radius.radius_10};
+	border: 1px solid ${colors.grey_200};
 `;
 
 export const ItemButton = styled.TouchableOpacity`
-	padding-left: ${themes.spaces.space_15};
+	padding-left: ${isTablet ? spaces.space_20 : spaces.space_15};
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
@@ -21,12 +29,12 @@ export const Indicator = styled.View`
 	right: 0;
 	height: 1px;
 	width: 100%;
-	background-color: ${themes.colors.grey_200};
+	background-color: ${colors.grey_200};
 `;
 
 export const IconAndTitleContainer = styled.View`
 	flex: 1;
-	padding: ${themes.spaces.space_20} 0;
+	padding: ${isTablet ? spaces.space_25 : spaces.space_20} 0;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
@@ -34,5 +42,5 @@ export const IconAndTitleContainer = styled.View`
 `;
 
 export const IconContainer = styled.View`
-	margin-right: ${themes.spaces.space_15};
+	margin-right: ${spaces.space_15};
 `;

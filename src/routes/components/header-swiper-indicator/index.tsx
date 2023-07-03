@@ -5,7 +5,7 @@ import { Platform } from 'react-native';
 import { Text } from '@/components';
 import { themes } from '@/themes';
 
-import { HeaderSwiperIndicatorContainer, Indicator, SafeArea } from './styles';
+import { HeaderSwiperIndicatorContainer, Indicator } from './styles';
 import { HeaderSwiperIndicatorProps } from './types';
 
 export function HeaderSwiperIndicator({ title }: HeaderSwiperIndicatorProps) {
@@ -18,12 +18,10 @@ export function HeaderSwiperIndicator({ title }: HeaderSwiperIndicatorProps) {
 
 	return (
 		<HeaderSwiperIndicatorContainer testID="idHeaderSwiperIndicator">
-			<SafeArea>
-				<Indicator />
-				<Text size="XL" weight="medium">
-					{title}
-				</Text>
-			</SafeArea>
+			<Indicator />
+			<Text size="XL" weight="medium">
+				{title}
+			</Text>
 		</HeaderSwiperIndicatorContainer>
 	);
 }

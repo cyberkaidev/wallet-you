@@ -1,6 +1,7 @@
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import { IconArrowDown, IconArrowRight, IconArrowUp } from '@/assets';
 import { calculateBalance } from '@/functions';
@@ -19,6 +20,9 @@ export function TransactionList() {
 	const currency = useAppSettings(state => state.currency);
 	const navigation = useNavigation<NavigationProp<RootStackParamListProps>>();
 	const currentPrice = useBitcoinDataPrices(state => state.data?.current_price);
+
+	const SIZE_ICON_STATUS = hp('2.5%');
+	const SIZE_ICON_ARROW = hp('2%');
 
 	return (
 		<Styles.TransactionListContainer testID="idTransactionList">
@@ -58,8 +62,8 @@ export function TransactionList() {
 								onPress={() => navigation.navigate('TransactionPage', { data: item })}
 							>
 								<Styles.Circle>
-									{item.transactionType === 'incoming' && <IconArrowDown size={18} />}
-									{item.transactionType === 'outgoing' && <IconArrowUp size={18} />}
+									{item.transactionType === 'incoming' && <IconArrowDown size={SIZE_ICON_STATUS} />}
+									{item.transactionType === 'outgoing' && <IconArrowUp size={SIZE_ICON_STATUS} />}
 								</Styles.Circle>
 								<Styles.Items borderVisible={data.length != index + 1}>
 									<Styles.Column>
@@ -86,7 +90,7 @@ export function TransactionList() {
 											</Text>
 										</Styles.TextContainer>
 									</Styles.Column>
-									<IconArrowRight size={13} color={themes.colors.grey_200} />
+									<IconArrowRight size={SIZE_ICON_ARROW} color={themes.colors.grey_200} />
 								</Styles.Items>
 							</Styles.TransactionItemContainer>
 						);

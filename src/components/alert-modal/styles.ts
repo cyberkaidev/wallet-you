@@ -14,6 +14,7 @@ export const BackgroundContainer = styled.View`
 
 export const AlertContainer = styled.View`
 	width: 100%;
+	max-width: ${themes.width.max_width};
 	padding: ${themes.spaces.space_30} ${themes.spaces.space_20};
 	border-radius: ${themes.border_radius.radius_15};
 	background-color: ${themes.colors.black_200};
