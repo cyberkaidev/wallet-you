@@ -1,5 +1,6 @@
 import React from 'react';
 import { Extrapolate, interpolate, useAnimatedStyle } from 'react-native-reanimated';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import { themes } from '@/themes';
 
@@ -15,18 +16,39 @@ import {
 import { HeaderAnimatedProps } from './types';
 
 export function HeaderAnimated({ translationY, headerTitle }: HeaderAnimatedProps) {
+	const { spaces } = themes;
+
+	const HEIGHT_ITEM_HEADER = hp('8%');
+
 	const translateY = useAnimatedStyle(() => ({
 		transform: [
-			{ translateY: interpolate(translationY.value, [20, 60], [60, -60], Extrapolate.CLAMP) },
+			{
+				translateY: interpolate(
+					translationY.value,
+					[20, HEIGHT_ITEM_HEADER],
+					[HEIGHT_ITEM_HEADER, -HEIGHT_ITEM_HEADER],
+					Extrapolate.CLAMP,
+				),
+			},
 		],
 	}));
 
 	const bottomOpacity = useAnimatedStyle(() => ({
-		opacity: interpolate(translationY.value, [-100, 0, 40], [1, 1, 0], Extrapolate.CLAMP),
+		opacity: interpolate(
+			translationY.value,
+			[-HEIGHT_ITEM_HEADER, 0, HEIGHT_ITEM_HEADER / 1.5],
+			[1, 1, 0],
+			Extrapolate.CLAMP,
+		),
 	}));
 
 	const topOpacity = useAnimatedStyle(() => ({
-		opacity: interpolate(translationY.value, [-100, 0, 40, 65], [0, 0, 0, 1], Extrapolate.CLAMP),
+		opacity: interpolate(
+			translationY.value,
+			[-HEIGHT_ITEM_HEADER, 0, 40, HEIGHT_ITEM_HEADER],
+			[0, 0, 0, 1],
+			Extrapolate.CLAMP,
+		),
 	}));
 
 	return (
@@ -42,7 +64,7 @@ export function HeaderAnimated({ translationY, headerTitle }: HeaderAnimatedProp
 					</FirstItem>
 					<SecondtItem style={translateY}>
 						<OpacityAnimation style={bottomOpacity}>
-							<Text size="XXL" weight="bold" marginB={themes.spaces.space_5}>
+							<Text size="XXL" weight="bold" marginB={spaces.space_5}>
 								{headerTitle}
 							</Text>
 						</OpacityAnimation>

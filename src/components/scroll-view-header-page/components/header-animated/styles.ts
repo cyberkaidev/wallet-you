@@ -1,4 +1,5 @@
 import Animated from 'react-native-reanimated';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import styled from 'styled-components/native';
 
 import { themes } from '@/themes';
@@ -14,7 +15,7 @@ export const HeaderAnimatedContainer = styled.View`
 export const SafeArea = styled.SafeAreaView``;
 
 export const FirstItem = styled.View`
-	height: 60px;
+	height: ${hp('8%')}px;
 	z-index: 2;
 	padding: 0 ${themes.spaces.space_15};
 	justify-content: center;
@@ -23,7 +24,7 @@ export const FirstItem = styled.View`
 
 export const SecondtItem = styled(Animated.View)`
 	position: absolute;
-	height: 55px;
+	height: ${hp('8%')}px;
 	width: 100%;
 	z-index: 1;
 	padding: 0 ${themes.spaces.space_15};
