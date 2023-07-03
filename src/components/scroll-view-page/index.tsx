@@ -1,5 +1,6 @@
 import React from 'react';
 import { RefreshControl } from 'react-native-gesture-handler';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import { themes } from '@/themes';
 
@@ -34,7 +35,12 @@ export function ScrollViewPage({ children, refreshControl }: ScrollViewPageProps
 		<ScrollViewPageContainer
 			testID="idScrollViewPage"
 			alwaysBounceVertical
-			endFillColor="transparent"
+			contentContainerStyle={{
+				paddingBottom: hp('3%'),
+				paddingTop: 25,
+				paddingHorizontal: 15,
+			}}
+			endFillColor={themes.colors.transparent}
 			refreshControl={refreshController()}
 			showsVerticalScrollIndicator={false}
 		>
