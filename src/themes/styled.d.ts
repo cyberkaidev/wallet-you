@@ -36,6 +36,7 @@ declare module 'styled-components' {
 			grey_300: string;
 			grey_200: string;
 			black_300_30pct: string;
+			transparent: string;
 		};
 	}
 }
