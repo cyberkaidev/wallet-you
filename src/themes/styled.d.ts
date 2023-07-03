@@ -2,6 +2,9 @@ import 'styled-components';
 
 declare module 'styled-components' {
 	export interface DefaultTheme {
+		width: {
+			max_width: string;
+		};
 		border_radius: {
 			radius_5: string;
 			radius_10: string;
