@@ -3,6 +3,7 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { RefreshControl } from 'react-native-gesture-handler';
 import { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import { themes } from '@/themes';
 
@@ -17,6 +18,12 @@ export function ScrollViewHeaderPage({
 	headerTitle,
 }: ScrollViewHeaderPageProps) {
 	const [refreshing, setRefreshing] = React.useState(false);
+
+	const HEADER_HEIGHT = hp('16%');
+	const DEFAULT_MARGIN = 25;
+	const STATUS_BAR = Constants.statusBarHeight;
+
+	const PADDING_TOP = (Platform.OS === 'ios' ? STATUS_BAR : 0) + HEADER_HEIGHT + DEFAULT_MARGIN;
 
 	async function onRefresh() {
 		setRefreshing(true);
@@ -49,10 +56,13 @@ export function ScrollViewHeaderPage({
 		<React.Fragment>
 			<ScrollViewHeaderPageContainer
 				testID="idScrollViewHeaderPage"
-				horizontalPadding={enabledHorizontalPadding ? themes.spaces.space_15 : '0px'}
-				contentContainerStyle={{ paddingBottom: 175 }}
 				alwaysBounceVertical
-				endFillColor="transparent"
+				contentContainerStyle={{
+					paddingBottom: hp('3%'),
+					paddingTop: PADDING_TOP,
+					paddingHorizontal: enabledHorizontalPadding ? 15 : 0,
+				}}
+				endFillColor={themes.colors.transparent}
 				refreshControl={refreshController()}
 				onScroll={scrollHandler}
 				scrollEventThrottle={1}

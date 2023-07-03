@@ -4,7 +4,3 @@ export interface ScrollViewHeaderPageProps {
 	enabledHorizontalPadding?: boolean;
 	refreshControl?: () => Promise<boolean> | boolean;
 }
-
-export interface ScrollViewHeaderPageContainerProps {
-	horizontalPadding: string;
-}
