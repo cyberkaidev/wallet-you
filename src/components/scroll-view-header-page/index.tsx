@@ -49,6 +49,7 @@ export function ScrollViewHeaderPage({
 	const translationY = useSharedValue(0);
 
 	const scrollHandler = useAnimatedScrollHandler(event => {
+		if (translationY.value === event.contentOffset.y) return;
 		translationY.value = event.contentOffset.y;
 	});
 
