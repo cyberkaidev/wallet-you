@@ -55,6 +55,7 @@ export function ScrollViewHeaderPage({
 
 	return (
 		<React.Fragment>
+			<HeaderAnimated translationY={translationY} headerTitle={headerTitle} />
 			<ScrollViewHeaderPageContainer
 				testID="idScrollViewHeaderPage"
 				alwaysBounceVertical
@@ -71,7 +72,6 @@ export function ScrollViewHeaderPage({
 			>
 				<SafeArea>{children}</SafeArea>
 			</ScrollViewHeaderPageContainer>
-			<HeaderAnimated translationY={translationY} headerTitle={headerTitle} />
 		</React.Fragment>
 	);
 }

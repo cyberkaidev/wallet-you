@@ -6,7 +6,6 @@ import { themes } from '@/themes';
 
 import { Text } from '../../../text';
 import {
-	ContainerItems,
 	FirstItem,
 	HeaderAnimatedContainer,
 	OpacityAnimation,
@@ -26,35 +25,31 @@ export function HeaderAnimated({ translationY, headerTitle }: HeaderAnimatedProp
 				translateY: interpolate(
 					translationY.value,
 					[20, HEIGHT_ITEM_HEADER],
-					[HEIGHT_ITEM_HEADER, -HEIGHT_ITEM_HEADER],
+					[0, -HEIGHT_ITEM_HEADER],
 					Extrapolate.CLAMP,
 				),
 			},
 		],
 	}));
 
-	const bottomOpacity = useAnimatedStyle(() => ({
-		opacity: interpolate(
-			translationY.value,
-			[-HEIGHT_ITEM_HEADER, 0, HEIGHT_ITEM_HEADER / 1.5],
-			[1, 1, 0],
-			Extrapolate.CLAMP,
-		),
-	}));
-
 	const topOpacity = useAnimatedStyle(() => ({
 		opacity: interpolate(
 			translationY.value,
-			[-HEIGHT_ITEM_HEADER, 0, 40, HEIGHT_ITEM_HEADER],
+			[-HEIGHT_ITEM_HEADER, 0, 50, HEIGHT_ITEM_HEADER],
 			[0, 0, 0, 1],
 			Extrapolate.CLAMP,
 		),
 	}));
 
 	return (
-		<HeaderAnimatedContainer testID="idHeaderAnimatedContainer">
-			<SafeArea>
-				<ContainerItems>
+		<React.Fragment>
+			<SecondtItem style={translateY}>
+				<Text size="XXL" weight="bold" marginB={spaces.space_5}>
+					{headerTitle}
+				</Text>
+			</SecondtItem>
+			<HeaderAnimatedContainer testID="idHeaderAnimatedContainer">
+				<SafeArea>
 					<FirstItem>
 						<OpacityAnimation style={topOpacity}>
 							<Text size="XXL" weight="bold">
@@ -62,15 +57,8 @@ export function HeaderAnimated({ translationY, headerTitle }: HeaderAnimatedProp
 							</Text>
 						</OpacityAnimation>
 					</FirstItem>
-					<SecondtItem style={translateY}>
-						<OpacityAnimation style={bottomOpacity}>
-							<Text size="XXL" weight="bold" marginB={spaces.space_5}>
-								{headerTitle}
-							</Text>
-						</OpacityAnimation>
-					</SecondtItem>
-				</ContainerItems>
-			</SafeArea>
-		</HeaderAnimatedContainer>
+				</SafeArea>
+			</HeaderAnimatedContainer>
+		</React.Fragment>
 	);
 }
