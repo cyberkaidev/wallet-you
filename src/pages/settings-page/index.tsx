@@ -71,7 +71,7 @@ export function SettingsPage() {
 			<ActionList list={list} />
 			<ContainerVersion>
 				<Text size="S" weight="bold" marginT={themes.spaces.space_25}>
-					v {Constants.manifest != null ? Constants.manifest.version : '-'}
+					v {Constants.expoConfig?.version != null ? Constants.expoConfig.version : '-'}
 				</Text>
 			</ContainerVersion>
 			<AlertModal
