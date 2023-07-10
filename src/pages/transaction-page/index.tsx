@@ -2,7 +2,7 @@ import { RouteProp, useRoute } from '@react-navigation/native';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ScrollViewPage, TitleSubtitle } from '@/components';
+import { ScrollView, TitleSubtitle } from '@/components';
 import { useFormatDate } from '@/hooks';
 import { RootStackParamListProps } from '@/routes/types';
 import { themes } from '@/themes';
@@ -30,7 +30,7 @@ export function TransactionPage() {
 	];
 
 	return (
-		<ScrollViewPage>
+		<ScrollView>
 			{list.map((item, index) => (
 				<TitleSubtitle
 					key={index}
@@ -39,6 +39,6 @@ export function TransactionPage() {
 					marginB={spaces.space_25}
 				/>
 			))}
-		</ScrollViewPage>
+		</ScrollView>
 	);
 }

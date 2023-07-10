@@ -2,7 +2,7 @@ import * as Clipboard from 'expo-clipboard';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ButtonTitleGhost, ScrollViewPage, Text, TitleSubtitle } from '@/components';
+import { ButtonTitleGhost, ScrollView, Text, TitleSubtitle } from '@/components';
 import { themes } from '@/themes';
 
 export function SupportUsPage() {
@@ -23,7 +23,7 @@ export function SupportUsPage() {
 	}
 
 	return (
-		<ScrollViewPage>
+		<ScrollView>
 			<TitleSubtitle title={t('bitcoin-address')} subTitle={publicKey} marginB={spaces.space_15} />
 			<Text marginB={spaces.space_15}>{t('support-us-by-sending')}</Text>
 			<ButtonTitleGhost
@@ -32,6 +32,6 @@ export function SupportUsPage() {
 				size="small"
 				onPress={copyToClipboard}
 			/>
-		</ScrollViewPage>
+		</ScrollView>
 	);
 }

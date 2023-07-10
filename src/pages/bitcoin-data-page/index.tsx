@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ChartBitcoin, PriceBitcoin, ScrollViewHeaderPage, TitleSubtitle } from '@/components';
+import { ChartBitcoin, PriceBitcoin, ScrollViewHeader, TitleSubtitle } from '@/components';
 import { useFormatCurrency, useFormatPercentage } from '@/hooks';
 import { useAppSettings, useBitcoinDataPrices } from '@/stores';
 import { themes } from '@/themes';
@@ -29,7 +29,7 @@ export function BitcoinDataPage() {
 	const priceChange24hCurrency = useFormatCurrency(data?.price_change_24h_in_currency[currency]);
 
 	return (
-		<ScrollViewHeaderPage headerTitle={t('chart')} enabledHorizontalPadding={false}>
+		<ScrollViewHeader headerTitle={t('chart')} enabledHorizontalPadding={false}>
 			<PaddingContainer>
 				<PriceBitcoin
 					title={t('today')}
@@ -80,6 +80,6 @@ export function BitcoinDataPage() {
 					isLoading={isLoading}
 				/>
 			</PaddingContainer>
-		</ScrollViewHeaderPage>
+		</ScrollViewHeader>
 	);
 }

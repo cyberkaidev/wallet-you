@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { ScrollViewPage, Text } from '@/components';
+import { ScrollView, Text } from '@/components';
 import { themes } from '@/themes';
 
 export function TermsPage() {
 	const { spaces, colors } = themes;
 
 	return (
-		<ScrollViewPage>
+		<ScrollView>
 			<Text size="XL" weight="bold">
 				1 - Security
 			</Text>
@@ -33,6 +33,6 @@ export function TermsPage() {
 				3.1 - We only share your public key with the {'"tatum.com"'} library so that we can collect
 				your balance information and transactions on the blockchain.
 			</Text>
-		</ScrollViewPage>
+		</ScrollView>
 	);
 }

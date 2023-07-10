@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 import {
 	ButtonTitleGhost,
 	CheckBoxMessage,
-	ScrollViewHeaderPage,
+	ScrollViewHeader,
 	SpaceFull,
 	Text,
 	TextFieldArea,
@@ -69,7 +69,7 @@ export function RegisterKeyPage() {
 	}
 
 	return (
-		<ScrollViewHeaderPage headerTitle={t('public-key')}>
+		<ScrollViewHeader headerTitle={t('public-key')}>
 			<TextFieldArea value={inputPublicKey} onChangeText={setInputPublicKey} />
 			{error.visible && (
 				<Text weight="medium" marginT={themes.spaces.space_5} color={themes.colors.red}>
@@ -92,6 +92,6 @@ export function RegisterKeyPage() {
 				disabled={inputPublicKey.length < 1}
 				marginT={themes.spaces.space_25}
 			/>
-		</ScrollViewHeaderPage>
+		</ScrollViewHeader>
 	);
 }

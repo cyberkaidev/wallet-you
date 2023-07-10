@@ -5,7 +5,7 @@ import * as SecureStore from 'expo-secure-store';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ActionList, AlertModal, ScrollViewHeaderPage, Text } from '@/components';
+import { ActionList, AlertModal, ScrollViewHeader, Text } from '@/components';
 import { initializeAppSettings } from '@/functions';
 import { storageKeys } from '@/helpers';
 import { RootStackParamListProps } from '@/routes/types';
@@ -67,7 +67,7 @@ export function SettingsPage() {
 	];
 
 	return (
-		<ScrollViewHeaderPage headerTitle={t('settings')}>
+		<ScrollViewHeader headerTitle={t('settings')}>
 			<ActionList list={list} />
 			<ContainerVersion>
 				<Text size="S" weight="bold" marginT={themes.spaces.space_25}>
@@ -80,6 +80,6 @@ export function SettingsPage() {
 				onCancel={() => setShowModal(false)}
 				onConfirm={onExit}
 			/>
-		</ScrollViewHeaderPage>
+		</ScrollViewHeader>
 	);
 }

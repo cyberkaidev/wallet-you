@@ -4,20 +4,22 @@ import { Platform } from 'react-native';
 import { RefreshControl } from 'react-native-gesture-handler';
 import { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { themes } from '@/themes';
 
 import { HeaderAnimated } from './components/header-animated';
-import { SafeArea, ScrollViewHeaderPageContainer } from './styles';
-import { ScrollViewHeaderPageProps } from './types';
+import { ScrollViewHeaderContainer } from './styles';
+import { ScrollViewHeaderProps } from './types';
 
-export function ScrollViewHeaderPage({
+export function ScrollViewHeader({
 	children,
 	enabledHorizontalPadding = true,
 	refreshControl,
 	headerTitle,
-}: ScrollViewHeaderPageProps) {
+}: ScrollViewHeaderProps) {
 	const [refreshing, setRefreshing] = React.useState(false);
+	const insets = useSafeAreaInsets();
 
 	const HEADER_HEIGHT = hp('16%');
 	const DEFAULT_MARGIN = 25;
@@ -56,11 +58,11 @@ export function ScrollViewHeaderPage({
 	return (
 		<React.Fragment>
 			<HeaderAnimated translationY={translationY} headerTitle={headerTitle} />
-			<ScrollViewHeaderPageContainer
-				testID="idScrollViewHeaderPage"
+			<ScrollViewHeaderContainer
+				testID="idScrollViewHeader"
 				alwaysBounceVertical
 				contentContainerStyle={{
-					paddingBottom: hp('3%'),
+					paddingBottom: hp('3%') + insets.bottom,
 					paddingTop: PADDING_TOP,
 					paddingHorizontal: enabledHorizontalPadding ? 15 : 0,
 				}}
@@ -70,8 +72,8 @@ export function ScrollViewHeaderPage({
 				scrollEventThrottle={1}
 				showsVerticalScrollIndicator={false}
 			>
-				<SafeArea>{children}</SafeArea>
-			</ScrollViewHeaderPageContainer>
+				{children}
+			</ScrollViewHeaderContainer>
 		</React.Fragment>
 	);
 }

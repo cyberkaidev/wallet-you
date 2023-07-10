@@ -3,7 +3,7 @@ import React from 'react';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import { IconGithub, IconTwitter } from '@/assets';
-import { ActionList, ScrollViewPage } from '@/components';
+import { ActionList, ScrollView } from '@/components';
 
 export function LinksPage() {
 	const list = [
@@ -22,8 +22,8 @@ export function LinksPage() {
 	];
 
 	return (
-		<ScrollViewPage>
+		<ScrollView>
 			<ActionList list={list} />
-		</ScrollViewPage>
+		</ScrollView>
 	);
 }

@@ -2,11 +2,11 @@ import { act, render } from '@testing-library/react-native';
 import React from 'react';
 import { View } from 'react-native';
 
-import { ScrollViewHeaderPage } from '@/components';
+import { ScrollViewHeader } from '@/components';
 
-describe('ScrollViewHeaderPage', () => {
+describe('ScrollViewHeader', () => {
 	const configTest = {
-		idScrollViewHeaderPage: 'idScrollViewHeaderPage',
+		idScrollViewHeader: 'idScrollViewHeader',
 		idHeaderAnimatedContainer: 'idHeaderAnimatedContainer',
 		headerTitle: 'Hello World',
 		idRefreshControl: 'idRefreshControl',
@@ -15,27 +15,27 @@ describe('ScrollViewHeaderPage', () => {
 
 	test('Render component', () => {
 		const { getByTestId, getAllByText } = render(
-			<ScrollViewHeaderPage headerTitle={configTest.headerTitle}>
+			<ScrollViewHeader headerTitle={configTest.headerTitle}>
 				<View />
-			</ScrollViewHeaderPage>,
+			</ScrollViewHeader>,
 		);
 
-		expect(getByTestId(configTest.idScrollViewHeaderPage)).toBeTruthy();
+		expect(getByTestId(configTest.idScrollViewHeader)).toBeTruthy();
 		expect(getByTestId(configTest.idHeaderAnimatedContainer)).toBeTruthy();
 		expect(getAllByText(configTest.headerTitle)).toBeTruthy();
 	});
 
 	test('Refresh scroll', async () => {
 		const component = render(
-			<ScrollViewHeaderPage
+			<ScrollViewHeader
 				headerTitle={configTest.headerTitle}
 				refreshControl={configTest.refreshControl}
 			>
 				<View />
-			</ScrollViewHeaderPage>,
+			</ScrollViewHeader>,
 		);
 
-		const scrollView = component.getByTestId(configTest.idScrollViewHeaderPage);
+		const scrollView = component.getByTestId(configTest.idScrollViewHeader);
 		expect(scrollView).toBeDefined();
 		const { refreshControl } = scrollView.props;
 		await act(async () => {
