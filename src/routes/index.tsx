@@ -2,6 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Animated } from 'react-native';
 
 import { BitcoinDataPage } from '@/pages/bitcoin-data-page';
 import { CurrencyPage } from '@/pages/currency-page';
@@ -30,6 +31,12 @@ export function Routes() {
 		cardOverlayEnabled: true,
 		...TransitionPresets.ModalPresentationIOS,
 	};
+
+	const fixAnimateToIOS = new Animated.Value(0);
+
+	fixAnimateToIOS.addListener(() => {
+		return;
+	});
 
 	return (
 		<Stack.Navigator
