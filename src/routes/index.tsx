@@ -24,19 +24,20 @@ import { RootStackParamListProps } from './types';
 const Stack = createStackNavigator<RootStackParamListProps>();
 const Tab = createBottomTabNavigator();
 
+const optionsScreenIOS = {
+	gestureEnabled: true,
+	cardOverlayEnabled: true,
+	...TransitionPresets.ModalPresentationIOS,
+};
+
+const fixAnimateToIOS = new Animated.Value(0);
+
+fixAnimateToIOS.addListener(() => {
+	return;
+});
+
 export function Routes() {
 	const { t } = useTranslation();
-	const optionsScreenIOS = {
-		gestureEnabled: true,
-		cardOverlayEnabled: true,
-		...TransitionPresets.ModalPresentationIOS,
-	};
-
-	const fixAnimateToIOS = new Animated.Value(0);
-
-	fixAnimateToIOS.addListener(() => {
-		return;
-	});
 
 	return (
 		<Stack.Navigator
