@@ -1,3 +1,4 @@
+import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import styled from 'styled-components/native';
 
 import { themes } from '@/themes';
@@ -11,8 +12,8 @@ export const ItemButton = styled.TouchableOpacity`
 `;
 
 export const BorderSelect = styled.View`
-	width: 20px;
-	height: 20px;
+	width: ${wp('4%')}px;
+	height: ${wp('4%')}px;
 	align-items: center;
 	justify-content: center;
 	border-radius: 40px;
@@ -20,8 +21,8 @@ export const BorderSelect = styled.View`
 `;
 
 export const Selected = styled.View`
-	width: 10px;
-	height: 10px;
+	width: ${wp('2%')}px;
+	height: ${wp('2%')}px;
 	border-radius: 20px;
 	background-color: ${themes.colors.purple_100};
 `;
