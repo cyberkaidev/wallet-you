@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import { ChartBitcoin, PriceBitcoin, ScrollViewHeader, TitleSubtitle } from '@/components';
 import { useFormatCurrency, useFormatPercentage } from '@/hooks';
@@ -11,7 +12,9 @@ import { PaddingContainer } from './styles';
 export function BitcoinDataPage() {
 	const { t } = useTranslation();
 	const { data, status } = useBitcoinDataPrices(state => state);
-	const { currency } = useAppSettings(state => state);
+	const { currency, isTablet } = useAppSettings(state => state);
+
+	const MARGIN_TOP = isTablet ? `${hp('5%')}px` : themes.spaces.space_25;
 
 	const isLoading = status === 'loading' || status === null;
 	const { percent, isPositive } = useFormatPercentage(
@@ -45,38 +48,38 @@ export function BitcoinDataPage() {
 				<TitleSubtitle
 					title={`${t('price-change')} (24h)`}
 					subTitle={priceChange24hCurrency}
-					marginT={themes.spaces.space_25}
+					marginT={MARGIN_TOP}
 					isLoading={isLoading}
 				/>
 				<TitleSubtitle
 					title={`${t('low')} (24h)`}
 					subTitle={lowPrice24hCurrency}
-					marginT={themes.spaces.space_25}
+					marginT={MARGIN_TOP}
 					isLoading={isLoading}
 				/>
 				<TitleSubtitle
 					title={`${t('high')} (24h)`}
 					subTitle={highPrice24hCurrency}
-					marginT={themes.spaces.space_25}
+					marginT={MARGIN_TOP}
 					isLoading={isLoading}
 				/>
 				<TitleSubtitle
 					title={t('market-value')}
 					subTitle={marketCapCurrency}
-					marginT={themes.spaces.space_25}
+					marginT={MARGIN_TOP}
 					isLoading={isLoading}
 				/>
 				<TitleSubtitle
 					title={`${t('market-value-change')} (24h)`}
 					subTitle={marketCapChange24hCurrency}
-					marginT={themes.spaces.space_25}
+					marginT={MARGIN_TOP}
 					isLoading={isLoading}
 				/>
 				<TitleSubtitle
 					title={t('total-volume')}
 					subTitle={totalVolumeCurrency}
-					marginT={themes.spaces.space_25}
-					marginB={themes.spaces.space_25}
+					marginT={MARGIN_TOP}
+					marginB={MARGIN_TOP}
 					isLoading={isLoading}
 				/>
 			</PaddingContainer>

@@ -1,3 +1,4 @@
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import styled from 'styled-components/native';
 
 import { useAppSettings } from '@/stores';
@@ -9,8 +10,11 @@ const { colors, border_radius, spaces, width } = themes;
 
 const { isTablet } = useAppSettings.getState();
 
+const PADDING_ITEM_TABLET = `${hp('3.5%')}px`;
+const MARGIN_TOP_TRANSACTION = `${hp('5%')}px`;
+
 export const TransactionListContainer = styled.View`
-	margin-top: ${spaces.space_25};
+	margin-top: ${isTablet ? MARGIN_TOP_TRANSACTION : spaces.space_25};
 	width: 100%;
 	max-width: ${width.max_width};
 	align-self: center;
@@ -31,8 +35,8 @@ export const Items = styled.View<ItemsProps>`
 	flex: 1;
 	flex-direction: row;
 	align-items: center;
-	padding-top: ${isTablet ? spaces.space_30 : spaces.space_25};
-	padding-bottom: ${isTablet ? spaces.space_30 : spaces.space_25};
+	padding-top: ${isTablet ? PADDING_ITEM_TABLET : spaces.space_25};
+	padding-bottom: ${isTablet ? PADDING_ITEM_TABLET : spaces.space_25};
 	padding-right: ${isTablet ? spaces.space_20 : spaces.space_10};
 	border-bottom-width: 1px;
 	border-bottom-color: ${({ borderVisible }) =>

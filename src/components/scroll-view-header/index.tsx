@@ -6,6 +6,7 @@ import { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimate
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { useAppSettings } from '@/stores';
 import { themes } from '@/themes';
 
 import { HeaderAnimated } from './components/header-animated';
@@ -20,9 +21,10 @@ export function ScrollViewHeader({
 }: ScrollViewHeaderProps) {
 	const [refreshing, setRefreshing] = React.useState(false);
 	const insets = useSafeAreaInsets();
+	const { isTablet } = useAppSettings(state => state);
 
 	const HEADER_HEIGHT = hp('16%');
-	const DEFAULT_MARGIN = 25;
+	const DEFAULT_MARGIN = isTablet ? hp('5%') : 25;
 	const STATUS_BAR = Constants.statusBarHeight;
 
 	const PADDING_TOP = (Platform.OS === 'ios' ? STATUS_BAR : 0) + HEADER_HEIGHT + DEFAULT_MARGIN;

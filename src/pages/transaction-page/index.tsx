@@ -1,10 +1,12 @@
 import { RouteProp, useRoute } from '@react-navigation/native';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import { ScrollView, TitleSubtitle } from '@/components';
 import { useFormatDate } from '@/hooks';
 import { RootStackParamListProps } from '@/routes/types';
+import { useAppSettings } from '@/stores';
 import { themes } from '@/themes';
 
 export function TransactionPage() {
@@ -12,8 +14,12 @@ export function TransactionPage() {
 		params: { data },
 	} = useRoute<RouteProp<RootStackParamListProps, 'TransactionPage'>>();
 	const { spaces } = themes;
+	const { isTablet } = useAppSettings(state => state);
 	const { t } = useTranslation();
+
 	const time = useFormatDate(new Date(data.timestamp * 1000));
+
+	const MARGIN_BOTTOM = isTablet ? `${hp('5%')}px` : spaces.space_25;
 
 	const list = [
 		{
@@ -36,7 +42,7 @@ export function TransactionPage() {
 					key={index}
 					title={item.title}
 					subTitle={item.subTitle}
-					marginB={spaces.space_25}
+					marginB={MARGIN_BOTTOM}
 				/>
 			))}
 		</ScrollView>
