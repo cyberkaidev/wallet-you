@@ -12,7 +12,16 @@ import { themes } from '@/themes';
 
 import { SkeletonLoading } from '../skeleton-loading';
 import { Text } from '../text';
-import * as Styles from './styles';
+import {
+	Center,
+	Circle,
+	Column,
+	Items,
+	TextContainer,
+	TransactionContainer,
+	TransactionItemContainer,
+	TransactionListContainer,
+} from './styles';
 
 export function TransactionList() {
 	const { t } = useTranslation();
@@ -25,7 +34,7 @@ export function TransactionList() {
 	const SIZE_ICON_ARROW = hp('2%');
 
 	return (
-		<Styles.TransactionListContainer testID="idTransactionList">
+		<TransactionListContainer testID="idTransactionList">
 			<Text size="XL" weight="medium" marginB={themes.spaces.space_10}>
 				{t('transactions')}
 			</Text>
@@ -35,39 +44,39 @@ export function TransactionList() {
 			)}
 
 			{status === 'failed' && (
-				<Styles.Center>
+				<Center>
 					<Text color={themes.colors.grey_300} weight="bold">
 						{t('request-error-try-later')}
 					</Text>
-				</Styles.Center>
+				</Center>
 			)}
 
 			{data.length === 0 && status === 'success' && (
-				<Styles.Center>
+				<Center>
 					<Text color={themes.colors.grey_300} weight="bold">
 						{t('you-dont-have-transactions')}
 					</Text>
-				</Styles.Center>
+				</Center>
 			)}
 
-			<Styles.TransactionContainer>
+			<TransactionContainer>
 				{data.length > 0 &&
 					status === 'success' &&
 					data.map((item, index) => {
 						if (item.transactionType === 'zero-transfer') return;
 						return (
-							<Styles.TransactionItemContainer
+							<TransactionItemContainer
 								testID={`id${index}`}
 								key={index}
 								onPress={() => navigation.navigate('TransactionPage', { data: item })}
 							>
-								<Styles.Circle>
+								<Circle>
 									{item.transactionType === 'incoming' && <IconArrowDown size={SIZE_ICON_STATUS} />}
 									{item.transactionType === 'outgoing' && <IconArrowUp size={SIZE_ICON_STATUS} />}
-								</Styles.Circle>
-								<Styles.Items borderVisible={data.length != index + 1}>
-									<Styles.Column>
-										<Styles.TextContainer>
+								</Circle>
+								<Items borderVisible={data.length != index + 1}>
+									<Column>
+										<TextContainer>
 											<Text size="M" weight="bold">
 												{useFormatDate(new Date(item.timestamp * 1000)).date}
 											</Text>
@@ -80,22 +89,22 @@ export function TransactionList() {
 													}),
 												)}
 											</Text>
-										</Styles.TextContainer>
-										<Styles.TextContainer>
+										</TextContainer>
+										<TextContainer>
 											<Text size="S" weight="medium" color={themes.colors.grey_300}>
 												{useFormatDate(new Date(item.timestamp * 1000)).time}
 											</Text>
 											<Text size="S" weight="medium" color={themes.colors.grey_300}>
 												{item.amount} BTC
 											</Text>
-										</Styles.TextContainer>
-									</Styles.Column>
+										</TextContainer>
+									</Column>
 									<IconArrowRight size={SIZE_ICON_ARROW} color={themes.colors.grey_200} />
-								</Styles.Items>
-							</Styles.TransactionItemContainer>
+								</Items>
+							</TransactionItemContainer>
 						);
 					})}
-			</Styles.TransactionContainer>
-		</Styles.TransactionListContainer>
+			</TransactionContainer>
+		</TransactionListContainer>
 	);
 }
