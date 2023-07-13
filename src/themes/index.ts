@@ -2,7 +2,7 @@ import { DefaultTheme } from 'styled-components';
 
 export const themes: DefaultTheme = {
 	width: {
-		max_width: '700px',
+		max_width: '850px',
 	},
 	border_radius: {
 		radius_5: '5px',
