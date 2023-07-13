@@ -3,6 +3,7 @@ import React from 'react';
 import { Dimensions, PanResponder, View } from 'react-native';
 import { AreaChart } from 'react-native-svg-charts';
 
+import { useAppSettings } from '@/stores';
 import { themes } from '@/themes';
 
 import { CustomLine } from '../custom-line';
@@ -10,6 +11,8 @@ import { CustomTooltip } from '../custom-tooltip';
 import { ChartMainProps } from './types';
 
 export function ChartMain({ data }: ChartMainProps) {
+	const { isTablet } = useAppSettings(state => state);
+
 	const apx = (size = 0) => {
 		const width = Dimensions.get('window').width;
 		return (width / 750) * size;
@@ -60,7 +63,7 @@ export function ChartMain({ data }: ChartMainProps) {
 			testID="idChart"
 			style={{
 				width: apx(750),
-				height: apx(500),
+				height: apx(isTablet ? 350 : 500),
 			}}
 		>
 			<View style={{ flex: 1 }} {...panResponder.current.panHandlers}>
