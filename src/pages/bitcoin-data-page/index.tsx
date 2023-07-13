@@ -14,7 +14,7 @@ export function BitcoinDataPage() {
 	const { data, status } = useBitcoinDataPrices(state => state);
 	const { currency, isTablet } = useAppSettings(state => state);
 
-	const MARGIN_TOP = isTablet ? `${hp('5%')}px` : themes.spaces.space_25;
+	const MARGIN_TOP = isTablet ? `${hp('3.5%')}px` : themes.spaces.space_25;
 
 	const isLoading = status === 'loading' || status === null;
 	const { percent, isPositive } = useFormatPercentage(

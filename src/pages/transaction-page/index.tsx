@@ -19,7 +19,7 @@ export function TransactionPage() {
 
 	const time = useFormatDate(new Date(data.timestamp * 1000));
 
-	const MARGIN_BOTTOM = isTablet ? `${hp('5%')}px` : spaces.space_25;
+	const MARGIN_BOTTOM = isTablet ? `${hp('3.5%')}px` : spaces.space_25;
 
 	const list = [
 		{
