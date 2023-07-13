@@ -4,11 +4,14 @@ import {
 } from 'react-native-responsive-screen';
 import styled from 'styled-components/native';
 
+import { useAppSettings } from '@/stores';
 import { themes } from '@/themes';
 
 import { FieldAreaProps } from './types';
 
 const { colors, spaces, font_sizes, border_radius, width } = themes;
+
+const { isTablet } = useAppSettings.getState();
 
 export const FieldArea = styled.TextInput<FieldAreaProps>`
 	width: 100%;
@@ -21,5 +24,6 @@ export const FieldArea = styled.TextInput<FieldAreaProps>`
 	font-family: 'Inter-Regular';
 	height: ${hp('15%')}px;
 	padding: ${spaces.space_10};
-	${({ isFocused }) => isFocused && `border: 1px solid ${colors.purple_100};`}
+	${({ isFocused }) =>
+		isFocused && `border: ${isTablet ? '3px' : '1px'} solid ${colors.purple_100};`}
 `;
