@@ -31,14 +31,13 @@ declare module 'styled-components' {
 			white: string;
 			green: string;
 			red: string;
-			purple_100: string;
-			purple_200: string;
-			purple_300: string;
-			black_300: string;
-			black_200: string;
-			grey_300: string;
-			grey_200: string;
-			black_300_30pct: string;
+			light_cyan: string;
+			dark_cyan: string;
+			black_100: string;
+			black_000: string;
+			light_grey: string;
+			dark_grey: string;
+			black_100_30pct: string;
 			transparent: string;
 		};
 	}
