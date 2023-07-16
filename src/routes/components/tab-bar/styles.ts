@@ -26,7 +26,7 @@ export const Touch = styled.TouchableOpacity`
 
 export const Indicator = styled.View<IndicatorProps>`
 	background-color: ${({ isFocused }) => (isFocused ? colors.dark_cyan : colors.transparent)};
-	width: ${wp('20%')}px;
+	width: ${hp('8.5%')}px;
 	max-width: 120px;
 	height: ${hp('4.5%')}px;
 	align-items: center;
