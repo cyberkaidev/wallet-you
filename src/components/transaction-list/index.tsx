@@ -40,7 +40,7 @@ export function TransactionList() {
 			</Text>
 
 			{(status === 'loading' || status === null) && (
-				<SkeletonLoading widthPorcent="92%" heightPorcent="12%" radius={10} />
+				<SkeletonLoading heightPorcent="12%" radius={10} />
 			)}
 
 			{status === 'failed' && (

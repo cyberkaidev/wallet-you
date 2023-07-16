@@ -20,7 +20,7 @@ export function ChartBitcoin() {
 	return (
 		<ChartBitcoinContainer testID="idChartBitcoin">
 			{(status === 'loading' || status === null) && (
-				<SkeletonLoading widthPorcent="100%" heightPorcent="35%" radius={0} />
+				<SkeletonLoading heightPorcent="35%" radius={0} />
 			)}
 
 			{status === 'failed' && (

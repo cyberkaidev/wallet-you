@@ -4,7 +4,7 @@ import { themes } from '@/themes';
 
 import { SkeletonLoading } from '../skeleton-loading';
 import { Text } from '../text';
-import { TitleSubtitleContainer } from './styles';
+import { LoadingContainer, TitleSubtitleContainer } from './styles';
 import { TitleSubtitleProps } from './types';
 
 export function TitleSubtitle({
@@ -23,7 +23,11 @@ export function TitleSubtitle({
 			<Text size="XL" weight="medium">
 				{title}
 			</Text>
-			{isLoading && <SkeletonLoading widthPorcent="60%" heightPorcent="4%" radius={5} />}
+			{isLoading && (
+				<LoadingContainer>
+					<SkeletonLoading heightPorcent="4%" radius={5} />
+				</LoadingContainer>
+			)}
 			{!isLoading && (
 				<Text size="M" weight="medium" color={themes.colors.light_grey}>
 					{subTitle}

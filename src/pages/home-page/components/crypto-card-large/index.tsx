@@ -39,7 +39,7 @@ export function CryptoCardLarge({ type, price, balance, status }: CryptoCardLarg
 					</Text>
 				)}
 				{(status === 'loading' || status === null) && (
-					<SkeletonLoading widthPorcent="70%" heightPorcent="8%" radius={10} />
+					<SkeletonLoading heightPorcent="8%" radius={10} />
 				)}
 				<Text size={isTablet ? 'S' : 'L'} weight="medium">
 					{balance} {type === 'bitcoin' ? 'BTC' : 'ADA'}

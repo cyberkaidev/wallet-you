@@ -25,7 +25,7 @@ export function PriceBitcoin({
 				{title}
 			</Text>
 			{(status === 'loading' || status === null) && (
-				<SkeletonLoading widthPorcent="70%" heightPorcent="8%" radius={10} />
+				<SkeletonLoading heightPorcent="8%" radius={10} />
 			)}
 			{status === 'failed' && (
 				<Text color={colors.light_grey} marginB={spaces.space_5}>
