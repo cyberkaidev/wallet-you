@@ -6,7 +6,6 @@ export interface SkeletonLoadingContainerProps {
 }
 
 export interface SkeletonLoadingProps {
-	widthPorcent: string;
 	heightPorcent: string;
 	radius: number;
 	marginT?: string;
