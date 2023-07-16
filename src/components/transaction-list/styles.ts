@@ -22,7 +22,7 @@ export const TransactionListContainer = styled.View`
 
 export const TransactionContainer = styled.View`
 	border-radius: ${border_radius.radius_10};
-	background-color: ${colors.black_200};
+	background-color: ${colors.black_000};
 `;
 
 export const TransactionItemContainer = styled.TouchableOpacity`
@@ -40,7 +40,7 @@ export const Items = styled.View<ItemsProps>`
 	padding-right: ${isTablet ? spaces.space_20 : spaces.space_10};
 	border-bottom-width: 1px;
 	border-bottom-color: ${({ borderVisible }) =>
-		borderVisible ? colors.grey_200 : colors.transparent};
+		borderVisible ? colors.dark_grey : colors.transparent};
 	border-bottom-style: solid;
 `;
 

@@ -9,7 +9,7 @@ export const ButtonTitleShapeContainer = styled.TouchableOpacity<ButtonTitleShap
 	flex-direction: row;
 	padding: ${({ paddingV, paddingH }) => `${paddingV} ${paddingH}`};
 	border-radius: ${({ borderR }) => borderR};
-	background-color: ${themes.colors.purple_100};
+	background-color: ${themes.colors.light_cyan};
 	margin-bottom: ${themes.spaces.space_15};
 	align-items: center;
 	justify-content: center;

@@ -25,7 +25,7 @@ export function ChartBitcoin() {
 
 			{status === 'failed' && (
 				<FailedContainer>
-					<Text color={themes.colors.grey_300} weight="bold">
+					<Text color={themes.colors.light_grey} weight="bold">
 						{t('request-error-try-later')}
 					</Text>
 				</FailedContainer>

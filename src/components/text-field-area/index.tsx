@@ -25,7 +25,7 @@ export function TextFieldArea({ value, onChangeText }: TextFieldAreaProps) {
 			scrollEnabled
 			blurOnSubmit={true}
 			cursorColor={themes.colors.white}
-			placeholderTextColor={themes.colors.grey_300}
+			placeholderTextColor={themes.colors.light_grey}
 			returnKeyType="done"
 			style={{ textAlignVertical: 'top' }}
 			maxLength={150}

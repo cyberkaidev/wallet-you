@@ -45,7 +45,7 @@ export function TransactionList() {
 
 			{status === 'failed' && (
 				<Center>
-					<Text color={themes.colors.grey_300} weight="bold">
+					<Text color={themes.colors.light_grey} weight="bold">
 						{t('request-error-try-later')}
 					</Text>
 				</Center>
@@ -53,7 +53,7 @@ export function TransactionList() {
 
 			{data.length === 0 && status === 'success' && (
 				<Center>
-					<Text color={themes.colors.grey_300} weight="bold">
+					<Text color={themes.colors.light_grey} weight="bold">
 						{t('you-dont-have-transactions')}
 					</Text>
 				</Center>
@@ -91,15 +91,15 @@ export function TransactionList() {
 											</Text>
 										</TextContainer>
 										<TextContainer>
-											<Text size="S" weight="medium" color={themes.colors.grey_300}>
+											<Text size="S" weight="medium" color={themes.colors.light_grey}>
 												{useFormatDate(new Date(item.timestamp * 1000)).time}
 											</Text>
-											<Text size="S" weight="medium" color={themes.colors.grey_300}>
+											<Text size="S" weight="medium" color={themes.colors.light_grey}>
 												{item.amount} BTC
 											</Text>
 										</TextContainer>
 									</Column>
-									<IconArrowRight size={SIZE_ICON_ARROW} color={themes.colors.grey_200} />
+									<IconArrowRight size={SIZE_ICON_ARROW} color={themes.colors.dark_grey} />
 								</Items>
 							</TransactionItemContainer>
 						);

@@ -42,7 +42,7 @@ export function ScrollViewHeader({
 					testID="idRefreshControl"
 					refreshing={refreshing}
 					onRefresh={onRefresh}
-					progressBackgroundColor={themes.colors.grey_200}
+					progressBackgroundColor={themes.colors.dark_grey}
 					colors={[themes.colors.white]}
 					progressViewOffset={PADDING_TOP}
 				/>

@@ -42,19 +42,19 @@ export function ButtonTitleGhost({
 				<Text
 					size={size === 'large' ? 'L' : 'M'}
 					weight={buttonsWeight}
-					color={themes.colors.purple_100}
+					color={themes.colors.light_cyan}
 				>
 					{title}
 				</Text>
 			)}
 			{loading && (
 				<React.Fragment>
-					<ActivityIndicator color={themes.colors.purple_100} size={isTablet ? 'large' : 'small'} />
+					<ActivityIndicator color={themes.colors.light_cyan} size={isTablet ? 'large' : 'small'} />
 					<Text
 						size={size === 'large' ? 'L' : 'M'}
 						marginL={themes.spaces.space_5}
 						weight={buttonsWeight}
-						color={themes.colors.purple_100}
+						color={themes.colors.light_cyan}
 					>
 						{t('loading')}
 					</Text>

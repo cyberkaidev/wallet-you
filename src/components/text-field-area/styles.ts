@@ -17,7 +17,7 @@ export const FieldArea = styled.TextInput<FieldAreaProps>`
 	width: 100%;
 	max-width: ${width.max_width};
 	align-self: center;
-	background-color: ${colors.black_200};
+	background-color: ${colors.black_000};
 	border-radius: ${border_radius.radius_10};
 	color: ${colors.white};
 	font-size: ${wp(font_sizes.M)}px;
@@ -25,5 +25,5 @@ export const FieldArea = styled.TextInput<FieldAreaProps>`
 	height: ${hp('15%')}px;
 	padding: ${spaces.space_10};
 	${({ isFocused }) =>
-		isFocused && `border: ${isTablet ? '3px' : '1px'} solid ${colors.purple_100};`}
+		isFocused && `border: ${isTablet ? '3px' : '1px'} solid ${colors.light_cyan};`}
 `;

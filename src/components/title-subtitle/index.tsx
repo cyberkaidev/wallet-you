@@ -25,7 +25,7 @@ export function TitleSubtitle({
 			</Text>
 			{isLoading && <SkeletonLoading widthPorcent="60%" heightPorcent="4%" radius={5} />}
 			{!isLoading && (
-				<Text size="M" weight="medium" color={themes.colors.grey_300}>
+				<Text size="M" weight="medium" color={themes.colors.light_grey}>
 					{subTitle}
 				</Text>
 			)}

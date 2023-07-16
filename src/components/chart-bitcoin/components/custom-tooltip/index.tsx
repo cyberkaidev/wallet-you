@@ -61,7 +61,7 @@ export function CustomTooltip({ x, y, ticks, positionX, size, dataList }: Custom
 				<Circle
 					cy={y?.(dataList[positionX].value)}
 					r={apx(20 / 2)}
-					stroke={themes.colors.purple_100}
+					stroke={themes.colors.light_cyan}
 					strokeWidth={apx(2)}
 					fill={themes.colors.white}
 				/>

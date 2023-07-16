@@ -10,7 +10,7 @@ export function IconCardano({ size = 25 }: Omit<IconProps, 'color'>) {
 		<Svg width={size} height={size} viewBox="0 0 72 72" fill="none">
 			<Path
 				d="M36 72C55.8823 72 72 55.8823 72 36C72 16.1177 55.8823 0 36 0C16.1177 0 0 16.1177 0 36C0 55.8823 16.1177 72 36 72Z"
-				fill={themes.colors.grey_200}
+				fill={themes.colors.dark_grey}
 			/>
 			<Path
 				fill-rule="evenodd"

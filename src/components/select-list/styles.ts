@@ -17,12 +17,12 @@ export const BorderSelect = styled.View`
 	align-items: center;
 	justify-content: center;
 	border-radius: 40px;
-	border: 2px solid ${themes.colors.purple_100};
+	border: 2px solid ${themes.colors.light_cyan};
 `;
 
 export const Selected = styled.View`
 	width: ${wp('2%')}px;
 	height: ${wp('2%')}px;
 	border-radius: 20px;
-	background-color: ${themes.colors.purple_100};
+	background-color: ${themes.colors.light_cyan};
 `;

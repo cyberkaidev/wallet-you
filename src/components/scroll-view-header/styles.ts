@@ -5,5 +5,5 @@ import { themes } from '@/themes';
 
 export const ScrollViewHeaderContainer = styled(Animated.ScrollView)`
 	flex: 1;
-	background-color: ${themes.colors.black_300};
+	background-color: ${themes.colors.black_100};
 `;

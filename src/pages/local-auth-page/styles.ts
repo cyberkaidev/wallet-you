@@ -4,7 +4,7 @@ import { themes } from '@/themes';
 
 export const LocalAuthPageContainer = styled.View`
 	flex: 1;
-	background-color: ${themes.colors.black_300};
+	background-color: ${themes.colors.black_100};
 	align-items: center;
 	justify-content: center;
 `;

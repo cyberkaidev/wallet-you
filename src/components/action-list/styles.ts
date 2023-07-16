@@ -11,9 +11,9 @@ export const ActionListContainer = styled.View`
 	width: 100%;
 	max-width: ${width.max_width};
 	align-self: center;
-	background-color: ${colors.black_200};
+	background-color: ${colors.black_000};
 	border-radius: ${border_radius.radius_10};
-	border: 1px solid ${colors.grey_200};
+	border: 1px solid ${colors.dark_grey};
 `;
 
 export const ItemButton = styled.TouchableOpacity`
@@ -29,7 +29,7 @@ export const Indicator = styled.View`
 	right: 0;
 	height: 1px;
 	width: 100%;
-	background-color: ${colors.grey_200};
+	background-color: ${colors.dark_grey};
 `;
 
 export const IconAndTitleContainer = styled.View`

@@ -78,9 +78,9 @@ export function LocalAuthPage() {
 	}, []);
 
 	React.useEffect(() => {
-		if (Platform.OS === 'android') setStatusBarBackgroundColor(themes.colors.black_300, true);
+		if (Platform.OS === 'android') setStatusBarBackgroundColor(themes.colors.black_100, true);
 		return () => {
-			if (Platform.OS === 'android') setStatusBarBackgroundColor(themes.colors.black_200, true);
+			if (Platform.OS === 'android') setStatusBarBackgroundColor(themes.colors.black_000, true);
 		};
 	}, []);
 

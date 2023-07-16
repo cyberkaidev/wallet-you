@@ -15,7 +15,7 @@ export const HeaderAnimatedContainer = styled.View`
 	top: 0;
 	left: 0;
 	right: 0;
-	background-color: ${themes.colors.black_200};
+	background-color: ${themes.colors.black_000};
 	z-index: 99999999;
 `;
 
@@ -26,7 +26,7 @@ export const FirstItem = styled.View`
 	z-index: 2;
 	padding: 0 ${themes.spaces.space_15};
 	justify-content: center;
-	background-color: ${themes.colors.black_200};
+	background-color: ${themes.colors.black_000};
 `;
 
 export const SecondtItem = styled(Animated.View)`
@@ -37,7 +37,7 @@ export const SecondtItem = styled(Animated.View)`
 	z-index: 1;
 	padding: 0 ${themes.spaces.space_15};
 	justify-content: flex-end;
-	background-color: ${themes.colors.black_200};
+	background-color: ${themes.colors.black_000};
 `;
 
 export const OpacityAnimation = styled(Animated.View)``;

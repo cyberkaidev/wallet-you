@@ -44,7 +44,7 @@ export function Routes() {
 			initialRouteName="LocalAuthPage"
 			screenOptions={{
 				headerShown: false,
-				cardStyle: { backgroundColor: themes.colors.black_300 },
+				cardStyle: { backgroundColor: themes.colors.black_100 },
 			}}
 		>
 			<Stack.Screen name="LocalAuthPage" component={LocalAuthPage} />
@@ -118,7 +118,7 @@ function TabsRoutes() {
 		<Tab.Navigator
 			initialRouteName="HomePage"
 			screenOptions={{ headerShown: false }}
-			sceneContainerStyle={{ backgroundColor: themes.colors.black_300 }}
+			sceneContainerStyle={{ backgroundColor: themes.colors.black_100 }}
 			tabBar={({ state, descriptors, navigation }) => (
 				<TabBar state={state} descriptors={descriptors} navigation={navigation} />
 			)}

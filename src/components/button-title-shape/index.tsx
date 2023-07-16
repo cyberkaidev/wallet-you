@@ -45,18 +45,18 @@ export function ButtonTitleShape({
 			isOpacity={disabled}
 		>
 			{!loading && (
-				<Text size={size === 'large' ? 'L' : 'M'} weight="bold" color={colors.black_300}>
+				<Text size={size === 'large' ? 'L' : 'M'} weight="bold" color={colors.black_100}>
 					{title}
 				</Text>
 			)}
 			{loading && (
 				<React.Fragment>
-					<ActivityIndicator color={colors.black_300} size={isTablet ? 'large' : 'small'} />
+					<ActivityIndicator color={colors.black_100} size={isTablet ? 'large' : 'small'} />
 					<Text
 						size={size === 'large' ? 'L' : 'M'}
 						marginL={spaces.space_5}
 						weight="bold"
-						color={colors.black_300}
+						color={colors.black_100}
 					>
 						{t('loading')}
 					</Text>

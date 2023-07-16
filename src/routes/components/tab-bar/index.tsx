@@ -44,19 +44,19 @@ export function TabBar({ state, descriptors, navigation }: TabBarProps) {
 									{route.name === 'HomePage' && (
 										<IconHome
 											size={SIZE_ICON}
-											color={isFocused ? colors.purple_100 : colors.white}
+											color={isFocused ? colors.light_cyan : colors.white}
 										/>
 									)}
 									{route.name === 'BitcoinDataPage' && (
 										<IconChart
 											size={SIZE_ICON}
-											color={isFocused ? colors.purple_100 : colors.white}
+											color={isFocused ? colors.light_cyan : colors.white}
 										/>
 									)}
 									{route.name === 'SettingsPage' && (
 										<IconSettings
 											size={SIZE_ICON}
-											color={isFocused ? colors.purple_100 : colors.white}
+											color={isFocused ? colors.light_cyan : colors.white}
 										/>
 									)}
 								</Indicator>

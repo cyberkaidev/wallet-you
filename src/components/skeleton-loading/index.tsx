@@ -32,7 +32,7 @@ export function SkeletonLoading({
 				radius={radius}
 				width={wp(widthPorcent)}
 				height={hp(heightPorcent)}
-				backgroundColor={themes.colors.black_200}
+				backgroundColor={themes.colors.black_000}
 				colors={['#303139', '#303139', '#303139', '#303139']}
 			/>
 		</SkeletonLoadingContainer>

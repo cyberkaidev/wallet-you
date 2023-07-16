@@ -37,9 +37,9 @@ export default function App() {
 	}
 
 	return (
-		<View style={{ flex: 1, backgroundColor: themes.colors.black_300 }} onLayout={onLayoutRootView}>
+		<View style={{ flex: 1, backgroundColor: themes.colors.black_100 }} onLayout={onLayoutRootView}>
 			<NavigationContainer theme={DarkTheme}>
-				<StatusBar backgroundColor={themes.colors.black_300} style="light" translucent={false} />
+				<StatusBar backgroundColor={themes.colors.black_100} style="light" translucent={false} />
 				<ThemeProvider theme={themes}>
 					<Routes />
 				</ThemeProvider>

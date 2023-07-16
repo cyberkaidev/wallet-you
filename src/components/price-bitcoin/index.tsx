@@ -21,14 +21,14 @@ export function PriceBitcoin({
 
 	return (
 		<PriceBitcoinContainer testID="idPriceBitcoin">
-			<Text size="S" weight="bold" color={colors.grey_300} marginB={spaces.space_5}>
+			<Text size="S" weight="bold" color={colors.light_grey} marginB={spaces.space_5}>
 				{title}
 			</Text>
 			{(status === 'loading' || status === null) && (
 				<SkeletonLoading widthPorcent="70%" heightPorcent="8%" radius={10} />
 			)}
 			{status === 'failed' && (
-				<Text color={colors.grey_300} marginB={spaces.space_5}>
+				<Text color={colors.light_grey} marginB={spaces.space_5}>
 					{t('request-error-try-later')}
 				</Text>
 			)}
