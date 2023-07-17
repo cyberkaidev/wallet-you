@@ -19,6 +19,8 @@ import { getBitcoinBalance } from '@/services';
 import { useBitcoinDataPrices, useUserData } from '@/stores';
 import { themes } from '@/themes';
 
+import { TextErrorContainer } from './styles';
+
 export function RegisterKeyPage() {
 	const { t } = useTranslation();
 	const { fetchTransactions, setKey } = useUserData(state => state);
@@ -72,9 +74,11 @@ export function RegisterKeyPage() {
 		<ScrollViewHeader headerTitle={t('public-key')}>
 			<TextFieldArea value={inputPublicKey} onChangeText={setInputPublicKey} />
 			{error.visible && (
-				<Text weight="medium" marginT={themes.spaces.space_5} color={themes.colors.red}>
-					{error.message}
-				</Text>
+				<TextErrorContainer>
+					<Text weight="medium" marginT={themes.spaces.space_5} color={themes.colors.red}>
+						{error.message}
+					</Text>
+				</TextErrorContainer>
 			)}
 			{showBiometricOption && (
 				<CheckBoxMessage
