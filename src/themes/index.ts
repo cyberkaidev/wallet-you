@@ -36,7 +36,7 @@ export const themes: DefaultTheme = {
 		black_000: '#222329',
 		light_grey: '#BFBFBF',
 		dark_grey: '#616670',
-		black_100_30pct: 'rgba(25, 27, 31, 0.30)',
+		black_100_50pct: 'rgba(25, 27, 31, 0.50)',
 		transparent: 'transparent',
 	},
 };

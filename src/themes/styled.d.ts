@@ -37,7 +37,7 @@ declare module 'styled-components' {
 			black_000: string;
 			light_grey: string;
 			dark_grey: string;
-			black_100_30pct: string;
+			black_100_50pct: string;
 			transparent: string;
 		};
 	}

@@ -6,7 +6,7 @@ export const ModalContainer = styled.Modal``;
 
 export const BackgroundContainer = styled.View`
 	flex: 1;
-	background-color: ${themes.colors.black_100_30pct};
+	background-color: ${themes.colors.black_100_50pct};
 	align-items: center;
 	justify-content: center;
 	padding: 0 ${themes.spaces.space_15};
