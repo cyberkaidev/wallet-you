@@ -63,7 +63,7 @@ export function ChartMain({ data }: ChartMainProps) {
 			testID="idChart"
 			style={{
 				width: apx(750),
-				height: apx(isTablet ? 350 : 500),
+				height: apx(isTablet ? 300 : 500),
 			}}
 		>
 			<View style={{ flex: 1 }} {...panResponder.current.panHandlers}>
