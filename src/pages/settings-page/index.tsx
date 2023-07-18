@@ -1,18 +1,22 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { CommonActions, NavigationProp, useNavigation } from '@react-navigation/native';
+import Constants from 'expo-constants';
 import * as SecureStore from 'expo-secure-store';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ActionList, AlertModal, ScrollViewHeaderPage, Text } from '@/components';
+import { ActionList, AlertModal, ScrollViewHeader, Text } from '@/components';
 import { initializeAppSettings } from '@/functions';
 import { storageKeys } from '@/helpers';
 import { RootStackParamListProps } from '@/routes/types';
 import { useUserData } from '@/stores';
 import { themes } from '@/themes';
 
+import { ContainerVersion } from './styles';
+
 export function SettingsPage() {
 	const { t } = useTranslation();
+
 	const { cleanUserData } = useUserData();
 	const [showModal, setShowModal] = React.useState(false);
 	const { currency, enableLocalAuth, language, publicKey } = storageKeys;
@@ -63,17 +67,19 @@ export function SettingsPage() {
 	];
 
 	return (
-		<ScrollViewHeaderPage headerTitle={t('settings')}>
+		<ScrollViewHeader headerTitle={t('settings')}>
 			<ActionList list={list} />
-			<Text size="S" weight="bold" marginT={themes.spaces.space_25}>
-				v 1.1.1
-			</Text>
+			<ContainerVersion>
+				<Text size="S" weight="bold" marginT={themes.spaces.space_25}>
+					v {Constants.expoConfig?.version != null ? Constants.expoConfig.version : '-'}
+				</Text>
+			</ContainerVersion>
 			<AlertModal
 				title={t('do_you_really_want_to_leave')}
 				visible={showModal}
 				onCancel={() => setShowModal(false)}
 				onConfirm={onExit}
 			/>
-		</ScrollViewHeaderPage>
+		</ScrollViewHeader>
 	);
 }

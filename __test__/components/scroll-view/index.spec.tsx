@@ -2,20 +2,20 @@ import { act, render } from '@testing-library/react-native';
 import React from 'react';
 import { View } from 'react-native';
 
-import { ScrollViewPage } from '@/components';
+import { ScrollView } from '@/components';
 
-describe('ScrollViewPage', () => {
+describe('ScrollView', () => {
 	const configTest = {
-		id: 'idScrollViewPage',
+		id: 'idScrollView',
 		idRefreshControl: 'idRefreshControl',
 		refreshControl: () => true,
 	};
 
 	test('Render component', () => {
 		const { getByTestId } = render(
-			<ScrollViewPage>
+			<ScrollView>
 				<View />
-			</ScrollViewPage>,
+			</ScrollView>,
 		);
 
 		expect(getByTestId(configTest.id)).toBeTruthy();
@@ -23,9 +23,9 @@ describe('ScrollViewPage', () => {
 
 	test('Refresh scroll', async () => {
 		const component = render(
-			<ScrollViewPage refreshControl={configTest.refreshControl}>
+			<ScrollView refreshControl={configTest.refreshControl}>
 				<View />
-			</ScrollViewPage>,
+			</ScrollView>,
 		);
 
 		const scrollView = component.getByTestId(configTest.id);

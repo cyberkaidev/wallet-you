@@ -1,12 +1,14 @@
 import styled from 'styled-components/native';
 
+import { themes } from '@/themes';
+
 import { ButtonTitleGhostContainerProps } from './types';
 
 export const ButtonTitleGhostContainer = styled.TouchableOpacity<ButtonTitleGhostContainerProps>`
 	align-self: center;
 	flex-direction: row;
 	padding: 10px;
-	background-color: transparent;
+	background-color: ${themes.colors.transparent};
 	align-items: center;
 	justify-content: center;
 	margin-top: ${({ marginT }) => marginT};

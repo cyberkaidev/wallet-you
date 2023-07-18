@@ -3,20 +3,31 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { RefreshControl } from 'react-native-gesture-handler';
 import { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { useAppSettings } from '@/stores';
 import { themes } from '@/themes';
 
 import { HeaderAnimated } from './components/header-animated';
-import { SafeArea, ScrollViewHeaderPageContainer } from './styles';
-import { ScrollViewHeaderPageProps } from './types';
+import { ScrollViewHeaderContainer } from './styles';
+import { ScrollViewHeaderProps } from './types';
 
-export function ScrollViewHeaderPage({
+export function ScrollViewHeader({
 	children,
 	enabledHorizontalPadding = true,
 	refreshControl,
 	headerTitle,
-}: ScrollViewHeaderPageProps) {
+}: ScrollViewHeaderProps) {
 	const [refreshing, setRefreshing] = React.useState(false);
+	const insets = useSafeAreaInsets();
+	const { isTablet } = useAppSettings(state => state);
+
+	const HEADER_HEIGHT = hp('16%');
+	const DEFAULT_MARGIN = isTablet ? hp('5%') : 25;
+	const STATUS_BAR = Constants.statusBarHeight;
+
+	const PADDING_TOP = (Platform.OS === 'ios' ? STATUS_BAR : 0) + HEADER_HEIGHT + DEFAULT_MARGIN;
 
 	async function onRefresh() {
 		setRefreshing(true);
@@ -31,9 +42,9 @@ export function ScrollViewHeaderPage({
 					testID="idRefreshControl"
 					refreshing={refreshing}
 					onRefresh={onRefresh}
-					progressBackgroundColor={themes.colors.grey_200}
+					progressBackgroundColor={themes.colors.dark_grey}
 					colors={[themes.colors.white]}
-					progressViewOffset={Platform.OS === 'ios' ? Constants.statusBarHeight + 115 : 115}
+					progressViewOffset={PADDING_TOP}
 				/>
 			);
 		}
@@ -42,25 +53,29 @@ export function ScrollViewHeaderPage({
 	const translationY = useSharedValue(0);
 
 	const scrollHandler = useAnimatedScrollHandler(event => {
+		if (translationY.value === event.contentOffset.y) return;
 		translationY.value = event.contentOffset.y;
 	});
 
 	return (
 		<React.Fragment>
-			<ScrollViewHeaderPageContainer
-				testID="idScrollViewHeaderPage"
-				horizontalPadding={enabledHorizontalPadding ? themes.spaces.space_15 : '0px'}
-				contentContainerStyle={{ paddingBottom: 175 }}
+			<HeaderAnimated translationY={translationY} headerTitle={headerTitle} />
+			<ScrollViewHeaderContainer
+				testID="idScrollViewHeader"
 				alwaysBounceVertical
-				endFillColor="transparent"
+				contentContainerStyle={{
+					paddingBottom: hp('3%') + insets.bottom,
+					paddingTop: PADDING_TOP,
+					paddingHorizontal: enabledHorizontalPadding ? 15 : 0,
+				}}
+				endFillColor={themes.colors.transparent}
 				refreshControl={refreshController()}
 				onScroll={scrollHandler}
 				scrollEventThrottle={1}
 				showsVerticalScrollIndicator={false}
 			>
-				<SafeArea>{children}</SafeArea>
-			</ScrollViewHeaderPageContainer>
-			<HeaderAnimated translationY={translationY} headerTitle={headerTitle} />
+				{children}
+			</ScrollViewHeaderContainer>
 		</React.Fragment>
 	);
 }

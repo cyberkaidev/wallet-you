@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import { themes } from '@/themes';
 
 export const HeaderSwiperOptionsContainer = styled.View`
-	background-color: ${themes.colors.black_200};
+	background-color: ${themes.colors.black_000};
 	padding: ${themes.spaces.space_10} 0;
 	width: 100%;
 	flex-direction: row;

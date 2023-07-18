@@ -6,7 +6,9 @@ import { useAppSettings } from '@/stores';
 import { UseAppSettingsProps } from '@/stores/use-app-settings/types';
 
 export async function initializeAppSettings() {
-	const { setCurrency, setLanguage } = useAppSettings.getState();
+	const { setCurrency, setLanguage, setIsTablet } = useAppSettings.getState();
+	setIsTablet();
+
 	const currencyCode = getLocales()[0].currencyCode;
 	const languageCode = getLocales()[0].languageCode;
 

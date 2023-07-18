@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 import {
 	ButtonTitleGhost,
 	CheckBoxMessage,
-	ScrollViewHeaderPage,
+	ScrollViewHeader,
 	SpaceFull,
 	Text,
 	TextFieldArea,
@@ -18,6 +18,8 @@ import { RootStackParamListProps } from '@/routes/types';
 import { getBitcoinBalance } from '@/services';
 import { useBitcoinDataPrices, useUserData } from '@/stores';
 import { themes } from '@/themes';
+
+import { TextErrorContainer } from './styles';
 
 export function RegisterKeyPage() {
 	const { t } = useTranslation();
@@ -69,12 +71,14 @@ export function RegisterKeyPage() {
 	}
 
 	return (
-		<ScrollViewHeaderPage headerTitle={t('public-key')}>
+		<ScrollViewHeader headerTitle={t('public-key')}>
 			<TextFieldArea value={inputPublicKey} onChangeText={setInputPublicKey} />
 			{error.visible && (
-				<Text weight="medium" marginT={themes.spaces.space_5} color={themes.colors.red}>
-					{error.message}
-				</Text>
+				<TextErrorContainer>
+					<Text weight="medium" marginT={themes.spaces.space_5} color={themes.colors.red}>
+						{error.message}
+					</Text>
+				</TextErrorContainer>
 			)}
 			{showBiometricOption && (
 				<CheckBoxMessage
@@ -92,6 +96,6 @@ export function RegisterKeyPage() {
 				disabled={inputPublicKey.length < 1}
 				marginT={themes.spaces.space_25}
 			/>
-		</ScrollViewHeaderPage>
+		</ScrollViewHeader>
 	);
 }

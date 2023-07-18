@@ -1,13 +1,16 @@
 import React from 'react';
 import { RefreshControl } from 'react-native-gesture-handler';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { themes } from '@/themes';
 
-import { SafeArea, ScrollViewPageContainer } from './styles';
-import { ScrollViewPageProps } from './types';
+import { ScrollViewContainer } from './styles';
+import { ScrollViewProps } from './types';
 
-export function ScrollViewPage({ children, refreshControl }: ScrollViewPageProps) {
+export function ScrollView({ children, refreshControl }: ScrollViewProps) {
 	const [refreshing, setRefreshing] = React.useState(false);
+	const insets = useSafeAreaInsets();
 
 	async function onRefresh() {
 		setRefreshing(true);
@@ -22,7 +25,7 @@ export function ScrollViewPage({ children, refreshControl }: ScrollViewPageProps
 					testID="idRefreshControl"
 					refreshing={refreshing}
 					onRefresh={onRefresh}
-					progressBackgroundColor={themes.colors.grey_200}
+					progressBackgroundColor={themes.colors.dark_grey}
 					colors={[themes.colors.white]}
 				/>
 			);
@@ -31,14 +34,19 @@ export function ScrollViewPage({ children, refreshControl }: ScrollViewPageProps
 	}
 
 	return (
-		<ScrollViewPageContainer
-			testID="idScrollViewPage"
+		<ScrollViewContainer
+			testID="idScrollView"
 			alwaysBounceVertical
-			endFillColor="transparent"
+			contentContainerStyle={{
+				paddingBottom: hp('3%') + insets.bottom,
+				paddingTop: 25,
+				paddingHorizontal: 15,
+			}}
+			endFillColor={themes.colors.transparent}
 			refreshControl={refreshController()}
 			showsVerticalScrollIndicator={false}
 		>
-			<SafeArea>{children}</SafeArea>
-		</ScrollViewPageContainer>
+			{children}
+		</ScrollViewContainer>
 	);
 }

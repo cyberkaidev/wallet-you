@@ -6,8 +6,8 @@ import { ChartBitcoin } from './chart-bitcoin';
 import { CheckBoxMessage } from './check-box-message';
 import { HeaderSwiperOptions } from './header-swiper-options';
 import { PriceBitcoin } from './price-bitcoin';
-import { ScrollViewHeaderPage } from './scroll-view-header-page';
-import { ScrollViewPage } from './scroll-view-page';
+import { ScrollView } from './scroll-view';
+import { ScrollViewHeader } from './scroll-view-header';
 import { SelectList } from './select-list';
 import { SkeletonLoading } from './skeleton-loading';
 import { SpaceFull } from './space-full';
@@ -25,8 +25,8 @@ export {
 	CheckBoxMessage,
 	HeaderSwiperOptions,
 	PriceBitcoin,
-	ScrollViewHeaderPage,
-	ScrollViewPage,
+	ScrollView,
+	ScrollViewHeader,
 	SelectList,
 	SkeletonLoading,
 	SpaceFull,

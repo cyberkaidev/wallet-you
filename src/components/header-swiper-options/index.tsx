@@ -22,7 +22,7 @@ export function HeaderSwiperOptions({
 	React.useEffect(() => {
 		if (Platform.OS === 'android') setStatusBarBackgroundColor('black', true);
 		return () => {
-			if (Platform.OS === 'android') setStatusBarBackgroundColor(themes.colors.black_200, true);
+			if (Platform.OS === 'android') setStatusBarBackgroundColor(themes.colors.black_000, true);
 		};
 	}, []);
 

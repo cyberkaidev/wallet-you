@@ -6,7 +6,7 @@ export const ModalContainer = styled.Modal``;
 
 export const BackgroundContainer = styled.View`
 	flex: 1;
-	background-color: ${themes.colors.black_300_30pct};
+	background-color: ${themes.colors.black_100_50pct};
 	align-items: center;
 	justify-content: center;
 	padding: 0 ${themes.spaces.space_15};
@@ -14,9 +14,10 @@ export const BackgroundContainer = styled.View`
 
 export const AlertContainer = styled.View`
 	width: 100%;
+	max-width: ${themes.width.max_width};
 	padding: ${themes.spaces.space_30} ${themes.spaces.space_20};
 	border-radius: ${themes.border_radius.radius_15};
-	background-color: ${themes.colors.black_200};
+	background-color: ${themes.colors.black_000};
 `;
 
 export const Footer = styled.View`

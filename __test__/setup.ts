@@ -6,6 +6,12 @@ import EN_US from '../src/translate/locales/en-us.json';
 import ES_AR from '../src/translate/locales/es-ar.json';
 import PT_BR from '../src/translate/locales/pt-br.json';
 
+jest.mock('react-native-safe-area-context', () => {
+	return {
+		useSafeAreaInsets: () => ({ bottom: 0 }),
+	};
+});
+
 jest.mock('react-native-reanimated', () => require('react-native-reanimated/mock'));
 
 jest.mock('@/hooks', () => {
@@ -57,9 +63,16 @@ jest.mock('@/stores', () => {
 			],
 			status: 'success',
 		}),
-		useAppSettings: () => ({
-			currency: 'usd',
-		}),
+		useAppSettings: Object.assign(
+			() => {
+				return { currency: 'usd' };
+			},
+			{
+				getState: () => {
+					return { currency: 'usd' };
+				},
+			},
+		),
 		useBitcoinDataPrices: () => ({
 			data: {
 				current_price: {

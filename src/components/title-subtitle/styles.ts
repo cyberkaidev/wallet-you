@@ -6,3 +6,7 @@ export const TitleSubtitleContainer = styled.View<TitleSubtitleContainerProps>`
 	margin-top: ${({ marginT }) => marginT};
 	margin-bottom: ${({ marginB }) => marginB};
 `;
+
+export const LoadingContainer = styled.View`
+	width: 50%;
+`;

@@ -1,6 +1,7 @@
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import { IconArrowDown, IconArrowRight, IconArrowUp } from '@/assets';
 import { calculateBalance } from '@/functions';
@@ -11,7 +12,16 @@ import { themes } from '@/themes';
 
 import { SkeletonLoading } from '../skeleton-loading';
 import { Text } from '../text';
-import * as Styles from './styles';
+import {
+	Center,
+	Circle,
+	Column,
+	Items,
+	TextContainer,
+	TransactionContainer,
+	TransactionItemContainer,
+	TransactionListContainer,
+} from './styles';
 
 export function TransactionList() {
 	const { t } = useTranslation();
@@ -20,50 +30,53 @@ export function TransactionList() {
 	const navigation = useNavigation<NavigationProp<RootStackParamListProps>>();
 	const currentPrice = useBitcoinDataPrices(state => state.data?.current_price);
 
+	const SIZE_ICON_STATUS = hp('2.5%');
+	const SIZE_ICON_ARROW = hp('2%');
+
 	return (
-		<Styles.TransactionListContainer testID="idTransactionList">
+		<TransactionListContainer testID="idTransactionList">
 			<Text size="XL" weight="medium" marginB={themes.spaces.space_10}>
 				{t('transactions')}
 			</Text>
 
 			{(status === 'loading' || status === null) && (
-				<SkeletonLoading widthPorcent="92%" heightPorcent="12%" radius={10} />
+				<SkeletonLoading heightPorcent="12%" radius={10} />
 			)}
 
 			{status === 'failed' && (
-				<Styles.Center>
-					<Text color={themes.colors.grey_300} weight="bold">
+				<Center>
+					<Text color={themes.colors.light_grey} weight="bold">
 						{t('request-error-try-later')}
 					</Text>
-				</Styles.Center>
+				</Center>
 			)}
 
 			{data.length === 0 && status === 'success' && (
-				<Styles.Center>
-					<Text color={themes.colors.grey_300} weight="bold">
+				<Center>
+					<Text color={themes.colors.light_grey} weight="bold">
 						{t('you-dont-have-transactions')}
 					</Text>
-				</Styles.Center>
+				</Center>
 			)}
 
-			<Styles.TransactionContainer>
+			<TransactionContainer>
 				{data.length > 0 &&
 					status === 'success' &&
 					data.map((item, index) => {
 						if (item.transactionType === 'zero-transfer') return;
 						return (
-							<Styles.TransactionItemContainer
+							<TransactionItemContainer
 								testID={`id${index}`}
 								key={index}
 								onPress={() => navigation.navigate('TransactionPage', { data: item })}
 							>
-								<Styles.Circle>
-									{item.transactionType === 'incoming' && <IconArrowDown size={18} />}
-									{item.transactionType === 'outgoing' && <IconArrowUp size={18} />}
-								</Styles.Circle>
-								<Styles.Items borderVisible={data.length != index + 1}>
-									<Styles.Column>
-										<Styles.TextContainer>
+								<Circle>
+									{item.transactionType === 'incoming' && <IconArrowDown size={SIZE_ICON_STATUS} />}
+									{item.transactionType === 'outgoing' && <IconArrowUp size={SIZE_ICON_STATUS} />}
+								</Circle>
+								<Items borderVisible={data.length != index + 1}>
+									<Column>
+										<TextContainer>
 											<Text size="M" weight="bold">
 												{useFormatDate(new Date(item.timestamp * 1000)).date}
 											</Text>
@@ -76,22 +89,22 @@ export function TransactionList() {
 													}),
 												)}
 											</Text>
-										</Styles.TextContainer>
-										<Styles.TextContainer>
-											<Text size="S" weight="medium" color={themes.colors.grey_300}>
+										</TextContainer>
+										<TextContainer>
+											<Text size="S" weight="medium" color={themes.colors.light_grey}>
 												{useFormatDate(new Date(item.timestamp * 1000)).time}
 											</Text>
-											<Text size="S" weight="medium" color={themes.colors.grey_300}>
+											<Text size="S" weight="medium" color={themes.colors.light_grey}>
 												{item.amount} BTC
 											</Text>
-										</Styles.TextContainer>
-									</Styles.Column>
-									<IconArrowRight size={13} color={themes.colors.grey_200} />
-								</Styles.Items>
-							</Styles.TransactionItemContainer>
+										</TextContainer>
+									</Column>
+									<IconArrowRight size={SIZE_ICON_ARROW} color={themes.colors.dark_grey} />
+								</Items>
+							</TransactionItemContainer>
 						);
 					})}
-			</Styles.TransactionContainer>
-		</Styles.TransactionListContainer>
+			</TransactionContainer>
+		</TransactionListContainer>
 	);
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import { IconArrowRight } from '@/assets';
 import { themes } from '@/themes';
@@ -24,7 +25,7 @@ export function ActionList({ list }: ActionListProps) {
 					<IconAndTitleContainer>
 						<Text size="M">{item.title}</Text>
 						<IconContainer>
-							<IconArrowRight size={10} color={themes.colors.grey_200} />
+							<IconArrowRight size={hp('2%')} color={themes.colors.dark_grey} />
 						</IconContainer>
 						{list.length !== index + 1 && <Indicator />}
 					</IconAndTitleContainer>

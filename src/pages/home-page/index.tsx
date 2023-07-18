@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ScrollViewHeaderPage, TransactionList } from '@/components';
+import { ScrollViewHeader, TransactionList } from '@/components';
 import { calculateBalance } from '@/functions';
 import { useFormatCurrency } from '@/hooks';
 import { getBitcoinBalance } from '@/services';
@@ -25,9 +25,9 @@ export function HomePage() {
 	}
 
 	return (
-		<ScrollViewHeaderPage headerTitle={t('my-wallet')} refreshControl={() => onRefresh()}>
+		<ScrollViewHeader headerTitle={t('my-wallet')} refreshControl={() => onRefresh()}>
 			<CryptoCardLarge type="bitcoin" price={currencyFormated} balance={balance} status={status} />
 			<TransactionList />
-		</ScrollViewHeaderPage>
+		</ScrollViewHeader>
 	);
 }

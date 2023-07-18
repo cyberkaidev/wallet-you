@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { HeaderSwiperOptions, ScrollViewPage, SelectList } from '@/components';
+import { HeaderSwiperOptions, ScrollView, SelectList } from '@/components';
 import { useAppSettings } from '@/stores';
 import { UseAppSettingsProps } from '@/stores/use-app-settings/types';
 
@@ -26,13 +26,13 @@ export function CurrencyPage() {
 				onAction={() => setCurrency(selected)}
 				disableAction={selected === currency}
 			/>
-			<ScrollViewPage>
+			<ScrollView>
 				<SelectList
 					data={list}
 					selected={selected}
 					onSelected={arg => setSelected(arg as UseAppSettingsProps['currency'])}
 				/>
-			</ScrollViewPage>
+			</ScrollView>
 		</React.Fragment>
 	);
 }
