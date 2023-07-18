@@ -57,9 +57,16 @@ jest.mock('@/stores', () => {
 			],
 			status: 'success',
 		}),
-		useAppSettings: () => ({
-			currency: 'usd',
-		}),
+		useAppSettings: Object.assign(
+			() => {
+				return { currency: 'usd' };
+			},
+			{
+				getState: () => {
+					return { currency: 'usd' };
+				},
+			},
+		),
 		useBitcoinDataPrices: () => ({
 			data: {
 				current_price: {
