@@ -28,6 +28,7 @@ export function SettingsPage() {
 		setShowModal(false);
 		initializeAppSettings();
 		cleanUserData();
+
 		navigation.dispatch(
 			CommonActions.reset({
 				index: 1,
@@ -36,7 +37,7 @@ export function SettingsPage() {
 		);
 	}
 
-	const list = [
+	const settingsList = [
 		{
 			testID: 'idPublicKey',
 			title: t('public-key'),
@@ -68,7 +69,7 @@ export function SettingsPage() {
 
 	return (
 		<ScrollViewHeader headerTitle={t('settings')}>
-			<ActionList list={list} />
+			<ActionList list={settingsList} />
 			<ContainerVersion>
 				<Text size="S" weight="bold" marginT={themes.spaces.space_25}>
 					v {Constants.expoConfig?.version != null ? Constants.expoConfig.version : '-'}

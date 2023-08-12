@@ -10,7 +10,7 @@ export function CurrencyPage() {
 	const { currency, setCurrency } = useAppSettings(state => state);
 	const [selected, setSelected] = React.useState(currency);
 
-	const list = [
+	const currenciesTypes = [
 		{ title: 'AUD', ref: 'aud' },
 		{ title: 'BRL', ref: 'brl' },
 		{ title: 'CAD', ref: 'cad' },
@@ -28,7 +28,7 @@ export function CurrencyPage() {
 			/>
 			<ScrollView>
 				<SelectList
-					data={list}
+					data={currenciesTypes}
 					selected={selected}
 					onSelected={arg => setSelected(arg as UseAppSettingsProps['currency'])}
 				/>
