@@ -23,12 +23,11 @@
 
 ## Setup
 
-Create an .env.development file with the properties:
+Create an .env file with the properties:
 [Create an account to have your v1 and v2 keys](https://docs.tatum.com/)
 
 ```
-TATUM_SDK_V1=YOUR-API-KEY
-TATUM_SDK_V2=YOUR-API-KEY
+EXPO_PUBLIC_TATUM_SDK_V1=YOUR-API-KEY
 ```
 
 1. Install dependencies
@@ -37,16 +36,10 @@ TATUM_SDK_V2=YOUR-API-KEY
 yarn install
 ```
 
-2. If you use Windows
+2. Run app
 
 ```shell
-npm install -g win-node-env
-```
-
-3. Run app
-
-```shell
-yarn android:dev
+yarn android
 ```
 
 :apple: **_It is currently available for Android, later it will be available for IOS_**
