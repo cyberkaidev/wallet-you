@@ -3,10 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import { ChartBitcoin, PriceBitcoin, ScrollViewHeader, TitleSubtitle } from '@/components';
-import { useFormatCurrency, useFormatPercentage } from '@/hooks';
+import { useFormatPercentage } from '@/hooks';
 import { useAppSettings, useBitcoinDataPrices } from '@/stores';
 import { themes } from '@/themes';
 
+import { currenciesFormatted } from './functions';
 import { PaddingContainer } from './styles';
 
 export function BitcoinDataPage() {
@@ -21,15 +22,15 @@ export function BitcoinDataPage() {
 		data?.price_change_percentage_1h_in_currency[currency] ?? 0,
 	);
 
-	const currentCurrency = useFormatCurrency(data?.current_price[currency]);
-	const marketCapCurrency = useFormatCurrency(data?.market_cap[currency]);
-	const marketCapChange24hCurrency = useFormatCurrency(
-		data?.market_cap_change_24h_in_currency[currency],
-	);
-	const totalVolumeCurrency = useFormatCurrency(data?.total_volume[currency]);
-	const lowPrice24hCurrency = useFormatCurrency(data?.low_24h[currency]);
-	const highPrice24hCurrency = useFormatCurrency(data?.high_24h[currency]);
-	const priceChange24hCurrency = useFormatCurrency(data?.price_change_24h_in_currency[currency]);
+	const {
+		currentCurrency,
+		marketCapCurrency,
+		marketCapChange24hCurrency,
+		totalVolumeCurrency,
+		lowPrice24hCurrency,
+		highPrice24hCurrency,
+		priceChange24hCurrency,
+	} = currenciesFormatted({ data, currency });
 
 	return (
 		<ScrollViewHeader headerTitle={t('chart')} enabledHorizontalPadding={false}>
