@@ -19,25 +19,23 @@
 
 - [Node.js >= 18.0.0](https://nodejs.org/en)
 - [Expo installed](https://docs.expo.dev/)
-- [Tatum environment variables](https://docs.tatum.com/)
+- [Tatum environment variable](https://docs.tatum.com/)
 
 ## Setup
 
 Create an .env file with the properties:
-[Create an account to have your v1 and v2 keys](https://docs.tatum.com/)
+[Create an account to have your key](https://docs.tatum.com/)
 
 ```
 EXPO_PUBLIC_TATUM_SDK_V1=YOUR-API-KEY
 ```
 
 1. Install dependencies
-
 ```shell
 yarn install
 ```
 
 2. Run app
-
 ```shell
 yarn android
 ```
