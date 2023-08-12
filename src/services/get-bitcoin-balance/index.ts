@@ -1,4 +1,3 @@
-import { TATUM_SDK_V1, TATUM_SDK_V2 } from '@env';
 import { AddressBalance, Bitcoin, Network, ResponseDto, TatumSDK } from '@tatumcom/js';
 
 import { useUserData } from '@/stores/use-user-data';
@@ -10,8 +9,7 @@ export async function getBitcoinBalance(address: string) {
 		const tatum = await TatumSDK.init<Bitcoin>({
 			network: Network.BITCOIN,
 			apiKey: {
-				v1: TATUM_SDK_V1,
-				v2: TATUM_SDK_V2,
+				v1: process.env.EXPO_PUBLIC_TATUM_SDK_V1,
 			},
 		});
 
