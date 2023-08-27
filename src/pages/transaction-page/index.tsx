@@ -31,7 +31,7 @@ export function TransactionPage() {
 		{ title: 'Hash', subTitle: data.hash },
 		{
 			title: t('block-number'),
-			subTitle: data.blockNumber.toString(),
+			subTitle: data.blockNumber ? data.blockNumber.toString() : '-',
 		},
 	];
 
