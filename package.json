@@ -28,7 +28,7 @@
 		"@react-navigation/native": "^6.1.6",
 		"@react-navigation/native-stack": "^6.9.12",
 		"@react-navigation/stack": "^6.3.16",
-		"@tatumcom/js": "^1.4.22",
+		"@tatumio/tatum": "^3.0.14",
 		"axios": "^1.4.0",
 		"currency.js": "^2.0.4",
 		"expo": "^49.0.0",

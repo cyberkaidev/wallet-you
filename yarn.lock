@@ -2363,10 +2363,10 @@
   dependencies:
     "@sinonjs/commons" "^3.0.0"
 
-"@tatumcom/js@^1.4.22":
-  version "1.5.11"
-  resolved "https://registry.yarnpkg.com/@tatumcom/js/-/js-1.5.11.tgz#adfff37d7f53f3655e529c4d63fba54d3dea8831"
-  integrity sha512-d0Plw/dnFG1l4vHXtAJw+BgoQo3m48cDpzPOBP4CrfdWYHn7fA43iBK/ysscC2Gnhv3LwKk+VO5u1aDxo7wkqQ==
+"@tatumio/tatum@^3.0.14":
+  version "3.0.14"
+  resolved "https://registry.yarnpkg.com/@tatumio/tatum/-/tatum-3.0.14.tgz#2661cb898e44caf8d0508a5eda4b852eb0c0d36a"
+  integrity sha512-BLB7yW49kHTom/3FiVpQIhArOm0T7NwAM4d4wTOslt86ymvxmvUyjwrmfYV3wRK6GL/T1TAz3bLqxsw7R3nx5A==
   dependencies:
     bignumber.js "^9.1.1"
     reflect-metadata "^0.1.13"

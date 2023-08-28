@@ -1,4 +1,4 @@
-import { AddressBalance, Bitcoin, Network, ResponseDto, TatumSDK } from '@tatumcom/js';
+import { AddressBalance, Bitcoin, Network, ResponseDto, TatumSDK } from '@tatumio/tatum';
 
 import { useUserData } from '@/stores/use-user-data';
 
