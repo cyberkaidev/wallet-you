@@ -10,7 +10,7 @@ export function LanguagePage() {
 	const { language, setLanguage } = useAppSettings(state => state);
 	const [selected, setSelected] = React.useState(language);
 
-	const list = [
+	const languages = [
 		{ title: 'English', ref: 'en-us' },
 		{ title: 'Português (BR)', ref: 'pt-br' },
 		{ title: 'Spanish', ref: 'es-ar' },
@@ -26,7 +26,7 @@ export function LanguagePage() {
 			/>
 			<ScrollView>
 				<SelectList
-					data={list}
+					data={languages}
 					selected={selected}
 					onSelected={arg => setSelected(arg as UseAppSettingsProps['language'])}
 				/>

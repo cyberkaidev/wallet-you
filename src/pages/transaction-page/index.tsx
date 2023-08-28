@@ -21,7 +21,7 @@ export function TransactionPage() {
 
 	const MARGIN_BOTTOM = isTablet ? `${hp('3.5%')}px` : spaces.space_25;
 
-	const list = [
+	const transactionsData = [
 		{
 			title: data.transactionType === 'incoming' ? t('received') : t('sent'),
 			subTitle: data.amount,
@@ -31,13 +31,13 @@ export function TransactionPage() {
 		{ title: 'Hash', subTitle: data.hash },
 		{
 			title: t('block-number'),
-			subTitle: data.blockNumber.toString(),
+			subTitle: data.blockNumber ? data.blockNumber.toString() : '-',
 		},
 	];
 
 	return (
 		<ScrollView>
-			{list.map((item, index) => (
+			{transactionsData.map((item, index) => (
 				<TitleSubtitle
 					key={index}
 					title={item.title}

@@ -1,4 +1,4 @@
-import { AddressTransaction } from '@tatumcom/js';
+import { AddressTransaction } from '@tatumio/tatum';
 
 interface DataProps {
 	key: string;
