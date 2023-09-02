@@ -3,7 +3,9 @@ import 'react-native-reanimated';
 import 'react-native-gesture-handler';
 
 import { DarkTheme, NavigationContainer } from '@react-navigation/native';
+import * as Device from 'expo-device';
 import { useFonts } from 'expo-font';
+import * as ScreenOrientation from 'expo-screen-orientation';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
@@ -24,7 +26,18 @@ export default function App() {
 
 	React.useEffect(() => {
 		initializeAppSettings();
+		changeScreenOrientation();
 	}, []);
+
+	async function changeScreenOrientation() {
+		const deviceType = await Device.getDeviceTypeAsync();
+		const isTablet = Device.DeviceType[deviceType] == 'TABLET';
+		if (isTablet) {
+			await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
+		} else {
+			await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
+		}
+	}
 
 	const onLayoutRootView = React.useCallback(async () => {
 		if (fontsLoaded) {
