@@ -3,7 +3,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-import { ScrollView, TitleSubtitle } from '@/components';
+import { LimitedWidthContainer, ScrollView, TitleSubtitle } from '@/components';
 import { useFormatDate } from '@/hooks';
 import { RootStackParamListProps } from '@/routes/types';
 import { useAppSettings } from '@/stores';
@@ -38,12 +38,9 @@ export function TransactionPage() {
 	return (
 		<ScrollView>
 			{transactionsData.map((item, index) => (
-				<TitleSubtitle
-					key={index}
-					title={item.title}
-					subTitle={item.subTitle}
-					marginB={MARGIN_BOTTOM}
-				/>
+				<LimitedWidthContainer key={index}>
+					<TitleSubtitle title={item.title} subTitle={item.subTitle} marginB={MARGIN_BOTTOM} />
+				</LimitedWidthContainer>
 			))}
 		</ScrollView>
 	);
