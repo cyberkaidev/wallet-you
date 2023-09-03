@@ -3,12 +3,10 @@ import styled from 'styled-components/native';
 
 import { themes } from '@/themes';
 
-const { colors, border_radius, spaces, width } = themes;
+const { colors, border_radius, spaces } = themes;
 
 export const CryptoCardLargeContainer = styled.View`
-	width: 100%;
-	max-width: ${width.max_width};
-	align-self: center;
+	width: auto;
 	height: ${hp('28%')}px;
 	max-height: 450px;
 	border-radius: ${border_radius.radius_10};
