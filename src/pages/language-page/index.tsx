@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { HeaderSwiperOptions, ScrollView, SelectList } from '@/components';
+import { HeaderSwiperOptions, LimitedWidthContainer, ScrollView, SelectList } from '@/components';
 import { useAppSettings } from '@/stores';
 import { UseAppSettingsProps } from '@/stores/use-app-settings/types';
 
@@ -25,11 +25,13 @@ export function LanguagePage() {
 				disableAction={selected === language}
 			/>
 			<ScrollView>
-				<SelectList
-					data={languages}
-					selected={selected}
-					onSelected={arg => setSelected(arg as UseAppSettingsProps['language'])}
-				/>
+				<LimitedWidthContainer>
+					<SelectList
+						data={languages}
+						selected={selected}
+						onSelected={arg => setSelected(arg as UseAppSettingsProps['language'])}
+					/>
+				</LimitedWidthContainer>
 			</ScrollView>
 		</React.Fragment>
 	);

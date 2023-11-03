@@ -5,6 +5,7 @@ import { ButtonTitleShape } from './button-title-shape';
 import { ChartBitcoin } from './chart-bitcoin';
 import { CheckBoxMessage } from './check-box-message';
 import { HeaderSwiperOptions } from './header-swiper-options';
+import { LimitedWidthContainer } from './limited-width-container';
 import { PriceBitcoin } from './price-bitcoin';
 import { ScrollView } from './scroll-view';
 import { ScrollViewHeader } from './scroll-view-header';
@@ -24,6 +25,7 @@ export {
 	ChartBitcoin,
 	CheckBoxMessage,
 	HeaderSwiperOptions,
+	LimitedWidthContainer,
 	PriceBitcoin,
 	ScrollView,
 	ScrollViewHeader,

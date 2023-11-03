@@ -5,14 +5,18 @@ import * as SecureStore from 'expo-secure-store';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ActionList, AlertModal, ScrollViewHeader, Text } from '@/components';
+import {
+	ActionList,
+	AlertModal,
+	LimitedWidthContainer,
+	ScrollViewHeader,
+	Text,
+} from '@/components';
 import { initializeAppSettings } from '@/functions';
 import { storageKeys } from '@/helpers';
 import { RootStackParamListProps } from '@/routes/types';
 import { useUserData } from '@/stores';
 import { themes } from '@/themes';
-
-import { ContainerVersion } from './styles';
 
 export function SettingsPage() {
 	const { t } = useTranslation();
@@ -69,12 +73,12 @@ export function SettingsPage() {
 
 	return (
 		<ScrollViewHeader headerTitle={t('settings')}>
-			<ActionList list={settingsList} />
-			<ContainerVersion>
+			<LimitedWidthContainer>
+				<ActionList list={settingsList} />
 				<Text size="S" weight="bold" marginT={themes.spaces.space_25}>
 					v {Constants.expoConfig?.version != null ? Constants.expoConfig.version : '-'}
 				</Text>
-			</ContainerVersion>
+			</LimitedWidthContainer>
 			<AlertModal
 				title={t('do_you_really_want_to_leave')}
 				visible={showModal}

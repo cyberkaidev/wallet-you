@@ -2,7 +2,7 @@ import * as Clipboard from 'expo-clipboard';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ButtonTitleGhost, ScrollView, TitleSubtitle } from '@/components';
+import { ButtonTitleGhost, LimitedWidthContainer, ScrollView, TitleSubtitle } from '@/components';
 import { useUserData } from '@/stores';
 import { themes } from '@/themes';
 
@@ -26,13 +26,19 @@ export function PublicKeyPage() {
 
 	return (
 		<ScrollView>
-			<TitleSubtitle title={t('your-public-key')} subTitle={publicKey} marginB={spaces.space_15} />
-			<ButtonTitleGhost
-				title={copy.isCopied ? t('copied') : t('copy-address')}
-				loading={copy.isLoading}
-				size="small"
-				onPress={copyToClipboard}
-			/>
+			<LimitedWidthContainer>
+				<TitleSubtitle
+					title={t('your-public-key')}
+					subTitle={publicKey}
+					marginB={spaces.space_15}
+				/>
+				<ButtonTitleGhost
+					title={copy.isCopied ? t('copied') : t('copy-address')}
+					loading={copy.isLoading}
+					size="small"
+					onPress={copyToClipboard}
+				/>
+			</LimitedWidthContainer>
 		</ScrollView>
 	);
 }
