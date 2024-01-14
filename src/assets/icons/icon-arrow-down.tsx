@@ -1,11 +1,10 @@
 import React from 'react';
 import Svg, { Path } from 'react-native-svg';
 
-import { themes } from '@/themes';
+import { colors } from '@/helpers/themes';
+import { IconProps } from '@/types/IconType';
 
-import { IconProps } from './types';
-
-export function IconArrowDown({ color = themes.colors.white, size = 25 }: IconProps) {
+export function IconArrowDown({ color = colors.white, size = 25 }: IconProps) {
 	return (
 		<Svg width={size} height={size} viewBox="0 0 25 25" fill="none">
 			<Path

@@ -1,11 +1,10 @@
 import React from 'react';
 import Svg, { ClipPath, Defs, G, Path, Rect } from 'react-native-svg';
 
-import { themes } from '@/themes';
+import { colors } from '@/helpers/themes';
+import { IconProps } from '@/types/IconType';
 
-import { IconProps } from './types';
-
-export function IconGithub({ color = themes.colors.white, size = 25 }: IconProps) {
+export function IconGithub({ color = colors.white, size = 25 }: IconProps) {
 	return (
 		<Svg width={size} height={size} viewBox="0 0 20 20" fill="none">
 			<G clip-path="url(#clip0_638_696)">
