@@ -1,20 +1,19 @@
 import React from 'react';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { IconChart, IconHome, IconSettings } from '@/assets';
-import { themes } from '@/themes';
-
-import { ButtonsContainer, Indicator, SafeArea, TabBarContainer, Touch } from './styles';
-import { TabBarProps } from './types';
+import { colors } from '@/helpers/themes';
+import { TabBarProps } from '@/types/TabBarType';
 
 export function TabBar({ state, descriptors, navigation }: TabBarProps) {
-	const { colors } = themes;
 	const SIZE_ICON = hp('2.5%');
 
 	return (
-		<TabBarContainer testID="idTabBar">
-			<SafeArea>
-				<ButtonsContainer>
+		<View testID="idTabBar" style={styles.container}>
+			<SafeAreaView>
+				<View style={styles.buttonContainer}>
 					{state.routes.map((route, index) => {
 						const isFocused = state.index === index;
 						const { options } = descriptors[route.key];
@@ -32,15 +31,21 @@ export function TabBar({ state, descriptors, navigation }: TabBarProps) {
 						};
 
 						return (
-							<Touch
+							<TouchableOpacity
 								key={route.key}
 								onPress={onPress}
 								accessibilityRole="button"
 								accessibilityState={isFocused ? { selected: true } : {}}
 								accessibilityLabel={options.tabBarAccessibilityLabel}
 								testID={`id${route.name}`}
+								style={styles.button}
 							>
-								<Indicator isFocused={isFocused}>
+								<View
+									style={[
+										styles.indicator,
+										{ backgroundColor: isFocused ? colors.dark_cyan : colors.transparent },
+									]}
+								>
 									{route.name === 'HomePage' && (
 										<IconHome
 											size={SIZE_ICON}
@@ -59,12 +64,36 @@ export function TabBar({ state, descriptors, navigation }: TabBarProps) {
 											color={isFocused ? colors.light_cyan : colors.white}
 										/>
 									)}
-								</Indicator>
-							</Touch>
+								</View>
+							</TouchableOpacity>
 						);
 					})}
-				</ButtonsContainer>
-			</SafeArea>
-		</TabBarContainer>
+				</View>
+			</SafeAreaView>
+		</View>
 	);
 }
+
+const styles = StyleSheet.create({
+	container: {
+		backgroundColor: colors.black_000,
+	},
+	button: {
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+	indicator: {
+		width: hp('8.5%'),
+		maxWidth: 120,
+		height: hp('4.5%'),
+		alignItems: 'center',
+		justifyContent: 'center',
+		borderRadius: 100,
+	},
+	buttonContainer: {
+		height: hp('8%'),
+		width: '100%',
+		flexDirection: 'row',
+	},
+});

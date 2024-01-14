@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react-native';
 import React from 'react';
 
-import { HeaderSwiperIndicator } from '@/routes/components';
+import { HeaderSwiperIndicator } from '../fragments/HeaderSwiperIndicator';
 
 test('Render component', () => {
 	const configTest = {

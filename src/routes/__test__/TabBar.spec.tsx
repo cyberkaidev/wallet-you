@@ -6,7 +6,7 @@ import { NavigationHelpers, ParamListBase, TabNavigationState } from '@react-nav
 import { render } from '@testing-library/react-native';
 import React from 'react';
 
-import { TabBar } from '@/routes/components';
+import { TabBar } from '../fragments/TabBar';
 
 test('Render component', () => {
 	const configTest = {

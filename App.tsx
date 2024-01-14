@@ -10,12 +10,10 @@ import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
 import { View } from 'react-native';
-import { ThemeProvider } from 'styled-components';
 
-import { initializeAppSettings } from '@/functions';
-
-import { Routes } from './src/routes';
-import { themes } from './src/themes';
+import { initializeAppSettings } from '@/functions/initializeAppSettings';
+import { colors } from '@/helpers/themes';
+import { RootStack } from '@/routes/RootStack';
 
 export default function App() {
 	const [fontsLoaded] = useFonts({
@@ -50,12 +48,10 @@ export default function App() {
 	}
 
 	return (
-		<View style={{ flex: 1, backgroundColor: themes.colors.black_100 }} onLayout={onLayoutRootView}>
+		<View style={{ flex: 1, backgroundColor: colors.black_100 }} onLayout={onLayoutRootView}>
 			<NavigationContainer theme={DarkTheme}>
-				<StatusBar backgroundColor={themes.colors.black_100} style="light" translucent={false} />
-				<ThemeProvider theme={themes}>
-					<Routes />
-				</ThemeProvider>
+				<StatusBar backgroundColor={colors.black_100} style="light" translucent={false} />
+				<RootStack />
 			</NavigationContainer>
 		</View>
 	);

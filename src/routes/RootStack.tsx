@@ -4,6 +4,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Animated } from 'react-native';
 
+import { colors } from '@/helpers/themes';
 import { BitcoinDataPage } from '@/pages/bitcoin-data-page';
 import { CurrencyPage } from '@/pages/currency-page';
 import { HomePage } from '@/pages/home-page';
@@ -16,10 +17,10 @@ import { SettingsPage } from '@/pages/settings-page';
 import { SupportUsPage } from '@/pages/support-us-page';
 import { TermsPage } from '@/pages/terms-page';
 import { TransactionPage } from '@/pages/transaction-page';
-import { themes } from '@/themes';
+import { RootStackParamListProps } from '@/types/RoutesType';
 
-import { HeaderSwiperIndicator, TabBar } from './components';
-import { RootStackParamListProps } from './types';
+import { HeaderSwiperIndicator } from './fragments/HeaderSwiperIndicator';
+import { TabBar } from './fragments/TabBar';
 
 const Stack = createStackNavigator<RootStackParamListProps>();
 const Tab = createBottomTabNavigator();
@@ -36,7 +37,7 @@ fixAnimateToIOS.addListener(() => {
 	return;
 });
 
-export function Routes() {
+export function RootStack() {
 	const { t } = useTranslation();
 
 	return (
@@ -44,7 +45,7 @@ export function Routes() {
 			initialRouteName="LocalAuthPage"
 			screenOptions={{
 				headerShown: false,
-				cardStyle: { backgroundColor: themes.colors.black_100 },
+				cardStyle: { backgroundColor: colors.black_100 },
 			}}
 		>
 			<Stack.Screen name="LocalAuthPage" component={LocalAuthPage} />
@@ -118,7 +119,7 @@ function TabsRoutes() {
 		<Tab.Navigator
 			initialRouteName="HomePage"
 			screenOptions={{ headerShown: false }}
-			sceneContainerStyle={{ backgroundColor: themes.colors.black_100 }}
+			sceneContainerStyle={{ backgroundColor: colors.black_100 }}
 			tabBar={({ state, descriptors, navigation }) => (
 				<TabBar state={state} descriptors={descriptors} navigation={navigation} />
 			)}
