@@ -1,6 +1,5 @@
-import { useFormatCurrency } from '@/hooks';
-
-import { CurrenciesFormattedProps } from './types';
+import { useFormatCurrency } from '@/hooks/useFormatCurrency';
+import { CurrenciesFormattedProps } from '@/types/CurrenciesFormattedType';
 
 export function currenciesFormatted({ data, currency }: CurrenciesFormattedProps) {
 	return {
