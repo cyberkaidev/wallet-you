@@ -5,6 +5,7 @@ import {
 import { NavigationHelpers, ParamListBase, TabNavigationState } from '@react-navigation/native';
 import { render } from '@testing-library/react-native';
 import React from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { TabBar } from '../fragments/TabBar';
 
@@ -49,11 +50,13 @@ test('Render component', () => {
 	};
 
 	const { getByTestId } = render(
-		<TabBar
-			state={configTest.state}
-			descriptors={configTest.descriptors}
-			navigation={configTest.navigation}
-		/>,
+		<SafeAreaProvider>
+			<TabBar
+				state={configTest.state}
+				descriptors={configTest.descriptors}
+				navigation={configTest.navigation}
+			/>
+		</SafeAreaProvider>,
 	);
 
 	expect(getByTestId(configTest.id)).toBeTruthy();

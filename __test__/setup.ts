@@ -1,22 +1,24 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import mockSafeAreaContext from 'react-native-safe-area-context/jest/mock';
 
 import DE_CH from '../src/translate/locales/de-ch.json';
 import EN_US from '../src/translate/locales/en-us.json';
 import ES_AR from '../src/translate/locales/es-ar.json';
 import PT_BR from '../src/translate/locales/pt-br.json';
 
-jest.mock('react-native-safe-area-context', () => {
-	return {
-		useSafeAreaInsets: () => ({ bottom: 0 }),
-	};
-});
+jest.mock('react-native-safe-area-context', () => mockSafeAreaContext);
 
 jest.mock('react-native-reanimated', () => require('react-native-reanimated/mock'));
 
-jest.mock('@/hooks', () => {
+jest.mock('@/hooks/useFormatCurrency', () => {
 	return {
 		useFormatCurrency: () => '$100.00',
+	};
+});
+
+jest.mock('@/hooks/useFormatDate', () => {
+	return {
 		useFormatDate: () => ({
 			date: '12/12/2023',
 			time: '12:00 PM',
@@ -25,7 +27,7 @@ jest.mock('@/hooks', () => {
 	};
 });
 
-jest.mock('@/stores', () => {
+jest.mock('@/stores/useBitcoinHistoricalPrice', () => {
 	return {
 		useBitcoinHistoricalPrice: () => ({
 			fetchBitcoinHistoricalPrice: jest.fn(),
@@ -45,6 +47,11 @@ jest.mock('@/stores', () => {
 				},
 			],
 		}),
+	};
+});
+
+jest.mock('@/stores/useUserData', () => {
+	return {
 		useUserData: () => ({
 			cleanUserData: jest.fn(),
 			data: [
@@ -63,6 +70,11 @@ jest.mock('@/stores', () => {
 			],
 			status: 'success',
 		}),
+	};
+});
+
+jest.mock('@/stores/useAppSettings', () => {
+	return {
 		useAppSettings: Object.assign(
 			() => {
 				return { currency: 'usd' };
@@ -73,6 +85,11 @@ jest.mock('@/stores', () => {
 				},
 			},
 		),
+	};
+});
+
+jest.mock('@/stores/useBitcoinDataPrices', () => {
+	return {
 		useBitcoinDataPrices: () => ({
 			data: {
 				current_price: {
