@@ -1,4 +1,4 @@
-import { TransactionPageProps } from '@/pages/transaction-page/types';
+import { AddressTransaction } from '@tatumio/tatum';
 
 export type RootStackParamListProps = {
 	RegisterKeyPage: undefined;
@@ -6,7 +6,9 @@ export type RootStackParamListProps = {
 	TabsRoutes: undefined;
 	HomePage: undefined;
 	BitcoinDataPage: undefined;
-	TransactionPage: TransactionPageProps;
+	TransactionPage: {
+		data: AddressTransaction;
+	};
 	SettingsPage: undefined;
 	PublicKeyPage: undefined;
 	LanguagePage: undefined;
