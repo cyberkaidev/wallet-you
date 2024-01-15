@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { HeaderSwiperOptions } from '@/components/HeaderSwiperOptions';
 import { ScrollView } from '@/components/ScrollView';
 import { SelectList } from '@/components/SelectList';
-import { useAppSettings } from '@/stores';
-import { UseAppSettingsProps } from '@/stores/use-app-settings/types';
+import { useAppSettings } from '@/stores/useAppSettings';
+import { UseAppSettingsProps } from '@/types/UseAppSettingsType';
 
 export function CurrencyPage() {
 	const { t } = useTranslation();

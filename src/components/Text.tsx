@@ -4,7 +4,7 @@ import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 
 import { schemeText } from '@/functions/schemeText';
 import { colors } from '@/helpers/themes';
-import { useAppSettings } from '@/stores';
+import { useAppSettings } from '@/stores/useAppSettings';
 import { TextProps } from '@/types/TextType';
 
 export function Text({

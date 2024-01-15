@@ -7,7 +7,7 @@ import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { colors } from '@/helpers/themes';
-import { useAppSettings } from '@/stores';
+import { useAppSettings } from '@/stores/useAppSettings';
 import { ScrollViewHeaderProps } from '@/types/ScrollViewHeaderType';
 
 import { HeaderAnimated } from './fragments/HeaderAnimated';

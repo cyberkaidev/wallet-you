@@ -5,7 +5,7 @@ import 'moment/locale/de';
 
 import moment from 'moment';
 
-import { useAppSettings } from '@/stores';
+import { useAppSettings } from '@/stores/useAppSettings';
 
 export function useFormatDate(date: Date) {
 	const { language } = useAppSettings.getState();

@@ -10,7 +10,8 @@ import { TitleSubtitle } from '@/components/TitleSubtitle';
 import { currenciesFormatted } from '@/functions/currenciesFormatted';
 import { spaces, width } from '@/helpers/themes';
 import { useFormatPercentage } from '@/hooks/useFormatPercentage';
-import { useAppSettings, useBitcoinDataPrices } from '@/stores';
+import { useAppSettings } from '@/stores/useAppSettings';
+import { useBitcoinDataPrices } from '@/stores/useBitcoinDataPrices';
 
 export function BitcoinDataPage() {
 	const { t } = useTranslation();

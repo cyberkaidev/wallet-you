@@ -1,9 +1,9 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getLocales } from 'expo-localization';
 
-import { storageKeys } from '@/helpers';
-import { useAppSettings } from '@/stores';
-import { UseAppSettingsProps } from '@/stores/use-app-settings/types';
+import { storageKeys } from '@/helpers/storageKeys';
+import { useAppSettings } from '@/stores/useAppSettings';
+import { UseAppSettingsProps } from '@/types/UseAppSettingsType';
 
 export async function initializeAppSettings() {
 	const { setCurrency, setLanguage, setIsTablet } = useAppSettings.getState();

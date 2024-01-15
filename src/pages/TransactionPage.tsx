@@ -8,7 +8,7 @@ import { ScrollView } from '@/components/ScrollView';
 import { TitleSubtitle } from '@/components/TitleSubtitle';
 import { spaces } from '@/helpers/themes';
 import { useFormatDate } from '@/hooks/useFormatDate';
-import { useAppSettings } from '@/stores';
+import { useAppSettings } from '@/stores/useAppSettings';
 import { RootStackParamListProps } from '@/types/RoutesType';
 
 export function TransactionPage() {

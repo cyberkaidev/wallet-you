@@ -7,7 +7,7 @@ import {
 } from 'react-native-responsive-screen';
 
 import { borderRadius, colors, fontSizes, spaces, width } from '@/helpers/themes';
-import { useAppSettings } from '@/stores';
+import { useAppSettings } from '@/stores/useAppSettings';
 import { TextFieldAreaProps } from '@/types/TextFieldAreaType';
 
 export function TextFieldArea({ value, onChangeText }: TextFieldAreaProps) {

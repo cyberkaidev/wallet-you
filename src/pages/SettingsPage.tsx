@@ -13,7 +13,7 @@ import { Text } from '@/components/Text';
 import { initializeAppSettings } from '@/functions/initializeAppSettings';
 import { storageKeys } from '@/helpers/storageKeys';
 import { spaces } from '@/helpers/themes';
-import { useUserData } from '@/stores';
+import { useUserData } from '@/stores/useUserData';
 import { RootStackParamListProps } from '@/types/RoutesType';
 
 export function SettingsPage() {

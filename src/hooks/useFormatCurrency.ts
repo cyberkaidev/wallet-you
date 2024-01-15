@@ -1,6 +1,6 @@
 import currencyJS from 'currency.js';
 
-import { useAppSettings } from '@/stores';
+import { useAppSettings } from '@/stores/useAppSettings';
 
 export function useFormatCurrency(value?: number) {
 	const { currency } = useAppSettings.getState();

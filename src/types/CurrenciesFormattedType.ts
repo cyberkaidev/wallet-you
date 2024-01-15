@@ -1,5 +1,5 @@
-import { UseAppSettingsProps } from '@/stores/use-app-settings/types';
-import { UseBitcoinDataPricesProps } from '@/stores/use-bitcoin-data-prices/types';
+import { UseAppSettingsProps } from './UseAppSettingsType';
+import { UseBitcoinDataPricesProps } from './UseBitcoinDataPricesType';
 
 export interface CurrenciesFormattedProps {
 	data: UseBitcoinDataPricesProps['data'];

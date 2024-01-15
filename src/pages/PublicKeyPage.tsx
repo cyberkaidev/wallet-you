@@ -7,7 +7,7 @@ import { LimitedWidthContainer } from '@/components/LimitedWidthContainer';
 import { ScrollView } from '@/components/ScrollView';
 import { TitleSubtitle } from '@/components/TitleSubtitle';
 import { spaces } from '@/helpers/themes';
-import { useUserData } from '@/stores';
+import { useUserData } from '@/stores/useUserData';
 
 export function PublicKeyPage() {
 	const { t } = useTranslation();

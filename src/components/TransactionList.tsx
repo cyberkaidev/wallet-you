@@ -7,9 +7,12 @@ import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { IconArrowDown, IconArrowRight, IconArrowUp } from '@/assets';
 import { calculateBalance } from '@/functions/calculateBalance';
 import { borderRadius, colors, spaces, width } from '@/helpers/themes';
-import { useFormatCurrency, useFormatDate } from '@/hooks';
-import { RootStackParamListProps } from '@/routes/types';
-import { useAppSettings, useBitcoinDataPrices, useUserData } from '@/stores';
+import { useFormatCurrency } from '@/hooks/useFormatCurrency';
+import { useFormatDate } from '@/hooks/useFormatDate';
+import { useAppSettings } from '@/stores/useAppSettings';
+import { useBitcoinDataPrices } from '@/stores/useBitcoinDataPrices';
+import { useUserData } from '@/stores/useUserData';
+import { RootStackParamListProps } from '@/types/RoutesType';
 
 import { SkeletonLoading } from './SkeletonLoading';
 import { Text } from './Text';

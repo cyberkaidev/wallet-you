@@ -7,7 +7,8 @@ import {
 } from 'react-native-responsive-screen';
 
 import { colors, spaces } from '@/helpers/themes';
-import { useAppSettings, useBitcoinHistoricalPrice } from '@/stores';
+import { useAppSettings } from '@/stores/useAppSettings';
+import { useBitcoinHistoricalPrice } from '@/stores/useBitcoinHistoricalPrice';
 
 import { ChartMain } from './fragments/ChartMain';
 import { SkeletonLoading } from './SkeletonLoading';

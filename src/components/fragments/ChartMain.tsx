@@ -4,7 +4,7 @@ import { Dimensions, PanResponder, View } from 'react-native';
 import { AreaChart } from 'react-native-svg-charts';
 
 import { colors } from '@/helpers/themes';
-import { useAppSettings } from '@/stores';
+import { useAppSettings } from '@/stores/useAppSettings';
 import { ChartMainProps } from '@/types/ChartMainType';
 
 import { CustomLine } from './CustomLine';

@@ -6,8 +6,10 @@ import { ScrollViewHeader } from '@/components/ScrollViewHeader';
 import { TransactionList } from '@/components/TransactionList';
 import { calculateBalance } from '@/functions/calculateBalance';
 import { useFormatCurrency } from '@/hooks/useFormatCurrency';
-import { getBitcoinBalance } from '@/services';
-import { useAppSettings, useBitcoinDataPrices, useUserData } from '@/stores';
+import { getBitcoinBalance } from '@/services/getBitcoinBalance';
+import { useAppSettings } from '@/stores/useAppSettings';
+import { useBitcoinDataPrices } from '@/stores/useBitcoinDataPrices';
+import { useUserData } from '@/stores/useUserData';
 
 import { CryptoCardLarge } from './fragments/CryptoCardLarge';
 

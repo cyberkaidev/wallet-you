@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { ActivityIndicator, StyleSheet, TouchableOpacity } from 'react-native';
 
 import { colors, spaces } from '@/helpers/themes';
-import { useAppSettings } from '@/stores';
+import { useAppSettings } from '@/stores/useAppSettings';
 import { ButtonTitleGhostProps } from '@/types/ButtonTitleGhostType';
 
 import { Text } from './Text';

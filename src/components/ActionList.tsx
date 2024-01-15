@@ -5,7 +5,7 @@ import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { IconArrowRight } from '@/assets';
 import { Text } from '@/components/Text';
 import { borderRadius, colors, spaces, width } from '@/helpers/themes';
-import { useAppSettings } from '@/stores';
+import { useAppSettings } from '@/stores/useAppSettings';
 import { ActionListProps } from '@/types/ActionListType';
 
 export function ActionList({ list }: ActionListProps) {
