@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { ResponseData } from './types';
+import { ResponseData } from '@/types/GetBitcoinDataPricesType';
 
 export async function getBitcoinDataPrices() {
 	try {

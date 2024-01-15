@@ -3,9 +3,8 @@ import * as Device from 'expo-device';
 import i18n from 'i18next';
 import { create } from 'zustand';
 
-import { storageKeys } from '@/helpers';
-
-import { UseAppSettingsProps } from './types';
+import { storageKeys } from '@/helpers/storageKeys';
+import { UseAppSettingsProps } from '@/types/UseAppSettingsType';
 
 export const useAppSettings = create<UseAppSettingsProps>(set => ({
 	currency: 'usd',

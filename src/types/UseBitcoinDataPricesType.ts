@@ -1,4 +1,4 @@
-import { ResponseData } from '@/services/get-bitcoin-data-prices/types';
+import { ResponseData } from './GetBitcoinDataPricesType';
 
 export interface DataProps {
 	data: ResponseData['data']['market_data'] | null;

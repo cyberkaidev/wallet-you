@@ -1,8 +1,7 @@
 import { create } from 'zustand';
 
-import { getBitcoinHistoricalPrice } from '@/services';
-
-import { UseBitcoinHistoricalPriceProps } from './types';
+import { getBitcoinHistoricalPrice } from '@/services/getBitcoinHistoricalPrice';
+import { UseBitcoinHistoricalPriceProps } from '@/types/UseBitcoinHistoricalPriceType';
 
 export const useBitcoinHistoricalPrice = create<UseBitcoinHistoricalPriceProps>(set => ({
 	data: [],
