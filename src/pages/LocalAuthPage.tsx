@@ -10,9 +10,9 @@ import { Platform, StyleSheet, View } from 'react-native';
 import { ButtonTitleShape } from '@/components/ButtonTitleShape';
 import { storageKeys } from '@/helpers/storageKeys';
 import { colors } from '@/helpers/themes';
-import { RootStackParamListProps } from '@/routes/types';
 import { getBitcoinBalance } from '@/services';
 import { useBitcoinDataPrices, useUserData } from '@/stores';
+import { RootStackParamListProps } from '@/types/RoutesType';
 
 export function LocalAuthPage() {
 	const navigation = useNavigation<NavigationProp<RootStackParamListProps>>();

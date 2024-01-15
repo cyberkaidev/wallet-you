@@ -1,13 +1,15 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { LimitedWidthContainer, ScrollViewHeader, TransactionList } from '@/components';
-import { calculateBalance } from '@/functions';
-import { useFormatCurrency } from '@/hooks';
+import { LimitedWidthContainer } from '@/components/LimitedWidthContainer';
+import { ScrollViewHeader } from '@/components/ScrollViewHeader';
+import { TransactionList } from '@/components/TransactionList';
+import { calculateBalance } from '@/functions/calculateBalance';
+import { useFormatCurrency } from '@/hooks/useFormatCurrency';
 import { getBitcoinBalance } from '@/services';
 import { useAppSettings, useBitcoinDataPrices, useUserData } from '@/stores';
 
-import { CryptoCardLarge } from './components/crypto-card-large';
+import { CryptoCardLarge } from './fragments/CryptoCardLarge';
 
 export function HomePage() {
 	const { t } = useTranslation();

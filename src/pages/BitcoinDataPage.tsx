@@ -1,21 +1,23 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { StyleSheet, View } from 'react-native';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-import { ChartBitcoin, PriceBitcoin, ScrollViewHeader, TitleSubtitle } from '@/components';
-import { useFormatPercentage } from '@/hooks';
+import { ChartBitcoin } from '@/components/ChartBitcoin';
+import { PriceBitcoin } from '@/components/PriceBitcoin';
+import { ScrollViewHeader } from '@/components/ScrollViewHeader';
+import { TitleSubtitle } from '@/components/TitleSubtitle';
+import { currenciesFormatted } from '@/functions/currenciesFormatted';
+import { spaces, width } from '@/helpers/themes';
+import { useFormatPercentage } from '@/hooks/useFormatPercentage';
 import { useAppSettings, useBitcoinDataPrices } from '@/stores';
-import { themes } from '@/themes';
-
-import { currenciesFormatted } from './functions';
-import { PaddingContainer } from './styles';
 
 export function BitcoinDataPage() {
 	const { t } = useTranslation();
 	const { data, status } = useBitcoinDataPrices(state => state);
 	const { currency, isTablet } = useAppSettings(state => state);
 
-	const MARGIN_TOP = isTablet ? `${hp('3.5%')}px` : themes.spaces.space_25;
+	const MARGIN_TOP = isTablet ? hp('3.5%') : spaces.space_25;
 
 	const isLoading = status === 'loading' || status === null;
 	const { percent, isPositive } = useFormatPercentage(
@@ -34,7 +36,7 @@ export function BitcoinDataPage() {
 
 	return (
 		<ScrollViewHeader headerTitle={t('chart')} enabledHorizontalPadding={false}>
-			<PaddingContainer>
+			<View style={styles.padding}>
 				<PriceBitcoin
 					title={t('today')}
 					price={currentCurrency}
@@ -43,9 +45,9 @@ export function BitcoinDataPage() {
 					isPositive={isPositive}
 					status={status}
 				/>
-			</PaddingContainer>
+			</View>
 			<ChartBitcoin />
-			<PaddingContainer>
+			<View style={styles.padding}>
 				<TitleSubtitle
 					title={`${t('price-change')} (24h)`}
 					subTitle={priceChange24hCurrency}
@@ -83,7 +85,16 @@ export function BitcoinDataPage() {
 					marginB={MARGIN_TOP}
 					isLoading={isLoading}
 				/>
-			</PaddingContainer>
+			</View>
 		</ScrollViewHeader>
 	);
 }
+
+const styles = StyleSheet.create({
+	padding: {
+		paddingHorizontal: spaces.space_15,
+		maxWidth: width.max_width,
+		width: '100%',
+		alignSelf: 'center',
+	},
+});

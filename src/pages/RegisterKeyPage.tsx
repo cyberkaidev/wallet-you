@@ -13,9 +13,9 @@ import { Text } from '@/components/Text';
 import { TextFieldArea } from '@/components/TextFieldArea';
 import { storageKeys } from '@/helpers/storageKeys';
 import { colors, spaces, width } from '@/helpers/themes';
-import { RootStackParamListProps } from '@/routes/types';
 import { getBitcoinBalance } from '@/services';
 import { useBitcoinDataPrices, useUserData } from '@/stores';
+import { RootStackParamListProps } from '@/types/RoutesType';
 
 export function RegisterKeyPage() {
 	const { t } = useTranslation();

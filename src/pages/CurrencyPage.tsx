@@ -1,7 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { HeaderSwiperOptions, ScrollView, SelectList } from '@/components';
+import { HeaderSwiperOptions } from '@/components/HeaderSwiperOptions';
+import { ScrollView } from '@/components/ScrollView';
+import { SelectList } from '@/components/SelectList';
 import { useAppSettings } from '@/stores';
 import { UseAppSettingsProps } from '@/stores/use-app-settings/types';
 

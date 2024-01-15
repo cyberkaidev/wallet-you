@@ -5,18 +5,16 @@ import * as SecureStore from 'expo-secure-store';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import {
-	ActionList,
-	AlertModal,
-	LimitedWidthContainer,
-	ScrollViewHeader,
-	Text,
-} from '@/components';
-import { initializeAppSettings } from '@/functions';
-import { storageKeys } from '@/helpers';
-import { RootStackParamListProps } from '@/routes/types';
+import { ActionList } from '@/components/ActionList';
+import { AlertModal } from '@/components/AlertModal';
+import { LimitedWidthContainer } from '@/components/LimitedWidthContainer';
+import { ScrollViewHeader } from '@/components/ScrollViewHeader';
+import { Text } from '@/components/Text';
+import { initializeAppSettings } from '@/functions/initializeAppSettings';
+import { storageKeys } from '@/helpers/storageKeys';
+import { spaces } from '@/helpers/themes';
 import { useUserData } from '@/stores';
-import { themes } from '@/themes';
+import { RootStackParamListProps } from '@/types/RoutesType';
 
 export function SettingsPage() {
 	const { t } = useTranslation();
@@ -75,7 +73,7 @@ export function SettingsPage() {
 		<ScrollViewHeader headerTitle={t('settings')}>
 			<LimitedWidthContainer>
 				<ActionList list={settingsList} />
-				<Text size="S" weight="bold" marginT={themes.spaces.space_25}>
+				<Text weight="bold" marginT={spaces.space_25}>
 					v {Constants.expoConfig?.version != null ? Constants.expoConfig.version : '-'}
 				</Text>
 			</LimitedWidthContainer>

@@ -3,23 +3,24 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-import { LimitedWidthContainer, ScrollView, TitleSubtitle } from '@/components';
-import { useFormatDate } from '@/hooks';
-import { RootStackParamListProps } from '@/routes/types';
+import { LimitedWidthContainer } from '@/components/LimitedWidthContainer';
+import { ScrollView } from '@/components/ScrollView';
+import { TitleSubtitle } from '@/components/TitleSubtitle';
+import { spaces } from '@/helpers/themes';
+import { useFormatDate } from '@/hooks/useFormatDate';
 import { useAppSettings } from '@/stores';
-import { themes } from '@/themes';
+import { RootStackParamListProps } from '@/types/RoutesType';
 
 export function TransactionPage() {
 	const {
 		params: { data },
 	} = useRoute<RouteProp<RootStackParamListProps, 'TransactionPage'>>();
-	const { spaces } = themes;
 	const { isTablet } = useAppSettings(state => state);
 	const { t } = useTranslation();
 
 	const time = useFormatDate(new Date(data.timestamp * 1000));
 
-	const MARGIN_BOTTOM = isTablet ? `${hp('3.5%')}px` : spaces.space_25;
+	const MARGIN_BOTTOM = isTablet ? hp('3.5%') : spaces.space_25;
 
 	const transactionsData = [
 		{

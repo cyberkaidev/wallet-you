@@ -2,17 +2,18 @@ import * as Clipboard from 'expo-clipboard';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ButtonTitleGhost, LimitedWidthContainer, ScrollView, TitleSubtitle } from '@/components';
-import { useUserData } from '@/stores';
-import { themes } from '@/themes';
+import { ButtonTitleGhost } from '@/components/ButtonTitleGhost';
+import { LimitedWidthContainer } from '@/components/LimitedWidthContainer';
+import { ScrollView } from '@/components/ScrollView';
+import { Text } from '@/components/Text';
+import { TitleSubtitle } from '@/components/TitleSubtitle';
+import { spaces } from '@/helpers/themes';
 
-export function PublicKeyPage() {
-	const { spaces } = themes;
+export function SupportUsPage() {
 	const { t } = useTranslation();
-	const { key } = useUserData(state => state);
 	const [copy, setCopy] = React.useState({ isLoading: false, isCopied: false });
 
-	const publicKey = key;
+	const publicKey = 'bc1qrrs0xfdd75fve2etu3936lnzjvwf8dm0w7vmwf';
 
 	async function copyToClipboard() {
 		setCopy({ isLoading: true, isCopied: false });
@@ -28,10 +29,11 @@ export function PublicKeyPage() {
 		<ScrollView>
 			<LimitedWidthContainer>
 				<TitleSubtitle
-					title={t('your-public-key')}
+					title={t('bitcoin-address')}
 					subTitle={publicKey}
 					marginB={spaces.space_15}
 				/>
+				<Text marginB={spaces.space_15}>{t('support-us-by-sending')}</Text>
 				<ButtonTitleGhost
 					title={copy.isCopied ? t('copied') : t('copy-address')}
 					loading={copy.isLoading}

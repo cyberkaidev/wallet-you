@@ -3,7 +3,8 @@ import React from 'react';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import { IconGithub, IconTwitter } from '@/assets';
-import { ActionList, ScrollView } from '@/components';
+import { ActionList } from '@/components/ActionList';
+import { ScrollView } from '@/components/ScrollView';
 
 export function LinksPage() {
 	const list = [
