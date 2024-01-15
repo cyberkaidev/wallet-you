@@ -5,7 +5,7 @@ export async function getBitcoinTransactions(address: string) {
 		const tatum = await TatumSDK.init<Bitcoin>({
 			network: Network.BITCOIN,
 			apiKey: {
-				v1: process.env.EXPO_PUBLIC_TATUM_SDK_V1,
+				v4: process.env.EXPO_PUBLIC_TATUM_SDK_V4,
 			},
 		});
 
