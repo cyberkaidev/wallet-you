@@ -5,18 +5,18 @@ import { useTranslation } from 'react-i18next';
 import { Animated } from 'react-native';
 
 import { colors } from '@/helpers/themes';
-import { BitcoinDataPage } from '@/pages/bitcoin-data-page';
-import { CurrencyPage } from '@/pages/currency-page';
-import { HomePage } from '@/pages/home-page';
-import { LanguagePage } from '@/pages/language-page';
-import { LinksPage } from '@/pages/links-page';
+import { BitcoinDataPage } from '@/pages/BitcoinDataPage';
+import { CurrencyPage } from '@/pages/CurrencyPage';
+import { HomePage } from '@/pages/HomePage';
+import { LanguagePage } from '@/pages/LanguagePage';
+import { LinksPage } from '@/pages/LinksPage';
 import { LocalAuthPage } from '@/pages/LocalAuthPage';
-import { PublicKeyPage } from '@/pages/public-key-page';
+import { PublicKeyPage } from '@/pages/PublicKeyPage';
 import { RegisterKeyPage } from '@/pages/RegisterKeyPage';
-import { SettingsPage } from '@/pages/settings-page';
-import { SupportUsPage } from '@/pages/support-us-page';
-import { TermsPage } from '@/pages/terms-page';
-import { TransactionPage } from '@/pages/transaction-page';
+import { SettingsPage } from '@/pages/SettingsPage';
+import { SupportUsPage } from '@/pages/SupportUsPage';
+import { TermsPage } from '@/pages/TermsPage';
+import { TransactionPage } from '@/pages/TransactionPage';
 import { RootStackParamListProps } from '@/types/RoutesType';
 
 import { HeaderSwiperIndicator } from './fragments/HeaderSwiperIndicator';
