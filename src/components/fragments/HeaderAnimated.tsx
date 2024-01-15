@@ -3,7 +3,6 @@ import React from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import Animated, { Extrapolate, interpolate, useAnimatedStyle } from 'react-native-reanimated';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { colors, spaces } from '@/helpers/themes';
 import { HeaderAnimatedProps } from '@/types/HeaderAnimatedType';
@@ -13,8 +12,8 @@ import { Text } from '../Text';
 export function HeaderAnimated({ translationY, headerTitle }: HeaderAnimatedProps) {
 	const HEIGHT_ITEM_HEADER = hp('8%');
 	const HEIGHT_STATUS_BAR = Platform.OS === 'ios' ? Constants.statusBarHeight : 0;
-	const HEIGHT_FIRST_ITEM = hp('8%');
-	const HEIGHT_SECOND_ITEM = hp('8%') + HEIGHT_FIRST_ITEM + HEIGHT_STATUS_BAR;
+	const HEIGHT_FIRST_ITEM = hp('8%') + HEIGHT_STATUS_BAR;
+	const HEIGHT_SECOND_ITEM = hp('8%') + HEIGHT_FIRST_ITEM;
 
 	const translateY = useAnimatedStyle(() => ({
 		transform: [
@@ -46,15 +45,13 @@ export function HeaderAnimated({ translationY, headerTitle }: HeaderAnimatedProp
 				</Text>
 			</Animated.View>
 			<View testID="idHeaderAnimatedContainer" style={styles.animatedContainer}>
-				<SafeAreaView>
-					<View style={[styles.firstItem, { height: HEIGHT_FIRST_ITEM }]}>
-						<Animated.View style={topOpacity}>
-							<Text size="xxl" weight="bold">
-								{headerTitle}
-							</Text>
-						</Animated.View>
-					</View>
-				</SafeAreaView>
+				<View style={[styles.firstItem, { height: HEIGHT_FIRST_ITEM }]}>
+					<Animated.View style={topOpacity}>
+						<Text size="xxl" weight="bold" marginB={spaces.space_10}>
+							{headerTitle}
+						</Text>
+					</Animated.View>
+				</View>
 			</View>
 		</React.Fragment>
 	);
@@ -81,7 +78,7 @@ const styles = StyleSheet.create({
 	firstItem: {
 		zIndex: 2,
 		paddingHorizontal: spaces.space_15,
-		justifyContent: 'center',
+		justifyContent: 'flex-end',
 		backgroundColor: colors.black_000,
 	},
 });

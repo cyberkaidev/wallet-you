@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { IconChart, IconHome, IconSettings } from '@/assets';
 import { colors } from '@/helpers/themes';
@@ -9,67 +9,64 @@ import { TabBarProps } from '@/types/TabBarType';
 
 export function TabBar({ state, descriptors, navigation }: TabBarProps) {
 	const SIZE_ICON = hp('2.5%');
+	const insets = useSafeAreaInsets();
+	const HEIGHT_TABBAR = hp('8%') + insets.bottom;
 
 	return (
-		<View testID="idTabBar" style={styles.container}>
-			<SafeAreaView>
-				<View style={styles.buttonContainer}>
-					{state.routes.map((route, index) => {
-						const isFocused = state.index === index;
-						const { options } = descriptors[route.key];
+		<View testID="idTabBar" style={[styles.container, { height: HEIGHT_TABBAR }]}>
+			<View style={styles.buttonContainer}>
+				{state.routes.map((route, index) => {
+					const isFocused = state.index === index;
+					const { options } = descriptors[route.key];
 
-						const onPress = () => {
-							const event = navigation.emit({
-								type: 'tabPress',
-								target: route.key,
-								canPreventDefault: true,
-							});
+					const onPress = () => {
+						const event = navigation.emit({
+							type: 'tabPress',
+							target: route.key,
+							canPreventDefault: true,
+						});
 
-							if (!isFocused && !event.defaultPrevented) {
-								navigation.navigate(route.name);
-							}
-						};
+						if (!isFocused && !event.defaultPrevented) {
+							navigation.navigate(route.name);
+						}
+					};
 
-						return (
-							<TouchableOpacity
-								key={route.key}
-								onPress={onPress}
-								accessibilityRole="button"
-								accessibilityState={isFocused ? { selected: true } : {}}
-								accessibilityLabel={options.tabBarAccessibilityLabel}
-								testID={`id${route.name}`}
-								style={styles.button}
+					return (
+						<TouchableOpacity
+							key={route.key}
+							onPress={onPress}
+							accessibilityRole="button"
+							accessibilityState={isFocused ? { selected: true } : {}}
+							accessibilityLabel={options.tabBarAccessibilityLabel}
+							testID={`id${route.name}`}
+							style={[styles.button, { paddingBottom: insets.bottom }]}
+						>
+							<View
+								style={[
+									styles.indicator,
+									{ backgroundColor: isFocused ? colors.dark_cyan : colors.transparent },
+								]}
 							>
-								<View
-									style={[
-										styles.indicator,
-										{ backgroundColor: isFocused ? colors.dark_cyan : colors.transparent },
-									]}
-								>
-									{route.name === 'HomePage' && (
-										<IconHome
-											size={SIZE_ICON}
-											color={isFocused ? colors.light_cyan : colors.white}
-										/>
-									)}
-									{route.name === 'BitcoinDataPage' && (
-										<IconChart
-											size={SIZE_ICON}
-											color={isFocused ? colors.light_cyan : colors.white}
-										/>
-									)}
-									{route.name === 'SettingsPage' && (
-										<IconSettings
-											size={SIZE_ICON}
-											color={isFocused ? colors.light_cyan : colors.white}
-										/>
-									)}
-								</View>
-							</TouchableOpacity>
-						);
-					})}
-				</View>
-			</SafeAreaView>
+								{route.name === 'HomePage' && (
+									<IconHome size={SIZE_ICON} color={isFocused ? colors.light_cyan : colors.white} />
+								)}
+								{route.name === 'BitcoinDataPage' && (
+									<IconChart
+										size={SIZE_ICON}
+										color={isFocused ? colors.light_cyan : colors.white}
+									/>
+								)}
+								{route.name === 'SettingsPage' && (
+									<IconSettings
+										size={SIZE_ICON}
+										color={isFocused ? colors.light_cyan : colors.white}
+									/>
+								)}
+							</View>
+						</TouchableOpacity>
+					);
+				})}
+			</View>
 		</View>
 	);
 }
@@ -92,7 +89,7 @@ const styles = StyleSheet.create({
 		borderRadius: 100,
 	},
 	buttonContainer: {
-		height: hp('8%'),
+		flex: 1,
 		width: '100%',
 		flexDirection: 'row',
 	},

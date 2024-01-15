@@ -5,8 +5,8 @@ import { HeaderSwiperOptions } from '@/components/HeaderSwiperOptions';
 import { LimitedWidthContainer } from '@/components/LimitedWidthContainer';
 import { ScrollView } from '@/components/ScrollView';
 import { SelectList } from '@/components/SelectList';
-import { useAppSettings } from '@/stores';
-import { UseAppSettingsProps } from '@/stores/use-app-settings/types';
+import { useAppSettings } from '@/stores/useAppSettings';
+import { UseAppSettingsProps } from '@/types/UseAppSettingsType';
 
 export function LanguagePage() {
 	const { t } = useTranslation();

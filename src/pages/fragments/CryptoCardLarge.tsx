@@ -7,7 +7,7 @@ import { IconBitcoin, IconCardano } from '@/assets';
 import { SkeletonLoading } from '@/components/SkeletonLoading';
 import { Text } from '@/components/Text';
 import { borderRadius, colors, spaces } from '@/helpers/themes';
-import { useAppSettings } from '@/stores';
+import { useAppSettings } from '@/stores/useAppSettings';
 import { CryptoCardLargeProps } from '@/types/CryptoCardLargeType';
 
 export function CryptoCardLarge({ type, price, balance, status }: CryptoCardLargeProps) {
