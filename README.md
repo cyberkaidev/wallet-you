@@ -27,7 +27,7 @@ Create an .env file with the properties:
 [Create an account to have your key](https://docs.tatum.com/)
 
 ```
-EXPO_PUBLIC_TATUM_SDK_V1=YOUR-API-KEY
+EXPO_PUBLIC_TATUM_SDK_V4=YOUR-API-KEY
 ```
 
 1. Install dependencies

@@ -1,15 +1,15 @@
-import { IconArrowDown } from './icons/icon-arrow-down';
-import { IconArrowRight } from './icons/icon-arrow-right';
-import { IconArrowUp } from './icons/icon-arrow-up';
-import { IconBitcoin } from './icons/icon-bitcoin';
-import { IconCardano } from './icons/icon-cardano';
-import { IconChart } from './icons/icon-chart';
-import { IconGithub } from './icons/icon-github';
-import { IconHome } from './icons/icon-home';
-import { IconNoInternet } from './icons/icon-no-internet';
-import { IconSettings } from './icons/icon-settings';
-import { IconSuccess } from './icons/icon-success';
-import { IconTwitter } from './icons/icon-twitter';
+import { IconArrowDown } from './icons/IconArrowDown';
+import { IconArrowRight } from './icons/IconArrowRight';
+import { IconArrowUp } from './icons/IconArrowUp';
+import { IconBitcoin } from './icons/IconBitcoin';
+import { IconCardano } from './icons/IconCardano';
+import { IconChart } from './icons/IconChart';
+import { IconGithub } from './icons/IconGithub';
+import { IconHome } from './icons/IconHome';
+import { IconNoInternet } from './icons/IconNoInternet';
+import { IconSettings } from './icons/IconSettings';
+import { IconSuccess } from './icons/IconSuccess';
+import { IconTwitter } from './icons/IconTwitter';
 
 export {
 	IconArrowDown,
