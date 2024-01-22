@@ -1,12 +1,13 @@
 import React from 'react';
+import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import Svg, { Path } from 'react-native-svg';
 
 import { colors } from '@/helpers/themes';
 import { IconProps } from '@/types/IconType';
 
-export function IconBitcoin({ size = 25 }: Omit<IconProps, 'color'>) {
+export function IconBitcoin({ porcentSize = '6%' }: Omit<IconProps, 'color'>) {
 	return (
-		<Svg width={size} height={size} viewBox="0 0 72 72" fill="none">
+		<Svg width={wp(porcentSize)} height={wp(porcentSize)} viewBox="0 0 72 72" fill="none">
 			<Path
 				d="M70.9229 44.7086C66.1143 63.9945 46.5786 75.7315 27.2882 70.9222C8.0059 66.1142 -3.73245 46.5794 1.07827 27.2951C5.88476 8.00709 25.4205 -3.73082 44.7049 1.07724C63.9938 5.8853 75.7315 25.4221 70.9223 44.7089L70.9227 44.7086H70.9229Z"
 				fill={colors.dark_grey}
