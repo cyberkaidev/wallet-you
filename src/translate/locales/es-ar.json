@@ -1,7 +1,6 @@
 {
 	"translation": {
-		"public-key": "Llave pública",
-		"enter-public-key-btc": "Introduce tu clave pública (bitcoin)",
+		"public-key-btc": "Bitcoin (clave pública)",
 		"use-biometrics-optional": "Usar datos biométricos (opcional)",
 		"continue": "Continuar",
 		"loading": "Cargando",
