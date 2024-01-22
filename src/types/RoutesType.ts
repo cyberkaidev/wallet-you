@@ -3,7 +3,6 @@ import { AddressTransaction } from '@tatumio/tatum';
 export type RootStackParamListProps = {
 	RegisterKeyPage: undefined;
 	LocalAuthPage: undefined;
-	TabsRoutes: undefined;
 	HomePage: undefined;
 	BitcoinDataPage: undefined;
 	TransactionPage: {
