@@ -1,5 +1,6 @@
 {
 	"translation": {
+		"address": "Address",
 		"public-key-btc": "Bitcoin (public key)",
 		"use-biometrics-optional": "Use biometrics (optional)",
 		"continue": "Continue",
