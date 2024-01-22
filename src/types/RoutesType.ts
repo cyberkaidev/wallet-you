@@ -16,3 +16,9 @@ export type RootStackParamListProps = {
 	SupportUsPage: undefined;
 	LinksPage: undefined;
 };
+
+declare global {
+	namespace ReactNavigation {
+		interface RootParamList extends RootStackParamListProps {}
+	}
+}
