@@ -2,7 +2,6 @@ import { IconArrowDown } from './icons/IconArrowDown';
 import { IconArrowRight } from './icons/IconArrowRight';
 import { IconArrowUp } from './icons/IconArrowUp';
 import { IconBitcoin } from './icons/IconBitcoin';
-import { IconCardano } from './icons/IconCardano';
 import { IconChart } from './icons/IconChart';
 import { IconGithub } from './icons/IconGithub';
 import { IconHome } from './icons/IconHome';
@@ -16,7 +15,6 @@ export {
 	IconArrowRight,
 	IconArrowUp,
 	IconBitcoin,
-	IconCardano,
 	IconChart,
 	IconGithub,
 	IconHome,
