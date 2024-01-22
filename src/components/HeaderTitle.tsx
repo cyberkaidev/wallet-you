@@ -1,5 +1,5 @@
 import Constants from 'expo-constants';
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
@@ -9,7 +9,7 @@ import { HeaderTitleProps } from '@/types/HeaderTitleType';
 import { Text } from './Text';
 
 export function HeaderTitle({ title }: HeaderTitleProps) {
-	const useHeightHeader = useMemo(() => {
+	const useHeightHeader = React.useMemo(() => {
 		const HEIGHT_STATUS_BAR = Platform.OS === 'ios' ? Constants.statusBarHeight : 0;
 		return hp('8%') + HEIGHT_STATUS_BAR;
 	}, []);
@@ -36,5 +36,6 @@ const styles = StyleSheet.create({
 		height: hp('8%'),
 		paddingHorizontal: spaces.space_15,
 		justifyContent: 'center',
+		alignItems: Platform.OS === 'ios' ? 'center' : 'flex-start',
 	},
 });
