@@ -13,3 +13,14 @@ export interface ButtonTitleGhostProps {
 	marginR?: number;
 	marginL?: number;
 }
+
+export interface ButtonTitleGhostPlatformProps {
+	testID?: string;
+	children: React.ReactNode | React.ReactNode[];
+	onPress: () => void;
+	disabled?: boolean;
+	marginT?: number;
+	marginB?: number;
+	marginR?: number;
+	marginL?: number;
+}
