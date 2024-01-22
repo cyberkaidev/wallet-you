@@ -40,7 +40,6 @@ export function ButtonTitleGhostPlatform({
 
 const styles = StyleSheet.create({
 	container: {
-		alignSelf: 'center',
 		flexDirection: 'row',
 		padding: 10,
 		alignItems: 'center',

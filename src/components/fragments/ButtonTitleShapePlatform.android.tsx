@@ -49,7 +49,6 @@ export function ButtonTitleShapePlatform({
 
 const styles = StyleSheet.create({
 	container: {
-		alignSelf: 'center',
 		flexDirection: 'row',
 		backgroundColor: colors.light_cyan,
 		marginBottom: spaces.space_15,
