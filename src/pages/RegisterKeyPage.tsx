@@ -8,11 +8,11 @@ import { StyleSheet, View } from 'react-native';
 
 import { ButtonTitleGhost } from '@/components/ButtonTitleGhost';
 import { CheckBoxMessage } from '@/components/CheckBoxMessage';
-import { ScrollViewHeader } from '@/components/ScrollViewHeader';
+import { ScrollView } from '@/components/ScrollView';
 import { Text } from '@/components/Text';
-import { TextFieldArea } from '@/components/TextFieldArea';
 import { storageKeys } from '@/helpers/storageKeys';
 import { colors, spaces, width } from '@/helpers/themes';
+import { TextFieldPaste } from '@/pages/fragments/TextFieldPaste';
 import { getBitcoinBalance } from '@/services/getBitcoinBalance';
 import { useBitcoinDataPrices } from '@/stores/useBitcoinDataPrices';
 import { useUserData } from '@/stores/useUserData';
@@ -62,14 +62,14 @@ export function RegisterKeyPage() {
 		navigation.dispatch(
 			CommonActions.reset({
 				index: 1,
-				routes: [{ name: 'TabsRoutes' }],
+				routes: [{ name: 'HomePage' }],
 			}),
 		);
 	}
 
 	return (
-		<ScrollViewHeader headerTitle={t('public-key')}>
-			<TextFieldArea value={inputPublicKey} onChangeText={setInputPublicKey} />
+		<ScrollView>
+			<TextFieldPaste value={inputPublicKey} onChangeText={setInputPublicKey} />
 			{error.visible && (
 				<View style={styles.textErrorContainer}>
 					<Text weight="medium" marginT={spaces.space_5} color={colors.red}>
@@ -84,16 +84,15 @@ export function RegisterKeyPage() {
 					message={t('use-biometrics-optional')}
 				/>
 			)}
-			<View style={styles.space} />
 			<ButtonTitleGhost
 				title={t('continue')}
 				onPress={handlerContinue}
 				size="large"
 				loading={loading}
 				disabled={inputPublicKey.length < 1}
-				marginT={spaces.space_25}
+				marginT={spaces.space_15}
 			/>
-		</ScrollViewHeader>
+		</ScrollView>
 	);
 }
 
@@ -102,8 +101,5 @@ const styles = StyleSheet.create({
 		width: '100%',
 		maxWidth: width.max_width,
 		alignSelf: 'center',
-	},
-	space: {
-		flex: 1,
 	},
 });
