@@ -15,6 +15,7 @@
 		"isolatedModules": true,
 		"noEmit": true,
 		"jsx": "react-native",
+		"moduleSuffixes": [".ios", ".android", ".native", ""],
 		"baseUrl": ".",
 		"paths": {
 			"@/*": ["src/*"]
