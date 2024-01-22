@@ -1,6 +1,6 @@
-import { IconArrowDown } from './icons/IconArrowDown';
+import { IconArrowDownLeft } from './icons/IconArrowDownLeft';
 import { IconArrowRight } from './icons/IconArrowRight';
-import { IconArrowUp } from './icons/IconArrowUp';
+import { IconArrowUpRight } from './icons/IconArrowUpRight';
 import { IconBitcoin } from './icons/IconBitcoin';
 import { IconChart } from './icons/IconChart';
 import { IconGithub } from './icons/IconGithub';
@@ -11,9 +11,9 @@ import { IconSuccess } from './icons/IconSuccess';
 import { IconTwitter } from './icons/IconTwitter';
 
 export {
-	IconArrowDown,
+	IconArrowDownLeft,
 	IconArrowRight,
-	IconArrowUp,
+	IconArrowUpRight,
 	IconBitcoin,
 	IconChart,
 	IconGithub,
