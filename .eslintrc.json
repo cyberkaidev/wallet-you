@@ -32,7 +32,9 @@
 		"no-multi-spaces": "error",
 		"no-inner-declarations": "off",
 		"simple-import-sort/imports": "error",
-		"simple-import-sort/exports": "error"
+		"simple-import-sort/exports": "error",
+		"@typescript-eslint/no-empty-interface": "off",
+		"@typescript-eslint/no-namespace": "off"
 	},
 	"settings": {
 		"react": {
