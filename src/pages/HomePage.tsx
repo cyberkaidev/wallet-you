@@ -2,9 +2,9 @@ import React from 'react';
 
 import { LimitedWidthContainer } from '@/components/LimitedWidthContainer';
 import { ScrollView } from '@/components/ScrollView';
-import { TransactionList } from '@/components/TransactionList';
 import { calculateBalance } from '@/functions/calculateBalance';
 import { useFormatCurrency } from '@/hooks/useFormatCurrency';
+import { TransactionList } from '@/pages/fragments/TransactionList';
 import { getBitcoinBalance } from '@/services/getBitcoinBalance';
 import { useAppSettings } from '@/stores/useAppSettings';
 import { useBitcoinDataPrices } from '@/stores/useBitcoinDataPrices';
