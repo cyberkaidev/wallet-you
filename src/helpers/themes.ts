@@ -29,9 +29,11 @@ export const fontSizes = {
 
 export const colors = {
 	white: '#FFFFFF',
+	white_10pct: 'rgba(255, 255, 255, 0.10)',
 	green: '#ACD9A8',
 	red: '#E17C7C',
 	light_cyan: '#B4C9FF',
+	light_cyan_10pct: 'rgba(180, 201, 255, 0.10)',
 	dark_cyan: '#3E4454',
 	black_100: '#191B1F',
 	black_000: '#222329',
