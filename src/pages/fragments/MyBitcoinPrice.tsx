@@ -15,7 +15,7 @@ export function MyBitcoinPrice({ price, balance, status }: MyBitcoinPriceProps) 
 	return (
 		<View testID="idMyBitcoinPrice" style={styles.container}>
 			<View style={styles.row}>
-				<IconBitcoin size={hp('2.5%')} />
+				<IconBitcoin porcentSize="5%" />
 				<Text weight="bold" marginL={spaces.space_5}>
 					{t('total-balance')}
 				</Text>
@@ -64,7 +64,7 @@ export function MyBitcoinPrice({ price, balance, status }: MyBitcoinPriceProps) 
 const styles = StyleSheet.create({
 	container: {
 		alignItems: 'center',
-		paddingVertical: hp('20%'),
+		paddingVertical: hp('15%'),
 	},
 	row: {
 		flexDirection: 'row',
