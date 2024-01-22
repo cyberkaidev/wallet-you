@@ -1,9 +1,8 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Animated } from 'react-native';
 
+import { HeaderTitle } from '@/components/HeaderTitle';
 import { colors } from '@/helpers/themes';
 import { BitcoinDataPage } from '@/pages/BitcoinDataPage';
 import { CurrencyPage } from '@/pages/CurrencyPage';
@@ -20,22 +19,14 @@ import { TransactionPage } from '@/pages/TransactionPage';
 import { RootStackParamListProps } from '@/types/RoutesType';
 
 import { HeaderSwiperIndicator } from './fragments/HeaderSwiperIndicator';
-import { TabBar } from './fragments/TabBar';
 
 const Stack = createStackNavigator<RootStackParamListProps>();
-const Tab = createBottomTabNavigator();
 
 const optionsScreenIOS = {
 	gestureEnabled: true,
 	cardOverlayEnabled: true,
 	...TransitionPresets.ModalPresentationIOS,
 };
-
-const fixAnimateToIOS = new Animated.Value(0);
-
-fixAnimateToIOS.addListener(() => {
-	return;
-});
 
 export function RootStack() {
 	const { t } = useTranslation();
@@ -49,8 +40,14 @@ export function RootStack() {
 			}}
 		>
 			<Stack.Screen name="LocalAuthPage" component={LocalAuthPage} />
-			<Stack.Screen name="RegisterKeyPage" component={RegisterKeyPage} />
-			<Stack.Screen name="TabsRoutes" component={TabsRoutes} />
+			<Stack.Screen
+				name="RegisterKeyPage"
+				component={RegisterKeyPage}
+				options={{ header: () => <HeaderTitle title={t('public-key')} />, headerShown: true }}
+			/>
+			<Stack.Screen name="HomePage" component={HomePage} />
+			<Stack.Screen name="BitcoinDataPage" component={BitcoinDataPage} />
+			<Stack.Screen name="SettingsPage" component={SettingsPage} />
 			<Stack.Screen
 				name="TransactionPage"
 				component={TransactionPage}
@@ -111,22 +108,5 @@ export function RootStack() {
 				}}
 			/>
 		</Stack.Navigator>
-	);
-}
-
-function TabsRoutes() {
-	return (
-		<Tab.Navigator
-			initialRouteName="HomePage"
-			screenOptions={{ headerShown: false }}
-			sceneContainerStyle={{ backgroundColor: colors.black_100 }}
-			tabBar={({ state, descriptors, navigation }) => (
-				<TabBar state={state} descriptors={descriptors} navigation={navigation} />
-			)}
-		>
-			<Tab.Screen name="HomePage" component={HomePage} />
-			<Tab.Screen name="BitcoinDataPage" component={BitcoinDataPage} />
-			<Tab.Screen name="SettingsPage" component={SettingsPage} />
-		</Tab.Navigator>
 	);
 }
