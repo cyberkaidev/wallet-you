@@ -43,7 +43,7 @@ export function RootStack() {
 			<Stack.Screen
 				name="RegisterKeyPage"
 				component={RegisterKeyPage}
-				options={{ header: () => <HeaderTitle title={t('public-key')} />, headerShown: true }}
+				options={{ header: () => <HeaderTitle title={t('address')} />, headerShown: true }}
 			/>
 			<Stack.Screen name="HomePage" component={HomePage} />
 			<Stack.Screen name="BitcoinDataPage" component={BitcoinDataPage} />
