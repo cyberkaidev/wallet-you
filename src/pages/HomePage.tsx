@@ -10,6 +10,7 @@ import { useAppSettings } from '@/stores/useAppSettings';
 import { useBitcoinDataPrices } from '@/stores/useBitcoinDataPrices';
 import { useUserData } from '@/stores/useUserData';
 
+import { HeaderIcons } from './fragments/HeaderIcons';
 import { MyBitcoinPrice } from './fragments/MyBitcoinPrice';
 
 export function HomePage() {
@@ -29,6 +30,7 @@ export function HomePage() {
 	return (
 		<ScrollView refreshControl={() => onRefresh()}>
 			<LimitedWidthContainer>
+				<HeaderIcons />
 				<MyBitcoinPrice price={currencyFormated} balance={balance} status={status} />
 				<TransactionList />
 			</LimitedWidthContainer>
