@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { CommonActions, NavigationProp, useNavigation } from '@react-navigation/native';
+import { CommonActions, useNavigation } from '@react-navigation/native';
 import * as LocalAuthentication from 'expo-local-authentication';
 import * as SecureStore from 'expo-secure-store';
 import { setStatusBarBackgroundColor } from 'expo-status-bar';
@@ -13,10 +13,9 @@ import { colors } from '@/helpers/themes';
 import { getBitcoinBalance } from '@/services/getBitcoinBalance';
 import { useBitcoinDataPrices } from '@/stores/useBitcoinDataPrices';
 import { useUserData } from '@/stores/useUserData';
-import { RootStackParamListProps } from '@/types/RoutesType';
 
 export function LocalAuthPage() {
-	const navigation = useNavigation<NavigationProp<RootStackParamListProps>>();
+	const navigation = useNavigation();
 	const { fetchTransactions, setKey } = useUserData(state => state);
 	const { fetchBitcoinDataPrices } = useBitcoinDataPrices(state => state);
 	const { t } = useTranslation();
@@ -24,7 +23,7 @@ export function LocalAuthPage() {
 	const [loading, setLoading] = React.useState(false);
 
 	async function resetRoute(navigate: string) {
-		if (navigate === 'TabsRoutes') {
+		if (navigate === 'HomePage') {
 			const publicKey = await SecureStore.getItemAsync(storageKeys.publicKey);
 			const resBalance = await getBitcoinBalance(publicKey as string);
 			if (resBalance === 'not-found') {
@@ -54,10 +53,10 @@ export function LocalAuthPage() {
 		const userEnabledAuth = await AsyncStorage.getItem(storageKeys.enableLocalAuth);
 
 		if (!isBiometricEnrolled || !userEnabledAuth || userEnabledAuth === 'off') {
-			resetRoute('TabsRoutes');
+			resetRoute('HomePage');
 		} else {
 			const results = await LocalAuthentication.authenticateAsync();
-			if (results.success) resetRoute('TabsRoutes');
+			if (results.success) resetRoute('HomePage');
 			if (!results.success) setLoading(false);
 		}
 	}
