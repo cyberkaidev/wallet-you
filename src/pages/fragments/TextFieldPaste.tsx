@@ -47,7 +47,7 @@ export function TextFieldPaste({ value, onChangeText }: TextFieldPasteProps) {
 				style={styles.container}
 				maxLength={150}
 			/>
-			<ButtonTitleGhost title="Paste" onPress={fetchCopiedText} />
+			<ButtonTitleGhost title={t('paste')} onPress={fetchCopiedText} />
 		</View>
 	);
 }
