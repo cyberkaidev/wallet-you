@@ -14,8 +14,6 @@ export type RootStackParamListProps = {
 	LanguagePage: undefined;
 	CurrencyPage: undefined;
 	TermsPage: undefined;
-	SupportUsPage: undefined;
-	LinksPage: undefined;
 };
 
 export type UseRouteType<T extends keyof RootStackParamListProps> = RouteProp<
