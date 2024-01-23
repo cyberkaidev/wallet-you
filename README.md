@@ -41,5 +41,3 @@ yarn android
 ```
 
 :apple: **_It is currently available for Android, later it will be available for IOS_**
-
-:moneybag: Support us: bc1qrrs0xfdd75fve2etu3936lnzjvwf8dm0w7vmwf
