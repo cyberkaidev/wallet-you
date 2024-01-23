@@ -2,10 +2,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import * as LocalAuthentication from 'expo-local-authentication';
 import * as SecureStore from 'expo-secure-store';
-import { setStatusBarBackgroundColor } from 'expo-status-bar';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Platform, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { ButtonTitleShape } from '@/components/ButtonTitleShape';
 import { storageKeys } from '@/helpers/storageKeys';
@@ -70,13 +69,6 @@ export function LocalAuthPage() {
 
 	React.useEffect(() => {
 		publicKeyCheck();
-	}, []);
-
-	React.useEffect(() => {
-		if (Platform.OS === 'android') setStatusBarBackgroundColor(colors.black_100, true);
-		return () => {
-			if (Platform.OS === 'android') setStatusBarBackgroundColor(colors.black_000, true);
-		};
 	}, []);
 
 	return (
