@@ -1,4 +1,5 @@
 import { IconArrowDownLeft } from './icons/IconArrowDownLeft';
+import { IconArrowLeft } from './icons/IconArrowLeft';
 import { IconArrowRight } from './icons/IconArrowRight';
 import { IconArrowUpRight } from './icons/IconArrowUpRight';
 import { IconBitcoin } from './icons/IconBitcoin';
@@ -12,6 +13,7 @@ import { IconTwitter } from './icons/IconTwitter';
 
 export {
 	IconArrowDownLeft,
+	IconArrowLeft,
 	IconArrowRight,
 	IconArrowUpRight,
 	IconBitcoin,
