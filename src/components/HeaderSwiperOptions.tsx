@@ -1,8 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
-import { setStatusBarBackgroundColor } from 'expo-status-bar';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Platform, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { colors, spaces } from '@/helpers/themes';
 import { HeaderSwiperOptionsProps } from '@/types/HeaderSwiperOptionsType';
@@ -17,13 +16,6 @@ export function HeaderSwiperOptions({
 }: HeaderSwiperOptionsProps) {
 	const navigation = useNavigation();
 	const { t } = useTranslation();
-
-	React.useEffect(() => {
-		if (Platform.OS === 'android') setStatusBarBackgroundColor('black', true);
-		return () => {
-			if (Platform.OS === 'android') setStatusBarBackgroundColor(colors.black_000, true);
-		};
-	}, []);
 
 	return (
 		<View testID="idHeaderSwiperOptions" style={styles.container}>

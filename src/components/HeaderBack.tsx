@@ -1,11 +1,10 @@
 import { useNavigation } from '@react-navigation/native';
-import Constants from 'expo-constants';
-import { setStatusBarBackgroundColor } from 'expo-status-bar';
 import React from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import { IconArrowLeft } from '@/assets';
+import { statusBarHeight } from '@/helpers/statusBarHeight';
 import { colors, spaces } from '@/helpers/themes';
 import { HeaderTitleProps } from '@/types/HeaderTitleType';
 
@@ -16,15 +15,7 @@ export function HeaderBack({ title }: HeaderTitleProps) {
 	const navigation = useNavigation();
 
 	const useHeightHeader = React.useMemo(() => {
-		const HEIGHT_STATUS_BAR = Platform.OS === 'ios' ? Constants.statusBarHeight : 0;
-		return hp('8%') + HEIGHT_STATUS_BAR;
-	}, []);
-
-	React.useEffect(() => {
-		if (Platform.OS === 'android') setStatusBarBackgroundColor(colors.black_000, false);
-		return () => {
-			if (Platform.OS === 'android') setStatusBarBackgroundColor(colors.black_000, false);
-		};
+		return hp('8%') + statusBarHeight;
 	}, []);
 
 	return (
