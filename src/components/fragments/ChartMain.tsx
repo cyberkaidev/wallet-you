@@ -73,9 +73,8 @@ export function ChartMain({ data }: ChartMainProps) {
 					contentInset={{ ...verticalContentInset }}
 					svg={{ fill: colors.transparent }}
 					curve={shape.curveNatural}
-					animate
 				>
-					<CustomLine />
+					<CustomLine isActive={positionX >= 0} />
 					<CustomTooltip positionX={positionX} size={size} dataList={data} />
 				</AreaChart>
 			</View>

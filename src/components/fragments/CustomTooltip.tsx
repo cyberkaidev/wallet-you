@@ -39,7 +39,7 @@ export function CustomTooltip({ x, y, ticks, positionX, size, dataList }: Custom
 					fill={colors.transparent}
 				/>
 
-				<SvgText x={apx(20)} fill={colors.white} fontSize={apx(24)}>
+				<SvgText x={apx(20)} fill={colors.white} fontWeight="bold" fontSize={apx(24)}>
 					{dateAndTime}
 				</SvgText>
 				<SvgText
@@ -54,14 +54,6 @@ export function CustomTooltip({ x, y, ticks, positionX, size, dataList }: Custom
 			</G>
 
 			<G>
-				<Line
-					y1={ticks?.[0]}
-					y2={ticks?.[Number(ticks.length)]}
-					stroke={colors.white}
-					strokeWidth={apx(3)}
-					strokeDasharray={[6, 3]}
-				/>
-
 				<Circle
 					cy={y?.(dataList[positionX].value)}
 					r={apx(20 / 2)}
