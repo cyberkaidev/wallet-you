@@ -1,13 +1,13 @@
 import currencyJS from 'currency.js';
 import React from 'react';
 import { Dimensions } from 'react-native';
-import { Circle, G, Line, Rect, Text as SvgText } from 'react-native-svg';
+import { Circle, G, Rect, Text as SvgText } from 'react-native-svg';
 
 import { colors } from '@/helpers/themes';
 import { useFormatDate } from '@/hooks/useFormatDate';
 import { CustomTooltipProps } from '@/types/CustomTooltipType';
 
-export function CustomTooltip({ x, y, ticks, positionX, size, dataList }: CustomTooltipProps) {
+export function CustomTooltip({ x, y, positionX, size, dataList }: CustomTooltipProps) {
 	const apx = (size = 0) => {
 		const width = Dimensions.get('window').width;
 		return (width / 750) * size;
@@ -54,13 +54,7 @@ export function CustomTooltip({ x, y, ticks, positionX, size, dataList }: Custom
 			</G>
 
 			<G>
-				<Circle
-					cy={y?.(dataList[positionX].value)}
-					r={apx(20 / 2)}
-					stroke={colors.light_cyan}
-					strokeWidth={apx(2)}
-					fill={colors.white}
-				/>
+				<Circle cy={y?.(dataList[positionX].value)} r={5} strokeWidth={3} fill={colors.white} />
 			</G>
 		</G>
 	);
