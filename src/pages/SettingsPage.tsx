@@ -1,14 +1,15 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { CommonActions, NavigationProp, useNavigation } from '@react-navigation/native';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
 import Constants from 'expo-constants';
 import * as SecureStore from 'expo-secure-store';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Linking } from 'react-native';
 
 import { ActionList } from '@/components/ActionList';
 import { AlertModal } from '@/components/AlertModal';
 import { LimitedWidthContainer } from '@/components/LimitedWidthContainer';
-import { ScrollViewHeader } from '@/components/ScrollViewHeader';
+import { ScrollView } from '@/components/ScrollView';
 import { Text } from '@/components/Text';
 import { initializeAppSettings } from '@/functions/initializeAppSettings';
 import { storageKeys } from '@/helpers/storageKeys';
@@ -31,12 +32,10 @@ export function SettingsPage() {
 		initializeAppSettings();
 		cleanUserData();
 
-		navigation.dispatch(
-			CommonActions.reset({
-				index: 1,
-				routes: [{ name: 'LocalAuthPage' }],
-			}),
-		);
+		navigation.reset({
+			index: 0,
+			routes: [{ name: 'LocalAuthPage' }],
+		});
 	}
 
 	const settingsList = [
@@ -57,23 +56,18 @@ export function SettingsPage() {
 		},
 		{ testID: 'idTerms', title: t('terms'), onAction: () => navigation.navigate('TermsPage') },
 		{
-			testID: 'idSupportUs',
-			title: t('support-us'),
-			onAction: () => navigation.navigate('SupportUsPage'),
-		},
-		{
-			testID: 'idLinks',
-			title: 'Links',
-			onAction: () => navigation.navigate('LinksPage'),
+			testID: 'idSourceCode',
+			title: t('source-code'),
+			onAction: () => Linking.openURL('https://github.com/cyberkaidev/wallet-you'),
 		},
 		{ testID: 'idExit', title: t('exit'), onAction: () => setShowModal(true) },
 	];
 
 	return (
-		<ScrollViewHeader headerTitle={t('settings')}>
+		<ScrollView>
 			<LimitedWidthContainer>
 				<ActionList list={settingsList} />
-				<Text weight="bold" marginT={spaces.space_25}>
+				<Text weight="bold" marginT={spaces.space_15}>
 					v {Constants.expoConfig?.version != null ? Constants.expoConfig.version : '-'}
 				</Text>
 			</LimitedWidthContainer>
@@ -83,6 +77,6 @@ export function SettingsPage() {
 				onCancel={() => setShowModal(false)}
 				onConfirm={onExit}
 			/>
-		</ScrollViewHeader>
+		</ScrollView>
 	);
 }

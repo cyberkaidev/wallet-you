@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import { IconArrowRight } from '@/assets';
 import { Text } from '@/components/Text';
@@ -33,7 +32,7 @@ export function ActionList({ list }: ActionListProps) {
 					>
 						<Text size="m">{item.title}</Text>
 						<View style={styles.iconContainer}>
-							<IconArrowRight size={hp('2%')} color={colors.dark_grey} />
+							<IconArrowRight porcentSize="4%" color={colors.light_cyan} />
 						</View>
 						{list.length !== index + 1 && <View style={styles.indicator} />}
 					</View>
@@ -50,9 +49,6 @@ const styles = StyleSheet.create({
 		alignSelf: 'center',
 		backgroundColor: colors.black_000,
 		borderRadius: borderRadius.radius_10,
-		borderStyle: 'solid',
-		borderWidth: 1,
-		borderColor: colors.dark_grey,
 	},
 	button: {
 		flexDirection: 'row',
