@@ -4,6 +4,7 @@ import { StyleSheet, View } from 'react-native';
 
 import { IconChart, IconSettings } from '@/assets';
 import { ButtonIcon } from '@/components/ButtonIcon';
+import { statusBarHeight } from '@/helpers/statusBarHeight';
 import { colors, spaces } from '@/helpers/themes';
 
 export function HeaderIcons() {
@@ -11,7 +12,7 @@ export function HeaderIcons() {
 
 	return (
 		<View style={styles.container}>
-			<ButtonIcon onPress={() => navigation.navigate('BitcoinDataPage')} marginR={spaces.space_25}>
+			<ButtonIcon onPress={() => navigation.navigate('ChartPage')} marginR={spaces.space_25}>
 				<IconChart color={colors.light_cyan} />
 			</ButtonIcon>
 			<ButtonIcon onPress={() => navigation.navigate('SettingsPage')}>
@@ -25,5 +26,6 @@ const styles = StyleSheet.create({
 	container: {
 		flexDirection: 'row',
 		justifyContent: 'flex-end',
+		marginTop: statusBarHeight,
 	},
 });
