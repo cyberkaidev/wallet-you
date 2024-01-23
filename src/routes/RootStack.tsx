@@ -9,12 +9,10 @@ import { ChartPage } from '@/pages/ChartPage';
 import { CurrencyPage } from '@/pages/CurrencyPage';
 import { HomePage } from '@/pages/HomePage';
 import { LanguagePage } from '@/pages/LanguagePage';
-import { LinksPage } from '@/pages/LinksPage';
 import { LocalAuthPage } from '@/pages/LocalAuthPage';
 import { PublicKeyPage } from '@/pages/PublicKeyPage';
 import { RegisterKeyPage } from '@/pages/RegisterKeyPage';
 import { SettingsPage } from '@/pages/SettingsPage';
-import { SupportUsPage } from '@/pages/SupportUsPage';
 import { TermsPage } from '@/pages/TermsPage';
 import { TransactionPage } from '@/pages/TransactionPage';
 import { RootStackParamListProps } from '@/types/RoutesType';
@@ -52,7 +50,11 @@ export function RootStack() {
 				component={ChartPage}
 				options={{ header: () => <HeaderBack title={t('chart')} />, headerShown: true }}
 			/>
-			<Stack.Screen name="SettingsPage" component={SettingsPage} />
+			<Stack.Screen
+				name="SettingsPage"
+				component={SettingsPage}
+				options={{ header: () => <HeaderBack title={t('settings')} />, headerShown: true }}
+			/>
 			<Stack.Screen
 				name="TransactionPage"
 				component={TransactionPage}
@@ -90,24 +92,6 @@ export function RootStack() {
 				component={TermsPage}
 				options={{
 					header: () => <HeaderSwiperIndicator title={t('terms')} />,
-					headerShown: true,
-					...optionsScreenIOS,
-				}}
-			/>
-			<Stack.Screen
-				name="SupportUsPage"
-				component={SupportUsPage}
-				options={{
-					header: () => <HeaderSwiperIndicator title={t('support-us')} />,
-					headerShown: true,
-					...optionsScreenIOS,
-				}}
-			/>
-			<Stack.Screen
-				name="LinksPage"
-				component={LinksPage}
-				options={{
-					header: () => <HeaderSwiperIndicator title={'Links'} />,
 					headerShown: true,
 					...optionsScreenIOS,
 				}}
