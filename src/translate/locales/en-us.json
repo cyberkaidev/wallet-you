@@ -1,5 +1,6 @@
 {
 	"translation": {
+		"source-code": "Source code",
 		"address": "Address",
 		"public-key-btc": "Bitcoin (public key)",
 		"use-biometrics-optional": "Use biometrics (optional)",
@@ -24,20 +25,16 @@
 		"language": "Language",
 		"currency": "Currency",
 		"terms": "Terms",
-		"support-us": "Support us",
 		"exit": "Exit",
 		"your-public-key": "Your public key",
 		"copy-address": "Copy address",
 		"copied": "Copied",
 		"cancel": "Cancel",
 		"change": "Change",
-		"bitcoin-address": "Bitcoin address",
-		"support-us-by-sending": "Support us by sending any amount of Bitcoin to our address",
 		"public-key-not-found": "Public key not found",
 		"request-error-try-later": "Request error, please try again later",
 		"unlock": "Unlock",
 		"you-dont-have-transactions": "You don't have transactions",
-		"my-wallet": "My wallet",
 		"chart": "Chart",
 		"confirm": "Confirm",
 		"do_you_really_want_to_leave": "Do you really want to leave?"

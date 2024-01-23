@@ -1,5 +1,6 @@
 {
 	"translation": {
+		"source-code": "Código fonte",
 		"address": "Endereço",
 		"public-key-btc": "Bitcoin (chave pública)",
 		"use-biometrics-optional": "Usar biometria (opcional)",
@@ -24,20 +25,16 @@
 		"language": "Idioma",
 		"currency": "Moeda",
 		"terms": "Termos",
-		"support-us": "Apoie-nos",
 		"exit": "Sair",
 		"your-public-key": "Sua chave pública",
 		"copy-address": "Copiar endereço",
 		"copied": "Copiado",
 		"cancel": "Cancelar",
 		"change": "Alterar",
-		"bitcoin-address": "Endereço Bitcoin",
-		"support-us-by-sending": "Apoie-nos enviando qualquer quantidade de Bitcoin para o nosso endereço",
 		"public-key-not-found": "Chave pública não encontrada",
 		"request-error-try-later": "Erro na requisição, tente novamente mais tarde",
 		"unlock": "Desbloquear",
 		"you-dont-have-transactions": "Você não tem transações",
-		"my-wallet": "Minha carteira",
 		"chart": "Gráfico",
 		"confirm": "Confirmar",
 		"do_you_really_want_to_leave": "Você realmente quer sair?"
