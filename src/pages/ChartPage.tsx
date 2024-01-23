@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-import { ChartBitcoin } from '@/components/ChartBitcoin';
+import { ChartKit } from '@/components/ChartKit';
 import { PriceBitcoin } from '@/components/PriceBitcoin';
 import { ScrollView } from '@/components/ScrollView';
 import { TitleSubtitle } from '@/components/TitleSubtitle';
@@ -47,7 +47,7 @@ export function ChartPage() {
 					status={status}
 				/>
 			</View>
-			<ChartBitcoin />
+			<ChartKit />
 			<View style={styles.padding}>
 				<TitleSubtitle
 					title={`${t('price-change')} (24h)`}

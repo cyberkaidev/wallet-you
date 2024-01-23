@@ -14,7 +14,7 @@ import { ChartMain } from './fragments/ChartMain';
 import { SkeletonLoading } from './SkeletonLoading';
 import { Text } from './Text';
 
-export function ChartBitcoin() {
+export function ChartKit() {
 	const { t } = useTranslation();
 	const { isTablet } = useAppSettings(state => state);
 	const { fetchBitcoinHistoricalPrice, status, data } = useBitcoinHistoricalPrice(state => state);
@@ -25,7 +25,7 @@ export function ChartBitcoin() {
 
 	return (
 		<View
-			testID="idChartBitcoin"
+			testID="idChartKit"
 			style={[styles.container, { marginTop: isTablet ? hp('5%') : spaces.space_25 }]}
 		>
 			{(status === 'loading' || status === null) && (
