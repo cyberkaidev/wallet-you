@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { CommonActions, NavigationProp, useNavigation } from '@react-navigation/native';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
 import * as LocalAuthentication from 'expo-local-authentication';
 import * as SecureStore from 'expo-secure-store';
 import React from 'react';
@@ -59,12 +59,11 @@ export function RegisterKeyPage() {
 		if (toggleCheckBox) await AsyncStorage.setItem(storageKeys.enableLocalAuth, 'on');
 		await SecureStore.setItemAsync(storageKeys.publicKey, inputPublicKey);
 		setKey(inputPublicKey);
-		navigation.dispatch(
-			CommonActions.reset({
-				index: 1,
-				routes: [{ name: 'HomePage' }],
-			}),
-		);
+
+		navigation.reset({
+			index: 0,
+			routes: [{ name: 'HomePage' }],
+		});
 	}
 
 	return (

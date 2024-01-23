@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { CommonActions, useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import * as LocalAuthentication from 'expo-local-authentication';
 import * as SecureStore from 'expo-secure-store';
 import { setStatusBarBackgroundColor } from 'expo-status-bar';
@@ -13,6 +13,7 @@ import { colors } from '@/helpers/themes';
 import { getBitcoinBalance } from '@/services/getBitcoinBalance';
 import { useBitcoinDataPrices } from '@/stores/useBitcoinDataPrices';
 import { useUserData } from '@/stores/useUserData';
+import { RootStackParamListProps } from '@/types/RoutesType';
 
 export function LocalAuthPage() {
 	const navigation = useNavigation();
@@ -22,28 +23,24 @@ export function LocalAuthPage() {
 
 	const [loading, setLoading] = React.useState(false);
 
-	async function resetRoute(navigate: string) {
+	async function resetRoute(navigate: keyof RootStackParamListProps) {
 		if (navigate === 'HomePage') {
 			const publicKey = await SecureStore.getItemAsync(storageKeys.publicKey);
 			const resBalance = await getBitcoinBalance(publicKey as string);
 			if (resBalance === 'not-found') {
-				navigation.dispatch(
-					CommonActions.reset({
-						index: 1,
-						routes: [{ name: 'RegisterKeyPage' }],
-					}),
-				);
+				navigation.reset({
+					index: 0,
+					routes: [{ name: 'RegisterKeyPage' }],
+				});
 				return;
 			}
 			fetchBitcoinDataPrices();
 			fetchTransactions(publicKey as string);
 		}
-		navigation.dispatch(
-			CommonActions.reset({
-				index: 1,
-				routes: [{ name: navigate }],
-			}),
-		);
+		navigation.reset({
+			index: 0,
+			routes: [{ name: navigate }],
+		});
 	}
 
 	async function authenticate() {
