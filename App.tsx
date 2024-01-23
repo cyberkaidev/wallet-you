@@ -22,11 +22,6 @@ export default function App() {
 		'Inter-Bold': require('./assets/fonts/Inter-Bold.otf'),
 	});
 
-	React.useEffect(() => {
-		initializeAppSettings();
-		changeScreenOrientation();
-	}, []);
-
 	async function changeScreenOrientation() {
 		const deviceType = await Device.getDeviceTypeAsync();
 		const isTablet = Device.DeviceType[deviceType] == 'TABLET';
@@ -36,6 +31,11 @@ export default function App() {
 			await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
 		}
 	}
+
+	React.useEffect(() => {
+		initializeAppSettings();
+		changeScreenOrientation();
+	}, []);
 
 	const onLayoutRootView = React.useCallback(async () => {
 		if (fontsLoaded) {
