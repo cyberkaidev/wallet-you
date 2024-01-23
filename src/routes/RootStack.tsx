@@ -2,9 +2,10 @@ import { createStackNavigator, TransitionPresets } from '@react-navigation/stack
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { HeaderBack } from '@/components/HeaderBack';
 import { HeaderTitle } from '@/components/HeaderTitle';
 import { colors } from '@/helpers/themes';
-import { BitcoinDataPage } from '@/pages/BitcoinDataPage';
+import { ChartPage } from '@/pages/ChartPage';
 import { CurrencyPage } from '@/pages/CurrencyPage';
 import { HomePage } from '@/pages/HomePage';
 import { LanguagePage } from '@/pages/LanguagePage';
@@ -46,7 +47,11 @@ export function RootStack() {
 				options={{ header: () => <HeaderTitle title={t('address')} />, headerShown: true }}
 			/>
 			<Stack.Screen name="HomePage" component={HomePage} />
-			<Stack.Screen name="BitcoinDataPage" component={BitcoinDataPage} />
+			<Stack.Screen
+				name="ChartPage"
+				component={ChartPage}
+				options={{ header: () => <HeaderBack title={t('chart')} />, headerShown: true }}
+			/>
 			<Stack.Screen name="SettingsPage" component={SettingsPage} />
 			<Stack.Screen
 				name="TransactionPage"
