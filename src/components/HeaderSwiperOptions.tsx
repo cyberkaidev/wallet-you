@@ -55,7 +55,7 @@ export function HeaderSwiperOptions({
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: colors.black_000,
+		backgroundColor: colors.black_100,
 		paddingVertical: spaces.space_10,
 		width: '100%',
 		flexDirection: 'row',
