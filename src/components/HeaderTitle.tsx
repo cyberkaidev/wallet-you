@@ -1,4 +1,5 @@
 import Constants from 'expo-constants';
+import { setStatusBarBackgroundColor } from 'expo-status-bar';
 import React from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
@@ -14,10 +15,17 @@ export function HeaderTitle({ title }: HeaderTitleProps) {
 		return hp('8%') + HEIGHT_STATUS_BAR;
 	}, []);
 
+	React.useEffect(() => {
+		if (Platform.OS === 'android') setStatusBarBackgroundColor(colors.black_000, false);
+		return () => {
+			if (Platform.OS === 'android') setStatusBarBackgroundColor(colors.black_000, false);
+		};
+	}, []);
+
 	return (
 		<View testID="idHeaderTitle" style={[styles.container, { height: useHeightHeader }]}>
 			<View style={styles.content}>
-				<Text size="xxl" weight="bold">
+				<Text size="xl" weight="medium">
 					{title}
 				</Text>
 			</View>

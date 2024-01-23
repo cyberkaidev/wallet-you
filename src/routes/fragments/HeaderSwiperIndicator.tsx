@@ -26,7 +26,7 @@ export function HeaderSwiperIndicator({ title }: HeaderSwiperIndicatorProps) {
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: colors.black_000,
+		backgroundColor: colors.black_100,
 		paddingHorizontal: spaces.space_15,
 		paddingVertical: spaces.space_10,
 		justifyContent: 'center',
