@@ -5,20 +5,20 @@ import { HeaderSwiperOptions } from '@/components/HeaderSwiperOptions';
 import { ScrollView } from '@/components/ScrollView';
 import { SelectList } from '@/components/SelectList';
 import { useAppSettings } from '@/stores/useAppSettings';
-import { UseAppSettingsProps } from '@/types/UseAppSettingsType';
+import { CurrenciesTypes } from '@/types/CurrencyPageType';
 
 export function CurrencyPage() {
 	const { t } = useTranslation();
 	const { currency, setCurrency } = useAppSettings(state => state);
 	const [selected, setSelected] = React.useState(currency);
 
-	const currenciesTypes = [
-		{ title: 'AUD', ref: 'aud' },
-		{ title: 'BRL', ref: 'brl' },
-		{ title: 'CAD', ref: 'cad' },
-		{ title: 'EUR', ref: 'eur' },
-		{ title: 'GBP', ref: 'gbp' },
-		{ title: 'USD', ref: 'usd' },
+	const currenciesTypes: CurrenciesTypes[] = [
+		{ title: 'AUD', key: 'aud' },
+		{ title: 'BRL', key: 'brl' },
+		{ title: 'CAD', key: 'cad' },
+		{ title: 'EUR', key: 'eur' },
+		{ title: 'GBP', key: 'gbp' },
+		{ title: 'USD', key: 'usd' },
 	];
 
 	return (
@@ -32,7 +32,7 @@ export function CurrencyPage() {
 				<SelectList
 					data={currenciesTypes}
 					selected={selected}
-					onSelected={arg => setSelected(arg as UseAppSettingsProps['currency'])}
+					onSelected={arg => setSelected(arg)}
 				/>
 			</ScrollView>
 		</React.Fragment>
