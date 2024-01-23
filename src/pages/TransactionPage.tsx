@@ -9,12 +9,12 @@ import { TitleSubtitle } from '@/components/TitleSubtitle';
 import { spaces } from '@/helpers/themes';
 import { useFormatDate } from '@/hooks/useFormatDate';
 import { useAppSettings } from '@/stores/useAppSettings';
-import { RootStackParamListProps } from '@/types/RoutesType';
+import { UseRouteType } from '@/types/RoutesType';
 
 export function TransactionPage() {
 	const {
 		params: { data },
-	} = useRoute<RouteProp<RootStackParamListProps, 'TransactionPage'>>();
+	} = useRoute<UseRouteType<'TransactionPage'>>();
 	const { isTablet } = useAppSettings(state => state);
 	const { t } = useTranslation();
 
