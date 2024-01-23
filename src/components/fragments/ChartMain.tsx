@@ -11,19 +11,14 @@ import { CustomLine } from './CustomLine';
 import { CustomTooltip } from './CustomTooltip';
 
 export function ChartMain({ data }: ChartMainProps) {
+	const size = React.useRef(data.length);
+	const [positionX, setPositionX] = React.useState(-1);
 	const { isTablet } = useAppSettings(state => state);
 
-	const apx = (size = 0) => {
+	const apx = React.useCallback((size = 0) => {
 		const width = Dimensions.get('window').width;
 		return (width / 750) * size;
-	};
-
-	const verticalContentInset = { top: apx(40), bottom: apx(40) };
-
-	const dataList = data;
-	const size = React.useRef(dataList.length);
-
-	const [positionX, setPositionX] = React.useState(-1);
+	}, []);
 
 	const panResponder = React.useRef(
 		PanResponder.create({
@@ -44,7 +39,7 @@ export function ChartMain({ data }: ChartMainProps) {
 		}),
 	);
 
-	const updatePosition = (x: number) => {
+	const updatePosition = React.useCallback((x: number) => {
 		const YAxisWidth = apx(130);
 		const x0 = apx(0);
 		const chartWidth = apx(750) - YAxisWidth - x0;
@@ -56,7 +51,9 @@ export function ChartMain({ data }: ChartMainProps) {
 		if (value >= size.current - 1) value = size.current - 1;
 
 		setPositionX(value);
-	};
+	}, []);
+
+	const verticalContentInset = { top: apx(40), bottom: apx(40) };
 
 	return (
 		<View
@@ -69,7 +66,7 @@ export function ChartMain({ data }: ChartMainProps) {
 			<View style={{ flex: 1 }} {...panResponder.current.panHandlers}>
 				<AreaChart
 					style={{ flex: 1 }}
-					data={dataList.map(item => item.value)}
+					data={data.map(item => item.value)}
 					contentInset={{ ...verticalContentInset }}
 					svg={{ fill: colors.transparent }}
 					curve={shape.curveNatural}
