@@ -50,7 +50,7 @@ export default function App() {
 	return (
 		<View style={{ flex: 1, backgroundColor: colors.black_100 }} onLayout={onLayoutRootView}>
 			<NavigationContainer theme={DarkTheme}>
-				<StatusBar backgroundColor={colors.black_100} style="light" translucent={false} />
+				<StatusBar backgroundColor={colors.transparent} style="light" translucent />
 				<RootStack />
 			</NavigationContainer>
 		</View>
