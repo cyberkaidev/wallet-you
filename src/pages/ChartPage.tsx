@@ -5,7 +5,7 @@ import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import { ChartBitcoin } from '@/components/ChartBitcoin';
 import { PriceBitcoin } from '@/components/PriceBitcoin';
-import { ScrollViewHeader } from '@/components/ScrollViewHeader';
+import { ScrollView } from '@/components/ScrollView';
 import { TitleSubtitle } from '@/components/TitleSubtitle';
 import { currenciesFormatted } from '@/functions/currenciesFormatted';
 import { spaces, width } from '@/helpers/themes';
@@ -13,7 +13,7 @@ import { useFormatPercentage } from '@/hooks/useFormatPercentage';
 import { useAppSettings } from '@/stores/useAppSettings';
 import { useBitcoinDataPrices } from '@/stores/useBitcoinDataPrices';
 
-export function BitcoinDataPage() {
+export function ChartPage() {
 	const { t } = useTranslation();
 	const { data, status } = useBitcoinDataPrices(state => state);
 	const { currency, isTablet } = useAppSettings(state => state);
@@ -36,7 +36,7 @@ export function BitcoinDataPage() {
 	} = currenciesFormatted({ data, currency });
 
 	return (
-		<ScrollViewHeader headerTitle={t('chart')} enabledHorizontalPadding={false}>
+		<ScrollView enabledHorizontalPadding={false}>
 			<View style={styles.padding}>
 				<PriceBitcoin
 					title={t('today')}
@@ -87,7 +87,7 @@ export function BitcoinDataPage() {
 					isLoading={isLoading}
 				/>
 			</View>
-		</ScrollViewHeader>
+		</ScrollView>
 	);
 }
 
