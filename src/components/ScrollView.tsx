@@ -1,6 +1,4 @@
-import Constants from 'expo-constants';
 import React from 'react';
-import { Platform } from 'react-native';
 import { RefreshControl, ScrollView as ScrollViewContainer } from 'react-native-gesture-handler';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -8,13 +6,25 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { colors, spaces } from '@/helpers/themes';
 import { ScrollViewProps } from '@/types/ScrollViewType';
 
-export function ScrollView({ children, refreshControl }: ScrollViewProps) {
+export function ScrollView({
+	children,
+	refreshControl,
+	enabledHorizontalPadding = true,
+}: ScrollViewProps) {
 	const [refreshing, setRefreshing] = React.useState(false);
 	const insets = useSafeAreaInsets();
 
-	const HEIGHT_STATUSBAR = React.useMemo(() => {
-		return Platform.OS === 'android' ? 0 : Constants.statusBarHeight;
+	const paddingTop = React.useMemo(() => {
+		return spaces.space_25;
 	}, []);
+
+	const paddingBottom = React.useMemo(() => {
+		return hp('3%') + insets.bottom;
+	}, []);
+
+	const paddingHorizontal = React.useMemo(() => {
+		return enabledHorizontalPadding ? spaces.space_15 : 0;
+	}, [enabledHorizontalPadding]);
 
 	async function onRefresh() {
 		setRefreshing(true);
@@ -41,14 +51,14 @@ export function ScrollView({ children, refreshControl }: ScrollViewProps) {
 		<ScrollViewContainer
 			testID="idScrollView"
 			alwaysBounceVertical
-			contentContainerStyle={{
-				paddingBottom: hp('3%') + insets.bottom,
-				paddingTop: spaces.space_25 + HEIGHT_STATUSBAR,
-				paddingHorizontal: spaces.space_15,
-			}}
 			endFillColor={colors.transparent}
 			refreshControl={refreshController()}
 			showsVerticalScrollIndicator={false}
+			contentContainerStyle={{
+				paddingBottom,
+				paddingTop,
+				paddingHorizontal,
+			}}
 		>
 			{children}
 		</ScrollViewContainer>
