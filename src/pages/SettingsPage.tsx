@@ -1,5 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
+import * as Clipboard from 'expo-clipboard';
 import Constants from 'expo-constants';
 import * as SecureStore from 'expo-secure-store';
 import React from 'react';
@@ -13,13 +14,13 @@ import { ScrollView } from '@/components/ScrollView';
 import { Text } from '@/components/Text';
 import { initializeAppSettings } from '@/functions/initializeAppSettings';
 import { storageKeys } from '@/helpers/storageKeys';
-import { spaces } from '@/helpers/themes';
+import { colors, spaces } from '@/helpers/themes';
 import { useUserData } from '@/stores/useUserData';
 
 export function SettingsPage() {
 	const { t } = useTranslation();
 
-	const { cleanUserData } = useUserData();
+	const { key, cleanUserData } = useUserData();
 	const [showModal, setShowModal] = React.useState(false);
 	const { currency, enableLocalAuth, language, publicKey } = storageKeys;
 	const navigation = useNavigation();
@@ -37,31 +38,59 @@ export function SettingsPage() {
 		});
 	}
 
-	const settingsList = [
+	const firstList = [
+		{
+			testID: 'idCopy',
+			title: t('copy-my-public-key'),
+			onAction: async () => await Clipboard.setStringAsync(key),
+		},
+	];
+
+	const secondList = [
 		{
 			testID: 'idLanguage',
 			title: t('language'),
 			onAction: () => navigation.navigate('LanguagePage'),
+			arrowVisible: true,
 		},
 		{
 			testID: 'idCurrency',
 			title: t('currency'),
 			onAction: () => navigation.navigate('CurrencyPage'),
+			arrowVisible: true,
 		},
-		{ testID: 'idTerms', title: t('terms'), onAction: () => navigation.navigate('TermsPage') },
+		{
+			testID: 'idTerms',
+			title: t('terms'),
+			onAction: () => navigation.navigate('TermsPage'),
+			arrowVisible: true,
+		},
 		{
 			testID: 'idSourceCode',
 			title: t('source-code'),
 			onAction: () => Linking.openURL('https://github.com/cyberkaidev/wallet-you'),
+			arrowVisible: true,
 		},
-		{ testID: 'idExit', title: t('exit'), onAction: () => setShowModal(true) },
 	];
+
+	const thirdList = [{ testID: 'idExit', title: t('exit'), onAction: () => setShowModal(true) }];
 
 	return (
 		<ScrollView>
 			<LimitedWidthContainer>
-				<ActionList list={settingsList} />
-				<Text weight="bold" marginT={spaces.space_15}>
+				<ActionList list={firstList} />
+				<Text
+					size="xs"
+					color={colors.light_grey}
+					marginT={spaces.space_5}
+					marginL={spaces.space_15}
+					marginB={spaces.space_25}
+				>
+					{key}
+				</Text>
+				<ActionList list={secondList} marginB={spaces.space_25} />
+				<ActionList list={thirdList} />
+				<Text marginT={spaces.space_15}>
 					v {Constants.expoConfig?.version != null ? Constants.expoConfig.version : '-'}
 				</Text>
 			</LimitedWidthContainer>
