@@ -10,7 +10,6 @@ import { CurrencyPage } from '@/pages/CurrencyPage';
 import { HomePage } from '@/pages/HomePage';
 import { LanguagePage } from '@/pages/LanguagePage';
 import { LocalAuthPage } from '@/pages/LocalAuthPage';
-import { PublicKeyPage } from '@/pages/PublicKeyPage';
 import { RegisterKeyPage } from '@/pages/RegisterKeyPage';
 import { SettingsPage } from '@/pages/SettingsPage';
 import { TermsPage } from '@/pages/TermsPage';
@@ -60,15 +59,6 @@ export function RootStack() {
 				component={TransactionPage}
 				options={{
 					header: () => <HeaderSwiperIndicator title={t('transaction')} />,
-					headerShown: true,
-					...optionsScreenIOS,
-				}}
-			/>
-			<Stack.Screen
-				name="PublicKeyPage"
-				component={PublicKeyPage}
-				options={{
-					header: () => <HeaderSwiperIndicator title={t('public-key')} />,
 					headerShown: true,
 					...optionsScreenIOS,
 				}}

@@ -10,7 +10,6 @@ export type RootStackParamListProps = {
 		data: AddressTransaction;
 	};
 	SettingsPage: undefined;
-	PublicKeyPage: undefined;
 	LanguagePage: undefined;
 	CurrencyPage: undefined;
 	TermsPage: undefined;
