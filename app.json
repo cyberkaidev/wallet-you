@@ -34,7 +34,7 @@
 			},
 			"permissions": ["android.permission.USE_BIOMETRIC", "android.permission.USE_FINGERPRINT"],
 			"package": "com.cyberkaidev.walletyou",
-			"versionCode": "9"
+			"versionCode": 9
 		},
 		"web": {
 			"favicon": "./assets/images/favicon.ico"
@@ -52,7 +52,9 @@
 				{
 					"initialOrientation": "DEFAULT"
 				}
-			]
+			],
+			"expo-font",
+			"expo-secure-store"
 		]
 	}
 }
