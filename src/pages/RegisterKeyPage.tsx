@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { NavigationProp, useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import * as LocalAuthentication from 'expo-local-authentication';
 import * as SecureStore from 'expo-secure-store';
 import React from 'react';
@@ -16,13 +16,12 @@ import { TextFieldPaste } from '@/pages/fragments/TextFieldPaste';
 import { getBitcoinBalance } from '@/services/getBitcoinBalance';
 import { useBitcoinDataPrices } from '@/stores/useBitcoinDataPrices';
 import { useUserData } from '@/stores/useUserData';
-import { RootStackParamListProps } from '@/types/RoutesType';
 
 export function RegisterKeyPage() {
 	const { t } = useTranslation();
 	const { fetchTransactions, setKey } = useUserData(state => state);
 	const { fetchBitcoinDataPrices } = useBitcoinDataPrices(state => state);
-	const navigation = useNavigation<NavigationProp<RootStackParamListProps>>();
+	const navigation = useNavigation();
 
 	const [showBiometricOption, setShowBiometricOption] = React.useState(false);
 	const [toggleCheckBox, setToggleCheckBox] = React.useState(false);

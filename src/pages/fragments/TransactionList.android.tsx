@@ -1,4 +1,4 @@
-import { NavigationProp, useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, TouchableHighlight, View } from 'react-native';
@@ -9,7 +9,6 @@ import { borderRadius, colors, spaces, width } from '@/helpers/themes';
 import { useFormatDate } from '@/hooks/useFormatDate';
 import { useAppSettings } from '@/stores/useAppSettings';
 import { useUserData } from '@/stores/useUserData';
-import { RootStackParamListProps } from '@/types/RoutesType';
 
 import { SkeletonLoading } from '../../components/SkeletonLoading';
 import { Text } from '../../components/Text';
@@ -18,7 +17,7 @@ export function TransactionList() {
 	const { t } = useTranslation();
 	const { isTablet } = useAppSettings(state => state);
 	const { data, status } = useUserData(state => state.transactions);
-	const navigation = useNavigation<NavigationProp<RootStackParamListProps>>();
+	const navigation = useNavigation();
 
 	const PADDING_ITEM_TABLET = hp('3.5%');
 	const MARGIN_TOP_TRANSACTION = hp('5%');
@@ -104,7 +103,7 @@ export function TransactionList() {
 												{item.transactionType === 'incoming' ? '+ ' : '- '} {item.amount} BTC
 											</Text>
 										</View>
-										<IconArrowRight porcentSize="4%" color={colors.light_cyan} />
+										<IconArrowRight porcentSize="4%" color={colors.dark_grey} />
 									</View>
 								</React.Fragment>
 							</TouchableHighlight>
@@ -134,7 +133,7 @@ const styles = StyleSheet.create({
 	button: {
 		flex: 1,
 		borderBottomWidth: 1,
-		borderBottomStyle: 'solid',
+		borderStyle: 'solid',
 		flexDirection: 'row',
 	},
 	iconStatus: {
