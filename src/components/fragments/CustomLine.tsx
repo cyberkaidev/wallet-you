@@ -2,7 +2,7 @@ import React from 'react';
 import { Path } from 'react-native-svg';
 
 import { colors } from '@/helpers/themes';
-import { CustomLineProps } from '@/types/CustomLineType';
+import { CustomLineProps } from '@/types/ChartKitType';
 
 export function CustomLine({ line, isActive }: CustomLineProps) {
 	return (

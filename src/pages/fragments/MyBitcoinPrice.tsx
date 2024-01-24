@@ -7,7 +7,7 @@ import { IconBitcoin } from '@/assets';
 import { SkeletonLoading } from '@/components/SkeletonLoading';
 import { Text } from '@/components/Text';
 import { colors, spaces } from '@/helpers/themes';
-import { MyBitcoinPriceProps } from '@/types/MyBitcoinPriceType';
+import { MyBitcoinPriceProps } from '@/types/HomePageType';
 
 export function MyBitcoinPrice({ price, balance, status }: MyBitcoinPriceProps) {
 	const { t } = useTranslation();

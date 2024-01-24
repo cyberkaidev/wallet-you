@@ -5,7 +5,7 @@ import { Circle, G, Rect, Text as SvgText } from 'react-native-svg';
 
 import { colors } from '@/helpers/themes';
 import { useFormatDate } from '@/hooks/useFormatDate';
-import { CustomTooltipProps } from '@/types/CustomTooltipType';
+import { CustomTooltipProps } from '@/types/ChartKitType';
 
 export function CustomTooltip({ x, y, positionX, size, dataList }: CustomTooltipProps) {
 	const apx = (size = 0) => {

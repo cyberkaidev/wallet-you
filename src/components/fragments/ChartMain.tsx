@@ -5,7 +5,7 @@ import { AreaChart } from 'react-native-svg-charts';
 
 import { colors } from '@/helpers/themes';
 import { useAppSettings } from '@/stores/useAppSettings';
-import { ChartMainProps } from '@/types/ChartMainType';
+import { ChartMainProps } from '@/types/ChartKitType';
 
 import { CustomLine } from './CustomLine';
 import { CustomTooltip } from './CustomTooltip';
