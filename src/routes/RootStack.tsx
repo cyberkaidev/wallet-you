@@ -41,7 +41,7 @@ export function RootStack() {
 			<Stack.Screen
 				name="RegisterKeyPage"
 				component={RegisterKeyPage}
-				options={{ header: () => <HeaderTitle title={t('address')} />, headerShown: true }}
+				options={{ header: () => <HeaderTitle title="Wallet you" />, headerShown: true }}
 			/>
 			<Stack.Screen name="HomePage" component={HomePage} />
 			<Stack.Screen
