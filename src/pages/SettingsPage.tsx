@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { NavigationProp, useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import Constants from 'expo-constants';
 import * as SecureStore from 'expo-secure-store';
 import React from 'react';
@@ -15,7 +15,6 @@ import { initializeAppSettings } from '@/functions/initializeAppSettings';
 import { storageKeys } from '@/helpers/storageKeys';
 import { spaces } from '@/helpers/themes';
 import { useUserData } from '@/stores/useUserData';
-import { RootStackParamListProps } from '@/types/RoutesType';
 
 export function SettingsPage() {
 	const { t } = useTranslation();
@@ -23,7 +22,7 @@ export function SettingsPage() {
 	const { cleanUserData } = useUserData();
 	const [showModal, setShowModal] = React.useState(false);
 	const { currency, enableLocalAuth, language, publicKey } = storageKeys;
-	const navigation = useNavigation<NavigationProp<RootStackParamListProps>>();
+	const navigation = useNavigation();
 
 	async function onExit() {
 		await AsyncStorage.multiRemove([currency, enableLocalAuth, language]);
@@ -39,11 +38,6 @@ export function SettingsPage() {
 	}
 
 	const settingsList = [
-		{
-			testID: 'idPublicKey',
-			title: t('public-key'),
-			onAction: () => navigation.navigate('PublicKeyPage'),
-		},
 		{
 			testID: 'idLanguage',
 			title: t('language'),
