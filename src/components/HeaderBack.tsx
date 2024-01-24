@@ -25,7 +25,7 @@ export function HeaderBack({ title }: HeaderTitleProps) {
 					<IconArrowLeft color={colors.light_cyan} />
 				</ButtonIcon>
 				{Platform.OS === 'android' && (
-					<Text size="xl" weight="medium" marginL={spaces.space_20}>
+					<Text size="xl" weight="medium" marginL={spaces.space_25}>
 						{title}
 					</Text>
 				)}
