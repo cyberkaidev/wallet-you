@@ -1,8 +1,8 @@
 {
 	"translation": {
+		"copy-my-public-key": "Kopiere meinen öffentlichen Schlüssel",
 		"paste": "Einfügen",
 		"source-code": "Quellcode",
-		"address": "Adresse",
 		"public-key-btc": "Bitcoin (õffentlicher schlüssel)",
 		"use-biometrics-optional": "Biometrie verwenden (optional)",
 		"continue": "Weitermachen",
@@ -27,8 +27,6 @@
 		"currency": "Münze",
 		"terms": "Bedingungen",
 		"exit": "Ausgehen",
-		"copy-address": "Adresse kopieren",
-		"copied": "Kopiert",
 		"cancel": "Stornieren",
 		"change": "Zu ändern",
 		"public-key-not-found": "Öffentlicher Schlüssel nicht gefunden",

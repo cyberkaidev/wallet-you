@@ -1,8 +1,8 @@
 {
 	"translation": {
+		"copy-my-public-key": "Copy my public key",
 		"paste": "Paste",
 		"source-code": "Source code",
-		"address": "Address",
 		"public-key-btc": "Bitcoin (public key)",
 		"use-biometrics-optional": "Use biometrics (optional)",
 		"continue": "Continue",
@@ -27,8 +27,6 @@
 		"currency": "Currency",
 		"terms": "Terms",
 		"exit": "Exit",
-		"copy-address": "Copy address",
-		"copied": "Copied",
 		"cancel": "Cancel",
 		"change": "Change",
 		"public-key-not-found": "Public key not found",
