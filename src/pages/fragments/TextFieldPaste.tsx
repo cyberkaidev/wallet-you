@@ -7,7 +7,7 @@ import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import { ButtonTitleGhost } from '@/components/ButtonTitleGhost';
 import { borderRadius, colors, fontSizes, spaces, width } from '@/helpers/themes';
 import { useAppSettings } from '@/stores/useAppSettings';
-import { TextFieldPasteProps } from '@/types/TextFieldPasteType';
+import { TextFieldPasteProps } from '@/types/RegisterKeyPageType';
 
 export function TextFieldPaste({ value, onChangeText }: TextFieldPasteProps) {
 	const { t } = useTranslation();
