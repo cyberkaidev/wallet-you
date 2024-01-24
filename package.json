@@ -43,7 +43,7 @@
 		"expo-network": "~5.8.0",
 		"expo-screen-orientation": "~6.4.1",
 		"expo-secure-store": "~12.8.1",
-		"expo-splash-screen": "~0.26.3",
+		"expo-splash-screen": "~0.26.4",
 		"expo-status-bar": "~1.11.1",
 		"i18next": "^23.7.18",
 		"jest-expo": "~50.0.1",
