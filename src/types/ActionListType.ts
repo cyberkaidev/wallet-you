@@ -4,5 +4,7 @@ export interface ActionListProps {
 		prefixIcon?: JSX.Element;
 		title: string;
 		onAction: () => void;
+		arrowVisible?: boolean;
 	}[];
+	marginB?: number;
 }
