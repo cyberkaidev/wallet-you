@@ -6,7 +6,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 
-import { ButtonTitleShape } from '@/components/ButtonTitleShape';
+import { ButtonTitleGhost } from '@/components/ButtonTitleGhost';
 import { storageKeys } from '@/helpers/storageKeys';
 import { colors } from '@/helpers/themes';
 import { getBitcoinBalance } from '@/services/getBitcoinBalance';
@@ -73,7 +73,7 @@ export function LocalAuthPage() {
 
 	return (
 		<View style={styles.container}>
-			<ButtonTitleShape title={t('unlock')} onPress={authenticate} loading={loading} size="small" />
+			<ButtonTitleGhost title={t('unlock')} onPress={authenticate} loading={loading} size="small" />
 		</View>
 	);
 }
