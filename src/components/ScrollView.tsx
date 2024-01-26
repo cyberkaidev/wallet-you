@@ -3,6 +3,7 @@ import { RefreshControl, ScrollView as ScrollViewContainer } from 'react-native-
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { statusBarHeight } from '@/helpers/statusBarHeight';
 import { colors, spaces } from '@/helpers/themes';
 import { ScrollViewProps } from '@/types/ScrollViewType';
 
@@ -41,6 +42,7 @@ export function ScrollView({
 					onRefresh={onRefresh}
 					progressBackgroundColor={colors.dark_grey}
 					colors={[colors.white]}
+					progressViewOffset={statusBarHeight}
 				/>
 			);
 		}
