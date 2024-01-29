@@ -1,3 +1,4 @@
+import { useNetInfo } from '@react-native-community/netinfo';
 import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -10,6 +11,7 @@ import { CurrencyPage } from '@/pages/CurrencyPage';
 import { HomePage } from '@/pages/HomePage';
 import { LanguagePage } from '@/pages/LanguagePage';
 import { LocalAuthPage } from '@/pages/LocalAuthPage';
+import { NoInternetPage } from '@/pages/NoInternetPage';
 import { RegisterKeyPage } from '@/pages/RegisterKeyPage';
 import { SettingsPage } from '@/pages/SettingsPage';
 import { TermsPage } from '@/pages/TermsPage';
@@ -28,6 +30,7 @@ const optionsScreenIOS = {
 
 export function RootStack() {
 	const { t } = useTranslation();
+	const { isConnected } = useNetInfo();
 
 	return (
 		<Stack.Navigator
@@ -37,55 +40,61 @@ export function RootStack() {
 				cardStyle: { backgroundColor: colors.black_100 },
 			}}
 		>
-			<Stack.Screen name="LocalAuthPage" component={LocalAuthPage} />
-			<Stack.Screen
-				name="RegisterKeyPage"
-				component={RegisterKeyPage}
-				options={{ header: () => <HeaderTitle title="Wallet you" />, headerShown: true }}
-			/>
-			<Stack.Screen name="HomePage" component={HomePage} />
-			<Stack.Screen
-				name="ChartPage"
-				component={ChartPage}
-				options={{ header: () => <HeaderBack title={t('chart')} />, headerShown: true }}
-			/>
-			<Stack.Screen
-				name="SettingsPage"
-				component={SettingsPage}
-				options={{ header: () => <HeaderBack title={t('settings')} />, headerShown: true }}
-			/>
-			<Stack.Screen
-				name="TransactionPage"
-				component={TransactionPage}
-				options={{
-					header: () => <HeaderSwiperIndicator title={t('transaction')} />,
-					headerShown: true,
-					...optionsScreenIOS,
-				}}
-			/>
-			<Stack.Screen
-				name="LanguagePage"
-				component={LanguagePage}
-				options={{
-					...optionsScreenIOS,
-				}}
-			/>
-			<Stack.Screen
-				name="CurrencyPage"
-				component={CurrencyPage}
-				options={{
-					...optionsScreenIOS,
-				}}
-			/>
-			<Stack.Screen
-				name="TermsPage"
-				component={TermsPage}
-				options={{
-					header: () => <HeaderSwiperIndicator title={t('terms')} />,
-					headerShown: true,
-					...optionsScreenIOS,
-				}}
-			/>
+			{!isConnected ? (
+				<Stack.Screen name="NoInternetPage" component={NoInternetPage} />
+			) : (
+				<Stack.Group>
+					<Stack.Screen name="LocalAuthPage" component={LocalAuthPage} />
+					<Stack.Screen
+						name="RegisterKeyPage"
+						component={RegisterKeyPage}
+						options={{ header: () => <HeaderTitle title="Wallet you" />, headerShown: true }}
+					/>
+					<Stack.Screen name="HomePage" component={HomePage} />
+					<Stack.Screen
+						name="ChartPage"
+						component={ChartPage}
+						options={{ header: () => <HeaderBack title={t('chart')} />, headerShown: true }}
+					/>
+					<Stack.Screen
+						name="SettingsPage"
+						component={SettingsPage}
+						options={{ header: () => <HeaderBack title={t('settings')} />, headerShown: true }}
+					/>
+					<Stack.Screen
+						name="TransactionPage"
+						component={TransactionPage}
+						options={{
+							header: () => <HeaderSwiperIndicator title={t('transaction')} />,
+							headerShown: true,
+							...optionsScreenIOS,
+						}}
+					/>
+					<Stack.Screen
+						name="LanguagePage"
+						component={LanguagePage}
+						options={{
+							...optionsScreenIOS,
+						}}
+					/>
+					<Stack.Screen
+						name="CurrencyPage"
+						component={CurrencyPage}
+						options={{
+							...optionsScreenIOS,
+						}}
+					/>
+					<Stack.Screen
+						name="TermsPage"
+						component={TermsPage}
+						options={{
+							header: () => <HeaderSwiperIndicator title={t('terms')} />,
+							headerShown: true,
+							...optionsScreenIOS,
+						}}
+					/>
+				</Stack.Group>
+			)}
 		</Stack.Navigator>
 	);
 }
