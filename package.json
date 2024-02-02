@@ -31,7 +31,7 @@
 		"@tatumio/tatum": "^4.2.2",
 		"axios": "^1.6.5",
 		"currency.js": "^2.0.4",
-		"expo": "~50.0.4",
+		"expo": "~50.0.5",
 		"expo-checkbox": "~2.7.0",
 		"expo-clipboard": "~5.0.1",
 		"expo-constants": "~15.4.5",
