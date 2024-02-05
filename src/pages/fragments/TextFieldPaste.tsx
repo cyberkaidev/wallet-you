@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
 		color: colors.white,
 		fontSize: wp(fontSizes.m),
 		fontFamily: 'Inter-Regular',
-		padding: spaces.space_15,
+		padding: spaces.space_10,
 		borderStyle: 'solid',
 	},
 });
