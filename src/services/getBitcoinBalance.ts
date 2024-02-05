@@ -19,7 +19,12 @@ export async function getBitcoinBalance(address: string) {
 
 		if (!balance.data) return 'not-found';
 		if (balance.error) return 'error-get-balance-bitcoin';
-		setBalance(balance.data[0].balance);
+		if (balance.data[0].decimals) {
+			const number = Number(balance.data[0].balance).toFixed(balance.data[0].decimals);
+			setBalance(number);
+		} else {
+			setBalance(balance.data[0].balance);
+		}
 	} catch (error) {
 		return 'error-get-balance-bitcoin';
 	}
