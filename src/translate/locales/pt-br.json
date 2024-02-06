@@ -35,6 +35,7 @@
 		"you-dont-have-transactions": "Você não tem transações",
 		"chart": "Gráfico",
 		"confirm": "Confirmar",
-		"do_you_really_want_to_leave": "Você realmente quer sair?"
+		"do_you_really_want_to_leave": "Você realmente quer sair?",
+		"no_internet_connection": "Sem conexão com a internet"
 	}
 }

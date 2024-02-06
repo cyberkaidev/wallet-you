@@ -35,6 +35,7 @@
 		"you-dont-have-transactions": "Sie haben keine Transaktionen",
 		"chart": "Diagramm",
 		"confirm": "Bestätigen",
-		"do_you_really_want_to_leave": "Willst du wirklich gehen?"
+		"do_you_really_want_to_leave": "Willst du wirklich gehen?",
+		"no_internet_connection": "Keine Internetverbindung"
 	}
 }
