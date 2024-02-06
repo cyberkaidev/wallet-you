@@ -34,7 +34,7 @@ export function RootStack() {
 
 	return (
 		<Stack.Navigator
-			initialRouteName="LocalAuthPage"
+			initialRouteName={isConnected ? 'LocalAuthPage' : 'NoInternetPage'}
 			screenOptions={{
 				headerShown: false,
 				cardStyle: { backgroundColor: colors.black_100 },
