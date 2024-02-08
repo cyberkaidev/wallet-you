@@ -40,7 +40,7 @@ export function RootStack() {
 				cardStyle: { backgroundColor: colors.black_100 },
 			}}
 		>
-			{!isConnected ? (
+			{isConnected === false ? (
 				<Stack.Screen name="NoInternetPage" component={NoInternetPage} />
 			) : (
 				<Stack.Group>
