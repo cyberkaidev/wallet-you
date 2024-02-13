@@ -1,7 +1,8 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { StyleSheet, TouchableHighlight, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import { IconArrowDownLeft, IconArrowRight, IconArrowUpRight } from '@/assets';
@@ -57,10 +58,10 @@ export function TransactionList() {
 					data.map((item, index) => {
 						if (item.transactionType === 'zero-transfer') return;
 						return (
-							<TouchableHighlight
+							<RectButton
 								testID={`id${index}`}
 								key={index}
-								underlayColor={colors.light_cyan_10pct}
+								rippleColor={colors.light_cyan_10pct}
 								style={[
 									styles.button,
 									{
@@ -106,7 +107,7 @@ export function TransactionList() {
 										<IconArrowRight porcentSize="4%" color={colors.dark_grey} />
 									</View>
 								</React.Fragment>
-							</TouchableHighlight>
+							</RectButton>
 						);
 					})}
 			</View>

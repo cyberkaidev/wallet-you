@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, TouchableHighlight, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
 
 import { IconArrowRight } from '@/assets';
 import { Text } from '@/components/Text';
@@ -13,10 +14,10 @@ export function ActionListPlatform({ list, marginB = 0 }: ActionListProps) {
 	return (
 		<View testID="idActionList" style={[styles.container, { marginBottom: marginB }]}>
 			{list.map((item, index) => (
-				<TouchableHighlight
+				<RectButton
 					key={index}
 					testID={item.testID}
-					underlayColor={colors.light_cyan_10pct}
+					rippleColor={colors.light_cyan_10pct}
 					style={[
 						styles.button,
 						{
@@ -46,7 +47,7 @@ export function ActionListPlatform({ list, marginB = 0 }: ActionListProps) {
 							</View>
 						</View>
 					</React.Fragment>
-				</TouchableHighlight>
+				</RectButton>
 			))}
 		</View>
 	);

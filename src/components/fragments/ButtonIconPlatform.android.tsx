@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, TouchableHighlight } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
 
 import { colors, spaces } from '@/helpers/themes';
 import { ButtonIconPlatformProps } from '@/types/ButtonIconType';
@@ -15,12 +16,12 @@ export function ButtonIconPlatform({
 	marginL,
 }: ButtonIconPlatformProps) {
 	return (
-		<TouchableHighlight
+		<RectButton
 			testID={testID}
 			onPress={onPress}
-			disabled={disabled}
 			hitSlop={20}
-			underlayColor={colors.light_cyan_10pct}
+			rippleColor={colors.light_cyan_10pct}
+			enabled={!disabled}
 			style={[
 				styles.container,
 				{
@@ -33,7 +34,7 @@ export function ButtonIconPlatform({
 			]}
 		>
 			{children}
-		</TouchableHighlight>
+		</RectButton>
 	);
 }
 

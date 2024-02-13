@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, TouchableHighlight } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
 
 import { colors } from '@/helpers/themes';
 import { ButtonTitleGhostPlatformProps } from '@/types/ButtonTitleGhostType';
@@ -15,13 +16,13 @@ export function ButtonTitleGhostPlatform({
 	marginL = 0,
 }: ButtonTitleGhostPlatformProps) {
 	return (
-		<TouchableHighlight
+		<RectButton
 			testID={testID}
 			onPress={() => {
 				if (!disabled) onPress();
 			}}
-			disabled={disabled}
-			underlayColor={colors.light_cyan_10pct}
+			rippleColor={colors.light_cyan_10pct}
+			enabled={!disabled}
 			style={[
 				styles.container,
 				{
@@ -34,7 +35,7 @@ export function ButtonTitleGhostPlatform({
 			]}
 		>
 			<React.Fragment>{children}</React.Fragment>
-		</TouchableHighlight>
+		</RectButton>
 	);
 }
 
