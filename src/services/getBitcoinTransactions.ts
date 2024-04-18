@@ -1,21 +1,16 @@
-import { AddressTransaction, Bitcoin, Network, ResponseDto, TatumSDK } from '@tatumio/tatum';
+import axios from 'axios';
 
 export async function getBitcoinTransactions(address: string) {
 	try {
-		const tatum = await TatumSDK.init<Bitcoin>({
-			network: Network.BITCOIN,
-			apiKey: {
-				v4: process.env.EXPO_PUBLIC_TATUM_SDK_V4,
+		const { data } = await axios.get(
+			`https://${process.env.EXPO_PUBLIC_MY_API_TEST}.com/get-transactions`,
+			{
+				params: { publicKey: address },
 			},
-		});
+		);
 
-		const transactions: ResponseDto<AddressTransaction[]> = await tatum.address.getTransactions({
-			address: address,
-		});
-		if (transactions.error) throw new Error('error-get-bitcoin-transactions');
-
-		return transactions.data ?? [];
-	} catch (error) {
+		return data.transactions;
+	} catch (_) {
 		throw new Error('error-get-bitcoin-transactions');
 	}
 }
