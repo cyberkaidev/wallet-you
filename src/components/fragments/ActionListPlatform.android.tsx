@@ -79,12 +79,4 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-between',
 		position: 'relative',
 	},
-	indicator: {
-		position: 'absolute',
-		bottom: 0,
-		right: 0,
-		height: 1,
-		width: '100%',
-		backgroundColor: colors.dark_grey,
-	},
 });
