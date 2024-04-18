@@ -1,10 +1,18 @@
-import { AddressTransaction } from '@tatumio/tatum';
+export interface Transaction {
+	chain: string;
+	blockNumber: number | null;
+	timestamp: number;
+	transactionType?: 'incoming' | 'outgoing' | 'zero-transfer';
+	hash: string;
+	address: string;
+	amount: string;
+}
 
 interface DataProps {
 	key: string;
 	balance: string;
 	transactions: {
-		data: AddressTransaction[];
+		data: Transaction[];
 		status: 'loading' | 'success' | 'failed' | null;
 	};
 }

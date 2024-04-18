@@ -1,5 +1,6 @@
 import { RouteProp } from '@react-navigation/native';
-import { AddressTransaction } from '@tatumio/tatum';
+
+import { Transaction } from './UseUserDataType';
 
 export type RootStackParamListProps = {
 	RegisterKeyPage: undefined;
@@ -7,7 +8,7 @@ export type RootStackParamListProps = {
 	HomePage: undefined;
 	ChartPage: undefined;
 	TransactionPage: {
-		data: AddressTransaction;
+		data: Transaction;
 	};
 	SettingsPage: undefined;
 	LanguagePage: undefined;
