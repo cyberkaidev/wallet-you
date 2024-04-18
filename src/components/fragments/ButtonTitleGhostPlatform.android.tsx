@@ -21,7 +21,7 @@ export function ButtonTitleGhostPlatform({
 			onPress={() => {
 				if (!disabled) onPress();
 			}}
-			rippleColor={colors.light_cyan_10pct}
+			rippleColor={colors.white_10pct}
 			enabled={!disabled}
 			style={[
 				styles.container,

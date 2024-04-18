@@ -61,7 +61,7 @@ export function TransactionList() {
 							<RectButton
 								testID={`id${index}`}
 								key={index}
-								rippleColor={colors.light_cyan_10pct}
+								rippleColor={colors.white_10pct}
 								style={[
 									styles.button,
 									{

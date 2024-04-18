@@ -17,7 +17,7 @@ export function ActionListPlatform({ list, marginB = 0 }: ActionListProps) {
 				<RectButton
 					key={index}
 					testID={item.testID}
-					rippleColor={colors.light_cyan_10pct}
+					rippleColor={colors.white_10pct}
 					style={[
 						styles.button,
 						{

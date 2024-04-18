@@ -20,7 +20,7 @@ export function ButtonIconPlatform({
 			testID={testID}
 			onPress={onPress}
 			hitSlop={20}
-			rippleColor={colors.light_cyan_10pct}
+			rippleColor={colors.white_10pct}
 			enabled={!disabled}
 			style={[
 				styles.container,
