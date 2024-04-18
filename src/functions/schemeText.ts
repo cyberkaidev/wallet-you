@@ -4,13 +4,13 @@ export function schemeText({ weight, size, isTablet }: SchemeTextProps) {
 	function onFontFamily() {
 		switch (weight) {
 			case 'regular':
-				return 'Inter-Regular';
+				return 'Figtree-Regular';
 			case 'medium':
-				return 'Inter-Medium';
+				return 'Figtree-Medium';
 			case 'bold':
-				return 'Inter-Bold';
+				return 'Figtree-Bold';
 			default:
-				return 'Inter-Regular';
+				return 'Figtree-Regular';
 		}
 	}
 

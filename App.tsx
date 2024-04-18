@@ -17,9 +17,9 @@ import { RootStack } from '@/routes/RootStack';
 
 export default function App() {
 	const [fontsLoaded] = useFonts({
-		'Inter-Regular': require('./assets/fonts/Inter-Regular.otf'),
-		'Inter-Medium': require('./assets/fonts/Inter-Medium.otf'),
-		'Inter-Bold': require('./assets/fonts/Inter-Bold.otf'),
+		'Figtree-Regular': require('./assets/fonts/Figtree-Regular.ttf'),
+		'Figtree-Medium': require('./assets/fonts/Figtree-Medium.ttf'),
+		'Figtree-Bold': require('./assets/fonts/Figtree-Bold.ttf'),
 	});
 
 	async function changeScreenOrientation() {

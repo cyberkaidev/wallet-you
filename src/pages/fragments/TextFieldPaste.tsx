@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		color: colors.white,
 		fontSize: wp(fontSizes.m),
-		fontFamily: 'Inter-Regular',
+		fontFamily: 'Figtree-Regular',
 		padding: spaces.space_10,
 		borderStyle: 'solid',
 	},
