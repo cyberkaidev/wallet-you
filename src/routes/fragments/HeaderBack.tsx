@@ -4,12 +4,11 @@ import { StyleSheet, View } from 'react-native';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import { IconArrowLeft } from '@/assets';
+import { ButtonIcon } from '@/components/ButtonIcon';
+import { Text } from '@/components/Text';
 import { statusBarHeight } from '@/helpers/statusBarHeight';
 import { colors, spaces } from '@/helpers/themes';
 import { HeaderTitleProps } from '@/types/HeaderTitleType';
-
-import { ButtonIcon } from './ButtonIcon';
-import { Text } from './Text';
 
 export function HeaderBack({ title }: HeaderTitleProps) {
 	const navigation = useNavigation();
@@ -20,7 +19,7 @@ export function HeaderBack({ title }: HeaderTitleProps) {
 		<View testID="idHeaderTitle" style={[styles.container, { height: useHeightHeader }]}>
 			<View style={styles.content}>
 				<ButtonIcon onPress={() => navigation.goBack()}>
-					<IconArrowLeft color={colors.light_cyan} />
+					<IconArrowLeft color={colors.light_cyan} porcentSize="5%" />
 				</ButtonIcon>
 
 				<View style={styles.title}>
@@ -43,7 +42,7 @@ const styles = StyleSheet.create({
 		position: 'relative',
 		width: '100%',
 		height: hp('8%'),
-		paddingHorizontal: spaces.space_15,
+		paddingHorizontal: spaces.space_10,
 		flexDirection: 'row',
 		justifyContent: 'flex-start',
 		alignItems: 'center',
