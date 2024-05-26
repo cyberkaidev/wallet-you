@@ -21,11 +21,10 @@ export function HeaderSwiperIndicator({ title, navigation }: HeaderSwiperIndicat
 				</View>
 				<ButtonTitleGhost
 					testID="idButtonLeft"
-					title={t('cancel')}
+					title={t('back')}
 					size="small"
 					buttonsWeight="medium"
 					onPress={() => navigation.goBack()}
-					marginL={spaces.space_10}
 				/>
 			</View>
 		</View>
@@ -42,7 +41,8 @@ const styles = StyleSheet.create({
 	title: {
 		position: 'absolute',
 		alignItems: 'center',
-		width: '100%',
+		left: 0,
+		right: 0,
 	},
 	indicator: {
 		width: 35,
@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
 	},
 	content: {
 		width: '100%',
+		paddingHorizontal: spaces.space_10,
 		justifyContent: 'space-between',
 		alignItems: 'center',
 		flexDirection: 'row',
