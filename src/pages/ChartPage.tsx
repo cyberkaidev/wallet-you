@@ -9,7 +9,6 @@ import { ScrollView } from '@/components/ScrollView';
 import { TitleSubtitle } from '@/components/TitleSubtitle';
 import { currenciesFormatted } from '@/functions/currenciesFormatted';
 import { spaces, width } from '@/helpers/themes';
-import { useFormatPercentage } from '@/hooks/useFormatPercentage';
 import { useAppSettings } from '@/stores/useAppSettings';
 import { useBitcoinDataPrices } from '@/stores/useBitcoinDataPrices';
 
@@ -21,31 +20,14 @@ export function ChartPage() {
 	const MARGIN_TOP = isTablet ? hp('3.5%') : spaces.space_25;
 
 	const isLoading = status === 'loading' || status === null;
-	const { percent, isPositive } = useFormatPercentage(
-		data?.price_change_percentage_1h_in_currency[currency] ?? 0,
-	);
 
-	const {
-		currentCurrency,
-		marketCapCurrency,
-		marketCapChange24hCurrency,
-		totalVolumeCurrency,
-		lowPrice24hCurrency,
-		highPrice24hCurrency,
-		priceChange24hCurrency,
-	} = currenciesFormatted({ data, currency });
+	const { currentCurrency, lowPrice24hCurrency, highPrice24hCurrency, priceChange24hCurrency } =
+		currenciesFormatted({ data, currency });
 
 	return (
 		<ScrollView enabledHorizontalPadding={false}>
 			<View style={styles.padding}>
-				<PriceBitcoin
-					title={t('today')}
-					price={currentCurrency}
-					porcent={percent}
-					bitcoin="1"
-					isPositive={isPositive}
-					status={status}
-				/>
+				<PriceBitcoin title={t('today')} price={currentCurrency} bitcoin="1" status={status} />
 			</View>
 			<ChartKit />
 			<View style={styles.padding}>
@@ -65,25 +47,6 @@ export function ChartPage() {
 					title={`${t('high')} (24h)`}
 					subTitle={highPrice24hCurrency}
 					marginT={MARGIN_TOP}
-					isLoading={isLoading}
-				/>
-				<TitleSubtitle
-					title={t('market-value')}
-					subTitle={marketCapCurrency}
-					marginT={MARGIN_TOP}
-					isLoading={isLoading}
-				/>
-				<TitleSubtitle
-					title={`${t('market-value-change')} (24h)`}
-					subTitle={marketCapChange24hCurrency}
-					marginT={MARGIN_TOP}
-					isLoading={isLoading}
-				/>
-				<TitleSubtitle
-					title={t('total-volume')}
-					subTitle={totalVolumeCurrency}
-					marginT={MARGIN_TOP}
-					marginB={MARGIN_TOP}
 					isLoading={isLoading}
 				/>
 			</View>
