@@ -8,18 +8,11 @@ import { PriceBitcoinProps } from '@/types/PriceBitcoinType';
 import { SkeletonLoading } from './SkeletonLoading';
 import { Text } from './Text';
 
-export function PriceBitcoin({
-	title,
-	price,
-	porcent,
-	isPositive,
-	bitcoin,
-	status,
-}: PriceBitcoinProps) {
+export function PriceBitcoin({ title, price, bitcoin, status }: PriceBitcoinProps) {
 	const { t } = useTranslation();
 
 	return (
-		<View testID="idPriceBitcoin">
+		<View testID="idPriceBitcoin" style={styles.container}>
 			<Text weight="bold" color={colors.light_grey} marginB={spaces.space_5}>
 				{title}
 			</Text>
@@ -32,17 +25,9 @@ export function PriceBitcoin({
 				</Text>
 			)}
 			{status === 'success' && (
-				<View style={styles.priceAndPorcent}>
-					<Text size="xxxl" weight="medium">
-						{price.substring(0, price.length - 2)}
-						<Text size="xxl" weight="medium">
-							{price.substring(price.length - 2, price.length)}
-						</Text>
-					</Text>
-					<Text weight="bold" color={isPositive ? colors.green : colors.red}>
-						{porcent}
-					</Text>
-				</View>
+				<Text size="xxxl" weight="bold">
+					{price}
+				</Text>
 			)}
 			<Text size="l" weight="medium">
 				{bitcoin} BTC
@@ -52,7 +37,9 @@ export function PriceBitcoin({
 }
 
 const styles = StyleSheet.create({
-	priceAndPorcent: {
-		flexDirection: 'row',
+	container: {
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
 	},
 });

@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { Platform, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import { IconArrowLeft } from '@/assets';
@@ -14,9 +14,7 @@ import { Text } from './Text';
 export function HeaderBack({ title }: HeaderTitleProps) {
 	const navigation = useNavigation();
 
-	const useHeightHeader = React.useMemo(() => {
-		return hp('8%') + statusBarHeight;
-	}, []);
+	const useHeightHeader = React.useMemo(() => hp('8%') + statusBarHeight, []);
 
 	return (
 		<View testID="idHeaderTitle" style={[styles.container, { height: useHeightHeader }]}>
@@ -24,18 +22,12 @@ export function HeaderBack({ title }: HeaderTitleProps) {
 				<ButtonIcon onPress={() => navigation.goBack()}>
 					<IconArrowLeft color={colors.light_cyan} />
 				</ButtonIcon>
-				{Platform.OS === 'android' && (
-					<Text size="xl" weight="medium" marginL={spaces.space_25}>
+
+				<View style={styles.title}>
+					<Text size="xl" weight="medium">
 						{title}
 					</Text>
-				)}
-				{Platform.OS === 'ios' && (
-					<View style={styles.ios}>
-						<Text size="xl" weight="medium">
-							{title}
-						</Text>
-					</View>
-				)}
+				</View>
 			</View>
 		</View>
 	);
@@ -44,7 +36,7 @@ export function HeaderBack({ title }: HeaderTitleProps) {
 const styles = StyleSheet.create({
 	container: {
 		width: '100%',
-		backgroundColor: colors.black_000,
+		backgroundColor: colors.black_100,
 		justifyContent: 'flex-end',
 	},
 	content: {
@@ -56,7 +48,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'flex-start',
 		alignItems: 'center',
 	},
-	ios: {
+	title: {
 		zIndex: -1,
 		left: 0,
 		right: 0,

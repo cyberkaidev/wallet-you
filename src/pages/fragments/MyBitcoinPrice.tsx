@@ -23,7 +23,7 @@ export function MyBitcoinPrice({ price, balance, status }: MyBitcoinPriceProps) 
 
 			{status === 'success' && (
 				<React.Fragment>
-					<Text size="xxxl" weight="medium">
+					<Text size="xxxl" weight="bold">
 						{price}
 					</Text>
 					<Text weight="bold" color={colors.light_grey}>
