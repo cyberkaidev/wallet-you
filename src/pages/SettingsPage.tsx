@@ -19,11 +19,12 @@ import { useUserData } from '@/stores/useUserData';
 
 export function SettingsPage() {
 	const { t } = useTranslation();
-
 	const { key, cleanUserData } = useUserData();
-	const [showModal, setShowModal] = React.useState(false);
-	const { currency, enableLocalAuth, language, publicKey } = storageKeys;
 	const navigation = useNavigation();
+
+	const [showModal, setShowModal] = React.useState(false);
+
+	const { currency, enableLocalAuth, language, publicKey } = storageKeys;
 
 	async function onExit() {
 		await AsyncStorage.multiRemove([currency, enableLocalAuth, language]);

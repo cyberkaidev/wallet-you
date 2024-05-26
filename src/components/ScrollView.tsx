@@ -12,16 +12,12 @@ export function ScrollView({
 	refreshControl,
 	enabledHorizontalPadding = true,
 }: ScrollViewProps) {
-	const [refreshing, setRefreshing] = React.useState(false);
 	const insets = useSafeAreaInsets();
 
-	const paddingTop = React.useMemo(() => {
-		return spaces.space_25;
-	}, []);
+	const [refreshing, setRefreshing] = React.useState(false);
 
-	const paddingBottom = React.useMemo(() => {
-		return hp('3%') + insets.bottom;
-	}, []);
+	const paddingTop = React.useMemo(() => spaces.space_25, []);
+	const paddingBottom = React.useMemo(() => hp('3%') + insets.bottom, []);
 
 	const paddingHorizontal = React.useMemo(() => {
 		return enabledHorizontalPadding ? spaces.space_15 : 0;
