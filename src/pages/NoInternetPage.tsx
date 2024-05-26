@@ -13,7 +13,7 @@ export function NoInternetPage() {
 		<View style={styles.container}>
 			<IconNoInternet porcentSize="10%" />
 			<Text marginT={spaces.space_15} size="l" weight="bold">
-				{t('no_internet_connection')}
+				{t('no-internet-connection')}
 			</Text>
 		</View>
 	);
