@@ -3,7 +3,6 @@ import { createStackNavigator, TransitionPresets } from '@react-navigation/stack
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { HeaderBack } from '@/components/HeaderBack';
 import { colors } from '@/helpers/themes';
 import { ChartPage } from '@/pages/ChartPage';
 import { CurrencyPage } from '@/pages/CurrencyPage';
@@ -17,6 +16,7 @@ import { TermsPage } from '@/pages/TermsPage';
 import { TransactionPage } from '@/pages/TransactionPage';
 import { RootStackParamListProps } from '@/types/RoutesType';
 
+import { HeaderBack } from './fragments/HeaderBack';
 import { HeaderSwiperIndicator } from './fragments/HeaderSwiperIndicator';
 import { HeaderTitle } from './fragments/HeaderTitle';
 
