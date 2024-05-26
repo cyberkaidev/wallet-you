@@ -41,7 +41,7 @@ export function SettingsPage() {
 	const firstList = [
 		{
 			testID: 'idCopy',
-			title: t('copy-my-public-key'),
+			title: t('copy-my-address'),
 			onAction: async () => await Clipboard.setStringAsync(key),
 		},
 	];
@@ -71,9 +71,13 @@ export function SettingsPage() {
 			onAction: () => Linking.openURL('https://github.com/cyberkaidev/wallet-you'),
 			arrowVisible: true,
 		},
+		{
+			testID: 'idExit',
+			title: t('exit'),
+			onAction: () => setShowModal(true),
+			arrowVisible: true,
+		},
 	];
-
-	const thirdList = [{ testID: 'idExit', title: t('exit'), onAction: () => setShowModal(true) }];
 
 	return (
 		<ScrollView>
@@ -88,14 +92,13 @@ export function SettingsPage() {
 				>
 					{key}
 				</Text>
-				<ActionList list={secondList} marginB={spaces.space_25} />
-				<ActionList list={thirdList} />
+				<ActionList list={secondList} />
 				<Text marginT={spaces.space_15}>
 					v {Constants.expoConfig?.version != null ? Constants.expoConfig.version : '-'}
 				</Text>
 			</LimitedWidthContainer>
 			<AlertModal
-				title={t('do_you_really_want_to_leave')}
+				title={t('do-you-really-want-to-leave')}
 				visible={showModal}
 				onCancel={() => setShowModal(false)}
 				onConfirm={onExit}
