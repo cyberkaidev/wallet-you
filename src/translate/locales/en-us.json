@@ -1,6 +1,6 @@
 {
 	"translation": {
-		"copy-my-public-key": "Copy my public key",
+		"copy-my-address": "Copy my address",
 		"paste": "Paste",
 		"source-code": "Source code",
 		"public-key-btc": "Bitcoin (public key)",
@@ -16,10 +16,7 @@
 		"date": "Date",
 		"hour": "Hour",
 		"today": "Today",
-		"market-value": "Market value",
 		"price-change": "Price change",
-		"total-volume": "Total volume",
-		"market-value-change": "Market value change",
 		"high": "High",
 		"low": "Low",
 		"settings": "Settings",
@@ -35,7 +32,7 @@
 		"you-dont-have-transactions": "You don't have transactions",
 		"chart": "Chart",
 		"confirm": "Confirm",
-		"do_you_really_want_to_leave": "Do you really want to leave?",
-		"no_internet_connection": "No internet connection"
+		"do-you-really-want-to-leave": "Do you really want to leave?",
+		"no-internet-connection": "No internet connection"
 	}
 }
