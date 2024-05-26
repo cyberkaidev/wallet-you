@@ -8,3 +8,10 @@ export interface ActionListProps {
 	}[];
 	marginB?: number;
 }
+
+export interface ActionListButtonProps {
+	testID: string;
+	isTablet: boolean;
+	onAction: () => void;
+	children: React.ReactNode | React.ReactNode[];
+}
