@@ -4,7 +4,6 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { HeaderBack } from '@/components/HeaderBack';
-import { HeaderTitle } from '@/components/HeaderTitle';
 import { colors } from '@/helpers/themes';
 import { ChartPage } from '@/pages/ChartPage';
 import { CurrencyPage } from '@/pages/CurrencyPage';
@@ -19,6 +18,7 @@ import { TransactionPage } from '@/pages/TransactionPage';
 import { RootStackParamListProps } from '@/types/RoutesType';
 
 import { HeaderSwiperIndicator } from './fragments/HeaderSwiperIndicator';
+import { HeaderTitle } from './fragments/HeaderTitle';
 
 const Stack = createStackNavigator<RootStackParamListProps>();
 
@@ -65,7 +65,9 @@ export function RootStack() {
 						name="TransactionPage"
 						component={TransactionPage}
 						options={{
-							header: () => <HeaderSwiperIndicator title={t('transaction')} />,
+							header: ({ navigation }) => (
+								<HeaderSwiperIndicator title={t('transaction')} navigation={navigation} />
+							),
 							headerShown: true,
 							...optionsScreenIOS,
 						}}
@@ -88,7 +90,9 @@ export function RootStack() {
 						name="TermsPage"
 						component={TermsPage}
 						options={{
-							header: () => <HeaderSwiperIndicator title={t('terms')} />,
+							header: ({ navigation }) => (
+								<HeaderSwiperIndicator title={t('terms')} navigation={navigation} />
+							),
 							headerShown: true,
 							...optionsScreenIOS,
 						}}
