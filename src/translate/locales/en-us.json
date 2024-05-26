@@ -33,6 +33,7 @@
 		"chart": "Chart",
 		"confirm": "Confirm",
 		"do-you-really-want-to-leave": "Do you really want to leave?",
-		"no-internet-connection": "No internet connection"
+		"no-internet-connection": "No internet connection",
+		"back": "Back"
 	}
 }

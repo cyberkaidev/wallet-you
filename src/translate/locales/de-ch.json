@@ -33,6 +33,7 @@
 		"chart": "Diagramm",
 		"confirm": "Bestätigen",
 		"do-you-really-want-to-leave": "Willst du wirklich gehen?",
-		"no-internet-connection": "Keine Internetverbindung"
+		"no-internet-connection": "Keine Internetverbindung",
+		"back": "Zurück"
 	}
 }
