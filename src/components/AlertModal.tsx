@@ -16,8 +16,8 @@ export function AlertModal() {
 	if (!visible) return;
 
 	return (
-		<View style={styles.background}>
-			<View style={styles.body} testID="idAlertContainer">
+		<View style={styles.background} testID="idAlertModal">
+			<View style={styles.body}>
 				<Text size="xxl" weight="medium">
 					{title}
 				</Text>
