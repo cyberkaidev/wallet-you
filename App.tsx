@@ -10,7 +10,9 @@ import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
 import { View } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
+import { AlertModal } from '@/components/AlertModal';
 import { initializeAppSettings } from '@/functions/initializeAppSettings';
 import { colors } from '@/helpers/themes';
 import { RootStack } from '@/routes/RootStack';
@@ -49,10 +51,13 @@ export default function App() {
 
 	return (
 		<View style={{ flex: 1, backgroundColor: colors.black_100 }} onLayout={onLayoutRootView}>
-			<NavigationContainer theme={DarkTheme}>
-				<StatusBar backgroundColor={colors.transparent} style="light" translucent />
-				<RootStack />
-			</NavigationContainer>
+			<GestureHandlerRootView style={{ flex: 1 }}>
+				<NavigationContainer theme={DarkTheme}>
+					<StatusBar backgroundColor={colors.transparent} style="light" translucent />
+					<RootStack />
+					<AlertModal />
+				</NavigationContainer>
+			</GestureHandlerRootView>
 		</View>
 	);
 }
