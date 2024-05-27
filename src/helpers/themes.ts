@@ -6,6 +6,7 @@ export const borderRadius = {
 	radius_5: 5,
 	radius_10: 10,
 	radius_15: 15,
+	radius_25: 25,
 };
 
 export const spaces = {
