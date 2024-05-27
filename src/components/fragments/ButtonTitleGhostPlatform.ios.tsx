@@ -16,9 +16,7 @@ export function ButtonTitleGhostPlatform({
 	return (
 		<TouchableOpacity
 			testID={testID}
-			onPress={() => {
-				if (!disabled) onPress();
-			}}
+			onPress={onPress}
 			disabled={disabled}
 			style={[
 				styles.container,

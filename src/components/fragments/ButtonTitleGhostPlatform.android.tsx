@@ -18,9 +18,7 @@ export function ButtonTitleGhostPlatform({
 	return (
 		<RectButton
 			testID={testID}
-			onPress={() => {
-				if (!disabled) onPress();
-			}}
+			onPress={onPress}
 			rippleColor={colors.white_10pct}
 			enabled={!disabled}
 			style={[
