@@ -17,7 +17,7 @@ export function Text({
 	marginR = 0,
 	marginL = 0,
 }: TextProps) {
-	const { isTablet } = useAppSettings(state => state);
+	const { isTablet } = useAppSettings();
 
 	const { onFontFamily, onFontSize } = React.useMemo(() => {
 		return schemeText({
