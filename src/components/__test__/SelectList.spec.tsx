@@ -8,8 +8,8 @@ test('Render component and action', () => {
 		idSelectList: 'idSelectList',
 		onSelected: jest.fn(),
 		list: [
-			{ title: 'Title 1', ref: 'HW1' },
-			{ title: 'Ttitle 2', ref: 'HW2' },
+			{ title: 'Title 1', key: 'T1' },
+			{ title: 'Ttitle 2', key: 'T2' },
 		],
 	};
 
@@ -17,7 +17,7 @@ test('Render component and action', () => {
 		<SelectList
 			data={configTest.list}
 			onSelected={configTest.onSelected}
-			selected={configTest.list[0].ref}
+			selected={configTest.list[0].key}
 		/>,
 	);
 
@@ -27,5 +27,5 @@ test('Render component and action', () => {
 
 	const button = getByTestId('id0');
 	fireEvent.press(button);
-	expect(configTest.onSelected.mock.calls[0][0]).toBe(configTest.list[0].ref);
+	expect(configTest.onSelected.mock.calls[0][0]).toBe(configTest.list[0].key);
 });

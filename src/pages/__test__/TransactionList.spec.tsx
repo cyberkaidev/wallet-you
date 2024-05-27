@@ -9,7 +9,7 @@ test('Render component and action', () => {
 		idButton: 'id0',
 		date: '12/12/2023',
 		time: '12:00 PM',
-		price: '+ $100.00',
+		price: '+ 1 BTC',
 	};
 
 	const { getByTestId, getAllByText } = render(<TransactionList />);

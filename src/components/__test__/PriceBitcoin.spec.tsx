@@ -7,7 +7,6 @@ describe('PriceBitcoin', () => {
 	const configTest = {
 		title: 'Hello World',
 		price: '$ 100.00',
-		porcent: '+ 2%',
 		bitcoin: '0.0000013',
 		id: 'idPriceBitcoin',
 		idSkeleton: 'idSkeletonLoading',
@@ -18,8 +17,6 @@ describe('PriceBitcoin', () => {
 			<PriceBitcoin
 				title={configTest.title}
 				price={configTest.price}
-				porcent={configTest.porcent}
-				isPositive={false}
 				bitcoin={configTest.bitcoin}
 				status="success"
 			/>,
@@ -28,7 +25,6 @@ describe('PriceBitcoin', () => {
 		expect(getByTestId(configTest.id)).toBeTruthy();
 		expect(getByText(configTest.title)).toBeTruthy();
 		expect(getByText(configTest.price)).toBeTruthy();
-		expect(getByText(configTest.porcent)).toBeTruthy();
 		expect(getByText(configTest.bitcoin + ' BTC')).toBeTruthy();
 	});
 
@@ -37,8 +33,6 @@ describe('PriceBitcoin', () => {
 			<PriceBitcoin
 				title={configTest.title}
 				price={configTest.price}
-				porcent={configTest.porcent}
-				isPositive={false}
 				bitcoin={configTest.bitcoin}
 				status="loading"
 			/>,
