@@ -34,7 +34,7 @@ function Button({ testID, isTablet, onAction, children }: ActionListButtonProps)
 }
 
 export function ActionList({ list, marginB }: ActionListProps) {
-	const { isTablet } = useAppSettings(state => state);
+	const { isTablet } = useAppSettings();
 
 	return (
 		<View testID="idActionList" style={[styles.container, { marginBottom: marginB }]}>
@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
 		alignSelf: 'center',
 		backgroundColor: colors.black_000,
 		borderRadius: borderRadius.radius_10,
+		overflow: 'hidden',
 	},
 	button: {
 		flexDirection: 'row',
