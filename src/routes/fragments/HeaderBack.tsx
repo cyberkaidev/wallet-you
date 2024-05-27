@@ -16,7 +16,7 @@ export function HeaderBack({ title }: HeaderTitleProps) {
 	const useHeightHeader = React.useMemo(() => hp('8%') + statusBarHeight, []);
 
 	return (
-		<View testID="idHeaderTitle" style={[styles.container, { height: useHeightHeader }]}>
+		<View testID="idHeaderBack" style={[styles.container, { height: useHeightHeader }]}>
 			<View style={styles.content}>
 				<ButtonIcon onPress={() => navigation.goBack()}>
 					<IconArrowLeft color={colors.light_cyan} porcentSize="5%" />

@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
@@ -7,7 +8,8 @@ import { Text } from '@/components/Text';
 import { borderRadius, colors, spaces } from '@/helpers/themes';
 import { HeaderSwiperIndicatorProps } from '@/types/HeaderSwiperIndicatorType';
 
-export function HeaderSwiperIndicator({ title, navigation }: HeaderSwiperIndicatorProps) {
+export function HeaderSwiperIndicator({ title }: HeaderSwiperIndicatorProps) {
+	const navigation = useNavigation();
 	const { t } = useTranslation();
 
 	return (

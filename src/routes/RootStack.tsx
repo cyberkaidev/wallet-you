@@ -65,9 +65,7 @@ export function RootStack() {
 						name="TransactionPage"
 						component={TransactionPage}
 						options={{
-							header: ({ navigation }) => (
-								<HeaderSwiperIndicator title={t('transaction')} navigation={navigation} />
-							),
+							header: () => <HeaderSwiperIndicator title={t('transaction')} />,
 							headerShown: true,
 							...optionsScreenIOS,
 						}}
@@ -90,9 +88,7 @@ export function RootStack() {
 						name="TermsPage"
 						component={TermsPage}
 						options={{
-							header: ({ navigation }) => (
-								<HeaderSwiperIndicator title={t('terms')} navigation={navigation} />
-							),
+							header: () => <HeaderSwiperIndicator title={t('terms')} />,
 							headerShown: true,
 							...optionsScreenIOS,
 						}}
