@@ -19,8 +19,8 @@ import { useUserData } from '@/stores/useUserData';
 
 export function RegisterKeyPage() {
 	const { t } = useTranslation();
-	const { fetchTransactions, setKey } = useUserData(state => state);
-	const { fetchBitcoinDataPrices } = useBitcoinDataPrices(state => state);
+	const { fetchTransactions, setKey } = useUserData();
+	const { fetchBitcoinDataPrices } = useBitcoinDataPrices();
 	const navigation = useNavigation();
 
 	const [showBiometricOption, setShowBiometricOption] = React.useState(false);

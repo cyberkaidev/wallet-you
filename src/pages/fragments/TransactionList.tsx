@@ -15,7 +15,7 @@ import { Text } from '../../components/Text';
 
 export function TransactionList() {
 	const { t } = useTranslation();
-	const { isTablet } = useAppSettings(state => state);
+	const { isTablet } = useAppSettings();
 	const { data, status } = useUserData(state => state.transactions);
 	const navigation = useNavigation();
 

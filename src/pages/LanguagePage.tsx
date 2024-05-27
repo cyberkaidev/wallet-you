@@ -10,7 +10,7 @@ import { LanguagesType } from '@/types/LanguagePageType';
 
 export function LanguagePage() {
 	const { t } = useTranslation();
-	const { language, setLanguage } = useAppSettings(state => state);
+	const { language, setLanguage } = useAppSettings();
 	const [selected, setSelected] = React.useState(language);
 
 	const languages: LanguagesType[] = [

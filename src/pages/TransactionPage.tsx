@@ -15,7 +15,7 @@ export function TransactionPage() {
 	const {
 		params: { data },
 	} = useRoute<UseRouteType<'TransactionPage'>>();
-	const { isTablet } = useAppSettings(state => state);
+	const { isTablet } = useAppSettings();
 	const { t } = useTranslation();
 
 	const time = useFormatDate(new Date(data.timestamp * 1000));

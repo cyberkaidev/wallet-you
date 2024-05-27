@@ -14,8 +14,8 @@ import { useBitcoinDataPrices } from '@/stores/useBitcoinDataPrices';
 
 export function ChartPage() {
 	const { t } = useTranslation();
-	const { data, status } = useBitcoinDataPrices(state => state);
-	const { currency, isTablet } = useAppSettings(state => state);
+	const { data, status } = useBitcoinDataPrices();
+	const { currency, isTablet } = useAppSettings();
 
 	const MARGIN_TOP = isTablet ? hp('3.5%') : spaces.space_25;
 

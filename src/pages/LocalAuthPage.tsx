@@ -16,8 +16,8 @@ import { RootStackParamListProps } from '@/types/RoutesType';
 
 export function LocalAuthPage() {
 	const navigation = useNavigation();
-	const { fetchTransactions, setKey } = useUserData(state => state);
-	const { fetchBitcoinDataPrices } = useBitcoinDataPrices(state => state);
+	const { fetchTransactions, setKey } = useUserData();
+	const { fetchBitcoinDataPrices } = useBitcoinDataPrices();
 	const { t } = useTranslation();
 
 	const [loading, setLoading] = React.useState(false);

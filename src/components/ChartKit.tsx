@@ -16,8 +16,8 @@ import { Text } from './Text';
 
 export function ChartKit() {
 	const { t } = useTranslation();
-	const { isTablet } = useAppSettings(state => state);
-	const { fetchBitcoinHistoricalPrice, status, data } = useBitcoinHistoricalPrice(state => state);
+	const { isTablet } = useAppSettings();
+	const { fetchBitcoinHistoricalPrice, status, data } = useBitcoinHistoricalPrice();
 
 	React.useEffect(() => {
 		if (status === null) fetchBitcoinHistoricalPrice();

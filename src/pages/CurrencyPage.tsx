@@ -9,7 +9,7 @@ import { CurrenciesTypes } from '@/types/CurrencyPageType';
 
 export function CurrencyPage() {
 	const { t } = useTranslation();
-	const { currency, setCurrency } = useAppSettings(state => state);
+	const { currency, setCurrency } = useAppSettings();
 	const [selected, setSelected] = React.useState(currency);
 
 	const currenciesTypes: CurrenciesTypes[] = [

@@ -23,7 +23,7 @@ export function ButtonTitleGhost({
 	marginL = 0,
 }: ButtonTitleGhostProps) {
 	const { t } = useTranslation();
-	const { isTablet } = useAppSettings(state => state);
+	const { isTablet } = useAppSettings();
 
 	return (
 		<ButtonTitleGhostPlatform

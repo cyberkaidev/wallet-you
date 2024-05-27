@@ -14,9 +14,9 @@ import { HeaderIcons } from './fragments/HeaderIcons';
 import { MyBitcoinPrice } from './fragments/MyBitcoinPrice';
 
 export function HomePage() {
-	const { balance, key, fetchTransactions } = useUserData(state => state);
-	const { currency } = useAppSettings(state => state);
-	const { data, status } = useBitcoinDataPrices(state => state);
+	const { balance, key, fetchTransactions } = useUserData();
+	const { currency } = useAppSettings();
+	const { data, status } = useBitcoinDataPrices();
 	const currencyFormated = useFormatCurrency(
 		calculateBalance({ balance, currentPrice: data?.current_price[currency] }),
 	);

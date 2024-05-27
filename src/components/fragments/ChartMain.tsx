@@ -13,7 +13,7 @@ import { CustomTooltip } from './CustomTooltip';
 export function ChartMain({ data }: ChartMainProps) {
 	const size = React.useRef(data.length);
 	const [positionX, setPositionX] = React.useState(-1);
-	const { isTablet } = useAppSettings(state => state);
+	const { isTablet } = useAppSettings();
 
 	const apx = React.useCallback((size = 0) => {
 		const width = Dimensions.get('window').width;
