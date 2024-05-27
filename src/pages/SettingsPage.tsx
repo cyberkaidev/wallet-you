@@ -8,28 +8,26 @@ import { useTranslation } from 'react-i18next';
 import { Linking } from 'react-native';
 
 import { ActionList } from '@/components/ActionList';
-import { AlertModal } from '@/components/AlertModal';
 import { LimitedWidthContainer } from '@/components/LimitedWidthContainer';
 import { ScrollView } from '@/components/ScrollView';
 import { Text } from '@/components/Text';
 import { initializeAppSettings } from '@/functions/initializeAppSettings';
 import { storageKeys } from '@/helpers/storageKeys';
 import { colors, spaces } from '@/helpers/themes';
+import { useAlertModal } from '@/stores/useAlertModal';
 import { useUserData } from '@/stores/useUserData';
 
 export function SettingsPage() {
 	const { t } = useTranslation();
 	const { key, cleanUserData } = useUserData();
+	const { showAlert } = useAlertModal();
 	const navigation = useNavigation();
-
-	const [showModal, setShowModal] = React.useState(false);
 
 	const { currency, enableLocalAuth, language, publicKey } = storageKeys;
 
 	async function onExit() {
 		await AsyncStorage.multiRemove([currency, enableLocalAuth, language]);
 		await SecureStore.deleteItemAsync(publicKey);
-		setShowModal(false);
 		initializeAppSettings();
 		cleanUserData();
 
@@ -75,7 +73,9 @@ export function SettingsPage() {
 		{
 			testID: 'idExit',
 			title: t('exit'),
-			onAction: () => setShowModal(true),
+			onAction: () => {
+				showAlert({ title: t('do-you-really-want-to-leave'), onConfirm: () => onExit() });
+			},
 			arrowVisible: true,
 		},
 	];
@@ -98,12 +98,6 @@ export function SettingsPage() {
 					v {Constants.expoConfig?.version != null ? Constants.expoConfig.version : '-'}
 				</Text>
 			</LimitedWidthContainer>
-			<AlertModal
-				title={t('do-you-really-want-to-leave')}
-				visible={showModal}
-				onCancel={() => setShowModal(false)}
-				onConfirm={onExit}
-			/>
 		</ScrollView>
 	);
 }
