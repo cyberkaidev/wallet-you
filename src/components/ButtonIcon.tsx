@@ -17,9 +17,7 @@ export function ButtonIcon({
 	return (
 		<ButtonIconPlatform
 			testID={testID}
-			onPress={() => {
-				if (!disabled) onPress();
-			}}
+			onPress={onPress}
 			disabled={disabled}
 			marginT={marginT}
 			marginB={marginB}
