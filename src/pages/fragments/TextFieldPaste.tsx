@@ -11,7 +11,7 @@ import { TextFieldPasteProps } from '@/types/RegisterKeyPageType';
 
 export function TextFieldPaste({ value, onChangeText }: TextFieldPasteProps) {
 	const { t } = useTranslation();
-	const { isTablet } = useAppSettings(state => state);
+	const { isTablet } = useAppSettings();
 
 	const [isFocused, setIsFocused] = React.useState(false);
 
