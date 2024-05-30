@@ -12,10 +12,14 @@ export function HeaderIcons() {
 
 	return (
 		<View style={styles.container}>
-			<ButtonIcon onPress={() => navigation.navigate('ChartPage')} marginR={spaces.space_25}>
+			<ButtonIcon
+				testID="idChart"
+				onPress={() => navigation.navigate('ChartPage')}
+				marginR={spaces.space_25}
+			>
 				<IconChart color={colors.light_cyan} />
 			</ButtonIcon>
-			<ButtonIcon onPress={() => navigation.navigate('SettingsPage')}>
+			<ButtonIcon testID="idSettings" onPress={() => navigation.navigate('SettingsPage')}>
 				<IconSettings color={colors.light_cyan} />
 			</ButtonIcon>
 		</View>
