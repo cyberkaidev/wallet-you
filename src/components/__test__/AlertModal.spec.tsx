@@ -2,83 +2,55 @@ import { fireEvent, render, renderHook } from '@testing-library/react-native';
 import React from 'react';
 import { I18nextProvider, useTranslation } from 'react-i18next';
 
+import { mockedAlertModalActions } from '../../../__test__/setup';
 import { AlertModal } from '../AlertModal';
 
 describe('AlertModal', () => {
 	const configTest = {
 		title: 'Hello World',
-		idModal: 'idModal',
-		idAlertContainer: 'idAlertContainer',
+		id: 'idAlertModal',
 		idCancel: 'idCancel',
 		idConfirm: 'idConfirm',
-		loading: 'Loading',
 		onCancel: jest.fn(),
 		onConfirm: jest.fn(),
 	};
 
-	test('Render component - visible', () => {
+	test('Render component', () => {
 		const t = renderHook(() => useTranslation());
 
-		const { getByText, getByTestId, queryByTestId } = render(
+		const { getByText, getByTestId } = render(
 			<I18nextProvider i18n={t.result.current.i18n}>
-				<AlertModal
-					title={configTest.title}
-					visible={true}
-					onCancel={configTest.onCancel}
-					onConfirm={configTest.onConfirm}
-				/>
+				<AlertModal />
 			</I18nextProvider>,
 		);
 
 		expect(getByText(configTest.title)).toBeTruthy();
-		expect(queryByTestId(configTest.idModal)).toBeTruthy();
-		expect(getByTestId(configTest.idAlertContainer)).toBeTruthy();
+		expect(getByTestId(configTest.id)).toBeTruthy();
 		expect(getByTestId(configTest.idCancel)).toBeTruthy();
 		expect(getByTestId(configTest.idConfirm)).toBeTruthy();
-	});
-
-	test('Render component - not visible', () => {
-		const t = renderHook(() => useTranslation());
-
-		const { queryByTestId, getByTestId, queryByText } = render(
-			<I18nextProvider i18n={t.result.current.i18n}>
-				<AlertModal
-					title={configTest.title}
-					visible={false}
-					onCancel={configTest.onCancel}
-					onConfirm={configTest.onConfirm}
-				/>
-			</I18nextProvider>,
-		);
-
-		expect(getByTestId(configTest.idModal)).toBeTruthy();
-		expect(queryByText(configTest.title)).toBeNull();
-		expect(queryByTestId(configTest.idAlertContainer)).toBeNull();
-		expect(queryByTestId(configTest.idCancel)).toBeNull();
-		expect(queryByTestId(configTest.idConfirm)).toBeNull();
 	});
 
 	test('Actions', () => {
 		const t = renderHook(() => useTranslation());
 
-		const { getByTestId } = render(
+		const { getByText, getByTestId } = render(
 			<I18nextProvider i18n={t.result.current.i18n}>
-				<AlertModal
-					title={configTest.title}
-					visible={true}
-					onCancel={configTest.onCancel}
-					onConfirm={configTest.onConfirm}
-				/>
+				<AlertModal />
 			</I18nextProvider>,
 		);
 
-		const buttonCancel = getByTestId(configTest.idCancel);
-		const buttonConfirm = getByTestId(configTest.idConfirm);
+		expect(getByText(configTest.title)).toBeTruthy();
+		expect(getByTestId(configTest.id)).toBeTruthy();
+		expect(getByTestId(configTest.idCancel)).toBeTruthy();
+		expect(getByTestId(configTest.idConfirm)).toBeTruthy();
 
-		fireEvent.press(buttonCancel);
-		expect(configTest.onCancel.mock.calls.length).toBe(1);
+		const cancel = getByTestId(configTest.idCancel);
+		const confirm = getByTestId(configTest.idConfirm);
 
-		fireEvent.press(buttonConfirm);
-		expect(configTest.onConfirm.mock.calls.length).toBe(1);
+		fireEvent.press(cancel);
+		expect(mockedAlertModalActions.onCancel).toHaveBeenCalled();
+
+		fireEvent.press(confirm);
+		expect(mockedAlertModalActions.onConfirm).toHaveBeenCalled();
 	});
 });
