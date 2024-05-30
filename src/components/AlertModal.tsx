@@ -1,13 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Platform, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { ButtonTitleGhost } from '@/components/ButtonTitleGhost';
 import { Text } from '@/components/Text';
 import { borderRadius, colors, spaces, width } from '@/helpers/themes';
 import { useAlertModal } from '@/stores/useAlertModal';
-
-const radius = Platform.OS === 'android' ? borderRadius.radius_25 : borderRadius.radius_15;
 
 export function AlertModal() {
 	const { t } = useTranslation();
@@ -26,11 +24,11 @@ export function AlertModal() {
 						testID="idCancel"
 						title={t('cancel')}
 						size="small"
+						marginR={spaces.space_30}
 						onPress={() => {
 							onCancel?.();
 							hideAlert();
 						}}
-						marginR={spaces.space_30}
 					/>
 					<ButtonTitleGhost
 						testID="idConfirm"
@@ -66,7 +64,7 @@ const styles = StyleSheet.create({
 		paddingHorizontal: spaces.space_20,
 		paddingTop: spaces.space_30,
 		paddingBottom: spaces.space_15,
-		borderRadius: radius,
+		borderRadius: borderRadius.radius_25,
 		backgroundColor: colors.black_000,
 	},
 	footer: {
