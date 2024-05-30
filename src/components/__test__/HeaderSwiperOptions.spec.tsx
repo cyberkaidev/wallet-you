@@ -2,6 +2,7 @@ import { fireEvent, render, renderHook } from '@testing-library/react-native';
 import React from 'react';
 import { I18nextProvider, useTranslation } from 'react-i18next';
 
+import { mockedNavigation } from '../../../__test__/setup';
 import { HeaderSwiperOptions } from '../HeaderSwiperOptions';
 
 describe('HeaderSwiperOptions', () => {
@@ -40,6 +41,6 @@ describe('HeaderSwiperOptions', () => {
 
 		const idButtonLeft = getByTestId(configTest.idButtonLeft);
 		fireEvent.press(idButtonLeft);
-		expect(configTest.onAction.mock.calls.length).toBe(1);
+		expect(mockedNavigation.goBack).toHaveBeenCalled();
 	});
 });
