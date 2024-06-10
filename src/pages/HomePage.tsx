@@ -33,7 +33,7 @@ export function HomePage() {
 			<LimitedWidthContainer>
 				<HeaderIcons />
 				<MyBitcoinPrice price={currencyFormated} balance={balance} status={status} />
-				<Chart price={currentPrice?.[currency]} />
+				<Chart price={currentPrice?.[currency]} priceStatus={status ?? 'loading'} />
 				<TransactionList />
 			</LimitedWidthContainer>
 		</ScrollView>
