@@ -8,7 +8,7 @@ import ES_AR from './locales/es-ar.json';
 import PT_BR from './locales/pt-br.json';
 
 i18n.use(initReactI18next).init({
-	lng: getLocales()[0].languageCode,
+	lng: getLocales()[0].languageCode ?? 'en',
 	compatibilityJSON: 'v3',
 	fallbackLng: 'en',
 	interpolation: {
