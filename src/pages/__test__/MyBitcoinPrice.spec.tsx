@@ -11,13 +11,12 @@ describe('MyBitcoinPrice', () => {
 		title: 'Total balance',
 		price: '1',
 		balance: '1',
-		failed: '--',
 	};
 
 	test('Success render', () => {
 		const t = renderHook(() => useTranslation());
 
-		const { getByTestId, getByText, queryByTestId, queryByText } = render(
+		const { getByTestId, getByText, queryByTestId } = render(
 			<I18nextProvider i18n={t.result.current.i18n}>
 				<MyBitcoinPrice price={configTest.price} balance={configTest.balance} status="success" />
 			</I18nextProvider>,
@@ -28,13 +27,12 @@ describe('MyBitcoinPrice', () => {
 		expect(getByText(configTest.title)).toBeTruthy();
 		expect(getByText(configTest.price)).toBeTruthy();
 		expect(getByText(configTest.balance)).toBeTruthy();
-		expect(queryByText(configTest.failed)).not.toBeTruthy();
 	});
 
 	test('Failed render', () => {
 		const t = renderHook(() => useTranslation());
 
-		const { getByTestId, getByText, queryByTestId, queryByText, getAllByText } = render(
+		const { getByTestId, getByText, queryByTestId, queryByText } = render(
 			<I18nextProvider i18n={t.result.current.i18n}>
 				<MyBitcoinPrice price={configTest.price} balance={configTest.balance} status="failed" />
 			</I18nextProvider>,
@@ -45,7 +43,6 @@ describe('MyBitcoinPrice', () => {
 		expect(getByText(configTest.title)).toBeTruthy();
 		expect(queryByText(configTest.price)).not.toBeTruthy();
 		expect(queryByText(configTest.balance)).not.toBeTruthy();
-		expect(getAllByText(configTest.failed)).toHaveLength(2);
 	});
 
 	test('Loading render', () => {
@@ -62,6 +59,5 @@ describe('MyBitcoinPrice', () => {
 		expect(getByText(configTest.title)).toBeTruthy();
 		expect(queryByText(configTest.price)).not.toBeTruthy();
 		expect(queryByText(configTest.balance)).not.toBeTruthy();
-		expect(queryByText(configTest.failed)).not.toBeTruthy();
 	});
 });

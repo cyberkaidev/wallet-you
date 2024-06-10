@@ -8,17 +8,19 @@ import { HeaderIcons } from '../fragments/HeaderIcons';
 describe('HeaderIcons', () => {
 	const configTest = {
 		idSettings: 'idSettings',
+		title: 'My wallet',
 	};
 
 	test('Render component', () => {
 		const t = renderHook(() => useTranslation());
 
-		const { getByTestId } = render(
+		const { getByTestId, getByText } = render(
 			<I18nextProvider i18n={t.result.current.i18n}>
 				<HeaderIcons />
 			</I18nextProvider>,
 		);
 		expect(getByTestId(configTest.idSettings)).toBeTruthy();
+		expect(getByText(configTest.title)).toBeTruthy();
 	});
 
 	test('Settings action', () => {
