@@ -5,6 +5,7 @@ import { StyleSheet, View } from 'react-native';
 import { Path } from 'react-native-svg';
 import { AreaChart } from 'react-native-svg-charts';
 
+import { SkeletonLoading } from '@/components/SkeletonLoading';
 import { Text } from '@/components/Text';
 import { borderRadius, colors, spaces } from '@/helpers/themes';
 import { useFormatCurrency } from '@/hooks/useFormatCurrency';
@@ -24,18 +25,22 @@ function LinePath({ line }: LinePathProps) {
 	);
 }
 
-export function Chart({ price }: ChartProps) {
+export function Chart({ price, priceStatus }: ChartProps) {
 	const { t } = useTranslation();
 	const { fetchBitcoinHistoricalPrice, status, data } = useBitcoinHistoricalPrice();
 
 	const currentPrice = React.useMemo(() => {
 		if (price) return useFormatCurrency(price);
-		return '...';
+		return useFormatCurrency(0.0);
 	}, [price]);
 
 	React.useEffect(() => {
 		if (status === null) fetchBitcoinHistoricalPrice();
 	}, []);
+
+	if (priceStatus === 'loading' && (status === 'loading' || status === null)) {
+		return <SkeletonLoading heightPorcent="10%" radius={10} />;
+	}
 
 	return (
 		<View style={styles.container}>
@@ -61,6 +66,8 @@ export function Chart({ price }: ChartProps) {
 					</AreaChart>
 				</View>
 			)}
+
+			{status === 'failed' && <View testID="idEmptyLine" style={styles.line} />}
 		</View>
 	);
 }
@@ -74,5 +81,10 @@ const styles = StyleSheet.create({
 		backgroundColor: colors.black_000,
 		paddingHorizontal: spaces.space_15,
 		paddingVertical: spaces.space_20,
+	},
+	line: {
+		height: 2,
+		width: 100,
+		backgroundColor: colors.white,
 	},
 });
