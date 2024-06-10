@@ -16,9 +16,6 @@
 		"date": "Data",
 		"hour": "Horas",
 		"today": "Hoje",
-		"price-change": "Alteração do preço",
-		"high": "Alto",
-		"low": "Baixo",
 		"settings": "Configurações",
 		"language": "Idioma",
 		"currency": "Moeda",
@@ -30,10 +27,10 @@
 		"request-error-try-later": "Erro na requisição, tente novamente mais tarde",
 		"unlock": "Desbloquear",
 		"you-dont-have-transactions": "Você não tem transações",
-		"chart": "Gráfico",
 		"confirm": "Confirmar",
 		"do-you-really-want-to-leave": "Você realmente quer sair?",
 		"no-internet-connection": "Sem conexão com a internet",
-		"back": "Voltar"
+		"back": "Voltar",
+		"my-wallet": "Minha carteira"
 	}
 }
