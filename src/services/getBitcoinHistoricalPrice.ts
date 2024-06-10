@@ -5,7 +5,7 @@ import { ResponseData } from '@/types/GetBitcoinHistoricalPriceType';
 export async function getBitcoinHistoricalPrice() {
 	try {
 		const { data }: ResponseData = await axios.get(
-			'https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=USD&days=2',
+			'https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=1',
 			{
 				headers: {
 					'Content-Type': 'application/json',
@@ -13,12 +13,12 @@ export async function getBitcoinHistoricalPrice() {
 			},
 		);
 
-		const dataFormated = data.prices.map(item => ({
+		if (data.prices.length === 0) throw new Error('error get-bitcoin-historical-price');
+
+		return data.prices.slice(-20).map(item => ({
 			date: new Date(item[0]),
 			value: item[1],
 		}));
-
-		return dataFormated ?? [];
 	} catch (err) {
 		throw new Error('error get-bitcoin-historical-price');
 	}
