@@ -13,12 +13,7 @@ export async function getBitcoinDataPrices() {
 			},
 		);
 
-		return {
-			current_price: data.market_data.current_price,
-			high_24h: data.market_data.high_24h,
-			low_24h: data.market_data.low_24h,
-			price_change_24h_in_currency: data.market_data.price_change_24h_in_currency,
-		};
+		return data.market_data.current_price;
 	} catch (err) {
 		throw new Error('error-get-bitcoin-data-prices');
 	}

@@ -4,7 +4,6 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { colors } from '@/helpers/themes';
-import { ChartPage } from '@/pages/ChartPage';
 import { CurrencyPage } from '@/pages/CurrencyPage';
 import { HomePage } from '@/pages/HomePage';
 import { LanguagePage } from '@/pages/LanguagePage';
@@ -51,11 +50,6 @@ export function RootStack() {
 						options={{ header: () => <HeaderTitle title="Wallet you" />, headerShown: true }}
 					/>
 					<Stack.Screen name="HomePage" component={HomePage} />
-					<Stack.Screen
-						name="ChartPage"
-						component={ChartPage}
-						options={{ header: () => <HeaderBack title={t('chart')} />, headerShown: true }}
-					/>
 					<Stack.Screen
 						name="SettingsPage"
 						component={SettingsPage}

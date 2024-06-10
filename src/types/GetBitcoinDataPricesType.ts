@@ -9,30 +9,6 @@ export interface ResponseData {
 				gbp: number;
 				usd: number;
 			};
-			high_24h: {
-				aud: number;
-				brl: number;
-				cad: number;
-				eur: number;
-				gbp: number;
-				usd: number;
-			};
-			low_24h: {
-				aud: number;
-				brl: number;
-				cad: number;
-				eur: number;
-				gbp: number;
-				usd: number;
-			};
-			price_change_24h_in_currency: {
-				aud: number;
-				brl: number;
-				cad: number;
-				eur: number;
-				gbp: number;
-				usd: number;
-			};
 		};
 	};
 }
