@@ -13,9 +13,11 @@ export function MyBitcoinPrice({ price, balance, status }: MyBitcoinPriceProps) 
 
 	return (
 		<View testID="idMyBitcoinPrice" style={styles.container}>
-			<Text weight="bold" marginL={spaces.space_5}>
-				{t('total-balance')}
-			</Text>
+			{status !== 'failed' && (
+				<Text weight="bold" marginL={spaces.space_5}>
+					{t('total-balance')}
+				</Text>
+			)}
 
 			{status === 'success' && (
 				<React.Fragment>
@@ -27,16 +29,9 @@ export function MyBitcoinPrice({ price, balance, status }: MyBitcoinPriceProps) 
 					</Text>
 				</React.Fragment>
 			)}
-			{status === 'failed' && (
-				<React.Fragment>
-					<Text size="xxxl" weight="medium">
-						--
-					</Text>
-					<Text weight="bold" color={colors.light_grey}>
-						--
-					</Text>
-				</React.Fragment>
-			)}
+
+			{status === 'failed' && <Text size="m">{t('request-error-try-later')}</Text>}
+
 			{(status === 'loading' || status === null) && (
 				<React.Fragment>
 					<SkeletonLoading
