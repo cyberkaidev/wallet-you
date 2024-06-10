@@ -21,6 +21,8 @@ export function TransactionList() {
 	const PADDING_ITEM_TABLET = hp('3.5%');
 	const MARGIN_TOP_TRANSACTION = hp('5%');
 
+	if (status === 'failed' || (status === 'success' && data.length === 0)) return <React.Fragment />;
+
 	return (
 		<View
 			testID="idTransactionList"
@@ -34,25 +36,8 @@ export function TransactionList() {
 				<SkeletonLoading heightPorcent="12%" radius={10} />
 			)}
 
-			{status === 'failed' && (
-				<View style={styles.center}>
-					<Text color={colors.light_grey} weight="bold">
-						{t('request-error-try-later')}
-					</Text>
-				</View>
-			)}
-
-			{data.length === 0 && status === 'success' && (
-				<View style={styles.center}>
-					<Text color={colors.light_grey} weight="bold">
-						{t('you-dont-have-transactions')}
-					</Text>
-				</View>
-			)}
-
 			<View style={styles.transactionContainer}>
-				{data.length > 0 &&
-					status === 'success' &&
+				{status === 'success' &&
 					data.map((item, index) => {
 						if (item.transactionType === 'zero-transfer') return;
 						return (
@@ -113,11 +98,6 @@ const styles = StyleSheet.create({
 		width: '100%',
 		maxWidth: width.max_width,
 		alignSelf: 'center',
-	},
-	center: {
-		width: '100%',
-		justifyContent: 'center',
-		alignItems: 'center',
 	},
 	transactionContainer: {
 		borderRadius: borderRadius.radius_10,
