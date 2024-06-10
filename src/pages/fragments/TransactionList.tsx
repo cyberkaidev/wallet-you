@@ -5,13 +5,12 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import { IconArrowDownLeft, IconArrowRight, IconArrowUpRight } from '@/assets';
+import { SkeletonLoading } from '@/components/SkeletonLoading';
+import { Text } from '@/components/Text';
 import { borderRadius, colors, spaces, width } from '@/helpers/themes';
 import { useFormatDate } from '@/hooks/useFormatDate';
 import { useAppSettings } from '@/stores/useAppSettings';
 import { useUserData } from '@/stores/useUserData';
-
-import { SkeletonLoading } from '../../components/SkeletonLoading';
-import { Text } from '../../components/Text';
 
 export function TransactionList() {
 	const { t } = useTranslation();
@@ -27,7 +26,7 @@ export function TransactionList() {
 			testID="idTransactionList"
 			style={[styles.container, { marginTop: isTablet ? MARGIN_TOP_TRANSACTION : spaces.space_25 }]}
 		>
-			<Text size="xl" weight="medium" marginB={spaces.space_10}>
+			<Text size="m" weight="medium" marginB={spaces.space_5}>
 				{t('transactions')}
 			</Text>
 
