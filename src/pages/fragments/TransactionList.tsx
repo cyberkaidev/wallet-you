@@ -96,7 +96,7 @@ export function TransactionList() {
 const styles = StyleSheet.create({
 	container: {
 		width: '100%',
-		maxWidth: width.max_width,
+		maxWidth: width.max_width_800,
 		alignSelf: 'center',
 	},
 	transactionContainer: {

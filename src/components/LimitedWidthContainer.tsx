@@ -14,7 +14,7 @@ export function LimitedWidthContainer({ children }: LimitedWidthContainerProps) 
 
 const styles = StyleSheet.create({
 	container: {
-		maxWidth: width.max_width,
+		maxWidth: width.max_width_800,
 		width: '100%',
 		alignSelf: 'center',
 	},

@@ -26,7 +26,7 @@ export function TextFieldPaste({ value, onChangeText }: TextFieldPasteProps) {
 				styles.relative,
 				{
 					borderWidth: isTablet ? 3 : 2,
-					borderColor: isFocused ? colors.light_cyan : colors.transparent,
+					borderColor: isFocused ? colors.light_cyan : colors.dark_cyan,
 				},
 			]}
 		>
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
 	relative: {
 		alignSelf: 'center',
 		width: '100%',
-		maxWidth: width.max_width,
+		maxWidth: width.max_width_500,
 		flexDirection: 'row',
 		backgroundColor: colors.black_000,
 		borderRadius: borderRadius.radius_10,

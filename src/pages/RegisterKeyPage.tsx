@@ -97,7 +97,7 @@ export function RegisterKeyPage() {
 const styles = StyleSheet.create({
 	textErrorContainer: {
 		width: '100%',
-		maxWidth: width.max_width,
+		maxWidth: width.max_width_800,
 		alignSelf: 'center',
 	},
 });

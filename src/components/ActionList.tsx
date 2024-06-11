@@ -75,7 +75,7 @@ export function ActionList({ list, marginB }: ActionListProps) {
 const styles = StyleSheet.create({
 	container: {
 		width: '100%',
-		maxWidth: width.max_width,
+		maxWidth: width.max_width_800,
 		alignSelf: 'center',
 		backgroundColor: colors.black_000,
 		borderRadius: borderRadius.radius_10,

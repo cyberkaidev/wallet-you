@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
 	},
 	body: {
 		width: '90%',
-		maxWidth: width.max_width,
+		maxWidth: width.max_width_500,
 		paddingHorizontal: spaces.space_20,
 		paddingTop: spaces.space_30,
 		paddingBottom: spaces.space_15,
