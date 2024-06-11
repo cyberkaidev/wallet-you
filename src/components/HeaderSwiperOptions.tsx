@@ -3,7 +3,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 
-import { borderRadius, colors, spaces } from '@/helpers/themes';
+import { borderRadius, colors, scaffold, spaces } from '@/helpers/themes';
 import { HeaderSwiperOptionsProps } from '@/types/HeaderSwiperOptionsType';
 
 import { ButtonTitleGhost } from './ButtonTitleGhost';
@@ -32,7 +32,7 @@ export function HeaderSwiperOptions({
 					size="small"
 					buttonsWeight="medium"
 					onPress={() => navigation.goBack()}
-					marginL={spaces.space_10}
+					marginL={scaffold.header_space_horizontal}
 				/>
 				<ButtonTitleGhost
 					testID="idButtonRight"
@@ -41,7 +41,7 @@ export function HeaderSwiperOptions({
 					buttonsWeight="medium"
 					disabled={disableAction}
 					onPress={onAction}
-					marginR={spaces.space_10}
+					marginR={scaffold.header_space_horizontal}
 				/>
 			</View>
 		</View>

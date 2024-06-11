@@ -5,7 +5,7 @@ import { StyleSheet, View } from 'react-native';
 
 import { ButtonTitleGhost } from '@/components/ButtonTitleGhost';
 import { Text } from '@/components/Text';
-import { borderRadius, colors, spaces } from '@/helpers/themes';
+import { borderRadius, colors, scaffold, spaces } from '@/helpers/themes';
 import { HeaderSwiperIndicatorProps } from '@/types/HeaderSwiperIndicatorType';
 
 export function HeaderSwiperIndicator({ title }: HeaderSwiperIndicatorProps) {
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
 	},
 	content: {
 		width: '100%',
-		paddingHorizontal: spaces.space_10,
+		paddingHorizontal: scaffold.header_space_horizontal,
 		justifyContent: 'space-between',
 		alignItems: 'center',
 		flexDirection: 'row',

@@ -7,7 +7,7 @@ import { IconArrowLeft } from '@/assets';
 import { ButtonIcon } from '@/components/ButtonIcon';
 import { Text } from '@/components/Text';
 import { statusBarHeight } from '@/helpers/statusBarHeight';
-import { colors, spaces } from '@/helpers/themes';
+import { colors, scaffold } from '@/helpers/themes';
 import { HeaderTitleProps } from '@/types/HeaderTitleType';
 
 export function HeaderBack({ title }: HeaderTitleProps) {
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
 		position: 'relative',
 		width: '100%',
 		height: hp('8%'),
-		paddingHorizontal: spaces.space_10,
+		paddingHorizontal: scaffold.header_space_horizontal,
 		flexDirection: 'row',
 		justifyContent: 'flex-start',
 		alignItems: 'center',

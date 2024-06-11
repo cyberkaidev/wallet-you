@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import { statusBarHeight } from '@/helpers/statusBarHeight';
-import { colors, spaces } from '@/helpers/themes';
+import { colors, scaffold } from '@/helpers/themes';
 import { HeaderTitleProps } from '@/types/HeaderTitleType';
 
 import { Text } from '../../components/Text';
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
 	content: {
 		width: '100%',
 		height: hp('8%'),
-		paddingHorizontal: spaces.space_15,
+		paddingHorizontal: scaffold.header_space_horizontal,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
