@@ -4,24 +4,17 @@ import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { statusBarHeight } from '@/helpers/statusBarHeight';
-import { colors, spaces } from '@/helpers/themes';
+import { colors, scaffold, spaces } from '@/helpers/themes';
 import { ScrollViewProps } from '@/types/ScrollViewType';
 
-export function ScrollView({
-	children,
-	refreshControl,
-	enabledHorizontalPadding = true,
-}: ScrollViewProps) {
+export function ScrollView({ children, refreshControl }: ScrollViewProps) {
 	const insets = useSafeAreaInsets();
 
 	const [refreshing, setRefreshing] = React.useState(false);
 
 	const paddingTop = React.useMemo(() => spaces.space_25, []);
 	const paddingBottom = React.useMemo(() => hp('3%') + insets.bottom, []);
-
-	const paddingHorizontal = React.useMemo(() => {
-		return enabledHorizontalPadding ? spaces.space_15 : 0;
-	}, [enabledHorizontalPadding]);
+	const paddingHorizontal = React.useMemo(() => scaffold.page_space_horizontal, []);
 
 	async function onRefresh() {
 		setRefreshing(true);
