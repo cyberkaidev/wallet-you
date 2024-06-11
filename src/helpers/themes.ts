@@ -1,5 +1,9 @@
+import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
+
 export const width = {
-	max_width: 800,
+	max_width_800: 800,
+	max_width_500: 500,
+	max_width_200: 200,
 };
 
 export const borderRadius = {
@@ -41,4 +45,9 @@ export const colors = {
 	dark_grey: '#616670',
 	black_100_50pct: 'rgba(25, 27, 31, 0.50)',
 	transparent: 'transparent',
+};
+
+export const scaffold = {
+	page_space_horizontal: wp('5%'),
+	header_space_horizontal: wp('3%'),
 };
