@@ -52,6 +52,7 @@ export function TextFieldPaste({ value, onChangeText }: TextFieldPasteProps) {
 				title={t('paste')}
 				marginR={spaces.horizontal.s}
 				onPress={fetchCopiedText}
+				size="small"
 			/>
 		</View>
 	);
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
 		color: colors.white,
 		fontSize: wp(fontSizes.m),
 		fontFamily: 'Figtree-Regular',
-		padding: spaces.horizontal.s,
+		padding: spaces.horizontal.xs,
 		borderStyle: 'solid',
 	},
 });
