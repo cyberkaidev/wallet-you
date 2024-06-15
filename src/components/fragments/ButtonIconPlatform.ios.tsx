@@ -38,6 +38,6 @@ export function ButtonIconPlatform({
 
 const styles = StyleSheet.create({
 	container: {
-		padding: spaces.space_10,
+		padding: spaces.horizontal.xs,
 	},
 });

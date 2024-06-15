@@ -20,7 +20,7 @@ export function SelectList<T>({ data, selected, onSelected }: SelectListProps<T>
 					<View style={styles.border}>
 						{selected === item.key && <View style={styles.circle} />}
 					</View>
-					<Text size="m" weight="medium" marginL={spaces.space_10}>
+					<Text size="m" weight="medium" marginL={spaces.horizontal.s}>
 						{item.title}
 					</Text>
 				</TouchableOpacity>
@@ -31,7 +31,7 @@ export function SelectList<T>({ data, selected, onSelected }: SelectListProps<T>
 
 const styles = StyleSheet.create({
 	button: {
-		paddingVertical: spaces.space_15,
+		paddingVertical: spaces.vertical.s,
 		flexDirection: 'row',
 		alignItems: 'center',
 	},

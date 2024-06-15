@@ -70,7 +70,7 @@ export function RegisterKeyPage() {
 			<TextFieldPaste value={inputPublicKey} onChangeText={setInputPublicKey} />
 			{error.visible && (
 				<View style={styles.textErrorContainer}>
-					<Text weight="medium" marginT={spaces.space_5} color={colors.red}>
+					<Text weight="medium" marginT={spaces.vertical.xs} color={colors.red}>
 						{error.message}
 					</Text>
 				</View>
@@ -88,7 +88,7 @@ export function RegisterKeyPage() {
 				size="large"
 				loading={loading}
 				disabled={inputPublicKey.length < 1}
-				marginT={spaces.space_15}
+				marginT={spaces.vertical.s}
 			/>
 		</ScrollView>
 	);

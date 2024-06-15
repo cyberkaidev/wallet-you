@@ -2,6 +2,10 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
+import {
+	heightPercentageToDP as hp,
+	widthPercentageToDP as wp,
+} from 'react-native-responsive-screen';
 
 import { ButtonTitleGhost } from '@/components/ButtonTitleGhost';
 import { Text } from '@/components/Text';
@@ -36,7 +40,7 @@ export function HeaderSwiperIndicator({ title }: HeaderSwiperIndicatorProps) {
 const styles = StyleSheet.create({
 	container: {
 		backgroundColor: colors.black_100,
-		paddingVertical: spaces.space_10,
+		paddingVertical: spaces.vertical.xs,
 		alignItems: 'center',
 		width: '100%',
 	},
@@ -47,10 +51,10 @@ const styles = StyleSheet.create({
 		right: 0,
 	},
 	indicator: {
-		width: 35,
-		height: 5,
+		width: wp('10%'),
+		height: hp('0.6%'),
 		borderRadius: borderRadius.radius_10,
-		marginBottom: spaces.space_5,
+		marginBottom: spaces.vertical.xs,
 		backgroundColor: colors.dark_grey,
 	},
 	content: {

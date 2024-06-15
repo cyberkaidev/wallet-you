@@ -12,10 +12,6 @@ export function ScrollView({ children, refreshControl }: ScrollViewProps) {
 
 	const [refreshing, setRefreshing] = React.useState(false);
 
-	const paddingTop = React.useMemo(() => spaces.space_25, []);
-	const paddingBottom = React.useMemo(() => hp('3%') + insets.bottom, []);
-	const paddingHorizontal = React.useMemo(() => scaffold.page_space_horizontal, []);
-
 	async function onRefresh() {
 		setRefreshing(true);
 		await refreshControl?.();
@@ -46,9 +42,9 @@ export function ScrollView({ children, refreshControl }: ScrollViewProps) {
 			refreshControl={refreshController()}
 			showsVerticalScrollIndicator={false}
 			contentContainerStyle={{
-				paddingBottom,
-				paddingTop,
-				paddingHorizontal,
+				paddingBottom: hp('3%') + insets.bottom,
+				paddingTop: spaces.vertical.s,
+				paddingHorizontal: scaffold.page_space_horizontal,
 			}}
 		>
 			{children}

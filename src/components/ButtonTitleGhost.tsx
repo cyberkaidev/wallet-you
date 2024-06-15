@@ -45,7 +45,7 @@ export function ButtonTitleGhost({
 					<ActivityIndicator color={colors.light_cyan} size={isTablet ? 'large' : 'small'} />
 					<Text
 						size={size === 'large' ? 'l' : 'm'}
-						marginL={spaces.space_5}
+						marginL={spaces.horizontal.xs}
 						weight={buttonsWeight}
 						color={colors.light_cyan}
 					>

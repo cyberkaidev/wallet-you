@@ -2,7 +2,6 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import { IconArrowDownLeft, IconArrowRight, IconArrowUpRight } from '@/assets';
 import { SkeletonLoading } from '@/components/SkeletonLoading';
@@ -14,29 +13,31 @@ import { useUserData } from '@/stores/useUserData';
 
 export function TransactionList() {
 	const { t } = useTranslation();
-	const { isTablet } = useAppSettings();
 	const { data, status } = useUserData(state => state.transactions);
+	const { isTablet } = useAppSettings();
 	const navigation = useNavigation();
-
-	const PADDING_ITEM_TABLET = hp('3.5%');
-	const MARGIN_TOP_TRANSACTION = hp('5%');
 
 	if (status === 'failed' || (status === 'success' && data.length === 0)) return <React.Fragment />;
 
 	return (
-		<View
-			testID="idTransactionList"
-			style={[styles.container, { marginTop: isTablet ? MARGIN_TOP_TRANSACTION : spaces.space_25 }]}
-		>
-			<Text size="m" weight="medium" marginB={spaces.space_5}>
+		<View testID="idTransactionList" style={styles.container}>
+			<Text size="m" weight="medium" marginB={spaces.horizontal.xs}>
 				{t('transactions')}
 			</Text>
 
 			{(status === 'loading' || status === null) && (
-				<SkeletonLoading heightPorcent="12%" radius={10} />
+				<SkeletonLoading
+					heightPorcent="12%"
+					radius={isTablet ? borderRadius.radius_15 : borderRadius.radius_10}
+				/>
 			)}
 
-			<View style={styles.transactionContainer}>
+			<View
+				style={[
+					styles.transactionContainer,
+					{ borderRadius: isTablet ? borderRadius.radius_15 : borderRadius.radius_10 },
+				]}
+			>
 				{status === 'success' &&
 					data.map((item, index) => {
 						if (item.transactionType === 'zero-transfer') return;
@@ -44,27 +45,17 @@ export function TransactionList() {
 							<TouchableOpacity
 								testID={`id${index}`}
 								key={index}
-								style={[
-									styles.button,
-									{ paddingLeft: isTablet ? spaces.space_20 : spaces.space_10 },
-								]}
+								style={styles.button}
 								onPress={() => navigation.navigate('TransactionPage', { data: item })}
 							>
-								<View
-									style={[
-										styles.iconStatus,
-										{ marginRight: isTablet ? spaces.space_20 : spaces.space_10 },
-									]}
-								>
-									{item.transactionType === 'incoming' && <IconArrowDownLeft />}
-									{item.transactionType === 'outgoing' && <IconArrowUpRight />}
+								<View style={styles.iconStatus}>
+									{item.transactionType === 'incoming' && <IconArrowDownLeft porcentSize="4%" />}
+									{item.transactionType === 'outgoing' && <IconArrowUpRight porcentSize="4%" />}
 								</View>
 								<View
 									style={[
 										styles.item,
 										{
-											paddingVertical: isTablet ? PADDING_ITEM_TABLET : spaces.space_25,
-											paddingRight: isTablet ? spaces.space_20 : spaces.space_10,
 											borderBottomColor:
 												data.length != index + 1 ? colors.dark_cyan : colors.black_000,
 										},
@@ -72,7 +63,7 @@ export function TransactionList() {
 								>
 									<View style={styles.row}>
 										<View style={styles.labels}>
-											<Text weight="bold" marginB={spaces.space_5}>
+											<Text weight="bold" marginB={spaces.horizontal.xs}>
 												{useFormatDate(new Date(item.timestamp * 1000)).date}
 											</Text>
 											<Text weight="medium" color={colors.light_grey}>
@@ -83,7 +74,7 @@ export function TransactionList() {
 											{item.transactionType === 'incoming' ? '+ ' : '- '} {item.amount} BTC
 										</Text>
 									</View>
-									<IconArrowRight porcentSize="4%" color={colors.dark_grey} />
+									<IconArrowRight porcentSize={isTablet ? '2%' : '3%'} color={colors.dark_grey} />
 								</View>
 							</TouchableOpacity>
 						);
@@ -98,19 +89,21 @@ const styles = StyleSheet.create({
 		width: '100%',
 		maxWidth: width.max_width_800,
 		alignSelf: 'center',
+		marginTop: spaces.vertical.m,
 	},
 	transactionContainer: {
-		borderRadius: borderRadius.radius_10,
 		backgroundColor: colors.black_000,
 	},
 	button: {
 		flex: 1,
 		flexDirection: 'row',
+		paddingLeft: spaces.horizontal.s,
 	},
 	iconStatus: {
 		width: 50,
 		justifyContent: 'center',
 		alignItems: 'center',
+		marginRight: spaces.horizontal.s,
 	},
 	item: {
 		flex: 1,
@@ -118,12 +111,14 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		borderBottomWidth: 1,
 		borderStyle: 'solid',
+		paddingVertical: spaces.vertical.m,
+		paddingRight: spaces.horizontal.m,
 	},
 	row: {
 		flex: 1,
 		flexDirection: 'row',
 		alignItems: 'center',
-		marginRight: spaces.space_10,
+		paddingRight: spaces.horizontal.s,
 	},
 	labels: {
 		flex: 1,

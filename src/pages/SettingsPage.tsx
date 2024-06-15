@@ -87,14 +87,14 @@ export function SettingsPage() {
 				<Text
 					size="xs"
 					color={colors.light_grey}
-					marginT={spaces.space_5}
-					marginL={spaces.space_15}
-					marginB={spaces.space_25}
+					marginT={spaces.vertical.xs}
+					marginL={spaces.horizontal.s}
+					marginB={spaces.vertical.m}
 				>
 					{key}
 				</Text>
 				<ActionList list={secondList} />
-				<Text marginT={spaces.space_15}>
+				<Text marginT={spaces.vertical.s}>
 					v {Constants.expoConfig?.version != null ? Constants.expoConfig.version : '-'}
 				</Text>
 			</LimitedWidthContainer>

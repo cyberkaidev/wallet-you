@@ -13,11 +13,7 @@ export function MyBitcoinPrice({ price, balance, status }: MyBitcoinPriceProps) 
 
 	return (
 		<View testID="idMyBitcoinPrice" style={styles.container}>
-			{status !== 'failed' && (
-				<Text weight="bold" marginL={spaces.space_5}>
-					{t('total-balance')}
-				</Text>
-			)}
+			{status !== 'failed' && <Text weight="bold">{t('total-balance')}</Text>}
 
 			{status === 'success' && (
 				<React.Fragment>
@@ -38,13 +34,13 @@ export function MyBitcoinPrice({ price, balance, status }: MyBitcoinPriceProps) 
 						heightPorcent="7%"
 						widthPorcent="60%"
 						radius={10}
-						marginT={spaces.space_5}
+						marginT={spaces.vertical.xs}
 					/>
 					<SkeletonLoading
 						heightPorcent="3%"
 						widthPorcent="30%"
 						radius={10}
-						marginT={spaces.space_5}
+						marginT={spaces.vertical.xs}
 					/>
 				</React.Fragment>
 			)}
@@ -55,6 +51,6 @@ export function MyBitcoinPrice({ price, balance, status }: MyBitcoinPriceProps) 
 const styles = StyleSheet.create({
 	container: {
 		alignItems: 'center',
-		paddingVertical: hp('20%'),
+		paddingVertical: hp('22%'),
 	},
 });

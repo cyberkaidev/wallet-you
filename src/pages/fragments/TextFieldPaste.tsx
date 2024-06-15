@@ -27,6 +27,7 @@ export function TextFieldPaste({ value, onChangeText }: TextFieldPasteProps) {
 				{
 					borderWidth: isTablet ? 3 : 2,
 					borderColor: isFocused ? colors.light_cyan : colors.dark_cyan,
+					borderRadius: isTablet ? borderRadius.radius_15 : borderRadius.radius_10,
 				},
 			]}
 		>
@@ -47,7 +48,11 @@ export function TextFieldPaste({ value, onChangeText }: TextFieldPasteProps) {
 				style={styles.container}
 				maxLength={150}
 			/>
-			<ButtonTitleGhost title={t('paste')} onPress={fetchCopiedText} />
+			<ButtonTitleGhost
+				title={t('paste')}
+				marginR={spaces.horizontal.s}
+				onPress={fetchCopiedText}
+			/>
 		</View>
 	);
 }
@@ -56,17 +61,16 @@ const styles = StyleSheet.create({
 	relative: {
 		alignSelf: 'center',
 		width: '100%',
-		maxWidth: width.max_width_500,
+		maxWidth: width.max_width_800,
 		flexDirection: 'row',
 		backgroundColor: colors.black_000,
-		borderRadius: borderRadius.radius_10,
 	},
 	container: {
 		flex: 1,
 		color: colors.white,
 		fontSize: wp(fontSizes.m),
 		fontFamily: 'Figtree-Regular',
-		padding: spaces.space_10,
+		padding: spaces.horizontal.s,
 		borderStyle: 'solid',
 	},
 });

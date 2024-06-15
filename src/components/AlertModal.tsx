@@ -24,7 +24,7 @@ export function AlertModal() {
 						testID="idCancel"
 						title={t('cancel')}
 						size="small"
-						marginR={spaces.space_30}
+						marginR={spaces.horizontal.l}
 						onPress={() => {
 							onCancel?.();
 							hideAlert();
@@ -56,20 +56,20 @@ const styles = StyleSheet.create({
 		backgroundColor: colors.black_100_50pct,
 		alignItems: 'center',
 		justifyContent: 'center',
-		paddingHorizontal: spaces.space_15,
+		paddingHorizontal: spaces.horizontal.m,
 	},
 	body: {
 		width: '90%',
 		maxWidth: width.max_width_500,
-		paddingHorizontal: spaces.space_20,
-		paddingTop: spaces.space_30,
-		paddingBottom: spaces.space_15,
+		paddingHorizontal: spaces.horizontal.l,
+		paddingTop: spaces.vertical.l,
+		paddingBottom: spaces.vertical.s,
 		borderRadius: borderRadius.radius_25,
 		backgroundColor: colors.black_000,
 	},
 	footer: {
 		width: '100%',
-		marginTop: spaces.space_30,
+		marginTop: spaces.vertical.l,
 		flexDirection: 'row',
 		justifyContent: 'flex-end',
 	},

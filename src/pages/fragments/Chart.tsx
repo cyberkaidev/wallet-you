@@ -9,6 +9,7 @@ import { SkeletonLoading } from '@/components/SkeletonLoading';
 import { Text } from '@/components/Text';
 import { borderRadius, colors, spaces } from '@/helpers/themes';
 import { useFormatCurrency } from '@/hooks/useFormatCurrency';
+import { useAppSettings } from '@/stores/useAppSettings';
 import { useBitcoinHistoricalPrice } from '@/stores/useBitcoinHistoricalPrice';
 import { ChartProps, LinePathProps } from '@/types/ChartTypes';
 
@@ -27,6 +28,7 @@ function LinePath({ line }: LinePathProps) {
 
 export function Chart({ price, priceStatus }: ChartProps) {
 	const { t } = useTranslation();
+	const { isTablet } = useAppSettings();
 	const { fetchBitcoinHistoricalPrice, status, data } = useBitcoinHistoricalPrice();
 
 	const currentPrice = React.useMemo(() => {
@@ -39,11 +41,16 @@ export function Chart({ price, priceStatus }: ChartProps) {
 	}, []);
 
 	if (priceStatus === 'loading' && (status === 'loading' || status === null)) {
-		return <SkeletonLoading heightPorcent="10%" radius={10} />;
+		return <SkeletonLoading heightPorcent="9%" radius={15} />;
 	}
 
 	return (
-		<View style={styles.container}>
+		<View
+			style={[
+				styles.container,
+				{ borderRadius: isTablet ? borderRadius.radius_15 : borderRadius.radius_10 },
+			]}
+		>
 			<View>
 				<Text weight="bold" color={colors.light_grey}>
 					{t('today')}
@@ -77,10 +84,9 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		alignItems: 'center',
-		borderRadius: borderRadius.radius_10,
 		backgroundColor: colors.black_000,
-		paddingHorizontal: spaces.space_15,
-		paddingVertical: spaces.space_20,
+		paddingHorizontal: spaces.horizontal.m,
+		paddingVertical: spaces.vertical.s,
 	},
 	line: {
 		height: 2,

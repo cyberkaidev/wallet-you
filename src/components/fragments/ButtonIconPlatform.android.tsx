@@ -41,6 +41,6 @@ export function ButtonIconPlatform({
 const styles = StyleSheet.create({
 	container: {
 		borderRadius: 100,
-		padding: spaces.space_10,
+		padding: spaces.horizontal.xs,
 	},
 });
