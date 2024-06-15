@@ -36,7 +36,7 @@ export const fontSizes = {
 	l: '4.5%',
 	xl: '5%',
 	xxl: '6.5%',
-	xxxl: '7.6%',
+	xxxl: '9%',
 };
 
 export const colors = {
