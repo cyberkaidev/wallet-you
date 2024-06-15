@@ -11,7 +11,6 @@ export interface ActionListProps {
 
 export interface ActionListButtonProps {
 	testID: string;
-	isTablet: boolean;
 	onAction: () => void;
 	children: React.ReactNode | React.ReactNode[];
 }
