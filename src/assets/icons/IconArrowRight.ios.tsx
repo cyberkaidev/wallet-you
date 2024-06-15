@@ -5,7 +5,7 @@ import Svg, { Path } from 'react-native-svg';
 import { colors } from '@/helpers/themes';
 import { IconProps } from '@/types/IconType';
 
-export function IconArrowRight({ color = colors.white, porcentSize = '6%' }: IconProps) {
+export function IconArrowRight({ color = colors.white, porcentSize = '5%' }: IconProps) {
 	return (
 		<Svg width={wp(porcentSize)} height={wp(porcentSize)} viewBox="0 0 12 12" fill="none">
 			<Path
