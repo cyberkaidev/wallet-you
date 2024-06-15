@@ -19,7 +19,7 @@ export function HeaderBack({ title }: HeaderTitleProps) {
 		<View testID="idHeaderBack" style={[styles.container, { height: useHeightHeader }]}>
 			<View style={styles.content}>
 				<ButtonIcon onPress={() => navigation.goBack()}>
-					<IconArrowLeft color={colors.light_cyan} porcentSize="5%" />
+					<IconArrowLeft color={colors.light_cyan} porcentSize="4%" />
 				</ButtonIcon>
 
 				<View style={styles.title}>
