@@ -1,25 +1,32 @@
-import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
+import {
+	heightPercentageToDP as hp,
+	widthPercentageToDP as wp,
+} from 'react-native-responsive-screen';
 
 export const width = {
 	max_width_800: 800,
 	max_width_500: 500,
-	max_width_200: 200,
 };
 
 export const borderRadius = {
-	radius_5: 5,
 	radius_10: 10,
 	radius_15: 15,
 	radius_25: 25,
 };
 
 export const spaces = {
-	space_5: 5,
-	space_10: 10,
-	space_15: 15,
-	space_20: 20,
-	space_25: 25,
-	space_30: 30,
+	horizontal: {
+		xs: wp('2%'),
+		s: wp('3%'),
+		m: wp('4%'),
+		l: wp('5%'),
+	},
+	vertical: {
+		xs: hp('1%'),
+		s: hp('2%'),
+		m: hp('3%'),
+		l: hp('4%'),
+	},
 };
 
 export const fontSizes = {
