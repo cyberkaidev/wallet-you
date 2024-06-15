@@ -30,9 +30,9 @@ export const spaces = {
 };
 
 export const fontSizes = {
-	xs: '3%',
-	s: '3.6%',
-	m: '4%',
+	xs: '2.5%',
+	s: '3%',
+	m: '3.5%',
 	l: '4.5%',
 	xl: '5%',
 	xxl: '6.5%',
