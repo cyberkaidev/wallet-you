@@ -63,7 +63,7 @@ export function TransactionList() {
 								>
 									<View style={styles.row}>
 										<View style={styles.labels}>
-											<Text weight="bold" marginB={spaces.horizontal.xs}>
+											<Text weight="bold">
 												{useFormatDate(new Date(item.timestamp * 1000)).date}
 											</Text>
 											<Text weight="medium" color={colors.light_grey}>
