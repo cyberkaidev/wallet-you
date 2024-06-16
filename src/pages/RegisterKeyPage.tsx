@@ -42,17 +42,18 @@ export function RegisterKeyPage() {
 		if (error.visible) setError({ message: '', visible: false });
 		const resBalance = await getBitcoinBalance(inputPublicKey);
 
-		if (resBalance === 'not-found') {
+		if (resBalance === 'KEY_NOT_FOUND') {
 			setError({ message: t('public-key-not-found'), visible: true });
 			setLoading(false);
 			return;
 		}
 
-		if (resBalance === 'error-get-balance-bitcoin') {
+		if (resBalance === 'INTERNAL_ERROR') {
 			setError({ message: t('request-error-try-later'), visible: true });
 			setLoading(false);
 			return;
 		}
+
 		fetchTransactions(inputPublicKey);
 		fetchBitcoinDataPrices();
 		if (toggleCheckBox) await AsyncStorage.setItem(storageKeys.enableLocalAuth, 'on');
