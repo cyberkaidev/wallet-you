@@ -16,7 +16,7 @@ export const useUserData = create<UseUserDataProps>(set => ({
 		try {
 			const response = await getBitcoinTransactions(param);
 			set({ transactions: { data: response, status: 'success' } });
-		} catch (error) {
+		} catch (_) {
 			set({ transactions: { data: [], status: 'failed' } });
 		}
 	},
