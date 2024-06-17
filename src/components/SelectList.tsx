@@ -7,7 +7,7 @@ import { SelectListProps } from '@/types/SelectListType';
 
 import { Text } from './Text';
 
-export function SelectList({ data, selected, onSelected }: SelectListProps) {
+export function SelectList<T>({ data, selected, onSelected }: SelectListProps<T>) {
 	return (
 		<View testID="idSelectList">
 			{data.map((item, index) => (
@@ -15,12 +15,12 @@ export function SelectList({ data, selected, onSelected }: SelectListProps) {
 					key={index}
 					testID={`id${index}`}
 					style={styles.button}
-					onPress={() => onSelected(item.ref)}
+					onPress={() => onSelected(item.key)}
 				>
 					<View style={styles.border}>
-						{selected === item.ref && <View style={styles.circle} />}
+						{selected === item.key && <View style={styles.circle} />}
 					</View>
-					<Text size="m" weight="medium" marginL={spaces.space_10}>
+					<Text size="m" weight="medium" marginL={spaces.horizontal.s}>
 						{item.title}
 					</Text>
 				</TouchableOpacity>
@@ -31,7 +31,7 @@ export function SelectList({ data, selected, onSelected }: SelectListProps) {
 
 const styles = StyleSheet.create({
 	button: {
-		paddingVertical: spaces.space_15,
+		paddingVertical: spaces.vertical.s,
 		flexDirection: 'row',
 		alignItems: 'center',
 	},

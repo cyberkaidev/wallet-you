@@ -1,88 +1,103 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { CommonActions, NavigationProp, useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
+import * as Clipboard from 'expo-clipboard';
 import Constants from 'expo-constants';
 import * as SecureStore from 'expo-secure-store';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Linking } from 'react-native';
 
 import { ActionList } from '@/components/ActionList';
-import { AlertModal } from '@/components/AlertModal';
 import { LimitedWidthContainer } from '@/components/LimitedWidthContainer';
-import { ScrollViewHeader } from '@/components/ScrollViewHeader';
+import { ScrollView } from '@/components/ScrollView';
 import { Text } from '@/components/Text';
 import { initializeAppSettings } from '@/functions/initializeAppSettings';
 import { storageKeys } from '@/helpers/storageKeys';
-import { spaces } from '@/helpers/themes';
+import { colors, spaces } from '@/helpers/themes';
+import { useAlertModal } from '@/stores/useAlertModal';
 import { useUserData } from '@/stores/useUserData';
-import { RootStackParamListProps } from '@/types/RoutesType';
 
 export function SettingsPage() {
 	const { t } = useTranslation();
+	const { key, cleanUserData } = useUserData();
+	const { showAlert } = useAlertModal();
+	const navigation = useNavigation();
 
-	const { cleanUserData } = useUserData();
-	const [showModal, setShowModal] = React.useState(false);
 	const { currency, enableLocalAuth, language, publicKey } = storageKeys;
-	const navigation = useNavigation<NavigationProp<RootStackParamListProps>>();
 
 	async function onExit() {
 		await AsyncStorage.multiRemove([currency, enableLocalAuth, language]);
 		await SecureStore.deleteItemAsync(publicKey);
-		setShowModal(false);
 		initializeAppSettings();
 		cleanUserData();
 
-		navigation.dispatch(
-			CommonActions.reset({
-				index: 1,
-				routes: [{ name: 'LocalAuthPage' }],
-			}),
-		);
+		navigation.reset({
+			index: 0,
+			routes: [{ name: 'LocalAuthPage' }],
+		});
 	}
 
-	const settingsList = [
+	const firstList = [
 		{
-			testID: 'idPublicKey',
-			title: t('public-key'),
-			onAction: () => navigation.navigate('PublicKeyPage'),
+			testID: 'idCopy',
+			title: t('copy-my-address'),
+			onAction: async () => await Clipboard.setStringAsync(key),
 		},
+	];
+
+	const secondList = [
 		{
 			testID: 'idLanguage',
 			title: t('language'),
 			onAction: () => navigation.navigate('LanguagePage'),
+			arrowVisible: true,
 		},
 		{
 			testID: 'idCurrency',
 			title: t('currency'),
 			onAction: () => navigation.navigate('CurrencyPage'),
-		},
-		{ testID: 'idTerms', title: t('terms'), onAction: () => navigation.navigate('TermsPage') },
-		{
-			testID: 'idSupportUs',
-			title: t('support-us'),
-			onAction: () => navigation.navigate('SupportUsPage'),
+			arrowVisible: true,
 		},
 		{
-			testID: 'idLinks',
-			title: 'Links',
-			onAction: () => navigation.navigate('LinksPage'),
+			testID: 'idTerms',
+			title: t('terms'),
+			onAction: () => navigation.navigate('TermsPage'),
+			arrowVisible: true,
 		},
-		{ testID: 'idExit', title: t('exit'), onAction: () => setShowModal(true) },
+		{
+			testID: 'idSourceCode',
+			title: t('source-code'),
+			onAction: () => Linking.openURL('https://github.com/cyberkaidev/wallet-you'),
+			arrowVisible: true,
+		},
+		{
+			testID: 'idExit',
+			title: t('exit'),
+			onAction: () => {
+				showAlert({ title: t('do-you-really-want-to-leave'), onConfirm: () => onExit() });
+			},
+			arrowVisible: true,
+		},
 	];
 
 	return (
-		<ScrollViewHeader headerTitle={t('settings')}>
+		<ScrollView>
 			<LimitedWidthContainer>
-				<ActionList list={settingsList} />
-				<Text weight="bold" marginT={spaces.space_25}>
+				<ActionList list={firstList} />
+				<Text
+					size="xs"
+					color={colors.light_grey}
+					marginT={spaces.vertical.xs}
+					marginL={spaces.horizontal.s}
+					marginB={spaces.vertical.m}
+				>
+					{key}
+				</Text>
+				<ActionList list={secondList} />
+				<Text marginT={spaces.vertical.s}>
 					v {Constants.expoConfig?.version != null ? Constants.expoConfig.version : '-'}
 				</Text>
 			</LimitedWidthContainer>
-			<AlertModal
-				title={t('do_you_really_want_to_leave')}
-				visible={showModal}
-				onCancel={() => setShowModal(false)}
-				onConfirm={onExit}
-			/>
-		</ScrollViewHeader>
+		</ScrollView>
 	);
 }

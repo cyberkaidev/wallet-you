@@ -1,27 +1,15 @@
-import { IconArrowDown } from './icons/IconArrowDown';
+import { IconArrowDownLeft } from './icons/IconArrowDownLeft';
+import { IconArrowLeft } from './icons/IconArrowLeft';
 import { IconArrowRight } from './icons/IconArrowRight';
-import { IconArrowUp } from './icons/IconArrowUp';
-import { IconBitcoin } from './icons/IconBitcoin';
-import { IconCardano } from './icons/IconCardano';
-import { IconChart } from './icons/IconChart';
-import { IconGithub } from './icons/IconGithub';
-import { IconHome } from './icons/IconHome';
+import { IconArrowUpRight } from './icons/IconArrowUpRight';
 import { IconNoInternet } from './icons/IconNoInternet';
 import { IconSettings } from './icons/IconSettings';
-import { IconSuccess } from './icons/IconSuccess';
-import { IconTwitter } from './icons/IconTwitter';
 
 export {
-	IconArrowDown,
+	IconArrowDownLeft,
+	IconArrowLeft,
 	IconArrowRight,
-	IconArrowUp,
-	IconBitcoin,
-	IconCardano,
-	IconChart,
-	IconGithub,
-	IconHome,
+	IconArrowUpRight,
 	IconNoInternet,
 	IconSettings,
-	IconSuccess,
-	IconTwitter,
 };

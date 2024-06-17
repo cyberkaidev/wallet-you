@@ -16,7 +16,7 @@ export function TitleSubtitle({
 }: TitleSubtitleProps) {
 	return (
 		<View testID="idTitleSubtitle" style={{ marginTop: marginT, marginBottom: marginB }}>
-			<Text size="xl" weight="medium">
+			<Text size="l" weight="medium">
 				{title}
 			</Text>
 			{isLoading && (

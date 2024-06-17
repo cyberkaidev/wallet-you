@@ -1,62 +1,75 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Modal, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { ButtonTitleGhost } from '@/components/ButtonTitleGhost';
 import { Text } from '@/components/Text';
 import { borderRadius, colors, spaces, width } from '@/helpers/themes';
-import { AlertModalProps } from '@/types/AlertModalType';
+import { useAlertModal } from '@/stores/useAlertModal';
 
-export function AlertModal({ title, visible, onCancel, onConfirm }: AlertModalProps) {
+export function AlertModal() {
 	const { t } = useTranslation();
+	const { visible, title, onCancel, onConfirm, hideAlert } = useAlertModal();
+
+	if (!visible) return;
 
 	return (
-		<Modal testID="idModal" visible={visible} transparent>
-			<View style={styles.background}>
-				<View style={styles.body} testID="idAlertContainer">
-					<Text size="xxl" weight="medium">
-						{title}
-					</Text>
-					<View style={styles.footer}>
-						<ButtonTitleGhost
-							testID="idCancel"
-							title={t('cancel')}
-							size="small"
-							onPress={onCancel}
-							marginR={spaces.space_30}
-						/>
-						<ButtonTitleGhost
-							testID="idConfirm"
-							title={t('confirm')}
-							size="small"
-							onPress={onConfirm}
-						/>
-					</View>
+		<View style={styles.background} testID="idAlertModal">
+			<View style={styles.body}>
+				<Text size="xxl" weight="medium">
+					{title}
+				</Text>
+				<View style={styles.footer}>
+					<ButtonTitleGhost
+						testID="idCancel"
+						title={t('cancel')}
+						size="small"
+						marginR={spaces.horizontal.l}
+						onPress={() => {
+							onCancel?.();
+							hideAlert();
+						}}
+					/>
+					<ButtonTitleGhost
+						testID="idConfirm"
+						title={t('confirm')}
+						size="small"
+						onPress={() => {
+							onConfirm?.();
+							hideAlert();
+						}}
+					/>
 				</View>
 			</View>
-		</Modal>
+		</View>
 	);
 }
 
 const styles = StyleSheet.create({
 	background: {
-		flex: 1,
+		position: 'absolute',
+		left: 0,
+		right: 0,
+		top: 0,
+		bottom: 0,
+		zIndex: 9999999999,
 		backgroundColor: colors.black_100_50pct,
 		alignItems: 'center',
 		justifyContent: 'center',
-		paddingHorizontal: spaces.space_15,
+		paddingHorizontal: spaces.horizontal.m,
 	},
 	body: {
-		width: '100%',
-		maxWidth: width.max_width,
-		paddingHorizontal: spaces.space_20,
-		paddingVertical: spaces.space_30,
-		borderRadius: borderRadius.radius_15,
+		width: '90%',
+		maxWidth: width.max_width_500,
+		paddingHorizontal: spaces.horizontal.l,
+		paddingTop: spaces.vertical.l,
+		paddingBottom: spaces.vertical.s,
+		borderRadius: borderRadius.radius_25,
 		backgroundColor: colors.black_000,
 	},
 	footer: {
 		width: '100%',
-		marginTop: spaces.space_30,
+		marginTop: spaces.vertical.l,
 		flexDirection: 'row',
 		justifyContent: 'flex-end',
 	},

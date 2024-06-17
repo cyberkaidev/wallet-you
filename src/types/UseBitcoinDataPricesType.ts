@@ -1,7 +1,7 @@
 import { ResponseData } from './GetBitcoinDataPricesType';
 
 export interface DataProps {
-	data: ResponseData['data']['market_data'] | null;
+	currentPrice: ResponseData['data']['market_data']['current_price'] | null;
 	status: 'loading' | 'success' | 'failed' | null;
 }
 

@@ -3,12 +3,14 @@ import { RefreshControl, ScrollView as ScrollViewContainer } from 'react-native-
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { colors } from '@/helpers/themes';
+import { statusBarHeight } from '@/helpers/statusBarHeight';
+import { colors, scaffold, spaces } from '@/helpers/themes';
 import { ScrollViewProps } from '@/types/ScrollViewType';
 
 export function ScrollView({ children, refreshControl }: ScrollViewProps) {
-	const [refreshing, setRefreshing] = React.useState(false);
 	const insets = useSafeAreaInsets();
+
+	const [refreshing, setRefreshing] = React.useState(false);
 
 	async function onRefresh() {
 		setRefreshing(true);
@@ -25,6 +27,7 @@ export function ScrollView({ children, refreshControl }: ScrollViewProps) {
 					onRefresh={onRefresh}
 					progressBackgroundColor={colors.dark_grey}
 					colors={[colors.white]}
+					progressViewOffset={statusBarHeight}
 				/>
 			);
 		}
@@ -35,14 +38,14 @@ export function ScrollView({ children, refreshControl }: ScrollViewProps) {
 		<ScrollViewContainer
 			testID="idScrollView"
 			alwaysBounceVertical
-			contentContainerStyle={{
-				paddingBottom: hp('3%') + insets.bottom,
-				paddingTop: 25,
-				paddingHorizontal: 15,
-			}}
 			endFillColor={colors.transparent}
 			refreshControl={refreshController()}
 			showsVerticalScrollIndicator={false}
+			contentContainerStyle={{
+				paddingBottom: hp('3%') + insets.bottom,
+				paddingTop: spaces.vertical.s,
+				paddingHorizontal: scaffold.page_space_horizontal,
+			}}
 		>
 			{children}
 		</ScrollViewContainer>

@@ -3,7 +3,7 @@
 		"name": "Wallet you",
 		"slug": "wallet-you",
 		"owner": "cyberkaidev",
-		"version": "1.4.3",
+		"version": "2.0.0",
 		"orientation": "portrait",
 		"icon": "./assets/images/icon.png",
 		"userInterfaceStyle": "dark",
@@ -16,8 +16,7 @@
 		"assetBundlePatterns": ["**/*"],
 		"androidStatusBar": {
 			"barStyle": "light-content",
-			"backgroundColor": "#191B1F",
-			"translucent": false
+			"translucent": true
 		},
 		"ios": {
 			"supportsTablet": true,
@@ -35,7 +34,7 @@
 			},
 			"permissions": ["android.permission.USE_BIOMETRIC", "android.permission.USE_FINGERPRINT"],
 			"package": "com.cyberkaidev.walletyou",
-			"versionCode": "8"
+			"versionCode": 9
 		},
 		"web": {
 			"favicon": "./assets/images/favicon.ico"
@@ -51,9 +50,11 @@
 			[
 				"expo-screen-orientation",
 				{
-					"initialOrientation": "DEFAULT"
+					"initialOrientation": "PORTRAIT"
 				}
-			]
+			],
+			"expo-font",
+			"expo-secure-store"
 		]
 	}
 }

@@ -1,13 +1,17 @@
 import { Skeleton } from 'moti/skeleton';
 import React from 'react';
 import { View } from 'react-native';
-import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import {
+	heightPercentageToDP as hp,
+	widthPercentageToDP as wp,
+} from 'react-native-responsive-screen';
 
 import { colors } from '@/helpers/themes';
 import { SkeletonLoadingProps } from '@/types/SkeletonLoadingType';
 
 export function SkeletonLoading({
 	heightPorcent,
+	widthPorcent,
 	radius,
 	marginT = 0,
 	marginB = 0,
@@ -27,7 +31,7 @@ export function SkeletonLoading({
 			<Skeleton
 				colorMode="dark"
 				radius={radius}
-				width="100%"
+				width={widthPorcent ? wp(widthPorcent) : '100%'}
 				height={hp(heightPorcent)}
 				backgroundColor={colors.black_000}
 				colors={['#303139', '#303139', '#303139', '#303139']}

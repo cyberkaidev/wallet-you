@@ -6,18 +6,18 @@ import { LimitedWidthContainer } from '@/components/LimitedWidthContainer';
 import { ScrollView } from '@/components/ScrollView';
 import { SelectList } from '@/components/SelectList';
 import { useAppSettings } from '@/stores/useAppSettings';
-import { UseAppSettingsProps } from '@/types/UseAppSettingsType';
+import { LanguagesType } from '@/types/LanguagePageType';
 
 export function LanguagePage() {
 	const { t } = useTranslation();
-	const { language, setLanguage } = useAppSettings(state => state);
+	const { language, setLanguage } = useAppSettings();
 	const [selected, setSelected] = React.useState(language);
 
-	const languages = [
-		{ title: 'English', ref: 'en-us' },
-		{ title: 'Português (BR)', ref: 'pt-br' },
-		{ title: 'Spanish', ref: 'es-ar' },
-		{ title: 'Deutsch', ref: 'de-ch' },
+	const languages: LanguagesType[] = [
+		{ title: 'English', key: 'en-us' },
+		{ title: 'Português (BR)', key: 'pt-br' },
+		{ title: 'Spanish', key: 'es-ar' },
+		{ title: 'Deutsch', key: 'de-ch' },
 	];
 
 	return (
@@ -29,11 +29,7 @@ export function LanguagePage() {
 			/>
 			<ScrollView>
 				<LimitedWidthContainer>
-					<SelectList
-						data={languages}
-						selected={selected}
-						onSelected={arg => setSelected(arg as UseAppSettingsProps['language'])}
-					/>
+					<SelectList data={languages} selected={selected} onSelected={arg => setSelected(arg)} />
 				</LimitedWidthContainer>
 			</ScrollView>
 		</React.Fragment>

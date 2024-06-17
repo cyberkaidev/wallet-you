@@ -2,7 +2,7 @@ import { act, render, renderHook } from '@testing-library/react-native';
 import React from 'react';
 import { I18nextProvider, useTranslation } from 'react-i18next';
 
-import { IconBitcoin } from '@/assets';
+import { IconArrowRight } from '@/assets';
 
 import { ActionList } from '../ActionList';
 
@@ -15,7 +15,7 @@ describe('ActionList', () => {
 		list: [
 			{
 				testID: 'idHelloWorld',
-				prefixIcon: <IconBitcoin />,
+				prefixIcon: <IconArrowRight />,
 				title: 'Hello World',
 				onAction: jest.fn(),
 			},

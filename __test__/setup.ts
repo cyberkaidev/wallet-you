@@ -100,12 +100,31 @@ jest.mock('@/stores/useBitcoinDataPrices', () => {
 	};
 });
 
+export const mockedAlertModalActions = {
+	onCancel: jest.fn(),
+	onConfirm: jest.fn(),
+	showAlert: jest.fn(),
+	hideAlert: jest.fn(),
+};
+
+jest.mock('@/stores/useAlertModal', () => {
+	return {
+		useAlertModal: () => ({
+			visible: true,
+			title: 'Hello World',
+			...mockedAlertModalActions,
+		}),
+	};
+});
+
+export const mockedNavigation = {
+	navigate: jest.fn(),
+	goBack: jest.fn(),
+};
+
 jest.mock('@react-navigation/native', () => {
 	return {
-		useNavigation: () => ({
-			navigate: jest.fn(),
-			goBack: jest.fn(),
-		}),
+		useNavigation: () => ({ ...mockedNavigation }),
 	};
 });
 

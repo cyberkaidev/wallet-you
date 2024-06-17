@@ -1,43 +1,67 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
 
 import { IconArrowRight } from '@/assets';
 import { Text } from '@/components/Text';
 import { borderRadius, colors, spaces, width } from '@/helpers/themes';
 import { useAppSettings } from '@/stores/useAppSettings';
-import { ActionListProps } from '@/types/ActionListType';
+import { ActionListButtonProps, ActionListProps } from '@/types/ActionListType';
 
-export function ActionList({ list }: ActionListProps) {
-	const { isTablet } = useAppSettings(state => state);
+function Button({ testID, onAction, children }: ActionListButtonProps) {
+	if (Platform.OS === 'android') {
+		return (
+			<RectButton
+				testID={testID}
+				rippleColor={colors.white_10pct}
+				style={styles.button}
+				onPress={() => onAction()}
+			>
+				{children}
+			</RectButton>
+		);
+	}
 
 	return (
-		<View testID="idActionList" style={styles.container}>
+		<TouchableOpacity testID={testID} style={styles.button} onPress={() => onAction()}>
+			{children}
+		</TouchableOpacity>
+	);
+}
+
+export function ActionList({ list, marginB }: ActionListProps) {
+	const { isTablet } = useAppSettings();
+
+	return (
+		<View
+			testID="idActionList"
+			style={[
+				styles.container,
+				{
+					marginBottom: marginB,
+					borderRadius: isTablet ? borderRadius.radius_15 : borderRadius.radius_10,
+				},
+			]}
+		>
 			{list.map((item, index) => (
-				<TouchableOpacity
-					key={index}
-					testID={item.testID}
-					style={[styles.button, { paddingLeft: isTablet ? spaces.space_20 : spaces.space_15 }]}
-					onPress={() => item.onAction()}
-				>
-					{item.prefixIcon && (
-						<View testID={`idPrefixIcon${index}`} style={styles.iconContainer}>
-							{item.prefixIcon}
+				<Button key={index} testID={item.testID} onAction={() => item.onAction()}>
+					<React.Fragment>
+						{item.prefixIcon && (
+							<View testID={`idPrefixIcon${index}`} style={styles.iconContainer}>
+								{item.prefixIcon}
+							</View>
+						)}
+						<View style={styles.iconAndTitle}>
+							<Text size="m">{item.title}</Text>
+							<View style={styles.iconContainer}>
+								{item.arrowVisible === true && (
+									<IconArrowRight porcentSize={isTablet ? '2%' : '3%'} color={colors.dark_grey} />
+								)}
+							</View>
+							{list.length !== index + 1 && <View style={styles.indicator} />}
 						</View>
-					)}
-					<View
-						style={[
-							styles.iconAndTitle,
-							{ paddingVertical: isTablet ? spaces.space_25 : spaces.space_20 },
-						]}
-					>
-						<Text size="m">{item.title}</Text>
-						<View style={styles.iconContainer}>
-							<IconArrowRight size={hp('2%')} color={colors.dark_grey} />
-						</View>
-						{list.length !== index + 1 && <View style={styles.indicator} />}
-					</View>
-				</TouchableOpacity>
+					</React.Fragment>
+				</Button>
 			))}
 		</View>
 	);
@@ -46,21 +70,19 @@ export function ActionList({ list }: ActionListProps) {
 const styles = StyleSheet.create({
 	container: {
 		width: '100%',
-		maxWidth: width.max_width,
+		maxWidth: width.max_width_800,
 		alignSelf: 'center',
 		backgroundColor: colors.black_000,
-		borderRadius: borderRadius.radius_10,
-		borderStyle: 'solid',
-		borderWidth: 1,
-		borderColor: colors.dark_grey,
+		overflow: 'hidden',
 	},
 	button: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		alignItems: 'center',
+		paddingLeft: spaces.horizontal.m,
 	},
 	iconContainer: {
-		marginRight: spaces.space_15,
+		marginRight: spaces.horizontal.m,
 	},
 	iconAndTitle: {
 		flex: 1,
@@ -68,6 +90,7 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'space-between',
 		position: 'relative',
+		paddingVertical: spaces.vertical.s,
 	},
 	indicator: {
 		position: 'absolute',
@@ -75,6 +98,6 @@ const styles = StyleSheet.create({
 		right: 0,
 		height: 1,
 		width: '100%',
-		backgroundColor: colors.dark_grey,
+		backgroundColor: colors.dark_cyan,
 	},
 });

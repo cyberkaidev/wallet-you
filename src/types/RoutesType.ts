@@ -1,19 +1,29 @@
-import { AddressTransaction } from '@tatumio/tatum';
+import { RouteProp } from '@react-navigation/native';
+
+import { Transaction } from './UseUserDataType';
 
 export type RootStackParamListProps = {
 	RegisterKeyPage: undefined;
 	LocalAuthPage: undefined;
-	TabsRoutes: undefined;
 	HomePage: undefined;
-	BitcoinDataPage: undefined;
+	ChartPage: undefined;
 	TransactionPage: {
-		data: AddressTransaction;
+		data: Transaction;
 	};
 	SettingsPage: undefined;
-	PublicKeyPage: undefined;
 	LanguagePage: undefined;
 	CurrencyPage: undefined;
 	TermsPage: undefined;
-	SupportUsPage: undefined;
-	LinksPage: undefined;
+	NoInternetPage: undefined;
 };
+
+export type UseRouteType<T extends keyof RootStackParamListProps> = RouteProp<
+	RootStackParamListProps,
+	T
+>;
+
+declare global {
+	namespace ReactNavigation {
+		interface RootParamList extends RootStackParamListProps {}
+	}
+}

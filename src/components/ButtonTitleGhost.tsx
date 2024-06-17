@@ -1,11 +1,12 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { ActivityIndicator, StyleSheet, TouchableOpacity } from 'react-native';
+import { ActivityIndicator } from 'react-native';
 
 import { colors, spaces } from '@/helpers/themes';
 import { useAppSettings } from '@/stores/useAppSettings';
 import { ButtonTitleGhostProps } from '@/types/ButtonTitleGhostType';
 
+import { ButtonTitleGhostPlatform } from './fragments/ButtonTitleGhostPlatform';
 import { Text } from './Text';
 
 export function ButtonTitleGhost({
@@ -22,25 +23,17 @@ export function ButtonTitleGhost({
 	marginL = 0,
 }: ButtonTitleGhostProps) {
 	const { t } = useTranslation();
-	const { isTablet } = useAppSettings(state => state);
+	const { isTablet } = useAppSettings();
 
 	return (
-		<TouchableOpacity
+		<ButtonTitleGhostPlatform
 			testID={testID}
-			onPress={() => {
-				if (!disabled || loading) onPress();
-			}}
+			onPress={onPress}
 			disabled={disabled || loading}
-			style={[
-				styles.container,
-				{
-					marginTop: marginT,
-					marginBottom: marginB,
-					marginRight: marginR,
-					marginLeft: marginL,
-					opacity: disabled ? 0.5 : 1,
-				},
-			]}
+			marginT={marginT}
+			marginB={marginB}
+			marginR={marginR}
+			marginL={marginL}
 		>
 			{!loading && (
 				<Text size={size === 'large' ? 'l' : 'm'} weight={buttonsWeight} color={colors.light_cyan}>
@@ -52,7 +45,7 @@ export function ButtonTitleGhost({
 					<ActivityIndicator color={colors.light_cyan} size={isTablet ? 'large' : 'small'} />
 					<Text
 						size={size === 'large' ? 'l' : 'm'}
-						marginL={spaces.space_5}
+						marginL={spaces.horizontal.xs}
 						weight={buttonsWeight}
 						color={colors.light_cyan}
 					>
@@ -60,16 +53,6 @@ export function ButtonTitleGhost({
 					</Text>
 				</React.Fragment>
 			)}
-		</TouchableOpacity>
+		</ButtonTitleGhostPlatform>
 	);
 }
-
-const styles = StyleSheet.create({
-	container: {
-		alignSelf: 'center',
-		flexDirection: 'row',
-		padding: 10,
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-});

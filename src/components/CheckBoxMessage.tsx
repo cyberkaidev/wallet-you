@@ -18,7 +18,7 @@ export function CheckBoxMessage({ isActivated, onAction, message }: CheckboxMess
 				onValueChange={onAction}
 				color={colors.light_cyan}
 			/>
-			<Text marginL={spaces.space_5} size="m" weight="medium">
+			<Text marginL={spaces.horizontal.xs} size="m" weight="medium">
 				{message}
 			</Text>
 		</View>
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
 	container: {
 		flexDirection: 'row',
 		alignItems: 'center',
-		marginTop: spaces.space_15,
+		marginTop: spaces.vertical.s,
 	},
 	button: {
 		width: 18,

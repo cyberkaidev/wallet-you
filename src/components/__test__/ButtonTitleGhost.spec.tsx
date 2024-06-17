@@ -44,7 +44,7 @@ describe('ButtonTitleGhost', () => {
 		const button = getByTestId(configTest.id);
 
 		fireEvent.press(button);
-		expect(configItem.onPress).not.toBeCalled();
+		expect(configItem.onPress).not.toHaveBeenCalled();
 	});
 
 	test('Loading', async () => {
@@ -64,6 +64,6 @@ describe('ButtonTitleGhost', () => {
 		const button = getByTestId(configTest.id);
 
 		fireEvent.press(button);
-		expect(configItem.onPress).not.toBeCalled();
+		expect(configItem.onPress).not.toHaveBeenCalled();
 	});
 });

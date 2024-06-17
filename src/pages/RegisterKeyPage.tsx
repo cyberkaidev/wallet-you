@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { CommonActions, NavigationProp, useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import * as LocalAuthentication from 'expo-local-authentication';
 import * as SecureStore from 'expo-secure-store';
 import React from 'react';
@@ -8,21 +8,20 @@ import { StyleSheet, View } from 'react-native';
 
 import { ButtonTitleGhost } from '@/components/ButtonTitleGhost';
 import { CheckBoxMessage } from '@/components/CheckBoxMessage';
-import { ScrollViewHeader } from '@/components/ScrollViewHeader';
+import { ScrollView } from '@/components/ScrollView';
 import { Text } from '@/components/Text';
-import { TextFieldArea } from '@/components/TextFieldArea';
 import { storageKeys } from '@/helpers/storageKeys';
 import { colors, spaces, width } from '@/helpers/themes';
+import { TextFieldPaste } from '@/pages/fragments/TextFieldPaste';
 import { getBitcoinBalance } from '@/services/getBitcoinBalance';
 import { useBitcoinDataPrices } from '@/stores/useBitcoinDataPrices';
 import { useUserData } from '@/stores/useUserData';
-import { RootStackParamListProps } from '@/types/RoutesType';
 
 export function RegisterKeyPage() {
 	const { t } = useTranslation();
-	const { fetchTransactions, setKey } = useUserData(state => state);
-	const { fetchBitcoinDataPrices } = useBitcoinDataPrices(state => state);
-	const navigation = useNavigation<NavigationProp<RootStackParamListProps>>();
+	const { fetchTransactions, setKey } = useUserData();
+	const { fetchBitcoinDataPrices } = useBitcoinDataPrices();
+	const navigation = useNavigation();
 
 	const [showBiometricOption, setShowBiometricOption] = React.useState(false);
 	const [toggleCheckBox, setToggleCheckBox] = React.useState(false);
@@ -43,36 +42,36 @@ export function RegisterKeyPage() {
 		if (error.visible) setError({ message: '', visible: false });
 		const resBalance = await getBitcoinBalance(inputPublicKey);
 
-		if (resBalance === 'not-found') {
+		if (resBalance === 'KEY_NOT_FOUND') {
 			setError({ message: t('public-key-not-found'), visible: true });
 			setLoading(false);
 			return;
 		}
 
-		if (resBalance === 'error-get-balance-bitcoin') {
+		if (resBalance === 'INTERNAL_ERROR') {
 			setError({ message: t('request-error-try-later'), visible: true });
 			setLoading(false);
 			return;
 		}
+
 		fetchTransactions(inputPublicKey);
 		fetchBitcoinDataPrices();
 		if (toggleCheckBox) await AsyncStorage.setItem(storageKeys.enableLocalAuth, 'on');
 		await SecureStore.setItemAsync(storageKeys.publicKey, inputPublicKey);
 		setKey(inputPublicKey);
-		navigation.dispatch(
-			CommonActions.reset({
-				index: 1,
-				routes: [{ name: 'TabsRoutes' }],
-			}),
-		);
+
+		navigation.reset({
+			index: 0,
+			routes: [{ name: 'HomePage' }],
+		});
 	}
 
 	return (
-		<ScrollViewHeader headerTitle={t('public-key')}>
-			<TextFieldArea value={inputPublicKey} onChangeText={setInputPublicKey} />
+		<ScrollView>
+			<TextFieldPaste value={inputPublicKey} onChangeText={setInputPublicKey} />
 			{error.visible && (
 				<View style={styles.textErrorContainer}>
-					<Text weight="medium" marginT={spaces.space_5} color={colors.red}>
+					<Text weight="medium" marginT={spaces.vertical.xs} color={colors.red}>
 						{error.message}
 					</Text>
 				</View>
@@ -84,26 +83,22 @@ export function RegisterKeyPage() {
 					message={t('use-biometrics-optional')}
 				/>
 			)}
-			<View style={styles.space} />
 			<ButtonTitleGhost
 				title={t('continue')}
 				onPress={handlerContinue}
 				size="large"
 				loading={loading}
 				disabled={inputPublicKey.length < 1}
-				marginT={spaces.space_25}
+				marginT={spaces.vertical.s}
 			/>
-		</ScrollViewHeader>
+		</ScrollView>
 	);
 }
 
 const styles = StyleSheet.create({
 	textErrorContainer: {
 		width: '100%',
-		maxWidth: width.max_width,
+		maxWidth: width.max_width_800,
 		alignSelf: 'center',
-	},
-	space: {
-		flex: 1,
 	},
 });

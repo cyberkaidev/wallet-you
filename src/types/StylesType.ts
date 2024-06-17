@@ -1,4 +1,4 @@
 export interface StylesProps {
-	fontFamily: 'Inter-Regular' | 'Inter-Medium' | 'Inter-Bold';
+	fontFamily: 'Figtree-Regular' | 'Figtree-Medium' | 'Figtree-Bold';
 	fontSize: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl';
 }

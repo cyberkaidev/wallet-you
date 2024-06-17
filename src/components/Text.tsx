@@ -4,7 +4,6 @@ import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 
 import { schemeText } from '@/functions/schemeText';
 import { colors } from '@/helpers/themes';
-import { useAppSettings } from '@/stores/useAppSettings';
 import { TextProps } from '@/types/TextType';
 
 export function Text({
@@ -17,13 +16,10 @@ export function Text({
 	marginR = 0,
 	marginL = 0,
 }: TextProps) {
-	const { isTablet } = useAppSettings(state => state);
-
 	const { onFontFamily, onFontSize } = React.useMemo(() => {
 		return schemeText({
 			weight: weight ?? 'regular',
 			size: size ?? 's',
-			isTablet: isTablet,
 		});
 	}, [weight, size]);
 
