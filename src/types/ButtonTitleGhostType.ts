@@ -1,12 +1,12 @@
-import { SchemeTextProps } from './SchemeTextType';
+import { SchemeTextProps } from "./SchemeTextType";
 
 export interface ButtonTitleGhostProps {
 	testID?: string;
 	title: string;
 	onPress: () => void;
 	disabled?: boolean;
-	size?: 'large' | 'small';
-	buttonsWeight?: SchemeTextProps['weight'];
+	size?: "large" | "small";
+	buttonsWeight?: SchemeTextProps["weight"];
 	loading?: boolean;
 	marginT?: number;
 	marginB?: number;

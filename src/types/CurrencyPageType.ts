@@ -1,6 +1,6 @@
-import { UseAppSettingsProps } from './UseAppSettingsType';
+import { UseAppSettingsProps } from "./UseAppSettingsType";
 
 export interface CurrenciesTypes {
 	title: string;
-	key: UseAppSettingsProps['currency'];
+	key: UseAppSettingsProps["currency"];
 }

@@ -1,21 +1,21 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { StyleSheet, View } from 'react-native';
-import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { StyleSheet, View } from "react-native";
+import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 
-import { SkeletonLoading } from '@/components/SkeletonLoading';
-import { Text } from '@/components/Text';
-import { colors, spaces } from '@/helpers/themes';
-import { MyBitcoinPriceProps } from '@/types/HomePageType';
+import { SkeletonLoading } from "@/components/SkeletonLoading";
+import { Text } from "@/components/Text";
+import { colors, spaces } from "@/helpers/themes";
+import { MyBitcoinPriceProps } from "@/types/HomePageType";
 
 export function MyBitcoinPrice({ price, balance, status }: MyBitcoinPriceProps) {
 	const { t } = useTranslation();
 
 	return (
 		<View testID="idMyBitcoinPrice" style={styles.container}>
-			{status !== 'failed' && <Text weight="bold">{t('total-balance')}</Text>}
+			{status !== "failed" && <Text weight="bold">{t("total-balance")}</Text>}
 
-			{status === 'success' && (
+			{status === "success" && (
 				<React.Fragment>
 					<Text size="xxxl" weight="bold">
 						{price}
@@ -26,9 +26,9 @@ export function MyBitcoinPrice({ price, balance, status }: MyBitcoinPriceProps) 
 				</React.Fragment>
 			)}
 
-			{status === 'failed' && <Text size="m">{t('request-error-try-later')}</Text>}
+			{status === "failed" && <Text size="m">{t("request-error-try-later")}</Text>}
 
-			{(status === 'loading' || status === null) && (
+			{(status === "loading" || status === null) && (
 				<React.Fragment>
 					<SkeletonLoading
 						heightPorcent="7%"
@@ -50,7 +50,7 @@ export function MyBitcoinPrice({ price, balance, status }: MyBitcoinPriceProps) 
 
 const styles = StyleSheet.create({
 	container: {
-		alignItems: 'center',
-		paddingVertical: hp('22%'),
+		alignItems: "center",
+		paddingVertical: hp("22%"),
 	},
 });

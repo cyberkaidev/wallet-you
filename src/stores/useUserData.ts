@@ -1,11 +1,11 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
-import { getBitcoinTransactions } from '@/services/getBitcoinTransactions';
-import { UseUserDataProps } from '@/types/UseUserDataType';
+import { getBitcoinTransactions } from "@/services/getBitcoinTransactions";
+import { UseUserDataProps } from "@/types/UseUserDataType";
 
 export const useUserData = create<UseUserDataProps>(set => ({
-	key: '',
-	balance: '0',
+	key: "",
+	balance: "0",
 	transactions: {
 		data: [],
 		status: null,
@@ -15,10 +15,10 @@ export const useUserData = create<UseUserDataProps>(set => ({
 	fetchTransactions: async param => {
 		try {
 			const response = await getBitcoinTransactions(param);
-			set({ transactions: { data: response, status: 'success' } });
+			set({ transactions: { data: response, status: "success" } });
 		} catch (_) {
-			set({ transactions: { data: [], status: 'failed' } });
+			set({ transactions: { data: [], status: "failed" } });
 		}
 	},
-	cleanUserData: () => set({ key: '', balance: '0', transactions: { data: [], status: null } }),
+	cleanUserData: () => set({ key: "", balance: "0", transactions: { data: [], status: null } }),
 }));

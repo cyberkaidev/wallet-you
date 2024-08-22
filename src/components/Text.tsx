@@ -1,10 +1,10 @@
-import React from 'react';
-import { Text as TextContainer } from 'react-native';
-import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
+import React from "react";
+import { Text as TextContainer } from "react-native";
+import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 
-import { schemeText } from '@/functions/schemeText';
-import { colors } from '@/helpers/themes';
-import { TextProps } from '@/types/TextType';
+import { schemeText } from "@/functions/schemeText";
+import { colors } from "@/helpers/themes";
+import { TextProps } from "@/types/TextType";
 
 export function Text({
 	children,
@@ -18,8 +18,8 @@ export function Text({
 }: TextProps) {
 	const { onFontFamily, onFontSize } = React.useMemo(() => {
 		return schemeText({
-			weight: weight ?? 'regular',
-			size: size ?? 's',
+			weight: weight ?? "regular",
+			size: size ?? "s",
 		});
 	}, [weight, size]);
 

@@ -1,17 +1,17 @@
-import { render } from '@testing-library/react-native';
-import React from 'react';
+import { render } from "@testing-library/react-native";
+import React from "react";
 
-import { TitleSubtitle } from '../TitleSubtitle';
+import { TitleSubtitle } from "../TitleSubtitle";
 
-describe('TitleSubtitle', () => {
+describe("TitleSubtitle", () => {
 	const configTest = {
-		id: 'idTitleSubtitle',
-		idSkeleton: 'idSkeletonLoading',
-		title: 'Hello World',
-		subTitle: 'Text',
+		id: "idTitleSubtitle",
+		idSkeleton: "idSkeletonLoading",
+		title: "Hello World",
+		subTitle: "Text",
 	};
 
-	test('Render component without load', () => {
+	test("Render component without load", () => {
 		const { getByText, getByTestId } = render(
 			<TitleSubtitle title={configTest.title} subTitle={configTest.subTitle} />,
 		);
@@ -21,7 +21,7 @@ describe('TitleSubtitle', () => {
 		expect(getByText(configTest.subTitle)).toBeTruthy();
 	});
 
-	test('Render component with load', () => {
+	test("Render component with load", () => {
 		const { getByTestId } = render(
 			<TitleSubtitle title={configTest.title} subTitle={configTest.subTitle} isLoading />,
 		);

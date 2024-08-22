@@ -1,22 +1,22 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { ActivityIndicator } from 'react-native';
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { ActivityIndicator } from "react-native";
 
-import { colors, spaces } from '@/helpers/themes';
-import { useAppSettings } from '@/stores/useAppSettings';
-import { ButtonTitleGhostProps } from '@/types/ButtonTitleGhostType';
+import { colors, spaces } from "@/helpers/themes";
+import { useAppSettings } from "@/stores/useAppSettings";
+import { ButtonTitleGhostProps } from "@/types/ButtonTitleGhostType";
 
-import { ButtonTitleGhostPlatform } from './fragments/ButtonTitleGhostPlatform';
-import { Text } from './Text';
+import { ButtonTitleGhostPlatform } from "./fragments/ButtonTitleGhostPlatform";
+import { Text } from "./Text";
 
 export function ButtonTitleGhost({
-	testID = 'idButtonTitleGhost',
+	testID = "idButtonTitleGhost",
 	title,
 	disabled = false,
 	onPress,
-	size = 'large',
+	size = "large",
 	loading = false,
-	buttonsWeight = 'bold',
+	buttonsWeight = "bold",
 	marginT = 0,
 	marginB = 0,
 	marginR = 0,
@@ -36,20 +36,20 @@ export function ButtonTitleGhost({
 			marginL={marginL}
 		>
 			{!loading && (
-				<Text size={size === 'large' ? 'l' : 'm'} weight={buttonsWeight} color={colors.light_cyan}>
+				<Text size={size === "large" ? "l" : "m"} weight={buttonsWeight} color={colors.light_cyan}>
 					{title}
 				</Text>
 			)}
 			{loading && (
 				<React.Fragment>
-					<ActivityIndicator color={colors.light_cyan} size={isTablet ? 'large' : 'small'} />
+					<ActivityIndicator color={colors.light_cyan} size={isTablet ? "large" : "small"} />
 					<Text
-						size={size === 'large' ? 'l' : 'm'}
+						size={size === "large" ? "l" : "m"}
 						marginL={spaces.horizontal.xs}
 						weight={buttonsWeight}
 						color={colors.light_cyan}
 					>
-						{t('loading')}
+						{t("loading")}
 					</Text>
 				</React.Fragment>
 			)}

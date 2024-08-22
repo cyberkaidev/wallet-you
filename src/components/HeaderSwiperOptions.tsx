@@ -1,17 +1,17 @@
-import { useNavigation } from '@react-navigation/native';
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { StyleSheet, View } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { StyleSheet, View } from "react-native";
 import {
 	heightPercentageToDP as hp,
 	widthPercentageToDP as wp,
-} from 'react-native-responsive-screen';
+} from "react-native-responsive-screen";
 
-import { borderRadius, colors, scaffold, spaces } from '@/helpers/themes';
-import { HeaderSwiperOptionsProps } from '@/types/HeaderSwiperOptionsType';
+import { borderRadius, colors, scaffold, spaces } from "@/helpers/themes";
+import { HeaderSwiperOptionsProps } from "@/types/HeaderSwiperOptionsType";
 
-import { ButtonTitleGhost } from './ButtonTitleGhost';
-import { Text } from './Text';
+import { ButtonTitleGhost } from "./ButtonTitleGhost";
+import { Text } from "./Text";
 
 export function HeaderSwiperOptions({
 	title,
@@ -32,7 +32,7 @@ export function HeaderSwiperOptions({
 				</View>
 				<ButtonTitleGhost
 					testID="idButtonLeft"
-					title={t('cancel')}
+					title={t("cancel")}
 					size="small"
 					buttonsWeight="medium"
 					onPress={() => navigation.goBack()}
@@ -40,7 +40,7 @@ export function HeaderSwiperOptions({
 				/>
 				<ButtonTitleGhost
 					testID="idButtonRight"
-					title={t('change')}
+					title={t("change")}
 					size="small"
 					buttonsWeight="medium"
 					disabled={disableAction}
@@ -56,26 +56,26 @@ const styles = StyleSheet.create({
 	container: {
 		backgroundColor: colors.black_100,
 		paddingVertical: spaces.vertical.xs,
-		alignItems: 'center',
-		width: '100%',
+		alignItems: "center",
+		width: "100%",
 	},
 	title: {
-		position: 'absolute',
-		alignItems: 'center',
-		width: '100%',
+		position: "absolute",
+		alignItems: "center",
+		width: "100%",
 	},
 	indicator: {
-		width: wp('10%'),
-		height: hp('0.6%'),
+		width: wp("10%"),
+		height: hp("0.6%"),
 		borderRadius: borderRadius.radius_10,
 		marginBottom: spaces.vertical.xs,
 		backgroundColor: colors.dark_grey,
 	},
 	content: {
-		width: '100%',
-		justifyContent: 'space-between',
-		alignItems: 'center',
-		flexDirection: 'row',
-		position: 'relative',
+		width: "100%",
+		justifyContent: "space-between",
+		alignItems: "center",
+		flexDirection: "row",
+		position: "relative",
 	},
 });

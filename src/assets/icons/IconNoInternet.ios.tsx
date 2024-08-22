@@ -1,11 +1,11 @@
-import React from 'react';
-import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
-import Svg, { Path } from 'react-native-svg';
+import React from "react";
+import { widthPercentageToDP as wp } from "react-native-responsive-screen";
+import Svg, { Path } from "react-native-svg";
 
-import { colors } from '@/helpers/themes';
-import { IconProps } from '@/types/IconType';
+import { colors } from "@/helpers/themes";
+import { IconProps } from "@/types/IconType";
 
-export function IconNoInternet({ color = colors.white, porcentSize = '5%' }: IconProps) {
+export function IconNoInternet({ color = colors.white, porcentSize = "5%" }: IconProps) {
 	return (
 		<Svg width={wp(porcentSize)} height={wp(porcentSize)} viewBox="0 0 50 50" fill="none">
 			<Path

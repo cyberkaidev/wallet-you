@@ -1,17 +1,17 @@
-import { fireEvent, render, renderHook } from '@testing-library/react-native';
-import React from 'react';
-import { I18nextProvider, useTranslation } from 'react-i18next';
+import { fireEvent, render, renderHook } from "@testing-library/react-native";
+import React from "react";
+import { I18nextProvider, useTranslation } from "react-i18next";
 
-import { ButtonTitleGhost } from '../ButtonTitleGhost';
+import { ButtonTitleGhost } from "../ButtonTitleGhost";
 
-describe('ButtonTitleGhost', () => {
+describe("ButtonTitleGhost", () => {
 	const configTest = {
-		title: 'Hello World',
-		id: 'idButtonTitleGhost',
-		loading: 'Loading',
+		title: "Hello World",
+		id: "idButtonTitleGhost",
+		loading: "Loading",
 	};
 
-	test('Render component and onPress', () => {
+	test("Render component and onPress", () => {
 		const t = renderHook(() => useTranslation());
 		const configItem = {
 			onPress: jest.fn(),
@@ -30,7 +30,7 @@ describe('ButtonTitleGhost', () => {
 		expect(configItem.onPress.mock.calls.length).toBe(1);
 	});
 
-	test('Disabled', async () => {
+	test("Disabled", async () => {
 		const t = renderHook(() => useTranslation());
 		const configItem = {
 			onPress: jest.fn(),
@@ -47,7 +47,7 @@ describe('ButtonTitleGhost', () => {
 		expect(configItem.onPress).not.toHaveBeenCalled();
 	});
 
-	test('Loading', async () => {
+	test("Loading", async () => {
 		const t = renderHook(() => useTranslation());
 		const configItem = {
 			onPress: jest.fn(),

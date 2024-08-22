@@ -1,22 +1,22 @@
-import { fireEvent, render, renderHook } from '@testing-library/react-native';
-import React from 'react';
-import { I18nextProvider, useTranslation } from 'react-i18next';
+import { fireEvent, render, renderHook } from "@testing-library/react-native";
+import React from "react";
+import { I18nextProvider, useTranslation } from "react-i18next";
 
-import { mockedNavigation } from '../../../__test__/setup';
-import { HeaderSwiperOptions } from '../HeaderSwiperOptions';
+import { mockedNavigation } from "../../../__test__/setup";
+import { HeaderSwiperOptions } from "../HeaderSwiperOptions";
 
-describe('HeaderSwiperOptions', () => {
+describe("HeaderSwiperOptions", () => {
 	const t = renderHook(() => useTranslation());
 
 	const configTest = {
-		title: 'Hello World',
-		id: 'idHeaderSwiperOptions',
-		idButtonRight: 'idButtonRight',
-		idButtonLeft: 'idButtonLeft',
+		title: "Hello World",
+		id: "idHeaderSwiperOptions",
+		idButtonRight: "idButtonRight",
+		idButtonLeft: "idButtonLeft",
 		onAction: jest.fn(),
 	};
 
-	test('Render component', () => {
+	test("Render component", () => {
 		const { getByText, getByTestId } = render(
 			<I18nextProvider i18n={t.result.current.i18n}>
 				<HeaderSwiperOptions title={configTest.title} onAction={configTest.onAction} />
@@ -24,11 +24,11 @@ describe('HeaderSwiperOptions', () => {
 		);
 		expect(getByTestId(configTest.id)).toBeTruthy();
 		expect(getByText(configTest.title)).toBeTruthy();
-		expect(getByText('Cancel')).toBeTruthy();
-		expect(getByText('Change')).toBeTruthy();
+		expect(getByText("Cancel")).toBeTruthy();
+		expect(getByText("Change")).toBeTruthy();
 	});
 
-	test('Actions', () => {
+	test("Actions", () => {
 		const { getByTestId } = render(
 			<I18nextProvider i18n={t.result.current.i18n}>
 				<HeaderSwiperOptions title={configTest.title} onAction={configTest.onAction} />

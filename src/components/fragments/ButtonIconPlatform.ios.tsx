@@ -1,11 +1,11 @@
-import React from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import React from "react";
+import { StyleSheet, TouchableOpacity } from "react-native";
 
-import { spaces } from '@/helpers/themes';
-import { ButtonIconPlatformProps } from '@/types/ButtonIconType';
+import { spaces } from "@/helpers/themes";
+import { ButtonIconPlatformProps } from "@/types/ButtonIconType";
 
 export function ButtonIconPlatform({
-	testID = 'idButtonIcon',
+	testID = "idButtonIcon",
 	children,
 	onPress,
 	disabled = false,

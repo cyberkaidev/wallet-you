@@ -1,7 +1,7 @@
-import React from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import React from "react";
+import { StyleSheet, TouchableOpacity } from "react-native";
 
-import { ButtonTitleGhostPlatformProps } from '@/types/ButtonTitleGhostType';
+import { ButtonTitleGhostPlatformProps } from "@/types/ButtonTitleGhostType";
 
 export function ButtonTitleGhostPlatform({
 	testID,
@@ -36,10 +36,10 @@ export function ButtonTitleGhostPlatform({
 
 const styles = StyleSheet.create({
 	container: {
-		flexDirection: 'row',
+		flexDirection: "row",
 		padding: 10,
-		alignItems: 'center',
-		justifyContent: 'center',
-		alignSelf: 'center',
+		alignItems: "center",
+		justifyContent: "center",
+		alignSelf: "center",
 	},
 });

@@ -1,28 +1,28 @@
-import { act, render, renderHook } from '@testing-library/react-native';
-import React from 'react';
-import { I18nextProvider, useTranslation } from 'react-i18next';
+import { act, render, renderHook } from "@testing-library/react-native";
+import React from "react";
+import { I18nextProvider, useTranslation } from "react-i18next";
 
-import { IconArrowRight } from '@/assets';
+import { IconArrowRight } from "@/assets";
 
-import { ActionList } from '../ActionList';
+import { ActionList } from "../ActionList";
 
-describe('ActionList', () => {
+describe("ActionList", () => {
 	const t = renderHook(() => useTranslation());
 
 	const configTest = {
-		idActionList: 'idActionList',
-		idPrefixIcon: 'idPrefixIcon0',
+		idActionList: "idActionList",
+		idPrefixIcon: "idPrefixIcon0",
 		list: [
 			{
-				testID: 'idHelloWorld',
+				testID: "idHelloWorld",
 				prefixIcon: <IconArrowRight />,
-				title: 'Hello World',
+				title: "Hello World",
 				onAction: jest.fn(),
 			},
 		],
 	};
 
-	test('Render component', () => {
+	test("Render component", () => {
 		const { getByTestId, getByText } = render(
 			<I18nextProvider i18n={t.result.current.i18n}>
 				<ActionList list={configTest.list} />
@@ -35,7 +35,7 @@ describe('ActionList', () => {
 		expect(getByText(configTest.list[0].title)).toBeTruthy();
 	});
 
-	test('Action', () => {
+	test("Action", () => {
 		const { getByTestId } = render(
 			<I18nextProvider i18n={t.result.current.i18n}>
 				<ActionList list={configTest.list} />

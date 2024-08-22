@@ -1,21 +1,21 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useNavigation } from '@react-navigation/native';
-import * as Clipboard from 'expo-clipboard';
-import Constants from 'expo-constants';
-import * as SecureStore from 'expo-secure-store';
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { Linking } from 'react-native';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useNavigation } from "@react-navigation/native";
+import * as Clipboard from "expo-clipboard";
+import Constants from "expo-constants";
+import * as SecureStore from "expo-secure-store";
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { Linking } from "react-native";
 
-import { ActionList } from '@/components/ActionList';
-import { LimitedWidthContainer } from '@/components/LimitedWidthContainer';
-import { ScrollView } from '@/components/ScrollView';
-import { Text } from '@/components/Text';
-import { initializeAppSettings } from '@/functions/initializeAppSettings';
-import { storageKeys } from '@/helpers/storageKeys';
-import { colors, spaces } from '@/helpers/themes';
-import { useAlertModal } from '@/stores/useAlertModal';
-import { useUserData } from '@/stores/useUserData';
+import { ActionList } from "@/components/ActionList";
+import { LimitedWidthContainer } from "@/components/LimitedWidthContainer";
+import { ScrollView } from "@/components/ScrollView";
+import { Text } from "@/components/Text";
+import { initializeAppSettings } from "@/functions/initializeAppSettings";
+import { storageKeys } from "@/helpers/storageKeys";
+import { colors, spaces } from "@/helpers/themes";
+import { useAlertModal } from "@/stores/useAlertModal";
+import { useUserData } from "@/stores/useUserData";
 
 export function SettingsPage() {
 	const { t } = useTranslation();
@@ -33,48 +33,48 @@ export function SettingsPage() {
 
 		navigation.reset({
 			index: 0,
-			routes: [{ name: 'LocalAuthPage' }],
+			routes: [{ name: "LocalAuthPage" }],
 		});
 	}
 
 	const firstList = [
 		{
-			testID: 'idCopy',
-			title: t('copy-my-address'),
+			testID: "idCopy",
+			title: t("copy-my-address"),
 			onAction: async () => await Clipboard.setStringAsync(key),
 		},
 	];
 
 	const secondList = [
 		{
-			testID: 'idLanguage',
-			title: t('language'),
-			onAction: () => navigation.navigate('LanguagePage'),
+			testID: "idLanguage",
+			title: t("language"),
+			onAction: () => navigation.navigate("LanguagePage"),
 			arrowVisible: true,
 		},
 		{
-			testID: 'idCurrency',
-			title: t('currency'),
-			onAction: () => navigation.navigate('CurrencyPage'),
+			testID: "idCurrency",
+			title: t("currency"),
+			onAction: () => navigation.navigate("CurrencyPage"),
 			arrowVisible: true,
 		},
 		{
-			testID: 'idTerms',
-			title: t('terms'),
-			onAction: () => navigation.navigate('TermsPage'),
+			testID: "idTerms",
+			title: t("terms"),
+			onAction: () => navigation.navigate("TermsPage"),
 			arrowVisible: true,
 		},
 		{
-			testID: 'idSourceCode',
-			title: t('source-code'),
-			onAction: () => Linking.openURL('https://github.com/cyberkaidev/wallet-you'),
+			testID: "idSourceCode",
+			title: t("source-code"),
+			onAction: () => Linking.openURL("https://github.com/cyberkaidev/wallet-you"),
 			arrowVisible: true,
 		},
 		{
-			testID: 'idExit',
-			title: t('exit'),
+			testID: "idExit",
+			title: t("exit"),
 			onAction: () => {
-				showAlert({ title: t('do-you-really-want-to-leave'), onConfirm: () => onExit() });
+				showAlert({ title: t("do-you-really-want-to-leave"), onConfirm: () => onExit() });
 			},
 			arrowVisible: true,
 		},
@@ -95,7 +95,7 @@ export function SettingsPage() {
 				</Text>
 				<ActionList list={secondList} />
 				<Text marginT={spaces.vertical.s}>
-					v {Constants.expoConfig?.version != null ? Constants.expoConfig.version : '-'}
+					v {Constants.expoConfig?.version != null ? Constants.expoConfig.version : "-"}
 				</Text>
 			</LimitedWidthContainer>
 		</ScrollView>

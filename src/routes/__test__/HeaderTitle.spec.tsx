@@ -1,12 +1,12 @@
-import { render } from '@testing-library/react-native';
-import React from 'react';
+import { render } from "@testing-library/react-native";
+import React from "react";
 
-import { HeaderTitle } from '../fragments/HeaderTitle';
+import { HeaderTitle } from "../fragments/HeaderTitle";
 
-test('Render component', () => {
+test("Render component", () => {
 	const configTest = {
-		title: 'Hello World',
-		id: 'idHeaderTitle',
+		title: "Hello World",
+		id: "idHeaderTitle",
 	};
 
 	const { getByText, getByTestId } = render(<HeaderTitle title={configTest.title} />);

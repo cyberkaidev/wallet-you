@@ -1,11 +1,11 @@
-import React from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
+import React from "react";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 
-import { colors, spaces } from '@/helpers/themes';
-import { SelectListProps } from '@/types/SelectListType';
+import { colors, spaces } from "@/helpers/themes";
+import { SelectListProps } from "@/types/SelectListType";
 
-import { Text } from './Text';
+import { Text } from "./Text";
 
 export function SelectList<T>({ data, selected, onSelected }: SelectListProps<T>) {
 	return (
@@ -32,22 +32,22 @@ export function SelectList<T>({ data, selected, onSelected }: SelectListProps<T>
 const styles = StyleSheet.create({
 	button: {
 		paddingVertical: spaces.vertical.s,
-		flexDirection: 'row',
-		alignItems: 'center',
+		flexDirection: "row",
+		alignItems: "center",
 	},
 	border: {
-		width: wp('4%'),
-		height: wp('4%'),
-		alignItems: 'center',
-		justifyContent: 'center',
+		width: wp("4%"),
+		height: wp("4%"),
+		alignItems: "center",
+		justifyContent: "center",
 		borderRadius: 40,
-		borderStyle: 'solid',
+		borderStyle: "solid",
 		borderWidth: 2,
 		borderColor: colors.light_cyan,
 	},
 	circle: {
-		width: wp('2%'),
-		height: wp('2%'),
+		width: wp("2%"),
+		height: wp("2%"),
 		borderRadius: 20,
 		backgroundColor: colors.light_cyan,
 	},

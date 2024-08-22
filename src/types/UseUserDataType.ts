@@ -2,7 +2,7 @@ export interface Transaction {
 	chain: string;
 	blockNumber: number | null;
 	timestamp: number;
-	transactionType?: 'incoming' | 'outgoing' | 'zero-transfer';
+	transactionType?: "incoming" | "outgoing" | "zero-transfer";
 	hash: string;
 	address: string;
 	amount: string;
@@ -13,13 +13,13 @@ interface DataProps {
 	balance: string;
 	transactions: {
 		data: Transaction[];
-		status: 'loading' | 'success' | 'failed' | null;
+		status: "loading" | "success" | "failed" | null;
 	};
 }
 
 export interface UseUserDataProps extends DataProps {
-	setKey: (arg: DataProps['key']) => void;
-	setBalance: (arg: DataProps['balance']) => void;
-	fetchTransactions: (arg: DataProps['key']) => Promise<void>;
+	setKey: (arg: DataProps["key"]) => void;
+	setBalance: (arg: DataProps["balance"]) => void;
+	fetchTransactions: (arg: DataProps["key"]) => Promise<void>;
 	cleanUserData: () => void;
 }

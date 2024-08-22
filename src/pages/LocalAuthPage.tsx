@@ -1,18 +1,18 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useNavigation } from '@react-navigation/native';
-import * as LocalAuthentication from 'expo-local-authentication';
-import * as SecureStore from 'expo-secure-store';
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { StyleSheet, View } from 'react-native';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useNavigation } from "@react-navigation/native";
+import * as LocalAuthentication from "expo-local-authentication";
+import * as SecureStore from "expo-secure-store";
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { StyleSheet, View } from "react-native";
 
-import { ButtonTitleGhost } from '@/components/ButtonTitleGhost';
-import { storageKeys } from '@/helpers/storageKeys';
-import { colors } from '@/helpers/themes';
-import { getBitcoinBalance } from '@/services/getBitcoinBalance';
-import { useBitcoinDataPrices } from '@/stores/useBitcoinDataPrices';
-import { useUserData } from '@/stores/useUserData';
-import { RootStackParamListProps } from '@/types/RoutesType';
+import { ButtonTitleGhost } from "@/components/ButtonTitleGhost";
+import { storageKeys } from "@/helpers/storageKeys";
+import { colors } from "@/helpers/themes";
+import { getBitcoinBalance } from "@/services/getBitcoinBalance";
+import { useBitcoinDataPrices } from "@/stores/useBitcoinDataPrices";
+import { useUserData } from "@/stores/useUserData";
+import { RootStackParamListProps } from "@/types/RoutesType";
 
 export function LocalAuthPage() {
 	const navigation = useNavigation();
@@ -23,13 +23,13 @@ export function LocalAuthPage() {
 	const [loading, setLoading] = React.useState(false);
 
 	async function resetRoute(navigate: keyof RootStackParamListProps) {
-		if (navigate === 'HomePage') {
+		if (navigate === "HomePage") {
 			const publicKey = await SecureStore.getItemAsync(storageKeys.publicKey);
 			const resBalance = await getBitcoinBalance(publicKey as string);
-			if (resBalance === 'not-found') {
+			if (resBalance === "not-found") {
 				navigation.reset({
 					index: 0,
-					routes: [{ name: 'RegisterKeyPage' }],
+					routes: [{ name: "RegisterKeyPage" }],
 				});
 				return;
 			}
@@ -48,11 +48,11 @@ export function LocalAuthPage() {
 		const isBiometricEnrolled = await LocalAuthentication.isEnrolledAsync();
 		const userEnabledAuth = await AsyncStorage.getItem(storageKeys.enableLocalAuth);
 
-		if (!isBiometricEnrolled || !userEnabledAuth || userEnabledAuth === 'off') {
-			resetRoute('HomePage');
+		if (!isBiometricEnrolled || !userEnabledAuth || userEnabledAuth === "off") {
+			resetRoute("HomePage");
 		} else {
 			const results = await LocalAuthentication.authenticateAsync();
-			if (results.success) resetRoute('HomePage');
+			if (results.success) resetRoute("HomePage");
 			if (!results.success) setLoading(false);
 		}
 	}
@@ -60,7 +60,7 @@ export function LocalAuthPage() {
 	async function publicKeyCheck() {
 		const publicKey = await SecureStore.getItemAsync(storageKeys.publicKey);
 		if (!publicKey) {
-			resetRoute('RegisterKeyPage');
+			resetRoute("RegisterKeyPage");
 		} else {
 			setKey(publicKey);
 			authenticate();
@@ -73,7 +73,7 @@ export function LocalAuthPage() {
 
 	return (
 		<View style={styles.container}>
-			<ButtonTitleGhost title={t('unlock')} onPress={authenticate} loading={loading} size="small" />
+			<ButtonTitleGhost title={t("unlock")} onPress={authenticate} loading={loading} size="small" />
 		</View>
 	);
 }
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: colors.black_100,
-		alignItems: 'center',
-		justifyContent: 'center',
+		alignItems: "center",
+		justifyContent: "center",
 	},
 });

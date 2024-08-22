@@ -4,5 +4,5 @@ export interface LinePathProps {
 
 export interface ChartProps {
 	price?: number;
-	priceStatus: 'loading' | 'success' | 'failed';
+	priceStatus: "loading" | "success" | "failed";
 }

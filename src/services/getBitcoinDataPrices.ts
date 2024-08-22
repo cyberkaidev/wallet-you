@@ -1,20 +1,20 @@
-import axios from 'axios';
+import axios from "axios";
 
-import { ResponseData } from '@/types/GetBitcoinDataPricesType';
+import { ResponseData } from "@/types/GetBitcoinDataPricesType";
 
 export async function getBitcoinDataPrices() {
 	try {
 		const { data }: ResponseData = await axios.get(
-			'https://api.coingecko.com/api/v3/coins/bitcoin',
+			"https://api.coingecko.com/api/v3/coins/bitcoin",
 			{
 				headers: {
-					'Content-Type': 'application/json',
+					"Content-Type": "application/json",
 				},
 			},
 		);
 
 		return data.market_data.current_price;
-	} catch (err) {
-		throw new Error('error-get-bitcoin-data-prices');
+	} catch (_) {
+		throw new Error("error-get-bitcoin-data-prices");
 	}
 }

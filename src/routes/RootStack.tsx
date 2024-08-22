@@ -1,23 +1,23 @@
-import { useNetInfo } from '@react-native-community/netinfo';
-import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
-import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useNetInfo } from "@react-native-community/netinfo";
+import { createStackNavigator, TransitionPresets } from "@react-navigation/stack";
+import React from "react";
+import { useTranslation } from "react-i18next";
 
-import { colors } from '@/helpers/themes';
-import { CurrencyPage } from '@/pages/CurrencyPage';
-import { HomePage } from '@/pages/HomePage';
-import { LanguagePage } from '@/pages/LanguagePage';
-import { LocalAuthPage } from '@/pages/LocalAuthPage';
-import { NoInternetPage } from '@/pages/NoInternetPage';
-import { RegisterKeyPage } from '@/pages/RegisterKeyPage';
-import { SettingsPage } from '@/pages/SettingsPage';
-import { TermsPage } from '@/pages/TermsPage';
-import { TransactionPage } from '@/pages/TransactionPage';
-import { RootStackParamListProps } from '@/types/RoutesType';
+import { colors } from "@/helpers/themes";
+import { CurrencyPage } from "@/pages/CurrencyPage";
+import { HomePage } from "@/pages/HomePage";
+import { LanguagePage } from "@/pages/LanguagePage";
+import { LocalAuthPage } from "@/pages/LocalAuthPage";
+import { NoInternetPage } from "@/pages/NoInternetPage";
+import { RegisterKeyPage } from "@/pages/RegisterKeyPage";
+import { SettingsPage } from "@/pages/SettingsPage";
+import { TermsPage } from "@/pages/TermsPage";
+import { TransactionPage } from "@/pages/TransactionPage";
+import { RootStackParamListProps } from "@/types/RoutesType";
 
-import { HeaderBack } from './fragments/HeaderBack';
-import { HeaderSwiperIndicator } from './fragments/HeaderSwiperIndicator';
-import { HeaderTitle } from './fragments/HeaderTitle';
+import { HeaderBack } from "./fragments/HeaderBack";
+import { HeaderSwiperIndicator } from "./fragments/HeaderSwiperIndicator";
+import { HeaderTitle } from "./fragments/HeaderTitle";
 
 const Stack = createStackNavigator<RootStackParamListProps>();
 
@@ -33,7 +33,7 @@ export function RootStack() {
 
 	return (
 		<Stack.Navigator
-			initialRouteName={isConnected ? 'LocalAuthPage' : 'NoInternetPage'}
+			initialRouteName={isConnected ? "LocalAuthPage" : "NoInternetPage"}
 			screenOptions={{
 				headerShown: false,
 				cardStyle: { backgroundColor: colors.black_100 },
@@ -53,13 +53,13 @@ export function RootStack() {
 					<Stack.Screen
 						name="SettingsPage"
 						component={SettingsPage}
-						options={{ header: () => <HeaderBack title={t('settings')} />, headerShown: true }}
+						options={{ header: () => <HeaderBack title={t("settings")} />, headerShown: true }}
 					/>
 					<Stack.Screen
 						name="TransactionPage"
 						component={TransactionPage}
 						options={{
-							header: () => <HeaderSwiperIndicator title={t('transaction')} />,
+							header: () => <HeaderSwiperIndicator title={t("transaction")} />,
 							headerShown: true,
 							...optionsScreenIOS,
 						}}
@@ -82,7 +82,7 @@ export function RootStack() {
 						name="TermsPage"
 						component={TermsPage}
 						options={{
-							header: () => <HeaderSwiperIndicator title={t('terms')} />,
+							header: () => <HeaderSwiperIndicator title={t("terms")} />,
 							headerShown: true,
 							...optionsScreenIOS,
 						}}

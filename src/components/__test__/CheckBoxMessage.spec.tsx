@@ -1,12 +1,12 @@
-import { fireEvent, render } from '@testing-library/react-native';
-import React from 'react';
+import { fireEvent, render } from "@testing-library/react-native";
+import React from "react";
 
-import { CheckBoxMessage } from '../CheckBoxMessage';
+import { CheckBoxMessage } from "../CheckBoxMessage";
 
-test('Render component and onPress', () => {
+test("Render component and onPress", () => {
 	const configTest = {
-		message: 'Hello World',
-		id: 'idCheckBoxMessage',
+		message: "Hello World",
+		id: "idCheckBoxMessage",
 		onPress: jest.fn(),
 	};
 

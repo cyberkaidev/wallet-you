@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import axios from 'axios';
+import axios from "axios";
 
 export async function getBitcoinTransactions(address: string) {
 	try {
@@ -9,6 +9,6 @@ export async function getBitcoinTransactions(address: string) {
 
 		return data.transactions;
 	} catch (error: any) {
-		throw new Error(error?.response?.data?.error ?? 'INTERNAL_ERROR');
+		throw new Error(error?.response?.data?.message ?? "INTERNAL_ERROR");
 	}
 }

@@ -1,16 +1,16 @@
-import { useNavigation } from '@react-navigation/native';
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { StyleSheet, View } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { StyleSheet, View } from "react-native";
 import {
 	heightPercentageToDP as hp,
 	widthPercentageToDP as wp,
-} from 'react-native-responsive-screen';
+} from "react-native-responsive-screen";
 
-import { ButtonTitleGhost } from '@/components/ButtonTitleGhost';
-import { Text } from '@/components/Text';
-import { borderRadius, colors, scaffold, spaces } from '@/helpers/themes';
-import { HeaderSwiperIndicatorProps } from '@/types/HeaderSwiperIndicatorType';
+import { ButtonTitleGhost } from "@/components/ButtonTitleGhost";
+import { Text } from "@/components/Text";
+import { borderRadius, colors, scaffold, spaces } from "@/helpers/themes";
+import { HeaderSwiperIndicatorProps } from "@/types/HeaderSwiperIndicatorType";
 
 export function HeaderSwiperIndicator({ title }: HeaderSwiperIndicatorProps) {
 	const navigation = useNavigation();
@@ -27,7 +27,7 @@ export function HeaderSwiperIndicator({ title }: HeaderSwiperIndicatorProps) {
 				</View>
 				<ButtonTitleGhost
 					testID="idButtonLeft"
-					title={t('back')}
+					title={t("back")}
 					size="small"
 					buttonsWeight="medium"
 					onPress={() => navigation.goBack()}
@@ -41,28 +41,28 @@ const styles = StyleSheet.create({
 	container: {
 		backgroundColor: colors.black_100,
 		paddingVertical: spaces.vertical.xs,
-		alignItems: 'center',
-		width: '100%',
+		alignItems: "center",
+		width: "100%",
 	},
 	title: {
-		position: 'absolute',
-		alignItems: 'center',
+		position: "absolute",
+		alignItems: "center",
 		left: 0,
 		right: 0,
 	},
 	indicator: {
-		width: wp('10%'),
-		height: hp('0.6%'),
+		width: wp("10%"),
+		height: hp("0.6%"),
 		borderRadius: borderRadius.radius_10,
 		marginBottom: spaces.vertical.xs,
 		backgroundColor: colors.dark_grey,
 	},
 	content: {
-		width: '100%',
+		width: "100%",
 		paddingHorizontal: scaffold.header_space_horizontal,
-		justifyContent: 'space-between',
-		alignItems: 'center',
-		flexDirection: 'row',
-		position: 'relative',
+		justifyContent: "space-between",
+		alignItems: "center",
+		flexDirection: "row",
+		position: "relative",
 	},
 });

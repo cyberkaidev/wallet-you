@@ -1,11 +1,11 @@
-import Checkbox from 'expo-checkbox';
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import Checkbox from "expo-checkbox";
+import React from "react";
+import { StyleSheet, View } from "react-native";
 
-import { colors, spaces } from '@/helpers/themes';
-import { CheckboxMessageProps } from '@/types/CheckboxMessageType';
+import { colors, spaces } from "@/helpers/themes";
+import { CheckboxMessageProps } from "@/types/CheckboxMessageType";
 
-import { Text } from './Text';
+import { Text } from "./Text";
 
 export function CheckBoxMessage({ isActivated, onAction, message }: CheckboxMessageProps) {
 	return (
@@ -27,8 +27,8 @@ export function CheckBoxMessage({ isActivated, onAction, message }: CheckboxMess
 
 const styles = StyleSheet.create({
 	container: {
-		flexDirection: 'row',
-		alignItems: 'center',
+		flexDirection: "row",
+		alignItems: "center",
 		marginTop: spaces.vertical.s,
 	},
 	button: {

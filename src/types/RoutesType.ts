@@ -1,6 +1,6 @@
-import { RouteProp } from '@react-navigation/native';
+import { RouteProp } from "@react-navigation/native";
 
-import { Transaction } from './UseUserDataType';
+import { Transaction } from "./UseUserDataType";
 
 export type RootStackParamListProps = {
 	RegisterKeyPage: undefined;

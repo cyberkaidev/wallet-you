@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-import { LimitedWidthContainer } from '@/components/LimitedWidthContainer';
-import { ScrollView } from '@/components/ScrollView';
-import { Text } from '@/components/Text';
-import { colors, spaces } from '@/helpers/themes';
+import { LimitedWidthContainer } from "@/components/LimitedWidthContainer";
+import { ScrollView } from "@/components/ScrollView";
+import { Text } from "@/components/Text";
+import { colors, spaces } from "@/helpers/themes";
 
 export function TermsPage() {
 	return (
@@ -31,8 +31,8 @@ export function TermsPage() {
 					3 - How we share your information
 				</Text>
 				<Text size="m" color={colors.light_grey} marginB={spaces.vertical.l}>
-					3.1 - We only share your public key with the {'"tatum.com"'} library so that we can
-					collect your balance information and transactions on the blockchain.
+					3.1 - We only share your public key with the tatum.com library so that we can collect your
+					balance information and transactions on the blockchain.
 				</Text>
 			</LimitedWidthContainer>
 		</ScrollView>

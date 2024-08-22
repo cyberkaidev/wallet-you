@@ -1,12 +1,12 @@
-import React from 'react';
-import { StyleSheet } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
+import React from "react";
+import { StyleSheet } from "react-native";
+import { RectButton } from "react-native-gesture-handler";
 
-import { colors, spaces } from '@/helpers/themes';
-import { ButtonIconPlatformProps } from '@/types/ButtonIconType';
+import { colors, spaces } from "@/helpers/themes";
+import { ButtonIconPlatformProps } from "@/types/ButtonIconType";
 
 export function ButtonIconPlatform({
-	testID = 'idButtonIcon',
+	testID = "idButtonIcon",
 	children,
 	onPress,
 	disabled = false,

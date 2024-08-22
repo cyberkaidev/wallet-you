@@ -1,9 +1,9 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { getLocales } from 'expo-localization';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { getLocales } from "expo-localization";
 
-import { storageKeys } from '@/helpers/storageKeys';
-import { useAppSettings } from '@/stores/useAppSettings';
-import { UseAppSettingsProps } from '@/types/UseAppSettingsType';
+import { storageKeys } from "@/helpers/storageKeys";
+import { useAppSettings } from "@/stores/useAppSettings";
+import { UseAppSettingsProps } from "@/types/UseAppSettingsType";
 
 export async function initializeAppSettings() {
 	const { setCurrency, setLanguage, setIsTablet } = useAppSettings.getState();
@@ -16,41 +16,41 @@ export async function initializeAppSettings() {
 	const languageStorage = await AsyncStorage.getItem(storageKeys.language);
 
 	if (currencyStorage) {
-		setCurrency(currencyStorage as UseAppSettingsProps['currency']);
+		setCurrency(currencyStorage as UseAppSettingsProps["currency"]);
 	} else {
 		switch (currencyCode) {
-			case 'BRL':
-			case 'USD':
-			case 'AUD':
-			case 'CAD':
-			case 'EUR':
-			case 'GBP':
-				setCurrency(currencyCode.toLocaleLowerCase() as UseAppSettingsProps['currency']);
+			case "BRL":
+			case "USD":
+			case "AUD":
+			case "CAD":
+			case "EUR":
+			case "GBP":
+				setCurrency(currencyCode.toLocaleLowerCase() as UseAppSettingsProps["currency"]);
 				break;
 			default:
-				setCurrency('usd');
+				setCurrency("usd");
 				break;
 		}
 	}
 
 	if (languageStorage) {
-		setLanguage(languageStorage as UseAppSettingsProps['language']);
+		setLanguage(languageStorage as UseAppSettingsProps["language"]);
 	} else {
 		switch (languageCode) {
-			case 'de':
-				setLanguage('de-ch');
+			case "de":
+				setLanguage("de-ch");
 				break;
-			case 'en':
-				setLanguage('en-us');
+			case "en":
+				setLanguage("en-us");
 				break;
-			case 'es':
-				setLanguage('es-ar');
+			case "es":
+				setLanguage("es-ar");
 				break;
-			case 'pt':
-				setLanguage('pt-br');
+			case "pt":
+				setLanguage("pt-br");
 				break;
 			default:
-				setLanguage('en-us');
+				setLanguage("en-us");
 				break;
 		}
 	}

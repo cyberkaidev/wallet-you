@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import axios from 'axios';
+import axios from "axios";
 
-import { useUserData } from '@/stores/useUserData';
+import { useUserData } from "@/stores/useUserData";
 
 export async function getBitcoinBalance(address: string) {
 	const { setBalance } = useUserData.getState();
@@ -13,6 +13,6 @@ export async function getBitcoinBalance(address: string) {
 
 		setBalance(data.balance);
 	} catch (error: any) {
-		return error?.response?.data?.error ?? 'INTERNAL_ERROR';
+		return error?.response?.data?.message ?? "INTERNAL_ERROR";
 	}
 }

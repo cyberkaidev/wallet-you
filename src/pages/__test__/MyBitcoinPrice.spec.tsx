@@ -1,20 +1,20 @@
-import { render, renderHook } from '@testing-library/react-native';
-import React from 'react';
-import { I18nextProvider, useTranslation } from 'react-i18next';
+import { render, renderHook } from "@testing-library/react-native";
+import React from "react";
+import { I18nextProvider, useTranslation } from "react-i18next";
 
-import { MyBitcoinPrice } from '../fragments/MyBitcoinPrice';
+import { MyBitcoinPrice } from "../fragments/MyBitcoinPrice";
 
-describe('MyBitcoinPrice', () => {
+describe("MyBitcoinPrice", () => {
 	const configTest = {
-		id: 'idMyBitcoinPrice',
-		idSkeleton: 'idSkeletonLoading',
-		title: 'Total balance',
-		price: '1',
-		balance: '1',
-		error: 'Request error, please try again later',
+		id: "idMyBitcoinPrice",
+		idSkeleton: "idSkeletonLoading",
+		title: "Total balance",
+		price: "1",
+		balance: "1",
+		error: "Request error, please try again later",
 	};
 
-	test('Success render', () => {
+	test("Success render", () => {
 		const t = renderHook(() => useTranslation());
 
 		const { getByTestId, getByText, queryByTestId, queryByText } = render(
@@ -31,7 +31,7 @@ describe('MyBitcoinPrice', () => {
 		expect(queryByText(configTest.error)).not.toBeTruthy();
 	});
 
-	test('Failed render', () => {
+	test("Failed render", () => {
 		const t = renderHook(() => useTranslation());
 
 		const { getByTestId, getByText, queryByTestId, queryByText } = render(
@@ -48,7 +48,7 @@ describe('MyBitcoinPrice', () => {
 		expect(getByText(configTest.error)).toBeTruthy();
 	});
 
-	test('Loading render', () => {
+	test("Loading render", () => {
 		const t = renderHook(() => useTranslation());
 
 		const { getByTestId, getByText, queryByText, getAllByTestId } = render(

@@ -1,18 +1,18 @@
-import { fireEvent, render, renderHook } from '@testing-library/react-native';
-import React from 'react';
-import { I18nextProvider, useTranslation } from 'react-i18next';
+import { fireEvent, render, renderHook } from "@testing-library/react-native";
+import React from "react";
+import { I18nextProvider, useTranslation } from "react-i18next";
 
-import { IconSettings } from '@/assets';
+import { IconSettings } from "@/assets";
 
-import { ButtonIcon } from '../ButtonIcon';
+import { ButtonIcon } from "../ButtonIcon";
 
-describe('ButtonIcon', () => {
+describe("ButtonIcon", () => {
 	const configTest = {
-		id: 'idButtonIcon',
-		loading: 'Loading',
+		id: "idButtonIcon",
+		loading: "Loading",
 	};
 
-	test('Render component and onPress', () => {
+	test("Render component and onPress", () => {
 		const t = renderHook(() => useTranslation());
 		const configItem = {
 			onPress: jest.fn(),
@@ -32,7 +32,7 @@ describe('ButtonIcon', () => {
 		expect(configItem.onPress.mock.calls.length).toBe(1);
 	});
 
-	test('Disabled', async () => {
+	test("Disabled", async () => {
 		const t = renderHook(() => useTranslation());
 		const configItem = {
 			onPress: jest.fn(),

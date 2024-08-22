@@ -6,5 +6,5 @@ interface Data<T> {
 export interface SelectListProps<T> {
 	data: Data<T>[];
 	selected: string;
-	onSelected: (arg: Data<T>['key']) => void;
+	onSelected: (arg: Data<T>["key"]) => void;
 }

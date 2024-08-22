@@ -3,7 +3,7 @@ interface DataProps {
 		date: Date;
 		value: number;
 	}[];
-	status: 'loading' | 'success' | 'failed' | null;
+	status: "loading" | "success" | "failed" | null;
 }
 
 export interface UseBitcoinHistoricalPriceProps extends DataProps {

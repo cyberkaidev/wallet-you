@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
-import { ButtonIconProps } from '@/types/ButtonIconType';
+import { ButtonIconProps } from "@/types/ButtonIconType";
 
-import { ButtonIconPlatform } from './fragments/ButtonIconPlatform';
+import { ButtonIconPlatform } from "./fragments/ButtonIconPlatform";
 
 export function ButtonIcon({
-	testID = 'idButtonIcon',
+	testID = "idButtonIcon",
 	children,
 	onPress,
 	disabled = false,

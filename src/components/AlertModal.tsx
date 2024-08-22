@@ -1,11 +1,11 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { StyleSheet, View } from 'react-native';
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { StyleSheet, View } from "react-native";
 
-import { ButtonTitleGhost } from '@/components/ButtonTitleGhost';
-import { Text } from '@/components/Text';
-import { borderRadius, colors, spaces, width } from '@/helpers/themes';
-import { useAlertModal } from '@/stores/useAlertModal';
+import { ButtonTitleGhost } from "@/components/ButtonTitleGhost";
+import { Text } from "@/components/Text";
+import { borderRadius, colors, spaces, width } from "@/helpers/themes";
+import { useAlertModal } from "@/stores/useAlertModal";
 
 export function AlertModal() {
 	const { t } = useTranslation();
@@ -22,7 +22,7 @@ export function AlertModal() {
 				<View style={styles.footer}>
 					<ButtonTitleGhost
 						testID="idCancel"
-						title={t('cancel')}
+						title={t("cancel")}
 						size="small"
 						marginR={spaces.horizontal.l}
 						onPress={() => {
@@ -32,7 +32,7 @@ export function AlertModal() {
 					/>
 					<ButtonTitleGhost
 						testID="idConfirm"
-						title={t('confirm')}
+						title={t("confirm")}
 						size="small"
 						onPress={() => {
 							onConfirm?.();
@@ -47,19 +47,19 @@ export function AlertModal() {
 
 const styles = StyleSheet.create({
 	background: {
-		position: 'absolute',
+		position: "absolute",
 		left: 0,
 		right: 0,
 		top: 0,
 		bottom: 0,
 		zIndex: 9999999999,
 		backgroundColor: colors.black_100_50pct,
-		alignItems: 'center',
-		justifyContent: 'center',
+		alignItems: "center",
+		justifyContent: "center",
 		paddingHorizontal: spaces.horizontal.m,
 	},
 	body: {
-		width: '90%',
+		width: "90%",
 		maxWidth: width.max_width_500,
 		paddingHorizontal: spaces.horizontal.l,
 		paddingTop: spaces.vertical.l,
@@ -68,9 +68,9 @@ const styles = StyleSheet.create({
 		backgroundColor: colors.black_000,
 	},
 	footer: {
-		width: '100%',
+		width: "100%",
 		marginTop: spaces.vertical.l,
-		flexDirection: 'row',
-		justifyContent: 'flex-end',
+		flexDirection: "row",
+		justifyContent: "flex-end",
 	},
 });

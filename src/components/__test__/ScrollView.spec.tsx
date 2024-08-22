@@ -1,17 +1,17 @@
-import { act, render } from '@testing-library/react-native';
-import React from 'react';
-import { View } from 'react-native';
+import { act, render } from "@testing-library/react-native";
+import React from "react";
+import { View } from "react-native";
 
-import { ScrollView } from '../ScrollView';
+import { ScrollView } from "../ScrollView";
 
-describe('ScrollView', () => {
+describe("ScrollView", () => {
 	const configTest = {
-		id: 'idScrollView',
-		idRefreshControl: 'idRefreshControl',
+		id: "idScrollView",
+		idRefreshControl: "idRefreshControl",
 		refreshControl: () => true,
 	};
 
-	test('Render component', () => {
+	test("Render component", () => {
 		const { getByTestId } = render(
 			<ScrollView>
 				<View />
@@ -21,7 +21,7 @@ describe('ScrollView', () => {
 		expect(getByTestId(configTest.id)).toBeTruthy();
 	});
 
-	test('Refresh scroll', async () => {
+	test("Refresh scroll", async () => {
 		const component = render(
 			<ScrollView refreshControl={configTest.refreshControl}>
 				<View />

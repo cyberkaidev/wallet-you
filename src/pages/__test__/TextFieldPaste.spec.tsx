@@ -1,14 +1,14 @@
-import { fireEvent, render, renderHook } from '@testing-library/react-native';
-import React from 'react';
-import { I18nextProvider, useTranslation } from 'react-i18next';
+import { fireEvent, render, renderHook } from "@testing-library/react-native";
+import React from "react";
+import { I18nextProvider, useTranslation } from "react-i18next";
 
-import { TextFieldPaste } from '../fragments/TextFieldPaste';
+import { TextFieldPaste } from "../fragments/TextFieldPaste";
 
-test('Render component', () => {
+test("Render component", () => {
 	const t = renderHook(() => useTranslation());
 	const configTest = {
-		value: 'Hello World',
-		id: 'idTextFieldPaste',
+		value: "Hello World",
+		id: "idTextFieldPaste",
 		onChangeText: jest.fn(),
 	};
 

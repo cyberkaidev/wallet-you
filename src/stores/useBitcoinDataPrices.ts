@@ -1,7 +1,7 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
-import { getBitcoinDataPrices } from '@/services/getBitcoinDataPrices';
-import { UseBitcoinDataPricesProps } from '@/types/UseBitcoinDataPricesType';
+import { getBitcoinDataPrices } from "@/services/getBitcoinDataPrices";
+import { UseBitcoinDataPricesProps } from "@/types/UseBitcoinDataPricesType";
 
 export const useBitcoinDataPrices = create<UseBitcoinDataPricesProps>(set => ({
 	currentPrice: null,
@@ -9,9 +9,9 @@ export const useBitcoinDataPrices = create<UseBitcoinDataPricesProps>(set => ({
 	fetchBitcoinDataPrices: async () => {
 		try {
 			const response = await getBitcoinDataPrices();
-			set({ currentPrice: response, status: 'success' });
+			set({ currentPrice: response, status: "success" });
 		} catch (error) {
-			set({ status: 'failed' });
+			set({ status: "failed" });
 		}
 	},
 }));

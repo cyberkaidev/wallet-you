@@ -1,11 +1,11 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import React from "react";
+import { StyleSheet, View } from "react-native";
 
-import { colors } from '@/helpers/themes';
-import { TitleSubtitleProps } from '@/types/TitleSubtitleType';
+import { colors } from "@/helpers/themes";
+import { TitleSubtitleProps } from "@/types/TitleSubtitleType";
 
-import { SkeletonLoading } from './SkeletonLoading';
-import { Text } from './Text';
+import { SkeletonLoading } from "./SkeletonLoading";
+import { Text } from "./Text";
 
 export function TitleSubtitle({
 	title,
@@ -35,6 +35,6 @@ export function TitleSubtitle({
 
 const styles = StyleSheet.create({
 	loadingContainer: {
-		width: '50%',
+		width: "50%",
 	},
 });

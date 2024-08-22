@@ -1,33 +1,33 @@
-import currencyJS from 'currency.js';
+import currencyJS from "currency.js";
 
-import { useAppSettings } from '@/stores/useAppSettings';
+import { useAppSettings } from "@/stores/useAppSettings";
 
 export function useFormatCurrency(value?: number) {
 	const { currency } = useAppSettings.getState();
 
-	if (!value && value !== 0) return '...';
+	if (!value && value !== 0) return "...";
 	const isZero = value === 0 ? 0 : value;
 
 	switch (currency) {
-		case 'eur':
+		case "eur":
 			return currencyJS(isZero, {
-				separator: ',',
-				decimal: '.',
-				symbol: '€',
+				separator: ",",
+				decimal: ".",
+				symbol: "€",
 				precision: 2,
 			}).format();
-		case 'brl':
+		case "brl":
 			return currencyJS(isZero, {
-				separator: '.',
-				decimal: ',',
-				symbol: 'R$',
+				separator: ".",
+				decimal: ",",
+				symbol: "R$",
 				precision: 2,
 			}).format();
 		default:
 			return currencyJS(isZero, {
-				separator: ',',
-				decimal: '.',
-				symbol: '$',
+				separator: ",",
+				decimal: ".",
+				symbol: "$",
 				precision: 2,
 			}).format();
 	}

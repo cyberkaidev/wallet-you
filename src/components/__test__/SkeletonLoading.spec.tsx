@@ -1,10 +1,10 @@
-import { render } from '@testing-library/react-native';
-import React from 'react';
+import { render } from "@testing-library/react-native";
+import React from "react";
 
-import { SkeletonLoading } from '../SkeletonLoading';
+import { SkeletonLoading } from "../SkeletonLoading";
 
-test('Render component', () => {
+test("Render component", () => {
 	const { getByTestId } = render(<SkeletonLoading heightPorcent="10%" radius={0} />);
 
-	expect(getByTestId('idSkeletonLoading')).toBeTruthy();
+	expect(getByTestId("idSkeletonLoading")).toBeTruthy();
 });

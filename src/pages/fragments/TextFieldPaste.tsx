@@ -1,13 +1,13 @@
-import * as Clipboard from 'expo-clipboard';
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { StyleSheet, TextInput, View } from 'react-native';
-import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
+import * as Clipboard from "expo-clipboard";
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { StyleSheet, TextInput, View } from "react-native";
+import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 
-import { ButtonTitleGhost } from '@/components/ButtonTitleGhost';
-import { borderRadius, colors, fontSizes, spaces, width } from '@/helpers/themes';
-import { useAppSettings } from '@/stores/useAppSettings';
-import { TextFieldPasteProps } from '@/types/RegisterKeyPageType';
+import { ButtonTitleGhost } from "@/components/ButtonTitleGhost";
+import { borderRadius, colors, fontSizes, spaces, width } from "@/helpers/themes";
+import { useAppSettings } from "@/stores/useAppSettings";
+import { TextFieldPasteProps } from "@/types/RegisterKeyPageType";
 
 export function TextFieldPaste({ value, onChangeText }: TextFieldPasteProps) {
 	const { t } = useTranslation();
@@ -35,7 +35,7 @@ export function TextFieldPaste({ value, onChangeText }: TextFieldPasteProps) {
 				testID="idTextFieldPaste"
 				value={value}
 				onChangeText={onChangeText}
-				placeholder={t('public-key-btc')}
+				placeholder={t("public-key-btc")}
 				onFocus={() => setIsFocused(true)}
 				onBlur={() => setIsFocused(false)}
 				autoCapitalize="none"
@@ -49,7 +49,7 @@ export function TextFieldPaste({ value, onChangeText }: TextFieldPasteProps) {
 				maxLength={150}
 			/>
 			<ButtonTitleGhost
-				title={t('paste')}
+				title={t("paste")}
 				marginR={spaces.horizontal.s}
 				onPress={fetchCopiedText}
 				size="small"
@@ -60,18 +60,18 @@ export function TextFieldPaste({ value, onChangeText }: TextFieldPasteProps) {
 
 const styles = StyleSheet.create({
 	relative: {
-		alignSelf: 'center',
-		width: '100%',
+		alignSelf: "center",
+		width: "100%",
 		maxWidth: width.max_width_800,
-		flexDirection: 'row',
+		flexDirection: "row",
 		backgroundColor: colors.black_000,
 	},
 	container: {
 		flex: 1,
 		color: colors.white,
 		fontSize: wp(fontSizes.m),
-		fontFamily: 'Figtree-Regular',
+		fontFamily: "Figtree-Regular",
 		padding: spaces.horizontal.xs,
-		borderStyle: 'solid',
+		borderStyle: "solid",
 	},
 });

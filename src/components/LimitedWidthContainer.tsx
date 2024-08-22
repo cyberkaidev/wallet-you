@@ -1,8 +1,8 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import React from "react";
+import { StyleSheet, View } from "react-native";
 
-import { width } from '@/helpers/themes';
-import { LimitedWidthContainerProps } from '@/types/LimitedWidthContainerType';
+import { width } from "@/helpers/themes";
+import { LimitedWidthContainerProps } from "@/types/LimitedWidthContainerType";
 
 export function LimitedWidthContainer({ children }: LimitedWidthContainerProps) {
 	return (
@@ -15,7 +15,7 @@ export function LimitedWidthContainer({ children }: LimitedWidthContainerProps) 
 const styles = StyleSheet.create({
 	container: {
 		maxWidth: width.max_width_800,
-		width: '100%',
-		alignSelf: 'center',
+		width: "100%",
+		alignSelf: "center",
 	},
 });

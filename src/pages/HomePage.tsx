@@ -1,17 +1,17 @@
-import React from 'react';
+import React from "react";
 
-import { LimitedWidthContainer } from '@/components/LimitedWidthContainer';
-import { ScrollView } from '@/components/ScrollView';
-import { cryptoToCurrency } from '@/functions/convertCurrency';
-import { TransactionList } from '@/pages/fragments/TransactionList';
-import { getBitcoinBalance } from '@/services/getBitcoinBalance';
-import { useAppSettings } from '@/stores/useAppSettings';
-import { useBitcoinDataPrices } from '@/stores/useBitcoinDataPrices';
-import { useUserData } from '@/stores/useUserData';
+import { LimitedWidthContainer } from "@/components/LimitedWidthContainer";
+import { ScrollView } from "@/components/ScrollView";
+import { cryptoToCurrency } from "@/functions/convertCurrency";
+import { TransactionList } from "@/pages/fragments/TransactionList";
+import { getBitcoinBalance } from "@/services/getBitcoinBalance";
+import { useAppSettings } from "@/stores/useAppSettings";
+import { useBitcoinDataPrices } from "@/stores/useBitcoinDataPrices";
+import { useUserData } from "@/stores/useUserData";
 
-import { Chart } from './fragments/Chart';
-import { HeaderIcons } from './fragments/HeaderIcons';
-import { MyBitcoinPrice } from './fragments/MyBitcoinPrice';
+import { Chart } from "./fragments/Chart";
+import { HeaderIcons } from "./fragments/HeaderIcons";
+import { MyBitcoinPrice } from "./fragments/MyBitcoinPrice";
 
 export function HomePage() {
 	const { balance, key, fetchTransactions } = useUserData();
@@ -33,7 +33,7 @@ export function HomePage() {
 			<LimitedWidthContainer>
 				<HeaderIcons />
 				<MyBitcoinPrice price={currencyFormated} balance={balance} status={status} />
-				<Chart price={currentPrice?.[currency]} priceStatus={status ?? 'loading'} />
+				<Chart price={currentPrice?.[currency]} priceStatus={status ?? "loading"} />
 				<TransactionList />
 			</LimitedWidthContainer>
 		</ScrollView>

@@ -1,13 +1,13 @@
-import { render } from '@testing-library/react-native';
-import React from 'react';
+import { render } from "@testing-library/react-native";
+import React from "react";
 
-import { LimitedWidthContainer } from '../LimitedWidthContainer';
-import { Text } from '../Text';
+import { LimitedWidthContainer } from "../LimitedWidthContainer";
+import { Text } from "../Text";
 
-test('Render component', () => {
+test("Render component", () => {
 	const configTest = {
-		title: 'Hello World',
-		id: 'idLimitedWidth',
+		title: "Hello World",
+		id: "idLimitedWidth",
 	};
 
 	const { getByText, getByTestId } = render(

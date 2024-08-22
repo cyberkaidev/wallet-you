@@ -1,9 +1,9 @@
-import React from 'react';
-import { StyleSheet } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
+import React from "react";
+import { StyleSheet } from "react-native";
+import { RectButton } from "react-native-gesture-handler";
 
-import { colors } from '@/helpers/themes';
-import { ButtonTitleGhostPlatformProps } from '@/types/ButtonTitleGhostType';
+import { colors } from "@/helpers/themes";
+import { ButtonTitleGhostPlatformProps } from "@/types/ButtonTitleGhostType";
 
 export function ButtonTitleGhostPlatform({
 	testID,
@@ -39,11 +39,11 @@ export function ButtonTitleGhostPlatform({
 
 const styles = StyleSheet.create({
 	container: {
-		flexDirection: 'row',
+		flexDirection: "row",
 		padding: 10,
-		alignItems: 'center',
-		justifyContent: 'center',
+		alignItems: "center",
+		justifyContent: "center",
 		borderRadius: 100,
-		alignSelf: 'center',
+		alignSelf: "center",
 	},
 });

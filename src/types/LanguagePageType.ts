@@ -1,6 +1,6 @@
-import { UseAppSettingsProps } from './UseAppSettingsType';
+import { UseAppSettingsProps } from "./UseAppSettingsType";
 
 export interface LanguagesType {
 	title: string;
-	key: UseAppSettingsProps['language'];
+	key: UseAppSettingsProps["language"];
 }
