@@ -25,7 +25,7 @@
 			}
 		],
 		"linebreak-style": ["error", "unix"],
-		"quotes": ["error", "single"],
+		"quotes": ["error", "double"],
 		"semi": ["error", "always"],
 		"no-multiple-empty-lines": ["error", { "max": 1 }],
 		"no-trailing-spaces": "error",
