@@ -1,26 +1,26 @@
-import './src/translate/i18n';
-import 'react-native-reanimated';
-import 'react-native-gesture-handler';
+import "./src/application/settings/initializeAppInternationalization";
+import "react-native-reanimated";
+import "react-native-gesture-handler";
 
-import { DarkTheme, NavigationContainer } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import * as ScreenOrientation from 'expo-screen-orientation';
-import * as SplashScreen from 'expo-splash-screen';
-import { StatusBar } from 'expo-status-bar';
-import * as React from 'react';
-import { View } from 'react-native';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { DarkTheme, NavigationContainer } from "@react-navigation/native";
+import { useFonts } from "expo-font";
+import { StatusBar } from "expo-status-bar";
+import * as React from "react";
+import { View } from "react-native";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
-import { AlertModal } from '@/components/AlertModal';
-import { initializeAppSettings } from '@/functions/initializeAppSettings';
-import { colors } from '@/helpers/themes';
-import { RootStack } from '@/routes/RootStack';
+import { initializeAppSettings } from "~/application/settings/initializeAppSettings";
+import { orientationLock } from "~/application/settings/orientationLock";
+import { splashScreen } from "~/application/settings/splashHide";
+import { AlertModal } from "~/presentation/components/AlertModal";
+import { RootStack } from "~/presentation/routes/RootStack";
+import { colors } from "~/presentation/settings/themes";
 
 export default function App() {
 	const [fontsLoaded] = useFonts({
-		'Figtree-Regular': require('./assets/fonts/Figtree-Regular.ttf'),
-		'Figtree-Medium': require('./assets/fonts/Figtree-Medium.ttf'),
-		'Figtree-Bold': require('./assets/fonts/Figtree-Bold.ttf'),
+		"Figtree-Regular": require("./assets/fonts/Figtree-Regular.ttf"),
+		"Figtree-Medium": require("./assets/fonts/Figtree-Medium.ttf"),
+		"Figtree-Bold": require("./assets/fonts/Figtree-Bold.ttf"),
 	});
 
 	React.useEffect(() => {
@@ -29,8 +29,8 @@ export default function App() {
 
 	const onLayoutRootView = React.useCallback(async () => {
 		if (fontsLoaded) {
-			await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
-			await SplashScreen.hideAsync();
+			await orientationLock();
+			await splashScreen().hide();
 		}
 	}, [fontsLoaded]);
 
