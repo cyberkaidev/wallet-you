@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ButtonIconProps } from "~/shared/Styles";
+import { ButtonProps } from "~/shared/Styles";
 
 import { ButtonIconPlatform } from "./fragments/ButtonIconPlatform";
 
@@ -13,7 +13,7 @@ export function ButtonIcon({
 	marginB,
 	marginR,
 	marginL,
-}: ButtonIconProps) {
+}: ButtonProps) {
 	return (
 		<ButtonIconPlatform
 			testID={testID}

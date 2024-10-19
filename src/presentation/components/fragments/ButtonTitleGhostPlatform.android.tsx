@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 
 import { colors } from "~/presentation/settings/themes";
-import { ButtonTitleGhostProps } from "~/shared/Styles";
+import { ButtonProps } from "~/shared/Styles";
 
 export function ButtonTitleGhostPlatform({
 	testID,
@@ -14,7 +14,7 @@ export function ButtonTitleGhostPlatform({
 	marginB = 0,
 	marginR = 0,
 	marginL = 0,
-}: ButtonTitleGhostProps) {
+}: ButtonProps) {
 	return (
 		<RectButton
 			testID={testID}

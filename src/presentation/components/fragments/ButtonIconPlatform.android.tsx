@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 
 import { colors, spaces } from "~/presentation/settings/themes";
-import { ButtonIconProps } from "~/shared/Styles";
+import { ButtonProps } from "~/shared/Styles";
 
 export function ButtonIconPlatform({
 	testID = "idButtonIcon",
@@ -14,7 +14,7 @@ export function ButtonIconPlatform({
 	marginB,
 	marginR,
 	marginL,
-}: ButtonIconProps) {
+}: ButtonProps) {
 	return (
 		<RectButton
 			testID={testID}

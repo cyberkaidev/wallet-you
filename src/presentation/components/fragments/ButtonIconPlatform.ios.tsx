@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
 
 import { spaces } from "~/presentation/settings/themes";
-import { ButtonIconProps } from "~/shared/Styles";
+import { ButtonProps } from "~/shared/Styles";
 
 export function ButtonIconPlatform({
 	testID = "idButtonIcon",
@@ -13,7 +13,7 @@ export function ButtonIconPlatform({
 	marginB,
 	marginR,
 	marginL,
-}: ButtonIconProps) {
+}: ButtonProps) {
 	return (
 		<TouchableOpacity
 			testID={testID}
