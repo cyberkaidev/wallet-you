@@ -1,25 +1,24 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
 
-import { spaces } from "~/presentation/settings/themes";
+import { colors } from "~/presentation/settings/themes";
 import { ButtonProps } from "~/shared/Styles";
 
-export function ButtonIconPlatform({
-	testID = "idButtonIcon",
+export function FilledButtonPlatform({
+	testID,
 	children,
-	onPress,
 	disabled = false,
-	marginT,
-	marginB,
-	marginR,
-	marginL,
+	onPress,
+	marginT = 0,
+	marginB = 0,
+	marginR = 0,
+	marginL = 0,
 }: ButtonProps) {
 	return (
 		<TouchableOpacity
 			testID={testID}
 			onPress={onPress}
 			disabled={disabled}
-			hitSlop={20}
 			style={[
 				styles.container,
 				{
@@ -38,6 +37,12 @@ export function ButtonIconPlatform({
 
 const styles = StyleSheet.create({
 	container: {
-		padding: spaces.horizontal.xs,
+		flexDirection: "row",
+		paddingVertical: 10,
+		paddingHorizontal: 20,
+		alignItems: "center",
+		justifyContent: "center",
+		alignSelf: "center",
+		backgroundColor: colors.black_000,
 	},
 });

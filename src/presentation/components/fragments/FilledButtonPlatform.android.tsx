@@ -2,24 +2,23 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 
-import { colors, spaces } from "~/presentation/settings/themes";
+import { colors } from "~/presentation/settings/themes";
 import { ButtonProps } from "~/shared/Styles";
 
-export function ButtonIconPlatform({
-	testID = "idButtonIcon",
+export function FilledButtonPlatform({
+	testID,
 	children,
-	onPress,
 	disabled = false,
-	marginT,
-	marginB,
-	marginR,
-	marginL,
+	onPress,
+	marginT = 0,
+	marginB = 0,
+	marginR = 0,
+	marginL = 0,
 }: ButtonProps) {
 	return (
 		<RectButton
 			testID={testID}
 			onPress={onPress}
-			hitSlop={20}
 			rippleColor={colors.white_10pct}
 			enabled={!disabled}
 			style={[
@@ -33,14 +32,20 @@ export function ButtonIconPlatform({
 				},
 			]}
 		>
-			{children}
+			<React.Fragment>{children}</React.Fragment>
 		</RectButton>
 	);
 }
 
 const styles = StyleSheet.create({
 	container: {
+		flexDirection: "row",
+		paddingVertical: 10,
+		paddingHorizontal: 20,
+		alignItems: "center",
+		justifyContent: "center",
 		borderRadius: 100,
-		padding: spaces.horizontal.xs,
+		alignSelf: "center",
+		backgroundColor: colors.black_000,
 	},
 });

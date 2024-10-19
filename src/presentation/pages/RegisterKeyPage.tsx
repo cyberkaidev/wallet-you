@@ -12,8 +12,8 @@ import { encryptStorage } from "~/application/utils/encryptStorage";
 import { localStorage } from "~/application/utils/localStorage";
 import { Text } from "~/presentation/components/Text";
 
-import { ButtonTitleGhost } from "../components/ButtonTitleGhost";
 import { CheckBoxMessage } from "../components/CheckBoxMessage";
+import { FilledButton } from "../components/FilledButton";
 import { ScrollView } from "../components/ScrollView";
 import { colors, spaces, width } from "../settings/themes";
 import { TextFieldPaste } from "./fragments/TextFieldPaste";
@@ -87,13 +87,13 @@ export function RegisterKeyPage() {
 					message={t("use-biometrics-optional")}
 				/>
 			)}
-			<ButtonTitleGhost
+			<FilledButton
 				title={t("continue")}
 				onPress={handlerContinue}
 				size="large"
 				loading={loading}
 				disabled={inputPublicKey.length < 1}
-				marginT={spaces.vertical.s}
+				marginT={spaces.vertical.l}
 			/>
 		</ScrollView>
 	);

@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
 
-import { ButtonTitleGhostProps } from "~/shared/Styles";
+import { ButtonProps } from "~/shared/Styles";
 
 export function ButtonTitleGhostPlatform({
 	testID,
@@ -12,7 +12,7 @@ export function ButtonTitleGhostPlatform({
 	marginB = 0,
 	marginR = 0,
 	marginL = 0,
-}: ButtonTitleGhostProps) {
+}: ButtonProps) {
 	return (
 		<TouchableOpacity
 			testID={testID}

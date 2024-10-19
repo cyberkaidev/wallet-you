@@ -13,7 +13,7 @@ import { localStorage } from "~/application/utils/localStorage";
 import { colors } from "~/presentation/settings/themes";
 import { RootStackParamListProps } from "~/shared/Navigation";
 
-import { ButtonTitleGhost } from "../components/ButtonTitleGhost";
+import { FilledButton } from "../components/FilledButton";
 
 export function LocalAuthPage() {
 	const navigation = useNavigation();
@@ -78,7 +78,7 @@ export function LocalAuthPage() {
 
 	return (
 		<View style={styles.container}>
-			<ButtonTitleGhost title={t("unlock")} onPress={authenticate} loading={loading} size="small" />
+			<FilledButton title={t("unlock")} onPress={authenticate} loading={loading} size="small" />
 		</View>
 	);
 }

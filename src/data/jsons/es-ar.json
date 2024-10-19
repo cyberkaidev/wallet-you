@@ -30,6 +30,7 @@
 		"do-you-really-want-to-leave": "¿De verdad quieres irte?",
 		"no-internet-connection": "Sin conexión a Internet",
 		"back": "Volver",
-		"my-wallet": "Mi billetera"
+		"my-wallet": "Mi billetera",
+		"address": "Dirección"
 	}
 }
