@@ -3,7 +3,7 @@ import { createStackNavigator, TransitionPresets } from "@react-navigation/stack
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import { RootStackParamListProps } from "~/shared/Navigation";
+import { RootStackParamListProps } from "~/types/Navigation";
 
 import { CurrencyPage } from "../pages/CurrencyPage";
 import { HomePage } from "../pages/HomePage";

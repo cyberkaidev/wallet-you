@@ -1,4 +1,4 @@
-import { SchemeText } from "~/shared/Styles";
+import { SchemeText } from "~/types/Styles";
 
 import { fontSizes } from "./themes";
 

@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 
 import { useAppSettings } from "~/application/stores/useAppSettings";
 import { ScrollView } from "~/presentation/components/ScrollView";
-import { LocalityCodes } from "~/shared/LocalityCodes";
+import { LocalityCodes } from "~/types/LocalityCodes";
 
 import { HeaderSwiperOptions } from "../components/HeaderSwiperOptions";
 import { LimitedWidthContainer } from "../components/LimitedWidthContainer";

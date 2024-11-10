@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ButtonProps } from "~/shared/Styles";
+import { ButtonProps } from "~/types/Styles";
 
 import { ButtonIconPlatform } from "./fragments/ButtonIconPlatform";
 

@@ -11,7 +11,7 @@ import { useUser } from "~/application/stores/useUser";
 import { encryptStorage } from "~/application/utils/encryptStorage";
 import { localStorage } from "~/application/utils/localStorage";
 import { colors } from "~/presentation/settings/themes";
-import { RootStackParamListProps } from "~/shared/Navigation";
+import { RootStackParamListProps } from "~/types/Navigation";
 
 import { FilledButton } from "../components/FilledButton";
 

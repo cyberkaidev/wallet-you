@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 import { i18next } from "~/infra/internationalization/i18next";
-import { LocalityCodes } from "~/shared/LocalityCodes";
+import { LocalityCodes } from "~/types/LocalityCodes";
 
 import { storageKeys } from "../constants/storageKeys";
 import { deviceCharacteristics } from "../utils/deviceCharacteristics";
