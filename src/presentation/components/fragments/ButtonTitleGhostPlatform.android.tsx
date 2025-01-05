@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 
 import { colors } from "~/presentation/settings/themes";
-import { ButtonProps } from "~/shared/Styles";
+import { ButtonProps } from "~/types/Styles";
 
 export function ButtonTitleGhostPlatform({
 	testID,

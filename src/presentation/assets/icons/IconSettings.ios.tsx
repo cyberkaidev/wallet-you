@@ -3,7 +3,7 @@ import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 import Svg, { Path } from "react-native-svg";
 
 import { colors } from "~/presentation/settings/themes";
-import { IconProps } from "~/shared/Styles";
+import { IconProps } from "~/types/Styles";
 
 export function IconSettings({ color = colors.white, porcentSize = "5%" }: IconProps) {
 	return (

@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { ActivityIndicator } from "react-native";
 
 import { useAppSettings } from "~/application/stores/useAppSettings";
-import { SchemeText } from "~/shared/Styles";
+import { SchemeText } from "~/types/Styles";
 
 import { colors, spaces } from "../settings/themes";
 import { FilledButtonPlatform } from "./fragments/FilledButtonPlatform";

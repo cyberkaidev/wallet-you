@@ -1,4 +1,4 @@
-import { LocalityCodes } from "~/shared/LocalityCodes";
+import { LocalityCodes } from "~/types/LocalityCodes";
 
 import { storageKeys } from "../constants/storageKeys";
 import { useAppSettings } from "../stores/useAppSettings";

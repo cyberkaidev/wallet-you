@@ -3,7 +3,7 @@ import { Text as TextContainer } from "react-native";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 
 import { colors } from "~/presentation/settings/themes";
-import { SchemeText } from "~/shared/Styles";
+import { SchemeText } from "~/types/Styles";
 
 import { textUtils } from "../settings/textUtils";
 

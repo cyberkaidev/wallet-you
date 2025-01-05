@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 
 import { useFormatDate } from "~/application/hooks/useFormatDate";
 import { ScrollView } from "~/presentation/components/ScrollView";
-import { UseRouteType } from "~/shared/Navigation";
+import { UseRouteType } from "~/types/Navigation";
 
 import { LimitedWidthContainer } from "../components/LimitedWidthContainer";
 import { TitleSubtitle } from "../components/TitleSubtitle";

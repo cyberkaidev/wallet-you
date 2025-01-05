@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 
 import { useAppSettings } from "~/application/stores/useAppSettings";
-import { LocalityCodes } from "~/shared/LocalityCodes";
+import { LocalityCodes } from "~/types/LocalityCodes";
 
 import { HeaderSwiperOptions } from "../components/HeaderSwiperOptions";
 import { ScrollView } from "../components/ScrollView";

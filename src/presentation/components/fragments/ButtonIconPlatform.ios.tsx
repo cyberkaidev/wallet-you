@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
 
 import { spaces } from "~/presentation/settings/themes";
-import { ButtonProps } from "~/shared/Styles";
+import { ButtonProps } from "~/types/Styles";
 
 export function ButtonIconPlatform({
 	testID = "idButtonIcon",
