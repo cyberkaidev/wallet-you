@@ -24,12 +24,12 @@ export default function App() {
 	});
 
 	React.useEffect(() => {
+		orientationLock();
 		initializeAppSettings();
 	}, []);
 
 	const onLayoutRootView = React.useCallback(async () => {
 		if (fontsLoaded) {
-			await orientationLock();
 			await splashScreen().hide();
 		}
 	}, [fontsLoaded]);
